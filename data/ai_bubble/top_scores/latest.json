@@ -2,11 +2,11 @@
   "module": "AI Bubble Monitor - Top Scores",
   "step": 10,
   "timezone": "Asia/Shanghai",
-  "generated_at_bjt": "2026-09-12T05:35:01+08:00",
+  "generated_at_bjt": "2026-09-12T06:27:20+08:00",
   "methodology_version": "hybrid_v2_backtest_calibrated",
   "calibration_note": "Step-12 long-history proxy backtest calibrated Breakdown severity bands. Numeric score weights are unchanged; the 25-point Watch threshold was removed because it generated excessive normal-period alerts. Bubble Score remains a transparent modern-era heuristic because comparable 2000-era CapEx/cloud/GPU data do not exist.",
   "bubble_score": {
-    "score_0_100": 58.2,
+    "score_0_100": 58.5,
     "label": "high",
     "question": "How stretched/excessive is the AI investment and valuation cycle?",
     "components": {
@@ -19,7 +19,7 @@
         "weight_pct": 25
       },
       "market_heat": {
-        "score_0_100": 49.4,
+        "score_0_100": 50.9,
         "weight_pct": 20
       },
       "capital_burden": {
@@ -39,7 +39,7 @@
     }
   },
   "breakdown_score": {
-    "score_0_100": 27.0,
+    "score_0_100": 26.6,
     "label": "stable",
     "question": "Has the AI boom started a self-reinforcing fundamental/market/credit unwind?",
     "components": {
@@ -48,7 +48,7 @@
         "weight_pct": 25
       },
       "market_trend_breakdown": {
-        "score_0_100": 17.9,
+        "score_0_100": 16.5,
         "weight_pct": 30
       },
       "fundamental_deterioration": {
@@ -66,25 +66,25 @@
     },
     "market_breakdown_detail": {
       "ndx": {
-        "ath_drawdown_pct": -5.08,
-        "distance_from_200dma_pct": 7.38,
-        "drawdown_stress": 20.3,
+        "ath_drawdown_pct": -4.21,
+        "distance_from_200dma_pct": 8.25,
+        "drawdown_stress": 16.9,
         "trend_stress": 0.0,
-        "combined_stress": 11.2
+        "combined_stress": 9.3
       },
       "sox": {
-        "ath_drawdown_pct": -20.64,
-        "distance_from_200dma_pct": 17.04,
-        "drawdown_stress": 59.0,
+        "ath_drawdown_pct": -19.21,
+        "distance_from_200dma_pct": 18.83,
+        "drawdown_stress": 54.9,
         "trend_stress": 0.0,
-        "combined_stress": 32.4
+        "combined_stress": 30.2
       },
       "nvda": {
-        "ath_drawdown_pct": -7.37,
-        "distance_from_200dma_pct": 10.69,
-        "drawdown_stress": 18.4,
+        "ath_drawdown_pct": -7.4,
+        "distance_from_200dma_pct": 10.54,
+        "drawdown_stress": 18.5,
         "trend_stress": 0.0,
-        "combined_stress": 10.1
+        "combined_stress": 10.2
       }
     },
     "compute_demand_input_coverage_pct": 70.0
@@ -120,8 +120,8 @@
     }
   },
   "source_generated_at": {
-    "derived_indicators": "2026-09-12T05:34:49+08:00",
-    "market_liquidity": "2026-09-12T05:34:28+08:00",
+    "derived_indicators": "2026-09-12T06:27:05+08:00",
+    "market_liquidity": "2026-09-12T06:26:43+08:00",
     "hyperscalers": "2026-09-12T00:01:43+08:00"
   },
   "errors": {}
