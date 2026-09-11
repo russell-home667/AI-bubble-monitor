@@ -2,7 +2,7 @@
   "module": "AI Bubble Monitor - Top Scores",
   "step": 10,
   "timezone": "Asia/Shanghai",
-  "generated_at_bjt": "2026-09-12T00:02:58+08:00",
+  "generated_at_bjt": "2026-09-12T00:07:05+08:00",
   "methodology_version": "hybrid_v2_backtest_calibrated",
   "calibration_note": "Step-12 long-history proxy backtest calibrated Breakdown severity bands. Numeric score weights are unchanged; the 25-point Watch threshold was removed because it generated excessive normal-period alerts. Bubble Score remains a transparent modern-era heuristic because comparable 2000-era CapEx/cloud/GPU data do not exist.",
   "bubble_score": {
@@ -39,7 +39,7 @@
     }
   },
   "breakdown_score": {
-    "score_0_100": 26.3,
+    "score_0_100": 26.6,
     "label": "stable",
     "question": "Has the AI boom started a self-reinforcing fundamental/market/credit unwind?",
     "components": {
@@ -52,7 +52,7 @@
         "weight_pct": 30
       },
       "fundamental_deterioration": {
-        "score_0_100": 24.1,
+        "score_0_100": 25.2,
         "weight_pct": 25
       },
       "cashflow_deterioration": {
@@ -120,7 +120,7 @@
     }
   },
   "source_generated_at": {
-    "derived_indicators": "2026-09-12T00:02:39+08:00",
+    "derived_indicators": "2026-09-12T00:06:49+08:00",
     "market_liquidity": "2026-09-12T00:01:33+08:00",
     "hyperscalers": "2026-09-12T00:01:43+08:00"
   },
