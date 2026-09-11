@@ -2,7 +2,7 @@
   "module": "AI Bubble Monitor - Market & Liquidity",
   "step": 5,
   "timezone": "Asia/Shanghai",
-  "generated_at_bjt": "2026-09-11T23:36:10+08:00",
+  "generated_at_bjt": "2026-09-12T00:01:33+08:00",
   "indicators": {
     "ndx": {
       "name": "Nasdaq-100",
@@ -20,7 +20,7 @@
       "source": "Yahoo Finance",
       "source_symbol": "^NDX",
       "source_url": "https://finance.yahoo.com/quote/%5ENDX/history/",
-      "fetched_at_bjt": "2026-09-11T22:10:45+08:00",
+      "fetched_at_bjt": "2026-09-12T00:01:30+08:00",
       "status": "fresh"
     },
     "sox": {
@@ -39,7 +39,7 @@
       "source": "Yahoo Finance",
       "source_symbol": "^SOX",
       "source_url": "https://finance.yahoo.com/quote/%5ESOX/history/",
-      "fetched_at_bjt": "2026-09-11T22:10:46+08:00",
+      "fetched_at_bjt": "2026-09-12T00:01:31+08:00",
       "status": "fresh"
     },
     "nvda": {
@@ -58,7 +58,7 @@
       "source": "Yahoo Finance",
       "source_symbol": "NVDA",
       "source_url": "https://finance.yahoo.com/quote/NVDA/history/",
-      "fetched_at_bjt": "2026-09-11T22:10:46+08:00",
+      "fetched_at_bjt": "2026-09-12T00:01:31+08:00",
       "status": "fresh"
     },
     "qqq_rsp": {
@@ -77,7 +77,7 @@
       "source": "Derived from Yahoo Finance QQQ and RSP",
       "source_symbol": "QQQ/RSP",
       "source_url": "https://finance.yahoo.com/",
-      "fetched_at_bjt": "2026-09-11T22:10:47+08:00",
+      "fetched_at_bjt": "2026-09-12T00:01:32+08:00",
       "status": "fresh"
     },
     "vix": {
@@ -96,7 +96,7 @@
       "source": "Cboe Global Markets",
       "source_symbol": "VIX",
       "source_url": "https://www.cboe.com/tradable_products/vix/vix_historical_data/",
-      "fetched_at_bjt": "2026-09-11T22:10:47+08:00",
+      "fetched_at_bjt": "2026-09-12T00:01:33+08:00",
       "status": "fresh"
     },
     "dfii10": {
@@ -110,7 +110,7 @@
       "source": "Federal Reserve / FRED",
       "source_symbol": "DFII10",
       "source_url": "https://fred.stlouisfed.org/series/DFII10",
-      "fetched_at_bjt": "2026-09-11T22:10:48+08:00",
+      "fetched_at_bjt": "2026-09-12T00:01:33+08:00",
       "status": "fresh"
     },
     "hy_oas": {
@@ -124,7 +124,7 @@
       "source": "ICE BofA / FRED",
       "source_symbol": "BAMLH0A0HYM2",
       "source_url": "https://fred.stlouisfed.org/series/BAMLH0A0HYM2",
-      "fetched_at_bjt": "2026-09-11T23:36:10+08:00",
+      "fetched_at_bjt": "2026-09-12T00:01:33+08:00",
       "status": "fresh"
     },
     "ig_oas": {
@@ -138,7 +138,7 @@
       "source": "ICE BofA / FRED",
       "source_symbol": "BAMLC0A0CM",
       "source_url": "https://fred.stlouisfed.org/series/BAMLC0A0CM",
-      "fetched_at_bjt": "2026-09-11T23:36:10+08:00",
+      "fetched_at_bjt": "2026-09-12T00:01:33+08:00",
       "status": "fresh"
     },
     "baa10y_proxy": {
@@ -152,7 +152,7 @@
       "source": "Moody's / Federal Reserve / FRED",
       "source_symbol": "BAA10Y",
       "source_url": "https://fred.stlouisfed.org/series/BAA10Y",
-      "fetched_at_bjt": "2026-09-11T23:36:10+08:00",
+      "fetched_at_bjt": "2026-09-12T00:01:33+08:00",
       "status": "fresh"
     }
   },
