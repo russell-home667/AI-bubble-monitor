@@ -2,7 +2,7 @@
   "module": "AI Bubble Monitor - Derived Indicators",
   "step": 9,
   "timezone": "Asia/Shanghai",
-  "generated_at_bjt": "2026-09-12T00:53:42+08:00",
+  "generated_at_bjt": "2026-09-12T02:16:29+08:00",
   "methodology_version": "heuristic_v1_pre_backtest",
   "calibration_note": "Thresholds are provisional heuristics. Step 12 will backtest/calibrate them against historical stress periods.",
   "latest_complete_quarter": "2026Q2",
@@ -92,7 +92,7 @@
     "market_liquidity": "2026-09-12T00:43:06+08:00",
     "hyperscalers": "2026-09-12T00:01:43+08:00",
     "compute_fundamentals": "2026-09-12T00:06:24+08:00",
-    "gpu_rental_prices": "2026-09-12T00:02:02+08:00"
+    "gpu_rental_prices": "2026-09-12T02:16:02+08:00"
   },
   "errors": {}
 }
