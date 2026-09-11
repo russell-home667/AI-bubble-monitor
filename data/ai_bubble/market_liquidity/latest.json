@@ -2,7 +2,7 @@
   "module": "AI Bubble Monitor - Market & Liquidity",
   "step": 5,
   "timezone": "Asia/Shanghai",
-  "generated_at_bjt": "2026-09-12T00:43:06+08:00",
+  "generated_at_bjt": "2026-09-12T05:34:28+08:00",
   "indicators": {
     "ndx": {
       "name": "Nasdaq-100",
@@ -101,16 +101,16 @@
     },
     "dfii10": {
       "name": "10-Year Treasury Inflation-Indexed Security, Constant Maturity",
-      "observation_date": "2026-09-09",
-      "value": 2.46,
+      "observation_date": "2026-09-10",
+      "value": 2.55,
       "unit": "%",
-      "change_1obs": 0.03,
-      "change_5obs": 0.02,
-      "change_20obs": 0.03,
+      "change_1obs": 0.09,
+      "change_5obs": 0.1,
+      "change_20obs": 0.13,
       "source": "Federal Reserve / FRED",
       "source_symbol": "DFII10",
       "source_url": "https://fred.stlouisfed.org/series/DFII10",
-      "fetched_at_bjt": "2026-09-12T00:01:33+08:00",
+      "fetched_at_bjt": "2026-09-12T05:34:28+08:00",
       "status": "fresh"
     },
     "hy_oas": {
