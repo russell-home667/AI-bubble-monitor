@@ -25,15 +25,14 @@ jobs:
           set -euo pipefail
           git clone --depth 1 https://github.com/russell-home667/aviation-leasing-dashboard.git /tmp/source
 
-      - name: Copy complete AI Bubble project
+      - name: Copy AI Bubble data, pages and scripts
         run: |
           set -euo pipefail
-          mkdir -p data scripts .github/workflows
+          mkdir -p data scripts
           cp -R /tmp/source/data/ai_bubble data/
           cp /tmp/source/ai-bubble/index.html ./index.html
           cp /tmp/source/ai-bubble/backtest.html ./backtest.html
           cp /tmp/source/scripts/*ai*.py scripts/
-          cp /tmp/source/.github/workflows/*ai*.yml .github/workflows/
           if [ -f /tmp/source/AI_BUBBLE_CALIBRATION.md ]; then
             cp /tmp/source/AI_BUBBLE_CALIBRATION.md ./AI_BUBBLE_CALIBRATION.md
           fi
@@ -43,7 +42,6 @@ jobs:
           python - <<'PY'
           from pathlib import Path
 
-          # Dashboard pages now live at repository root.
           for name in ['index.html', 'backtest.html']:
               p = Path(name)
               s = p.read_text(encoding='utf-8')
@@ -51,10 +49,9 @@ jobs:
               s = s.replace('<a class="navbtn" href="../">← Aviation Dashboard</a>', '')
               p.write_text(s, encoding='utf-8')
 
-          # Replace old repository identity anywhere it is embedded in AI code/workflows/docs.
-          for root in [Path('scripts'), Path('.github/workflows'), Path('data/ai_bubble')]:
+          for root in [Path('scripts'), Path('data/ai_bubble')]:
               for p in root.rglob('*'):
-                  if p.is_file() and p.suffix.lower() in {'.py','.yml','.yaml','.md','.json','.csv'}:
+                  if p.is_file() and p.suffix.lower() in {'.py','.md','.json','.csv'}:
                       try:
                           s = p.read_text(encoding='utf-8')
                       except UnicodeDecodeError:
@@ -64,55 +61,16 @@ jobs:
                           p.write_text(s2, encoding='utf-8')
           PY
 
-      - name: Add standalone GitHub Pages deployment
-        run: |
-          cat > .github/workflows/deploy-pages.yml <<'YAML'
-          name: Deploy AI Bubble Monitor Pages
-
-          on:
-            push:
-              branches: [main]
-            workflow_dispatch:
-
-          permissions:
-            contents: read
-            pages: write
-            id-token: write
-
-          concurrency:
-            group: ai-bubble-pages
-            cancel-in-progress: true
-
-          jobs:
-            deploy:
-              runs-on: ubuntu-latest
-              environment:
-                name: github-pages
-                url: ${{ steps.deployment.outputs.page_url }}
-              steps:
-                - name: Checkout
-                  uses: actions/checkout@v4
-                - name: Configure Pages
-                  uses: actions/configure-pages@v5
-                  with:
-                    enablement: true
-                - name: Upload Pages artifact
-                  uses: actions/upload-pages-artifact@v4
-                  with:
-                    path: '.'
-                - name: Deploy to GitHub Pages
-                  id: deployment
-                  uses: actions/deploy-pages@v4
-          YAML
-
-      - name: Remove one-time bootstrap workflow
-        run: rm -f .github/workflows/bootstrap-migrate.yml
-
-      - name: Commit migrated project
+      - name: Commit migrated project files
         run: |
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -A
-          git commit -m 'Migrate standalone AI Bubble Monitor project'
+          git add README.md index.html backtest.html data scripts
+          if [ -f AI_BUBBLE_CALIBRATION.md ]; then git add AI_BUBBLE_CALIBRATION.md; fi
+          if git diff --cached --quiet; then
+            echo 'No project file changes to commit.'
+            exit 0
+          fi
+          git commit -m 'Migrate standalone AI Bubble Monitor project files'
           git push origin main
