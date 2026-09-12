@@ -434,7 +434,7 @@ def write_latest(errors: Dict[str, str]) -> None:
             "market_close_policy": "Yahoo current-session daily bars are excluded until 17:00 America/New_York; stored market observations are completed sessions only.",
             "hy_ig_history": "ICE BofA FRED series may be license-limited to recent history; BAA10Y is stored as a long-history credit-stress proxy for later backtests.",
             "qqq_rsp": "Derived daily from QQQ close divided by RSP close; higher values indicate stronger mega-cap/tech concentration relative to equal-weight S&P 500.",
-            "treasury_yields": "DGS10 and DGS30 are Federal Reserve Board H.15 Treasury constant-maturity yields via FRED. DGS30 has an official publication gap from 2002-02-19 through 2006-02-08; the gap is preserved and never interpolated.",
+            "treasury_yields": "DGS10 and DGS30 are Federal Reserve Board H.15 Treasury constant-maturity yields via FRED. The direct 30-year constant-maturity series was discontinued after 2002-02-18 and reintroduced 2006-02-09. During that interval, the U.S. Treasury published a daily factor applied to the 20-year constant-maturity rate to estimate a 30-year nominal rate; FRED historical DGS30 includes those official estimates.",
         },
     }
     tmp = OUT / "latest.json.tmp"
@@ -469,13 +469,13 @@ def run_group(group: str) -> Dict[str, str]:
             print(f"ERROR vix: {exc}", file=sys.stderr)
 
     if group in {"all", "macro"}:
-    for key in ["dfii10", "dgs10", "dgs30"]:
-        try:
-            fred_download(key, FRED[key])
-            print(f"OK fred {key}")
-        except Exception as exc:  # noqa: BLE001
-            errors[key] = str(exc)
-            print(f"ERROR {key}: {exc}", file=sys.stderr)
+        for key in ["dfii10", "dgs10", "dgs30"]:
+            try:
+                fred_download(key, FRED[key])
+                print(f"OK fred {key}")
+            except Exception as exc:  # noqa: BLE001
+                errors[key] = str(exc)
+                print(f"ERROR {key}: {exc}", file=sys.stderr)
     if group in {"all", "credit"}:
         for key in ["hy_oas", "ig_oas", "baa10y_proxy"]:
             try:

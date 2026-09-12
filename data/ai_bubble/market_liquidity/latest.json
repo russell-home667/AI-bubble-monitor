@@ -2,7 +2,7 @@
   "module": "AI Bubble Monitor - Market & Liquidity",
   "step": 5,
   "timezone": "Asia/Shanghai",
-  "generated_at_bjt": "2026-09-12T09:13:24+08:00",
+  "generated_at_bjt": "2026-09-12T12:17:13+08:00",
   "indicators": {
     "ndx": {
       "name": "Nasdaq-100",
@@ -110,7 +110,35 @@
       "source": "Federal Reserve / FRED",
       "source_symbol": "DFII10",
       "source_url": "https://fred.stlouisfed.org/series/DFII10",
-      "fetched_at_bjt": "2026-09-12T08:09:02+08:00",
+      "fetched_at_bjt": "2026-09-12T12:17:12+08:00",
+      "status": "fresh"
+    },
+    "dgs10": {
+      "name": "10-Year Treasury Constant Maturity Rate",
+      "observation_date": "2026-09-10",
+      "value": 4.95,
+      "unit": "%",
+      "change_1obs": 0.12,
+      "change_5obs": 0.16,
+      "change_20obs": 0.27,
+      "source": "Federal Reserve Board H.15 / FRED",
+      "source_symbol": "DGS10",
+      "source_url": "https://fred.stlouisfed.org/series/DGS10",
+      "fetched_at_bjt": "2026-09-12T12:17:13+08:00",
+      "status": "fresh"
+    },
+    "dgs30": {
+      "name": "30-Year Treasury Constant Maturity Rate",
+      "observation_date": "2026-09-10",
+      "value": 5.37,
+      "unit": "%",
+      "change_1obs": 0.09,
+      "change_5obs": 0.1,
+      "change_20obs": 0.13,
+      "source": "Federal Reserve Board H.15 / FRED",
+      "source_symbol": "DGS30",
+      "source_url": "https://fred.stlouisfed.org/series/DGS30",
+      "fetched_at_bjt": "2026-09-12T12:17:13+08:00",
       "status": "fresh"
     },
     "hy_oas": {
@@ -160,6 +188,7 @@
   "notes": {
     "market_close_policy": "Yahoo current-session daily bars are excluded until 17:00 America/New_York; stored market observations are completed sessions only.",
     "hy_ig_history": "ICE BofA FRED series may be license-limited to recent history; BAA10Y is stored as a long-history credit-stress proxy for later backtests.",
-    "qqq_rsp": "Derived daily from QQQ close divided by RSP close; higher values indicate stronger mega-cap/tech concentration relative to equal-weight S&P 500."
+    "qqq_rsp": "Derived daily from QQQ close divided by RSP close; higher values indicate stronger mega-cap/tech concentration relative to equal-weight S&P 500.",
+    "treasury_yields": "DGS10 and DGS30 are Federal Reserve Board H.15 Treasury constant-maturity yields via FRED. The direct 30-year constant-maturity series was discontinued after 2002-02-18 and reintroduced 2006-02-09. During that interval, the U.S. Treasury published a daily factor applied to the 20-year constant-maturity rate to estimate a 30-year nominal rate; FRED historical DGS30 includes those official estimates."
   }
 }
