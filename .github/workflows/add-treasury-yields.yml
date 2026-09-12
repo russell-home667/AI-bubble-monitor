@@ -34,9 +34,7 @@ jobs:
               '  macro   - FRED DFII10 (10Y real yield), DGS10 (10Y nominal Treasury), DGS30 (30Y nominal Treasury)\n'
           )
 
-          needle = '''    "hy_oas": {
-          "series": "BAMLH0A0HYM2",'''
-          insert = '''    "dgs10": {
+          treasury_defs = '''    "dgs10": {
               "series": "DGS10",
               "name": "10-Year Treasury Constant Maturity Rate",
               "unit": "%",
@@ -48,25 +46,18 @@ jobs:
               "unit": "%",
               "source": "Federal Reserve Board H.15 / FRED",
           },
-          "hy_oas": {
-          "series": "BAMLH0A0HYM2",'''
-          if needle not in s:
-              raise SystemExit('Could not find FRED insertion point')
-          s = s.replace(needle, insert, 1)
+          '''
+          if '"series": "DGS10"' not in s:
+              m = re.search(r'(    "dfii10": \{.*?\n    \},\n)(?=    "hy_oas": \{)', s, flags=re.S)
+              if not m:
+                  raise SystemExit('Could not find FRED insertion point')
+              s = s[:m.end()] + treasury_defs + s[m.end():]
 
           s = s.replace(
               'for key in ["dfii10", "hy_oas", "ig_oas", "baa10y_proxy"]:',
               'for key in ["dfii10", "dgs10", "dgs30", "hy_oas", "ig_oas", "baa10y_proxy"]:'
           )
 
-          old_macro = '''    if group in {"all", "macro"}:
-              try:
-                  fred_download("dfii10", FRED["dfii10"])
-                  print("OK fred dfii10")
-              except Exception as exc:  # noqa: BLE001
-                  errors["dfii10"] = str(exc)
-                  print(f"ERROR dfii10: {exc}", file=sys.stderr)
-          '''
           new_macro = '''    if group in {"all", "macro"}:
               for key in ["dfii10", "dgs10", "dgs30"]:
                   try:
@@ -76,14 +67,22 @@ jobs:
                       errors[key] = str(exc)
                       print(f"ERROR {key}: {exc}", file=sys.stderr)
           '''
-          if old_macro not in s:
-              raise SystemExit('Could not find macro update block')
-          s = s.replace(old_macro, new_macro, 1)
-          s = s.replace('"macro": {"dfii10"},', '"macro": {"dfii10", "dgs10", "dgs30"},')
-          s = s.replace(
-              '"qqq_rsp": "Derived daily from QQQ close divided by RSP close; higher values indicate stronger mega-cap/tech concentration relative to equal-weight S&P 500.",',
-              '"qqq_rsp": "Derived daily from QQQ close divided by RSP close; higher values indicate stronger mega-cap/tech concentration relative to equal-weight S&P 500.",\n            "treasury_yields": "DGS10 and DGS30 are Federal Reserve Board H.15 Treasury constant-maturity yields via FRED. DGS30 has an official publication gap from 2002-02-19 through 2006-02-08; the gap is preserved and never interpolated.",'
+          s, n = re.subn(
+              r'    if group in \{"all", "macro"\}:.*?(?=\n    if group in \{"all", "credit"\}:)',
+              new_macro.rstrip(),
+              s,
+              count=1,
+              flags=re.S,
           )
+          if n != 1:
+              raise SystemExit('Could not replace macro update block')
+
+          s = s.replace('"macro": {"dfii10"},', '"macro": {"dfii10", "dgs10", "dgs30"},')
+          if '"treasury_yields":' not in s:
+              s = s.replace(
+                  '            "qqq_rsp": "Derived daily from QQQ close divided by RSP close; higher values indicate stronger mega-cap/tech concentration relative to equal-weight S&P 500.",',
+                  '            "qqq_rsp": "Derived daily from QQQ close divided by RSP close; higher values indicate stronger mega-cap/tech concentration relative to equal-weight S&P 500.",\n            "treasury_yields": "DGS10 and DGS30 are Federal Reserve Board H.15 Treasury constant-maturity yields via FRED. DGS30 has an official publication gap from 2002-02-19 through 2006-02-08; the gap is preserved and never interpolated.",'
+              )
           p.write_text(s, encoding='utf-8')
 
           # ---- Dashboard ----
