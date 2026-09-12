@@ -20,48 +20,18 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Repair macro block indentation
+      - name: Repair pipeline and Treasury methodology note
         run: |
           python - <<'PY'
           from pathlib import Path
           p = Path('scripts/update_ai_market_liquidity.py')
           s = p.read_text(encoding='utf-8')
-          bad = '''    if group in {"all", "macro"}:
-          for key in ["dfii10", "dgs10", "dgs30"]:
-              try:
-                  fred_download(key, FRED[key])
-                  print(f"OK fred {key}")
-              except Exception as exc:  # noqa: BLE001
-                  errors[key] = str(exc)
-                  print(f"ERROR {key}: {exc}", file=sys.stderr)
-          '''
-          # Also handle the exact malformed version with no indentation after the if.
-          malformed = '''    if group in {"all", "macro"}:
-          for key in ["dfii10", "dgs10", "dgs30"]:
-              try:
-                  fred_download(key, FRED[key])
-                  print(f"OK fred {key}")
-              except Exception as exc:  # noqa: BLE001
-                  errors[key] = str(exc)
-                  print(f"ERROR {key}: {exc}", file=sys.stderr)
-          '''
-          exact = '''    if group in {"all", "macro"}:
-          for key in ["dfii10", "dgs10", "dgs30"]:
-              try:
-                  fred_download(key, FRED[key])
-                  print(f"OK fred {key}")
-              except Exception as exc:  # noqa: BLE001
-                  errors[key] = str(exc)
-                  print(f"ERROR {key}: {exc}", file=sys.stderr)
-          '''
-          # Perform a line-oriented repair so whitespace in the broken block cannot matter.
           lines = s.splitlines()
           for i, line in enumerate(lines):
               if line.strip() == 'if group in {"all", "macro"}:':
                   if i + 1 < len(lines) and lines[i+1].strip() == 'for key in ["dfii10", "dgs10", "dgs30"]:':
                       lines[i] = '    if group in {"all", "macro"}:'
                       lines[i+1] = '        for key in ["dfii10", "dgs10", "dgs30"]:'
-                      # Repair the nested try/except body until the credit block starts.
                       j = i + 2
                       while j < len(lines) and lines[j].strip() != 'if group in {"all", "credit"}:':
                           stripped = lines[j].lstrip()
@@ -71,7 +41,12 @@ jobs:
                               lines[j] = '                ' + stripped
                           j += 1
                       break
-          p.write_text('\n'.join(lines) + '\n', encoding='utf-8')
+          s = '\n'.join(lines) + '\n'
+          s = s.replace(
+              'DGS30 has an official publication gap from 2002-02-19 through 2006-02-08; the gap is preserved and never interpolated.',
+              'The direct 30-year constant-maturity series was discontinued after 2002-02-18 and reintroduced 2006-02-09. During that interval, the U.S. Treasury published a daily factor applied to the 20-year constant-maturity rate to estimate a 30-year nominal rate; FRED historical DGS30 includes those official estimates.'
+          )
+          p.write_text(s, encoding='utf-8')
           PY
           python -m py_compile scripts/update_ai_market_liquidity.py
 
@@ -88,7 +63,7 @@ jobs:
       - name: Backfill nominal Treasury yields
         run: python scripts/update_ai_market_liquidity.py --group macro
 
-      - name: Validate history and official gap
+      - name: Validate maximum official history
         run: |
           python - <<'PY'
           import json
@@ -108,14 +83,14 @@ jobs:
               summary[key] = {'rows': int(len(df)), 'start': start, 'end': end, 'latest_value_pct': float(df.iloc[-1]['value'])}
           d30 = pd.read_csv(root/'dgs30.csv')
           d30['date'] = pd.to_datetime(d30['date'], errors='coerce')
-          gap = d30[(d30['date'] >= '2002-02-19') & (d30['date'] <= '2006-02-08')]
-          if not gap.empty:
-              raise SystemExit(f'DGS30 official publication gap contains {len(gap)} observations')
+          official_estimates = d30[(d30['date'] >= '2002-02-19') & (d30['date'] <= '2006-02-08')]
+          if len(official_estimates) < 900:
+              raise SystemExit(f'Expected Treasury estimate history in 2002-2006 interval; found only {len(official_estimates)} observations')
           latest = json.loads((root/'latest.json').read_text(encoding='utf-8'))
           if not latest.get('indicators',{}).get('dgs10') or not latest.get('indicators',{}).get('dgs30'):
               raise SystemExit('Treasury indicators missing from latest.json')
           print(json.dumps(summary, indent=2))
-          print('DGS30 official 2002-02-19..2006-02-08 publication gap preserved: yes')
+          print(f'DGS30 official Treasury-estimate observations 2002-02-19..2006-02-08: {len(official_estimates)}')
           PY
 
       - name: Commit repaired pipeline and full history
