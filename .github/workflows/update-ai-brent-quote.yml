@@ -71,3 +71,5 @@ jobs:
         if: steps.detect.outputs.changed == 'true'
         id: deployment
         uses: actions/deploy-pages@v4
+
+# manual refresh trigger: 2026-09-12 13:22 BJT
