@@ -1,0 +1,44 @@
+name: Fix Treasury Chart Gaps
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/fix-treasury-chart-gaps.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Connect Treasury lines across non-observation dates
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+          s2 = s.replace("{name:'US 10Y Treasury',type:'line',showSymbol:false,data:dates.map(d=>t10m.get(d)??null),connectNulls:false}", "{name:'US 10Y Treasury',type:'line',showSymbol:false,data:dates.map(d=>t10m.get(d)??null),connectNulls:true}")
+          s2 = s2.replace("{name:'US 30Y Treasury',type:'line',showSymbol:false,data:dates.map(d=>t30m.get(d)??null),connectNulls:false}", "{name:'US 30Y Treasury',type:'line',showSymbol:false,data:dates.map(d=>t30m.get(d)??null),connectNulls:true}")
+          if s2 == s:
+              raise SystemExit('Treasury connectNulls patch did not match')
+          p.write_text(s2, encoding='utf-8')
+          PY
+          grep -q "US 10Y Treasury.*connectNulls:true" index.html
+          grep -q "US 30Y Treasury.*connectNulls:true" index.html
+
+      - name: Commit chart fix
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html
+          git commit -m 'Fix Treasury chart visual gaps'
+          git pull --rebase origin main
+          git push origin HEAD:main
