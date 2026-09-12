@@ -7,7 +7,7 @@ separate from the aviation-leasing dashboard data.
 Groups:
   market  - NDX, SOX, NVDA, QQQ, RSP and derived QQQ/RSP
   vix     - official Cboe VIX daily history
-  macro   - FRED DFII10 (10Y real yield)
+  macro   - FRED DFII10 (10Y real yield), DGS10 (10Y nominal Treasury), DGS30 (30Y nominal Treasury)
   credit  - FRED HY OAS, IG OAS, plus BAA10Y long-history backtest proxy
   all     - all of the above
 
@@ -58,6 +58,18 @@ FRED = {
         "unit": "%",
         "source": "Federal Reserve / FRED",
     },
+    "dgs10": {
+    "series": "DGS10",
+    "name": "10-Year Treasury Constant Maturity Rate",
+    "unit": "%",
+    "source": "Federal Reserve Board H.15 / FRED",
+},
+"dgs30": {
+    "series": "DGS30",
+    "name": "30-Year Treasury Constant Maturity Rate",
+    "unit": "%",
+    "source": "Federal Reserve Board H.15 / FRED",
+},
     "hy_oas": {
         "series": "BAMLH0A0HYM2",
         "name": "ICE BofA US High Yield Index Option-Adjusted Spread",
@@ -400,7 +412,7 @@ def write_latest(errors: Dict[str, str]) -> None:
         if x:
             indicators[key] = x
 
-    for key in ["dfii10", "hy_oas", "ig_oas", "baa10y_proxy"]:
+    for key in ["dfii10", "dgs10", "dgs30", "hy_oas", "ig_oas", "baa10y_proxy"]:
         meta = FRED[key]
         x = summary_for_fred(
             OUT / f"{key}.csv",
@@ -422,6 +434,7 @@ def write_latest(errors: Dict[str, str]) -> None:
             "market_close_policy": "Yahoo current-session daily bars are excluded until 17:00 America/New_York; stored market observations are completed sessions only.",
             "hy_ig_history": "ICE BofA FRED series may be license-limited to recent history; BAA10Y is stored as a long-history credit-stress proxy for later backtests.",
             "qqq_rsp": "Derived daily from QQQ close divided by RSP close; higher values indicate stronger mega-cap/tech concentration relative to equal-weight S&P 500.",
+            "treasury_yields": "DGS10 and DGS30 are Federal Reserve Board H.15 Treasury constant-maturity yields via FRED. DGS30 has an official publication gap from 2002-02-19 through 2006-02-08; the gap is preserved and never interpolated.",
         },
     }
     tmp = OUT / "latest.json.tmp"
@@ -456,13 +469,13 @@ def run_group(group: str) -> Dict[str, str]:
             print(f"ERROR vix: {exc}", file=sys.stderr)
 
     if group in {"all", "macro"}:
+    for key in ["dfii10", "dgs10", "dgs30"]:
         try:
-            fred_download("dfii10", FRED["dfii10"])
-            print("OK fred dfii10")
+            fred_download(key, FRED[key])
+            print(f"OK fred {key}")
         except Exception as exc:  # noqa: BLE001
-            errors["dfii10"] = str(exc)
-            print(f"ERROR dfii10: {exc}", file=sys.stderr)
-
+            errors[key] = str(exc)
+            print(f"ERROR {key}: {exc}", file=sys.stderr)
     if group in {"all", "credit"}:
         for key in ["hy_oas", "ig_oas", "baa10y_proxy"]:
             try:
@@ -486,7 +499,7 @@ def main() -> int:
     expected = {
         "market": {"ndx", "sox", "nvda", "qqq", "rsp", "qqq_rsp"},
         "vix": {"vix"},
-        "macro": {"dfii10"},
+        "macro": {"dfii10", "dgs10", "dgs30"},
         "credit": {"hy_oas", "ig_oas", "baa10y_proxy"},
     }
     if args.group != "all" and expected[args.group].issubset(errors.keys()):
