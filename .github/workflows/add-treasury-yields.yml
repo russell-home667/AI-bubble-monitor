@@ -1,0 +1,137 @@
+name: Add US Treasury Yields to AI Bubble Monitor
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/add-treasury-yields.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Patch data pipeline and dashboard
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          # ---- Market/liquidity updater ----
+          p = Path('scripts/update_ai_market_liquidity.py')
+          s = p.read_text(encoding='utf-8')
+
+          s = s.replace(
+              '  macro   - FRED DFII10 (10Y real yield)\n',
+              '  macro   - FRED DFII10 (10Y real yield), DGS10 (10Y nominal Treasury), DGS30 (30Y nominal Treasury)\n'
+          )
+
+          needle = '''    "hy_oas": {
+          "series": "BAMLH0A0HYM2",'''
+          insert = '''    "dgs10": {
+              "series": "DGS10",
+              "name": "10-Year Treasury Constant Maturity Rate",
+              "unit": "%",
+              "source": "Federal Reserve Board H.15 / FRED",
+          },
+          "dgs30": {
+              "series": "DGS30",
+              "name": "30-Year Treasury Constant Maturity Rate",
+              "unit": "%",
+              "source": "Federal Reserve Board H.15 / FRED",
+          },
+          "hy_oas": {
+          "series": "BAMLH0A0HYM2",'''
+          if needle not in s:
+              raise SystemExit('Could not find FRED insertion point')
+          s = s.replace(needle, insert, 1)
+
+          s = s.replace(
+              'for key in ["dfii10", "hy_oas", "ig_oas", "baa10y_proxy"]:',
+              'for key in ["dfii10", "dgs10", "dgs30", "hy_oas", "ig_oas", "baa10y_proxy"]:'
+          )
+
+          old_macro = '''    if group in {"all", "macro"}:
+              try:
+                  fred_download("dfii10", FRED["dfii10"])
+                  print("OK fred dfii10")
+              except Exception as exc:  # noqa: BLE001
+                  errors["dfii10"] = str(exc)
+                  print(f"ERROR dfii10: {exc}", file=sys.stderr)
+          '''
+          new_macro = '''    if group in {"all", "macro"}:
+              for key in ["dfii10", "dgs10", "dgs30"]:
+                  try:
+                      fred_download(key, FRED[key])
+                      print(f"OK fred {key}")
+                  except Exception as exc:  # noqa: BLE001
+                      errors[key] = str(exc)
+                      print(f"ERROR {key}: {exc}", file=sys.stderr)
+          '''
+          if old_macro not in s:
+              raise SystemExit('Could not find macro update block')
+          s = s.replace(old_macro, new_macro, 1)
+          s = s.replace('"macro": {"dfii10"},', '"macro": {"dfii10", "dgs10", "dgs30"},')
+          s = s.replace(
+              '"qqq_rsp": "Derived daily from QQQ close divided by RSP close; higher values indicate stronger mega-cap/tech concentration relative to equal-weight S&P 500.",',
+              '"qqq_rsp": "Derived daily from QQQ close divided by RSP close; higher values indicate stronger mega-cap/tech concentration relative to equal-weight S&P 500.",\n            "treasury_yields": "DGS10 and DGS30 are Federal Reserve Board H.15 Treasury constant-maturity yields via FRED. DGS30 has an official publication gap from 2002-02-19 through 2006-02-08; the gap is preserved and never interpolated.",'
+          )
+          p.write_text(s, encoding='utf-8')
+
+          # ---- Dashboard ----
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+          s = s.replace('<div class="grid6" id="marketCards"></div>', '<div class="grid4" id="marketCards"></div>')
+          s = s.replace('<div class="chart-title">Credit & Liquidity Stress</div><div class="chart-sub">10Y Real Yield / HY OAS / VIX</div>', '<div class="chart-title">Rates, Credit & Liquidity</div><div class="chart-sub">10Y & 30Y Treasury / 10Y Real Yield / HY OAS / VIX</div>')
+
+          new_market_cards = '''function renderMarketCards(m){const i=m.indicators;const arr=[['NASDAQ-100',num(i.ndx.value,0),`200DMA ${pct(i.ndx.distance_from_200dma_pct)} · ATH ${pct(i.ndx.ath_drawdown_pct)}`],['SOX',num(i.sox.value,0),`200DMA ${pct(i.sox.distance_from_200dma_pct)} · ATH ${pct(i.sox.ath_drawdown_pct)}`],['NVIDIA','$'+num(i.nvda.value,2),`200DMA ${pct(i.nvda.distance_from_200dma_pct)} · ATH ${pct(i.nvda.ath_drawdown_pct)}`],['VIX',num(i.vix.value,2),`20D ${pct(i.vix.change_20d_pct)}`],['US 10Y Treasury',num(i.dgs10?.value,2)+'%',`Fed H.15 · ${i.dgs10?.observation_date||'—'} · 20 obs Δ ${(i.dgs10?.change_20obs??0)>=0?'+':''}${num(i.dgs10?.change_20obs,2)} ppt`],['US 30Y Treasury',num(i.dgs30?.value,2)+'%',`Fed H.15 · ${i.dgs30?.observation_date||'—'} · 20 obs Δ ${(i.dgs30?.change_20obs??0)>=0?'+':''}${num(i.dgs30?.change_20obs,2)} ppt`],['10Y Real Yield',num(i.dfii10.value,2)+'%',`20 obs Δ ${i.dfii10.change_20obs>=0?'+':''}${num(i.dfii10.change_20obs,2)} ppt`],['HY OAS',num(i.hy_oas.value,2)+'%',`20 obs Δ ${i.hy_oas.change_20obs>=0?'+':''}${num(i.hy_oas.change_20obs,2)} ppt`]];document.getElementById('marketCards').innerHTML=arr.map(x=>metricCard(...x)).join('')}
+          function renderHyper'''
+          s, n = re.subn(r'function renderMarketCards\(m\)\{.*?\}\nfunction renderHyper', new_market_cards, s, count=1, flags=re.S)
+          if n != 1:
+              raise SystemExit('Could not patch renderMarketCards')
+
+          new_liq = '''function renderLiquidityChart(){const range=state.ranges.liquidityChart;const real=cutoffRows(state.raw.dfii10,'date',range),t10=cutoffRows(state.raw.dgs10,'date',range),t30=cutoffRows(state.raw.dgs30,'date',range),hy=cutoffRows(state.raw.hy,'date',range),vix=cutoffRows(state.raw.vix,'date',range);const dates=[...new Set([...real,...t10,...t30,...hy,...vix].map(x=>x.date))].sort();const rm=new Map(real.map(x=>[x.date,x.value])),t10m=new Map(t10.map(x=>[x.date,x.value])),t30m=new Map(t30.map(x=>[x.date,x.value])),hm=new Map(hy.map(x=>[x.date,x.value])),vm=new Map(vix.map(x=>[x.date,x.close]));initChart('liquidityChart').setOption({...chartBase,xAxis:{...chartBase.xAxis,data:dates},yAxis:[{...chartBase.yAxis,name:'Yield / OAS %'},{...chartBase.yAxis,name:'VIX',position:'right'}],series:[{name:'US 10Y Treasury',type:'line',showSymbol:false,data:dates.map(d=>t10m.get(d)??null),connectNulls:false},{name:'US 30Y Treasury',type:'line',showSymbol:false,data:dates.map(d=>t30m.get(d)??null),connectNulls:false},{name:'10Y Real Yield',type:'line',showSymbol:false,data:dates.map(d=>rm.get(d)??null)},{name:'HY OAS',type:'line',showSymbol:false,data:dates.map(d=>hm.get(d)??null)},{name:'VIX',type:'line',showSymbol:false,yAxisIndex:1,data:dates.map(d=>vm.get(d)??null)}]},true)}
+          function renderCapexChart'''
+          s, n = re.subn(r'function renderLiquidityChart\(\)\{.*?\}\nfunction renderCapexChart', new_liq, s, count=1, flags=re.S)
+          if n != 1:
+              raise SystemExit('Could not patch renderLiquidityChart')
+
+          old_vars = 'const [top,derived,market,hyper,compute,gpu,ndx,sox,nvda,vix,dfii10,hy,h5,tsmc,gpud,scoreHistory]=await Promise.all(['
+          new_vars = 'const [top,derived,market,hyper,compute,gpu,ndx,sox,nvda,vix,dfii10,dgs10,dgs30,hy,h5,tsmc,gpud,scoreHistory]=await Promise.all(['
+          if old_vars not in s:
+              raise SystemExit('Could not find load variable list')
+          s = s.replace(old_vars, new_vars, 1)
+          old_fetch = "fetchCSV(BASE+'market_liquidity/dfii10.csv'),fetchCSV(BASE+'market_liquidity/hy_oas.csv')"
+          new_fetch = "fetchCSV(BASE+'market_liquidity/dfii10.csv'),fetchCSV(BASE+'market_liquidity/dgs10.csv'),fetchCSV(BASE+'market_liquidity/dgs30.csv'),fetchCSV(BASE+'market_liquidity/hy_oas.csv')"
+          if old_fetch not in s:
+              raise SystemExit('Could not find Treasury load insertion point')
+          s = s.replace(old_fetch, new_fetch, 1)
+          s = s.replace('state.raw={ndx,sox,nvda,vix,dfii10,hy,h5,tsmc,gpu:gpud,scoreHistory};', 'state.raw={ndx,sox,nvda,vix,dfii10,dgs10,dgs30,hy,h5,tsmc,gpu:gpud,scoreHistory};', 1)
+          p.write_text(s, encoding='utf-8')
+          PY
+
+      - name: Validate patches
+        run: |
+          grep -q '"series": "DGS10"' scripts/update_ai_market_liquidity.py
+          grep -q '"series": "DGS30"' scripts/update_ai_market_liquidity.py
+          grep -q "market_liquidity/dgs10.csv" index.html
+          grep -q "market_liquidity/dgs30.csv" index.html
+          grep -q "US 30Y Treasury" index.html
+
+      - name: Commit integration
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add scripts/update_ai_market_liquidity.py index.html
+          git commit -m 'Add US 10Y and 30Y Treasury yields'
+          git pull --rebase origin main
+          git push origin HEAD:main
