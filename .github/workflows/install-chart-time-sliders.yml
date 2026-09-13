@@ -1,0 +1,54 @@
+name: Install Chart Time Sliders
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'assets/chart-time-slider.js'
+      - '.github/workflows/install-chart-time-sliders.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Add slider asset to dashboard pages
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          for name in ['index.html', 'backtest.html']:
+              p = Path(name)
+              s = p.read_text(encoding='utf-8')
+              if 'assets/chart-time-slider.js' in s:
+                  print(name, 'already installed')
+                  continue
+              needle = '<script src="assets/source-links.js"></script>'
+              if needle not in s:
+                  raise SystemExit(f'{needle} not found in {name}')
+              s = s.replace(needle, '<script src="assets/chart-time-slider.js"></script>  ' + needle, 1)
+              p.write_text(s, encoding='utf-8')
+              print(name, 'installed')
+          PY
+      - name: Validate installation
+        run: |
+          grep -q 'assets/chart-time-slider.js' index.html
+          grep -q 'assets/chart-time-slider.js' backtest.html
+          grep -q 'brentChart' assets/chart-time-slider.js
+          grep -q 'historyChart' assets/chart-time-slider.js
+      - name: Commit installation
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html backtest.html
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'feat: enable compact time sliders on charts'
+          git pull --rebase origin main
+          git push origin HEAD:main
