@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 import argparse
 import json
-import random
 import re
 import sys
 import time
@@ -16,10 +15,10 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "data" / "ai_bubble" / "macro" / "gold_xauusd.json"
 OUT.parent.mkdir(parents=True, exist_ok=True)
 
-PAIR_ID = "68"  # Investing.com XAU/USD - Gold Spot US Dollar (spot, not Gold Futures 8830)
+PAIR_ID = "68"  # Investing.com XAU/USD Gold Spot / US Dollar; not Gold Futures 8830.
 CANONICAL_URL = "https://www.investing.com/currencies/xau-usd"
 CANONICAL_HISTORICAL_URL = "https://www.investing.com/currencies/xau-usd-historical-data"
-REGIONAL_HOSTS = ["https://uk.investing.com", "https://ca.investing.com", "https://au.investing.com"]
+REGIONAL_HOSTS = ["https://uk.investing.com", "https://au.investing.com", "https://ca.investing.com"]
 TZ_BJT = ZoneInfo("Asia/Shanghai")
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
 
@@ -41,14 +40,13 @@ def clean_number(v):
 def parse_date(v):
     if v is None:
         return None
-    if isinstance(v, (int, float)):
-        ts = float(v) / (1000 if float(v) > 10_000_000_000 else 1)
-        return datetime.utcfromtimestamp(ts).date().isoformat()
     s = str(v).strip()
     if not s:
         return None
     if re.fullmatch(r"\d{9,13}(?:\.0+)?", s):
-        ts = float(s) / (1000 if float(s) > 10_000_000_000 else 1)
+        ts = float(s)
+        if ts > 10_000_000_000:
+            ts /= 1000
         return datetime.utcfromtimestamp(ts).date().isoformat()
     for fmt in ("%Y-%m-%d", "%b %d, %Y", "%m/%d/%Y", "%d/%m/%Y", "%b %d, %y"):
         try:
@@ -69,7 +67,8 @@ def extract_html_rows(html):
         td = tr.find_all("td")
         if len(td) < 2:
             continue
-        d = parse_date(td[0].get("data-real-value") or td[0].get_text(" ", strip=True))
+        # Prefer visible date text: it avoids timezone shifts from Unix timestamps embedded by the page.
+        d = parse_date(td[0].get_text(" ", strip=True))
         price = clean_number(td[1].get("data-real-value") or td[1].get_text(" ", strip=True))
         if not d or price is None:
             continue
@@ -85,11 +84,10 @@ def extract_html_rows(html):
 
 class InvestingFetcher:
     def __init__(self):
-        self.sessions = {h: requests.Session(impersonate="chrome") for h in REGIONAL_HOSTS}
-        self.sml_ids = {h: str(random.randint(1_000_000, 99_999_999)) for h in REGIONAL_HOSTS}
-        self.primed = set()
+        self.sessions = {host: requests.Session(impersonate="chrome") for host in REGIONAL_HOSTS}
 
-    def _headers(self, host):
+    @staticmethod
+    def headers(host):
         hist = host + "/currencies/xau-usd-historical-data"
         return {
             "user-agent": UA,
@@ -101,31 +99,10 @@ class InvestingFetcher:
             "referer": hist,
         }
 
-    def _prime_once(self, host):
-        if host in self.primed:
-            return
-        self.primed.add(host)
-        hist = host + "/currencies/xau-usd-historical-data"
-        try:
-            r = self.sessions[host].get(
-                hist,
-                headers={"user-agent": UA, "accept-language": "en-GB,en;q=0.9"},
-                timeout=45,
-            )
-            if r.status_code == 200:
-                for pat in (r"smlID\s*[:=]\s*['\"]?(\d+)", r"smlId\s*[:=]\s*['\"]?(\d+)"):
-                    m = re.search(pat, r.text, re.I | re.S)
-                    if m:
-                        self.sml_ids[host] = m.group(1)
-                        break
-        except Exception:
-            pass
-
-    def fetch_host(self, host, start, end):
-        url = host + "/instruments/HistoricalDataAjax"
+    def fetch_from_host(self, host, start, end):
         payload = {
             "curr_id": PAIR_ID,
-            "smlID": self.sml_ids[host],
+            "smlID": "12345678",
             "header": "XAU/USD Historical Data",
             "st_date": start.strftime("%m/%d/%Y"),
             "end_date": end.strftime("%m/%d/%Y"),
@@ -134,30 +111,27 @@ class InvestingFetcher:
             "sort_ord": "DESC",
             "action": "historical_data",
         }
-        last = None
-        for attempt in range(3):
-            # Direct AJAX first. Diagnostic runs confirmed this endpoint accepts the opaque smlID.
-            r = self.sessions[host].post(url, headers=self._headers(host), data=payload, timeout=75)
-            last = r
-            if r.status_code == 200:
-                rows = extract_html_rows(r.text)
-                if rows:
-                    return rows
-            if attempt == 0:
-                self._prime_once(host)
-                payload["smlID"] = self.sml_ids[host]
-            time.sleep(1.5 * (attempt + 1))
-        raise RuntimeError(f"HTTP {getattr(last, 'status_code', 'NA')} / no parseable rows")
+        resp = self.sessions[host].post(
+            host + "/instruments/HistoricalDataAjax",
+            headers=self.headers(host),
+            data=payload,
+            timeout=75,
+        )
+        if resp.status_code != 200:
+            raise RuntimeError(f"HTTP {resp.status_code}")
+        return extract_html_rows(resp.text)
 
     def fetch_period(self, start, end):
         errors = []
         for host in REGIONAL_HOSTS:
             try:
-                rows = self.fetch_host(host, start, end)
-                print(f"Investing.com {host}: {len(rows)} rows for {start} -> {end}")
+                rows = self.fetch_from_host(host, start, end)
+                # A 200 response with no rows is a valid empty period, not a reason to hammer another host.
+                print(f"Investing.com {host}: {len(rows)} rows for request {start} -> {end}")
                 return rows, host
             except Exception as exc:
                 errors.append(f"{host}: {exc}")
+                time.sleep(0.6)
         raise RuntimeError(" | ".join(errors))
 
 
@@ -165,43 +139,54 @@ FETCHER = InvestingFetcher()
 
 
 def fetch_full_history():
+    """Backfill maximum source history without gaps.
+
+    Investing.com's HistoricalDataAjax caps one response at roughly 658 trading days (~2.5 years).
+    Therefore requests start every two calendar years, intentionally overlapping the source cap;
+    the final merge deduplicates dates. Starting in 1970 lets the source determine its true earliest row.
+    """
     cur = date(1970, 1, 1)
-    end_all = date.today()
-    rows, used_hosts = [], set()
-    while cur <= end_all:
-        end = min(date(cur.year + 4, 12, 31), end_all)
-        print(f"Fetching XAU/USD {cur} -> {end} ...")
+    today = date.today()
+    rows = []
+    used_hosts = set()
+    while cur <= today:
+        end = min(date(cur.year + 1, 12, 31), today)
         try:
             chunk, host = FETCHER.fetch_period(cur, end)
             rows.extend(chunk)
             used_hosts.add(host)
         except Exception as exc:
-            print(f"Chunk failed: {exc}", file=sys.stderr)
-        cur = end + timedelta(days=1)
-        time.sleep(0.5)
+            print(f"Chunk {cur}->{end} failed: {exc}", file=sys.stderr)
+        cur = date(cur.year + 2, 1, 1)
+        time.sleep(0.35)
     return rows, sorted(used_hosts)
 
 
+def fetch_latest_window():
+    # Request slightly more than one year; the source cap is much larger, so this safely refreshes recent data.
+    return FETCHER.fetch_period(date.today() - timedelta(days=450), date.today())
+
+
 def fetch_page_quote():
-    # Prefer a human-readable Investing.com regional page for the latest displayed quote.
+    # Optional: if the human-readable Investing page is reachable, use its current quote.
+    # Failure never replaces or contaminates the official historical series.
     for host in REGIONAL_HOSTS:
         try:
-            r = requests.get(
+            resp = requests.get(
                 host + "/currencies/xau-usd",
                 headers={"user-agent": UA, "accept-language": "en-GB,en;q=0.9"},
                 impersonate="chrome",
-                timeout=35,
+                timeout=20,
             )
-            if r.status_code != 200:
+            if resp.status_code != 200:
                 continue
-            soup = BeautifulSoup(r.text, "html.parser")
-            node = soup.select_one('[data-test="instrument-price-last"]')
+            node = BeautifulSoup(resp.text, "html.parser").select_one('[data-test="instrument-price-last"]')
             if node:
-                n = clean_number(node.get_text(" ", strip=True))
-                if n and n > 100:
-                    return n, host
-        except Exception as exc:
-            print(f"Live quote failed on {host}: {exc}", file=sys.stderr)
+                value = clean_number(node.get_text(" ", strip=True))
+                if value and value > 100:
+                    return value, host
+        except Exception:
+            pass
     return None, None
 
 
@@ -227,13 +212,13 @@ def main():
         fetched, hosts = fetch_full_history()
         used_hosts.update(hosts)
     else:
-        fetched, host = FETCHER.fetch_period(date.today() - timedelta(days=90), date.today())
+        fetched, host = fetch_latest_window()
         used_hosts.add(host)
 
     by_date = {}
-    for r in old_rows + fetched:
-        if isinstance(r, dict) and r.get("date") and r.get("value") is not None:
-            by_date[r["date"]] = r
+    for row in old_rows + fetched:
+        if isinstance(row, dict) and row.get("date") and row.get("value") is not None:
+            by_date[row["date"]] = row
     merged = sorted(by_date.values(), key=lambda x: x["date"])
     if not merged:
         raise RuntimeError("No XAU/USD history available after merge")
@@ -241,8 +226,10 @@ def main():
     live, live_host = fetch_page_quote()
     if live_host:
         used_hosts.add(live_host)
-    now_bjt = datetime.now(TZ_BJT)
     latest_daily = merged[-1]
+    now_bjt = datetime.now(TZ_BJT)
+    latest_price = round(live if live is not None else float(latest_daily["value"]), 2)
+
     payload = {
         "name": "Gold Spot / US Dollar",
         "ticker": "XAU/USD",
@@ -252,20 +239,24 @@ def main():
         "source_url": CANONICAL_URL,
         "historical_source_url": CANONICAL_HISTORICAL_URL,
         "retrieval_hosts": sorted(used_hosts),
-        "frequency": "Daily history + public page quote check",
+        "frequency": "Daily historical series; updater checks every 30 minutes Monday-Saturday",
         "price_field": "XAU/USD spot price",
         "status": "LIVE" if live is not None else "DAILY_CLOSE",
-        "history_scope": "Maximum Investing.com XAU/USD daily history obtainable from regional Investing.com endpoints; no synthetic weekend/interpolated rows",
+        "history_scope": "Maximum Investing.com XAU/USD daily history discovered by two-year overlapping pagination; no synthetic weekend/interpolated rows",
+        "history_start": merged[0]["date"],
+        "history_end": merged[-1]["date"],
+        "observation_count": len(merged),
         "latest_quote": {
-            "price": round(live if live is not None else float(latest_daily["value"]), 2),
+            "price": latest_price,
             "timestamp": now_bjt.isoformat(timespec="seconds"),
             "quote_status": "INVESTING_PAGE" if live is not None else "LATEST_DAILY_CLOSE",
+            "observation_date": latest_daily["date"],
         },
         "data": merged,
         "updated_at_bjt": now_bjt.isoformat(timespec="seconds"),
     }
     OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(f"Gold updated: {merged[0]['date']} -> {merged[-1]['date']} ({len(merged)} rows), latest={payload['latest_quote']['price']}")
+    print(f"Gold updated: {payload['history_start']} -> {payload['history_end']} ({len(merged)} rows), latest={latest_price}")
 
 
 if __name__ == "__main__":
