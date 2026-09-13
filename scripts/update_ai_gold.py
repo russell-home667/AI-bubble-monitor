@@ -15,19 +15,14 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "data" / "ai_bubble" / "macro" / "gold_xauusd.json"
 OUT.parent.mkdir(parents=True, exist_ok=True)
 
-PAIR_ID = "68"  # Investing.com XAU/USD - Gold Spot US Dollar
-SOURCE_URL = "https://www.investing.com/currencies/xau-usd"
-HISTORICAL_URL = "https://www.investing.com/currencies/xau-usd-historical-data"
-API_URL = f"https://api.investing.com/api/financialdata/historical/{PAIR_ID}"
-AJAX_URL = "https://www.investing.com/instruments/HistoricalDataAjax"
+PAIR_ID = "68"  # Investing.com XAU/USD - Gold Spot US Dollar (spot, not Gold Futures 8830)
+CANONICAL_URL = "https://www.investing.com/currencies/xau-usd"
+CANONICAL_HISTORICAL_URL = "https://www.investing.com/currencies/xau-usd-historical-data"
+# www.investing.com blocks GitHub cloud IPs. The UK/Canada regional sites expose the
+# same Investing.com instrument/data and are reachable from GitHub Actions.
+REGIONAL_HOSTS = ["https://uk.investing.com", "https://ca.investing.com"]
 TZ_BJT = ZoneInfo("Asia/Shanghai")
-
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
-BASE_HEADERS = {
-    "user-agent": UA,
-    "accept-language": "en-US,en;q=0.9",
-    "referer": HISTORICAL_URL,
-}
 
 
 def clean_number(v):
@@ -56,7 +51,13 @@ def parse_date(v):
     s = str(v).strip()
     if not s:
         return None
-    for fmt in ("%Y-%m-%d", "%b %d, %Y", "%m/%d/%Y", "%d/%m/%Y", "%b %d, %y"):
+    # Investing table data-real-value is often a Unix timestamp stored as a string.
+    if re.fullmatch(r"\d{9,13}(?:\.0+)?", s):
+        ts = float(s)
+        if ts > 10_000_000_000:
+            ts /= 1000
+        return datetime.utcfromtimestamp(ts).date().isoformat()
+    for fmt in ("%Y-%m-%d", "%b %d, %Y", "%m/%d/%Y", "%d/%m/%Y", "%b %d, %y", "%d/%m/%Y"):
         try:
             return datetime.strptime(s, fmt).date().isoformat()
         except Exception:
@@ -65,60 +66,9 @@ def parse_date(v):
     return m.group(0) if m else None
 
 
-def row_to_record(row):
-    if not isinstance(row, dict):
-        return None
-    d = None
-    for k in ("rowDateRaw", "rowDate", "date", "Date", "datetime"):
-        if k in row:
-            d = parse_date(row.get(k))
-            if d:
-                break
-    price = None
-    for k in ("last_close", "price", "Price", "close", "Close", "price_close", "value", "last"):
-        if k in row:
-            price = clean_number(row.get(k))
-            if price is not None:
-                break
-    if not d or price is None:
-        return None
-    out = {"date": d, "value": round(price, 2)}
-    for src, dst in (("price_open", "open"), ("price_high", "high"), ("price_low", "low"), ("open", "open"), ("high", "high"), ("low", "low")):
-        if src in row and dst not in out:
-            n = clean_number(row.get(src))
-            if n is not None:
-                out[dst] = round(n, 2)
-    return out
-
-
-def extract_json_rows(payload):
-    candidates = []
-    if isinstance(payload, list):
-        candidates = payload
-    elif isinstance(payload, dict):
-        for key in ("data", "results", "rows"):
-            x = payload.get(key)
-            if isinstance(x, list):
-                candidates = x
-                break
-            if isinstance(x, dict):
-                for sub in ("data", "rows", "results"):
-                    if isinstance(x.get(sub), list):
-                        candidates = x[sub]
-                        break
-                if candidates:
-                    break
-    out = []
-    for row in candidates:
-        rec = row_to_record(row)
-        if rec:
-            out.append(rec)
-    return out
-
-
 def extract_html_rows(html):
     soup = BeautifulSoup(html, "html.parser")
-    table = soup.select_one("table#curr_table") or soup.select_one("table")
+    table = soup.select_one("table#curr_table") or soup.select_one("table.historicalTbl")
     if not table:
         return []
     out = []
@@ -142,57 +92,42 @@ def extract_html_rows(html):
     return out
 
 
-def get_page_session():
-    session = requests.Session(impersonate="chrome")
-    h = dict(BASE_HEADERS)
-    h["accept"] = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
-    r = session.get(HISTORICAL_URL, headers=h, timeout=35)
-    if r.status_code != 200:
-        raise RuntimeError(f"Investing page HTTP {r.status_code}: {r.text[:120]}")
-    return session, r.text
-
-
 def discover_sml_id(html):
-    patterns = [
+    for pat in (
         r"histDataExcessInfo\s*=\s*\{[^}]*?smlID?\s*:\s*['\"]?(\d+)",
         r"smlID\s*[:=]\s*['\"]?(\d+)",
         r"smlId\s*[:=]\s*['\"]?(\d+)",
-    ]
-    for pat in patterns:
+    ):
         m = re.search(pat, html, re.I | re.S)
         if m:
             return m.group(1)
+    # The endpoint accepts an opaque smlID; this keeps the call browser-shaped if the page
+    # no longer exposes the old variable.
     return str(random.randint(1_000_000, 99_999_999))
 
 
-def fetch_period_api(start, end):
-    headers = dict(BASE_HEADERS)
-    headers.update({"accept": "application/json, text/plain, */*", "domain-id": "www"})
-    params = {
-        "start-date": start.isoformat(),
-        "end-date": end.isoformat(),
-        "time-frame": "Daily",
-        "add-missing-rows": "false",
+def fetch_period_from_host(host, start, end):
+    hist_url = host + "/currencies/xau-usd-historical-data"
+    ajax_url = host + "/instruments/HistoricalDataAjax"
+    session = requests.Session(impersonate="chrome")
+    base_headers = {
+        "user-agent": UA,
+        "accept-language": "en-GB,en;q=0.9",
+        "referer": hist_url,
     }
-    r = requests.get(API_URL, params=params, headers=headers, impersonate="chrome", timeout=35)
-    if r.status_code != 200:
-        raise RuntimeError(f"JSON endpoint HTTP {r.status_code}")
-    rows = extract_json_rows(r.json())
-    if not rows:
-        raise RuntimeError("JSON endpoint returned no parseable rows")
-    return rows
+    page_headers = dict(base_headers)
+    page_headers["accept"] = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+    page = session.get(hist_url, headers=page_headers, timeout=45)
+    if page.status_code != 200:
+        raise RuntimeError(f"page HTTP {page.status_code}")
 
-
-def fetch_period_ajax(start, end):
-    session, page_html = get_page_session()
-    sml_id = discover_sml_id(page_html)
-    headers = dict(BASE_HEADERS)
-    headers.update({
+    sml_id = discover_sml_id(page.text)
+    ajax_headers = dict(base_headers)
+    ajax_headers.update({
         "accept": "text/html, */*; q=0.01",
         "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
         "x-requested-with": "XMLHttpRequest",
-        "origin": "https://www.investing.com",
-        "referer": HISTORICAL_URL,
+        "origin": host,
     })
     payload = {
         "curr_id": PAIR_ID,
@@ -205,62 +140,65 @@ def fetch_period_ajax(start, end):
         "sort_ord": "DESC",
         "action": "historical_data",
     }
-    r = session.post(AJAX_URL, headers=headers, data=payload, timeout=35)
-    if r.status_code != 200:
-        raise RuntimeError(f"HistoricalDataAjax HTTP {r.status_code}: {r.text[:120]}")
-    rows = extract_html_rows(r.text)
+    resp = session.post(ajax_url, headers=ajax_headers, data=payload, timeout=60)
+    if resp.status_code != 200:
+        raise RuntimeError(f"ajax HTTP {resp.status_code}")
+    rows = extract_html_rows(resp.text)
     if not rows:
-        raise RuntimeError("HistoricalDataAjax returned no parseable table rows")
-    return rows
+        raise RuntimeError("ajax returned no parseable rows")
+    return rows, host
 
 
 def fetch_period(start, end):
     errors = []
-    for fn in (fetch_period_api, fetch_period_ajax):
+    for host in REGIONAL_HOSTS:
         try:
-            rows = fn(start, end)
-            print(f"{fn.__name__}: {len(rows)} rows for {start} -> {end}")
-            return rows
+            rows, used = fetch_period_from_host(host, start, end)
+            print(f"Investing.com {used}: {len(rows)} rows for {start} -> {end}")
+            return rows, used
         except Exception as exc:
-            errors.append(f"{fn.__name__}: {exc}")
+            errors.append(f"{host}: {exc}")
     raise RuntimeError(" | ".join(errors))
 
 
 def fetch_full_history():
-    # Start before the modern freely floating gold era; empty early chunks are harmless.
-    start = date(1970, 1, 1)
+    # UK Investing describes XAU/USD as having 40+ years of history. Start in 1970 so
+    # we capture the earliest rows it will return without inventing pre-source data.
+    cur = date(1970, 1, 1)
     end_all = date.today()
     rows = []
-    cur = start
+    used_hosts = set()
     while cur <= end_all:
         end = min(date(cur.year + 4, 12, 31), end_all)
         print(f"Fetching XAU/USD {cur} -> {end} ...")
         try:
-            rows.extend(fetch_period(cur, end))
+            chunk, host = fetch_period(cur, end)
+            rows.extend(chunk)
+            used_hosts.add(host)
         except Exception as exc:
             print(f"Chunk failed: {exc}", file=sys.stderr)
         cur = end + timedelta(days=1)
-    return rows
+    return rows, sorted(used_hosts)
 
 
 def fetch_page_quote():
-    try:
-        session, _ = get_page_session()
-        h = dict(BASE_HEADERS)
-        h["accept"] = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
-        r = session.get(SOURCE_URL, headers=h, timeout=30)
-        if r.status_code != 200:
-            return None
-        soup = BeautifulSoup(r.text, "html.parser")
-        for sel in ('[data-test="instrument-price-last"]', '[data-test="instrument-price-last"] span', '.instrument-price_last__KQzyA'):
-            node = soup.select_one(sel)
-            if node:
-                n = clean_number(node.get_text(" ", strip=True))
-                if n and n > 100:
-                    return n
-    except Exception as exc:
-        print(f"Live page quote unavailable: {exc}", file=sys.stderr)
-    return None
+    for host in REGIONAL_HOSTS:
+        try:
+            url = host + "/currencies/xau-usd"
+            h = {"user-agent": UA, "accept-language": "en-GB,en;q=0.9"}
+            resp = requests.get(url, headers=h, impersonate="chrome", timeout=35)
+            if resp.status_code != 200:
+                continue
+            soup = BeautifulSoup(resp.text, "html.parser")
+            for sel in ('[data-test="instrument-price-last"]', '[data-test="instrument-price-last"] span'):
+                node = soup.select_one(sel)
+                if node:
+                    n = clean_number(node.get_text(" ", strip=True))
+                    if n and n > 100:
+                        return n, host
+        except Exception as exc:
+            print(f"Live quote failed on {host}: {exc}", file=sys.stderr)
+    return None, None
 
 
 def load_existing():
@@ -279,12 +217,14 @@ def main():
 
     existing = load_existing()
     old_rows = existing.get("data", []) if isinstance(existing, dict) else []
+    used_hosts = set(existing.get("retrieval_hosts", [])) if isinstance(existing, dict) else set()
 
     if args.full or not old_rows:
-        fetched = fetch_full_history()
+        fetched, hosts = fetch_full_history()
+        used_hosts.update(hosts)
     else:
-        start = date.today() - timedelta(days=90)
-        fetched = fetch_period(start, date.today())
+        fetched, host = fetch_period(date.today() - timedelta(days=90), date.today())
+        used_hosts.add(host)
 
     by_date = {}
     for r in old_rows + fetched:
@@ -294,7 +234,9 @@ def main():
     if not merged:
         raise RuntimeError("No XAU/USD history available after merge")
 
-    live = fetch_page_quote()
+    live, live_host = fetch_page_quote()
+    if live_host:
+        used_hosts.add(live_host)
     latest_daily = merged[-1]
     now_bjt = datetime.now(TZ_BJT)
     payload = {
@@ -303,12 +245,13 @@ def main():
         "unit": "USD/oz",
         "instrument_id": PAIR_ID,
         "source": "Investing.com",
-        "source_url": SOURCE_URL,
-        "historical_source_url": HISTORICAL_URL,
+        "source_url": CANONICAL_URL,
+        "historical_source_url": CANONICAL_HISTORICAL_URL,
+        "retrieval_hosts": sorted(used_hosts),
         "frequency": "Daily history + public page quote check",
         "price_field": "XAU/USD spot price",
         "status": "LIVE" if live is not None else "DAILY_CLOSE",
-        "history_scope": "Maximum Investing.com XAU/USD daily history obtainable by the updater; no synthetic weekend/interpolated rows",
+        "history_scope": "Maximum Investing.com XAU/USD daily history obtainable from regional Investing.com endpoints; no synthetic weekend/interpolated rows",
         "latest_quote": {
             "price": round(live if live is not None else float(latest_daily["value"]), 2),
             "timestamp": now_bjt.isoformat(timespec="seconds"),
