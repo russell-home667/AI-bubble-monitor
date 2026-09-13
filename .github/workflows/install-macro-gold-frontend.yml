@@ -1,0 +1,33 @@
+name: Install Macro Gold Frontend
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/install_macro_gold_frontend.py'
+      - '.github/workflows/install-macro-gold-frontend.yml'
+permissions:
+  contents: write
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Install dual-axis Macro Commodity chart
+        run: python scripts/install_macro_gold_frontend.py
+      - name: Validate frontend
+        run: |
+          grep -q "Gold XAU/USD" index.html
+          grep -q "Gold USD/oz" index.html
+          grep -q "investingGold" assets/source-links.js
+          grep -q "gold_xauusd.json" index.html
+      - name: Commit frontend
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html assets/source-links.js
+          git commit -m 'feat: add XAU/USD gold to Macro Commodity chart'
+          git pull --rebase origin main
+          git push origin HEAD:main
