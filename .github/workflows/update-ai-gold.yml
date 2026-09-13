@@ -25,7 +25,9 @@ concurrency:
 
 jobs:
   update:
-    runs-on: ubuntu-latest
+    # Investing.com regional historical pages are reachable from GitHub's macOS network
+    # while some Azure Linux IP ranges are intermittently blocked by Cloudflare.
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
         with:
