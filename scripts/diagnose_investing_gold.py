@@ -1,4 +1,3 @@
-from datetime import date
 from bs4 import BeautifulSoup
 from curl_cffi import requests
 
@@ -14,8 +13,8 @@ h={
     'referer':hist,
     'origin':base,
 }
-payload={'curr_id':'68','smlID':'12345678','header':'XAU/USD Historical Data','st_date':'01/01/1970','end_date':date.today().strftime('%m/%d/%Y'),'interval_sec':'Daily','sort_col':'date','sort_ord':'DESC','action':'historical_data'}
-r=s.post(base+'/instruments/HistoricalDataAjax',headers=h,data=payload,timeout=120)
+payload={'curr_id':'68','smlID':'12345678','header':'XAU/USD Historical Data','st_date':'01/01/2000','end_date':'12/31/2000','interval_sec':'Daily','sort_col':'date','sort_ord':'DESC','action':'historical_data'}
+r=s.post(base+'/instruments/HistoricalDataAjax',headers=h,data=payload,timeout=60)
 print('STATUS',r.status_code,'LEN',len(r.text))
 soup=BeautifulSoup(r.text,'html.parser')
 rows=[]
