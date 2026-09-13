@@ -142,7 +142,7 @@ window.addEventListener('load',loadBrentStandalone);
     <div class="grid4" id="marketCards"></div>
     <div class="split2" style="margin-top:12px">
       <div class="card chart-card"><div class="chart-head"><div><div class="chart-title">Market Trend · normalized</div><div class="chart-sub">NDX / SOX / NVDA，区间起点=100</div></div><div class="range" data-chart="marketChart"><button data-range="1Y">1Y</button><button class="active" data-range="3Y">3Y</button><button data-range="5Y">5Y</button><button data-range="ALL">All</button></div></div><div id="marketChart" class="chart"></div></div>
-      <div class="card chart-card"><div class="chart-head"><div><div class="chart-title">Rates, Credit & Liquidity</div><div class="chart-sub">10Y & 30Y Treasury / 10Y Real Yield / HY OAS / VIX</div></div><div class="range" data-chart="liquidityChart"><button data-range="1Y">1Y</button><button class="active" data-range="3Y">3Y</button><button data-range="5Y">5Y</button><button data-range="ALL">All</button></div></div><div id="liquidityChart" class="chart"></div></div>
+      <div class="card chart-card"><div class="chart-head"><div><div class="chart-title">Rates, Credit & Liquidity</div><div class="chart-sub">10Y & 30Y Treasury / 10Y Real Yield / HY OAS / VIX / NFCI long-history proxy</div></div><div class="range" data-chart="liquidityChart"><button data-range="1Y">1Y</button><button class="active" data-range="3Y">3Y</button><button data-range="5Y">5Y</button><button data-range="ALL">All</button></div></div><div id="liquidityChart" class="chart"></div></div>
     </div>
   </section>
 
@@ -222,5 +222,51 @@ async function load(){try{const [top,derived,market,hyper,compute,gpu,ndx,sox,nv
 bindRanges();load();window.addEventListener('resize',()=>Object.values(state.charts).forEach(c=>c.resize()));
 </script>
   <script src="assets/chart-time-slider.js"></script>  <script src="assets/source-links.js"></script>
+
+<script>
+// LONG_HISTORY_LIQUIDITY_OVERLAY
+// Adds a 1990+ public-data view without changing the live scoring methodology.
+(function(){
+  renderLiquidityChart=function(){
+    const range=state.ranges.liquidityChart;
+    const real=cutoffRows(state.raw.dfii10||[],'date',range);
+    const t10=cutoffRows(state.raw.dgs10||[],'date',range);
+    const t30=cutoffRows(state.raw.dgs30||[],'date',range);
+    const hy=cutoffRows(state.raw.hy||[],'date',range);
+    const vix=cutoffRows(state.raw.vix||[],'date',range);
+    const nfci=cutoffRows(state.raw.nfci||[],'date',range);
+    const dates=[...new Set([...real,...t10,...t30,...hy,...vix,...nfci].map(x=>x.date).filter(Boolean))].sort();
+    const rm=new Map(real.map(x=>[x.date,x.value]));
+    const t10m=new Map(t10.map(x=>[x.date,x.value]));
+    const t30m=new Map(t30.map(x=>[x.date,x.value]));
+    const hm=new Map(hy.map(x=>[x.date,x.value]));
+    const vm=new Map(vix.map(x=>[x.date,x.close]));
+    const nm=new Map(nfci.map(x=>[x.date,x.value]));
+    initChart('liquidityChart').setOption({
+      ...chartBase,
+      grid:{...chartBase.grid,right:54},
+      xAxis:{...chartBase.xAxis,data:dates},
+      yAxis:[
+        {...chartBase.yAxis,name:'Yield / spread / NFCI'},
+        {...chartBase.yAxis,name:'VIX',position:'right'}
+      ],
+      series:[
+        {name:'US 10Y Treasury',type:'line',showSymbol:false,data:dates.map(d=>t10m.get(d)??null),connectNulls:false},
+        {name:'US 30Y Treasury',type:'line',showSymbol:false,data:dates.map(d=>t30m.get(d)??null),connectNulls:false},
+        {name:'10Y Real Yield',type:'line',showSymbol:false,data:dates.map(d=>rm.get(d)??null),connectNulls:false},
+        {name:'HY OAS',type:'line',showSymbol:false,data:dates.map(d=>hm.get(d)??null),connectNulls:false},
+        {name:'NFCI',type:'line',showSymbol:false,data:dates.map(d=>nm.get(d)??null),connectNulls:false,lineStyle:{type:'dashed',width:1.6}},
+        {name:'VIX',type:'line',showSymbol:false,yAxisIndex:1,data:dates.map(d=>vm.get(d)??null),connectNulls:false}
+      ]
+    },true);
+  };
+
+  fetchCSV(BASE+'market_liquidity/nfci.csv').then(rows=>{
+    state.raw.nfci=rows;
+    renderLiquidityChart();
+  }).catch(err=>console.warn('NFCI long-history load failed',err));
+})();
+</script>
+
 </body>
 </html>
