@@ -7,15 +7,11 @@ on:
       - '.github/workflows/diagnose-investing-gold.yml'
 jobs:
   diagnose:
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: pip install --disable-pip-version-check curl-cffi
+      - run: pip install --disable-pip-version-check curl-cffi beautifulsoup4
       - run: python scripts/diagnose_investing_gold.py
