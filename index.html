@@ -43,6 +43,7 @@ window.addEventListener('load',loadBrentStandalone);
     .brent-quote-row{padding:16px 22px 3px;display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}.brent-price-line{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}.brent-value{font-size:46px;line-height:1;font-weight:700;letter-spacing:.4px;color:#f0f8ff}.brent-unit{color:#7895aa;font-size:13px;font-weight:600}.brent-change{margin-top:8px;font-size:14px;font-weight:600}.brent-meta{display:grid;grid-template-columns:auto auto;column-gap:10px;row-gap:4px;font-size:11px;line-height:1.45;text-align:right}.brent-meta-label{color:#57758b}.brent-meta-value{color:#8ba7b9}.brent-divider{height:1px;margin:12px 22px 0;background:linear-gradient(90deg,transparent,rgba(94,158,197,.18),transparent)}#brentChart{height:350px}
     @media(max-width:760px){.brent-head{flex-direction:column;padding-left:16px;padding-right:16px}.brent-range{justify-content:flex-start}.brent-quote-row{align-items:flex-start;padding-left:16px;padding-right:16px}.brent-value{font-size:39px}.brent-meta{text-align:left;grid-template-columns:auto 1fr;width:100%}.brent-divider{margin-left:16px;margin-right:16px}}
   </style>
+  <link rel="stylesheet" href="assets/source-links.css">
 </head>
 <body>
 <div class="wrap loading" id="app">
@@ -158,5 +159,6 @@ async function load(){try{const [top,derived,market,hyper,compute,gpu,ndx,sox,nv
  state.raw={ndx,sox,nvda,vix,dfii10,dgs10,dgs30,hy,h5,tsmc,gpu:gpud,scoreHistory};renderTop(top);renderGaps(derived);renderMarketCards(market);renderHyper(hyper);renderCompute(derived,compute);renderGpu(gpu);renderMarketChart();renderLiquidityChart();renderCapexChart();renderCloudChart(derived);renderTsmcChart();renderGpuChart();renderScoreHistory();document.getElementById('app').classList.remove('loading')}catch(e){console.error(e);const b=document.getElementById('errorBox');b.style.display='block';b.textContent='部分数据加载失败：'+e.message+'。请稍后刷新页面。';document.getElementById('app').classList.remove('loading')}}
 bindRanges();load();window.addEventListener('resize',()=>Object.values(state.charts).forEach(c=>c.resize()));
 </script>
+  <script src="assets/source-links.js"></script>
 </body>
 </html>
