@@ -21,13 +21,13 @@ permissions:
 
 concurrency:
   group: ai-gold-xauusd
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   update:
-    # Investing.com regional historical pages are reachable from GitHub's macOS network
-    # while some Azure Linux IP ranges are intermittently blocked by Cloudflare.
-    runs-on: macos-latest
+    # Direct HistoricalDataAjax requests work from GitHub-hosted Linux runners;
+    # no repeated full-page priming is used, which avoids the earlier Cloudflare issue.
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
