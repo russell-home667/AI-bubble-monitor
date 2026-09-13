@@ -70,7 +70,6 @@ if old_arrays not in s:
     raise SystemExit('Old source arrays not found')
 s = s.replace(old_arrays, new_arrays, 1)
 
-# Put precise upstream-input rules before the generic methodology rule.
 anchor = "    // Derived / model outputs: link to the monitor's methodology and calibration page.\n"
 precise = """    // Derived outputs with compact, auditable upstream lineages.
     if (contains(t,['investment–monetization gap','investment-monetization gap'])) return many([...H4_HISTORY,...CLOUD]);
@@ -90,35 +89,23 @@ precise = """    // Derived outputs with compact, auditable upstream lineages.
 if precise not in s:
     s = s.replace(anchor, precise + anchor, 1)
 
-# Brent: displayed price is 1m query1 API, chart history is daily yfinance/query2 API.
 s = s.replace("if (t.includes('brent crude') || t === 'bz=f' || t.includes('brent bz=f')) return one(S.yahooBrent);",
               "if (t.includes('brent crude')) return many([S.yahooBrent1m,S.yahooBrentDaily]);\n    if (t === 'bz=f' || t.includes('brent bz=f')) return one(S.yahooBrent1m);", 1)
-
-# Exact cloud source URLs from official_quarterly.csv.
 s = s.replace("if (t.includes('azure')) return one(S.microsoft);", "if (t.includes('azure')) return one(S.cloudMSFT);", 1)
 s = s.replace("if (t.includes('aws')) return one(S.amazon);", "if (t.includes('aws')) return one(S.cloudAMZN);", 1)
 s = s.replace("if (t.includes('google cloud')) return one(S.alphabet);", "if (t.includes('google cloud')) return one(S.cloudGOOGL);", 1)
 s = s.replace("if (t.includes('oci') || t.includes('oracle cloud infrastructure')) return one(S.oracle);", "if (t.includes('oci') || t.includes('oracle cloud infrastructure')) return one(S.cloudORCL);", 1)
-
-# Exact current NVIDIA / TSMC source_url values.
 s = s.replace("return one(S.nvidiaIR);", "return one(S.nvidiaCurrent);", 1)
 s = s.replace("if (t.includes('tsmc')) return one(S.tsmc);", "if (t.includes('tsmc')) return one(S.tsmcCurrent);", 1)
-
-# GPU is currently Runpod fallback; do not show Vast as if it were currently used.
 s = s.replace("if (t.includes('gpu rental') || t.includes('gpu price')) return many([S.runpod,S.vast]);", "if (t.includes('gpu rental') || t.includes('gpu price')) return one(S.runpod);", 1)
-
-# Company-specific H5 inputs currently come from Yahoo fundamentals except AMZN Q2 override.
 s = s.replace("if (t.includes('microsoft')) return one(S.microsoft);", "if (t.includes('microsoft')) return one(S.yfMSFT);", 1)
 s = s.replace("if (t.includes('alphabet')) return one(S.alphabet);", "if (t.includes('alphabet')) return one(S.yfGOOGL);", 1)
 s = s.replace("if (t.includes('amazon')) return one(S.amazon);", "if (t.includes('amazon')) return one(S.amznQ226SEC);", 1)
 s = s.replace("if (t.includes('meta')) return one(S.meta);", "if (t.includes('meta')) return one(S.yfMETA);", 1)
 s = s.replace("if (t.includes('oracle')) return one(S.oracle);", "if (t.includes('oracle')) return one(S.yfORCL);", 1)
-
-# H5 latest vs historical chart lineage.
 s = s.replace("if (contains(t,['h5 ','h5 cash','h5 standardized','capex / revenue','capex/revenue','d&a / revenue','d&a/revenue','free cash flow','cash capex vs','hyperscaler investment'])) return many(H5);",
               "if (contains(t,['h5 cash capex vs','free cash flow'])) return many(H5_HISTORY);\n    if (contains(t,['h5 ','h5 cash','h5 standardized','capex / revenue','capex/revenue','d&a / revenue','d&a/revenue','hyperscaler investment'])) return many(H5_LATEST);", 1)
 
-# Component rows should use the same source-lineage rules instead of blindly linking methodology.
 old_component = """  function decorateComponentRows(){
     document.querySelectorAll('#bubbleTable td:first-child,#breakdownTable td:first-child').forEach(el=>{
       if(el.dataset.sourceLinked==='1') return;
@@ -135,10 +122,14 @@ if old_component not in s:
     raise SystemExit('Component decorator anchor not found')
 s = s.replace(old_component, new_component, 1)
 
-# Validate that no old generic source keys remain in executable rules/arrays.
-for bad in ['S.microsoft','S.alphabet','S.amazon','S.meta','S.oracle','S.nvidiaIR','S.tsmc','S.vast','S.yahooBrent)']:
-    if bad in s:
-        raise SystemExit(f'Old generic source mapping remains: {bad}')
+# Validate exact obsolete identifiers, avoiding substring false positives such as S.tsmcCurrent.
+obsolete_patterns = [
+    r'\bS\.microsoft\b', r'\bS\.alphabet\b', r'\bS\.amazon\b', r'\bS\.meta\b', r'\bS\.oracle\b',
+    r'\bS\.nvidiaIR\b', r'\bS\.tsmc\b', r'\bS\.vast\b', r'\bS\.yahooBrent\b'
+]
+for pattern in obsolete_patterns:
+    if re.search(pattern, s):
+        raise SystemExit(f'Old generic source mapping remains: {pattern}')
 
 p.write_text(s, encoding='utf-8')
 print('Audited source links patched successfully.')
