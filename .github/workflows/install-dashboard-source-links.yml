@@ -1,0 +1,71 @@
+name: Install Dashboard Source Links
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/install-dashboard-source-links.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Inject source-link assets
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          css = '  <link rel="stylesheet" href="assets/source-links.css">\n'
+          js = '  <script src="assets/source-links.js"></script>\n'
+
+          for name in ('index.html', 'backtest.html'):
+              p = Path(name)
+              s = p.read_text(encoding='utf-8')
+              changed = False
+              if 'assets/source-links.css' not in s:
+                  if '</head>' not in s:
+                      raise SystemExit(f'{name}: missing </head>')
+                  s = s.replace('</head>', css + '</head>', 1)
+                  changed = True
+              if 'assets/source-links.js' not in s:
+                  if '</body>' not in s:
+                      raise SystemExit(f'{name}: missing </body>')
+                  s = s.replace('</body>', js + '</body>', 1)
+                  changed = True
+              if changed:
+                  p.write_text(s, encoding='utf-8')
+                  print(f'updated {name}')
+              else:
+                  print(f'{name} already linked')
+          PY
+
+      - name: Validate
+        run: |
+          test -f assets/source-links.css
+          test -f assets/source-links.js
+          grep -q 'assets/source-links.css' index.html
+          grep -q 'assets/source-links.js' index.html
+          grep -q 'assets/source-links.css' backtest.html
+          grep -q 'assets/source-links.js' backtest.html
+
+      - name: Commit
+        run: |
+          if git diff --quiet -- index.html backtest.html; then
+            echo 'No HTML changes required.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html backtest.html
+          git commit -m 'ui: add source links across dashboard'
+          git pull --rebase origin main
+          git push origin HEAD:main
