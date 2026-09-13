@@ -159,6 +159,6 @@ async function load(){try{const [top,derived,market,hyper,compute,gpu,ndx,sox,nv
  state.raw={ndx,sox,nvda,vix,dfii10,dgs10,dgs30,hy,h5,tsmc,gpu:gpud,scoreHistory};renderTop(top);renderGaps(derived);renderMarketCards(market);renderHyper(hyper);renderCompute(derived,compute);renderGpu(gpu);renderMarketChart();renderLiquidityChart();renderCapexChart();renderCloudChart(derived);renderTsmcChart();renderGpuChart();renderScoreHistory();document.getElementById('app').classList.remove('loading')}catch(e){console.error(e);const b=document.getElementById('errorBox');b.style.display='block';b.textContent='部分数据加载失败：'+e.message+'。请稍后刷新页面。';document.getElementById('app').classList.remove('loading')}}
 bindRanges();load();window.addEventListener('resize',()=>Object.values(state.charts).forEach(c=>c.resize()));
 </script>
-  <script src="assets/source-links.js"></script>
+  <script src="assets/chart-time-slider.js"></script>  <script src="assets/source-links.js"></script>
 </body>
 </html>
