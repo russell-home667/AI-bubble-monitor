@@ -135,11 +135,6 @@ def patch_frontend() -> None:
         "10Y & 30Y Treasury / 10Y Real Yield / HY OAS / VIX / NFCI long-history proxy",
     )
 
-    marker = "LONG_HISTORY_LIQUIDITY_OVERLAY"
-    if marker in text:
-        path.write_text(text, encoding="utf-8")
-        return
-
     overlay = r'''
 <script>
 // LONG_HISTORY_LIQUIDITY_OVERLAY
@@ -162,11 +157,25 @@ def patch_frontend() -> None:
     const nm=new Map(nfci.map(x=>[x.date,x.value]));
     initChart('liquidityChart').setOption({
       ...chartBase,
-      grid:{...chartBase.grid,right:54},
+      grid:{...chartBase.grid,top:92,right:64},
+      legend:{
+        ...chartBase.legend,
+        type:'scroll',
+        top:34,
+        left:88,
+        right:72,
+        itemGap:14,
+        itemWidth:18,
+        itemHeight:10,
+        pageButtonGap:8,
+        pageIconSize:10,
+        pageTextStyle:{color:'#8ea2bc'},
+        textStyle:{color:'#8ea2bc',fontSize:12}
+      },
       xAxis:{...chartBase.xAxis,data:dates},
       yAxis:[
-        {...chartBase.yAxis,name:'Yield / spread / NFCI'},
-        {...chartBase.yAxis,name:'VIX',position:'right'}
+        {...chartBase.yAxis,name:'Yield / spread / NFCI',nameGap:16},
+        {...chartBase.yAxis,name:'VIX',position:'right',nameGap:16}
       ],
       series:[
         {name:'US 10Y Treasury',type:'line',showSymbol:false,data:dates.map(d=>t10m.get(d)??null),connectNulls:false},
@@ -186,11 +195,23 @@ def patch_frontend() -> None:
 })();
 </script>
 '''
-    if "</body>" not in text:
-        raise RuntimeError("index.html has no </body> tag")
-    text = text.replace("</body>", overlay + "\n</body>")
+
+    marker = "// LONG_HISTORY_LIQUIDITY_OVERLAY"
+    if marker in text:
+        start = text.rfind("<script>", 0, text.index(marker))
+        end = text.find("</script>", text.index(marker))
+        if start == -1 or end == -1:
+            raise RuntimeError("Could not locate existing liquidity overlay script boundaries")
+        end += len("</script>")
+        text = text[:start] + overlay.strip() + text[end:]
+        print("Updated existing NFCI long-history overlay and legend layout")
+    else:
+        if "</body>" not in text:
+            raise RuntimeError("index.html has no </body> tag")
+        text = text.replace("</body>", overlay + "\n</body>")
+        print("Patched index.html with NFCI long-history overlay")
+
     path.write_text(text, encoding="utf-8")
-    print("Patched index.html with NFCI long-history overlay")
 
 
 def main() -> None:
