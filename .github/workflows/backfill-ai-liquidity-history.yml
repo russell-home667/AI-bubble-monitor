@@ -1,0 +1,68 @@
+name: Backfill AI Liquidity History
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/backfill_ai_liquidity_history.py'
+      - '.github/workflows/backfill-ai-liquidity-history.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ai-liquidity-history-backfill
+  cancel-in-progress: false
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: pip install 'pandas>=2.2' 'requests>=2.32'
+      - name: Backfill long-history liquidity data and patch chart
+        run: python scripts/backfill_ai_liquidity_history.py
+      - name: Validate coverage
+        run: |
+          python - <<'PY'
+          import pandas as pd
+          from pathlib import Path
+          base=Path('data/ai_bubble/market_liquidity')
+          checks={
+              'dgs10.csv':'1990-01-02',
+              'dgs30.csv':'1990-01-02',
+              'vix.csv':'1990-01-02',
+              'nfci.csv':'1990-01-05',
+          }
+          for fn,target in checks.items():
+              p=base/fn
+              if not p.exists(): raise SystemExit(f'{fn} missing')
+              df=pd.read_csv(p)
+              first=str(df['date'].dropna().min())
+              last=str(df['date'].dropna().max())
+              print(fn, first, '->', last, 'rows', len(df))
+              if first > target:
+                  raise SystemExit(f'{fn} starts too late: {first}')
+          print('Long-history coverage validation passed')
+          PY
+      - name: Commit backfilled history
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/ai_bubble/market_liquidity/ index.html
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'data: backfill liquidity history to 1990'
+          git pull --rebase origin main
+          git push origin HEAD:main
