@@ -42,7 +42,7 @@
     cloudORCL: {label:'Oracle IR · FY26 Q4 results', url:'https://investor.oracle.com/investor-news/news-details/2026/Oracle-Announces-Record-Q4-and-FY-2026-Results-Driven-by-Cloud-Infrastructure--Cloud-Applications/default.aspx'},
 
     // Latest NVIDIA row is an official-source override; TSMC is fetched from its IR monthly-revenue pages.
-    nvidiaCurrent: {label:'NVIDIA IR · Q2 FY27 10-Q', url:'https://investor.nvidia.com/files/doc_financials/2027/NVDA-2027-Q2-10Q-Final-including-exhibits.pdf'},
+    nvidiaCurrent: {label:'NVIDIA IR · Financial Reports', url:'https://investor.nvidia.com/financial-info/financial-reports/default.aspx'},
     tsmcCurrent: {label:'TSMC IR · 2026 Monthly Revenue', url:'https://investor.tsmc.com/english/monthly-revenue/2026'},
     tsmcLanding: {label:'TSMC IR · Monthly Revenue', url:'https://investor.tsmc.com/english/monthly-revenue'},
 
