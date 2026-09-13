@@ -1,0 +1,45 @@
+name: Fix Brent dashboard render
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/fix-brent-render.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Patch malformed ECharts script tag
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+          old = '<script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js">\n// BRENT_STANDALONE_JS'
+          new = '<script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>\n  <script>\n// BRENT_STANDALONE_JS'
+          if old not in s:
+              raise SystemExit('Expected malformed Brent/ECharts script block not found')
+          s = s.replace(old, new, 1)
+          p.write_text(s, encoding='utf-8')
+          print('Patched Brent script into standalone executable block')
+          PY
+      - name: Validate HTML structure
+        run: |
+          grep -q '<script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>' index.html
+          grep -q '// BRENT_STANDALONE_JS' index.html
+      - name: Commit fix
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html
+          git commit -m 'fix: render Brent dashboard data'
+          git pull --rebase origin main
+          git push origin HEAD:main
