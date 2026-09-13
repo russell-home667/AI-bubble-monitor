@@ -46,7 +46,7 @@
 
     // Derived / model outputs: link to the monitor's methodology and calibration page.
     if (contains(t,[
-      'ai bubble score','ai breakdown score','current regime',
+      'ai bubble score','ai breakdown score','bubble score','breakdown score','current regime',
       'investment–monetization gap','investment-monetization gap',
       'investment–cash flow gap','investment-cash flow gap',
       'price–fundamental gap','price-fundamental gap',
@@ -68,7 +68,7 @@
     if (t.includes('qqq / rsp') || t.includes('qqq/rsp') || t.includes('concentration ratio')) return many([S.yahooQQQ,S.yahooRSP]);
     if ((t === 'nvidia' || t === 'nvda' || t.includes('nvidia price')) && !contains(t,['dc revenue','data center','demand quality','gross margin','inventory','dso'])) return one(S.yahooNVDA);
     if (t === 'vix' || t.includes('cboe vix')) return one(S.cboeVIX);
-    if (t.includes('market prices') || t.includes('market price trend')) return many(MARKET);
+    if (t.includes('market prices') || t.includes('market price trend') || t.includes('market trend')) return many(MARKET);
 
     // Rates / credit.
     if (t.includes('30y treasury') || t.includes('30-year treasury') || t.includes('dgs30')) return one(S.fred30);
