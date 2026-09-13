@@ -1,0 +1,17 @@
+name: Diagnose Investing Gold Proxy
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/diagnose_investing_gold.py'
+      - '.github/workflows/diagnose-investing-gold.yml'
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install --disable-pip-version-check curl-cffi
+      - run: python scripts/diagnose_investing_gold.py
