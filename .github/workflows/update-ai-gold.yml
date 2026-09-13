@@ -7,8 +7,13 @@ on:
         description: 'Force full XAU/USD history backfill'
         required: false
         default: 'false'
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/update_ai_gold.py'
+      - '.github/workflows/update-ai-gold.yml'
   schedule:
-    # Every 30 minutes, Monday-Saturday in Beijing time. Investing.com may publish around the clock.
+    # Every 30 minutes, Monday-Saturday. Display timestamps remain Beijing time.
     - cron: '*/30 * * * 1-6'
 
 permissions:
