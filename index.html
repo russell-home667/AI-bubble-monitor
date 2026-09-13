@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#08111f" />
   <title>AI Bubble Monitor</title>
-  <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js">
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+  <script>
 // BRENT_STANDALONE_JS
 let brentPayload=null, brentRange='1Y', brentChart=null;
 function brentCutoff(rows,range){if(range==='ALL')return rows;const months={"1M":1,"3M":3,"6M":6,"1Y":12}[range]||12;const end=new Date(rows[rows.length-1].date+'T00:00:00');const start=new Date(end);start.setMonth(start.getMonth()-months);return rows.filter(x=>new Date(x.date+'T00:00:00')>=start)}
