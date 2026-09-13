@@ -1,0 +1,39 @@
+/* Source links for AI Bubble Monitor data cards. Keep links visually subtle until hover. */
+.source-link{
+  color:inherit;
+  text-decoration:none;
+  border-bottom:1px dotted rgba(111,177,222,.38);
+  cursor:pointer;
+  transition:color .15s ease,border-color .15s ease,opacity .15s ease;
+}
+.source-link:hover,.source-link:focus-visible{
+  color:#83d2ff;
+  border-bottom-color:#83d2ff;
+  outline:none;
+}
+.source-arrow{
+  display:inline-block;
+  margin-left:3px;
+  font-size:.72em;
+  font-weight:500;
+  opacity:.55;
+  vertical-align:.08em;
+}
+.source-link:hover .source-arrow,.source-link:focus-visible .source-arrow{opacity:.9}
+.source-row{
+  display:block;
+  margin-top:5px;
+  font-size:9.5px;
+  line-height:1.5;
+  font-weight:500;
+  letter-spacing:0;
+  text-transform:none;
+  color:#607994;
+  white-space:normal;
+}
+.source-prefix{color:#536b84;margin-right:3px}
+.source-row .source-link{color:#7898b2;border-bottom-color:rgba(120,152,178,.28)}
+.source-row .source-link:hover,.source-row .source-link:focus-visible{color:#83d2ff;border-bottom-color:#83d2ff}
+.brent-title .source-link,.brent-ticker.source-link{border-bottom-color:rgba(102,200,255,.38)}
+.score-title .source-link,.regime-kicker .source-link{border-bottom-color:rgba(142,162,188,.26)}
+.metric-name .source-row,.chart-title .source-row,.name .source-row,.title .source-row{margin-top:4px}
