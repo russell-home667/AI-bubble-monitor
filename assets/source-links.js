@@ -76,7 +76,8 @@
     if (contains(t,['investment–cash flow gap','investment-cash flow gap'])) return many(H5_HISTORY);
     if (contains(t,['price–fundamental gap','price-fundamental gap'])) return many([...MARKET_HEAT,S.nvidiaCurrent,S.tsmcCurrent]);
     if (t.includes('liquidity stress')) return many(LIQUIDITY);
-    if (t.includes('compute demand score')) return many([S.nvidiaCurrent,S.tsmcCurrent,S.runpod]);
+    // Current score excludes GPU until 30D same-source history exists (coverage is 70%).
+    if (t.includes('compute demand score')) return many([S.nvidiaCurrent,S.tsmcCurrent]);
     if (t.includes('nvidia demand quality')) return one(S.nvidiaCurrent);
     if (t.includes('market heat')) return many(MARKET_HEAT);
     if (t.includes('fundamental heat')) return many([S.nvidiaCurrent,S.tsmcCurrent]);
