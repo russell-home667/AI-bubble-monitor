@@ -7,6 +7,9 @@ on:
     paths:
       - 'scripts/backfill_ai_liquidity_history.py'
       - '.github/workflows/backfill-ai-liquidity-history.yml'
+  schedule:
+    - cron: '30 22 * * 3'
+      timezone: 'Asia/Shanghai'
 
 permissions:
   contents: write
