@@ -29,7 +29,7 @@ permissions:
 
 concurrency:
   group: ai-bubble-news-radar
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   update:
