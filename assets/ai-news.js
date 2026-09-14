@@ -166,7 +166,7 @@
 
       const meta = document.getElementById('aiNewsMeta');
       if (meta) {
-        const mode = data.scan_mode === 'deep' ? '08:00 deep scan' : 'intraday incremental';
+        const mode = data.scan_mode === 'deep' ? '09:00 deep scan' : 'intraday incremental';
         meta.textContent = `DeepSeek V4.1 Flash · ${mode} · ${fmtTime(data.generated_at_sgt)} · trusted news / official sources`;
       }
     } catch (err) {
