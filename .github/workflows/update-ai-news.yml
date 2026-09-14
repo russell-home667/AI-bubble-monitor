@@ -13,11 +13,11 @@ on:
           - deep
           - incremental
   schedule:
-    - cron: '0 9 * * *'
+    - cron: '50 8 * * *'
       timezone: 'Asia/Singapore'
     - cron: '0 13 * * *'
       timezone: 'Asia/Singapore'
-    - cron: '1 17 * * *'
+    - cron: '1 18 * * *'
       timezone: 'Asia/Singapore'
     - cron: '30 20 * * *'
       timezone: 'Asia/Singapore'
@@ -58,7 +58,7 @@ jobs:
           MODE="${REQUESTED_MODE:-auto}"
           if [ "$MODE" = "auto" ]; then
             HOUR="$(TZ=Asia/Singapore date +%H)"
-            if [ "$HOUR" = "09" ]; then
+            if [ "$HOUR" = "08" ]; then
               MODE="deep"
             else
               MODE="incremental"
