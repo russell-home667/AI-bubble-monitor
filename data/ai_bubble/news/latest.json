@@ -1,0 +1,35 @@
+{
+  "generated_at_sgt": "2026-09-14T14:51:14+08:00",
+  "timezone": "Asia/Singapore",
+  "model": "deepseek-flash",
+  "model_display": "DeepSeek V4.1 Flash",
+  "scan_mode": "pending_first_run",
+  "acquisition": "pending",
+  "display_window_days": 7,
+  "homepage_limits": {
+    "critical": 10,
+    "feed": 10
+  },
+  "policy": {
+    "important_threshold": 60,
+    "critical_rule": "importance>=85 OR (importance>=75 AND abs(bubble_risk_score)>=60)",
+    "trusted_sources_only": true,
+    "sort": "importance_score desc, then published_at desc"
+  },
+  "categories": [
+    "AI Revenue / Monetization",
+    "AI CAPEX",
+    "AI Valuation / Funding",
+    "Semiconductor / GPU Demand",
+    "Data Center / Power",
+    "AI Credit / Debt",
+    "Layoffs / Project Cancellation",
+    "Macro / Regulation"
+  ],
+  "stats": {
+    "stored_stories": 0,
+    "important_7d": 0,
+    "critical_7d": 0
+  },
+  "stories": []
+}
