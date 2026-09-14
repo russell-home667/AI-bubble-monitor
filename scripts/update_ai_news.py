@@ -10,10 +10,11 @@ OUT=Path('data/ai_bubble/news/latest.json'); OUT.parent.mkdir(parents=True,exist
 MODEL='deepseek-flash'; API='https://api.deepseek.com/responses'
 CATS=['AI Revenue / Monetization','AI CAPEX','AI Valuation / Funding','Semiconductor / GPU Demand','Data Center / Power','AI Credit / Debt','Layoffs / Project Cancellation','Macro / Regulation']
 TRUST={
-'reuters.com':'Reuters','bloomberg.com':'Bloomberg','ft.com':'Financial Times','wsj.com':'Wall Street Journal','cnbc.com':'CNBC','apnews.com':'Associated Press','theinformation.com':'The Information','techcrunch.com':'TechCrunch','semafor.com':'Semafor','fortune.com':'Fortune','barrons.com':"Barron's",'economist.com':'The Economist','nytimes.com':'New York Times',
+'reuters.com':'Reuters','bloomberg.com':'Bloomberg','ft.com':'Financial Times','wsj.com':'Wall Street Journal','cnbc.com':'CNBC','apnews.com':'Associated Press','theinformation.com':'The Information','techcrunch.com':'TechCrunch','semafor.com':'Semafor','fortune.com':'Fortune','barrons.com':"Barron\'s",'economist.com':'The Economist','nytimes.com':'New York Times',
 'openai.com':'OpenAI','anthropic.com':'Anthropic','x.ai':'xAI','microsoft.com':'Microsoft','abc.xyz':'Alphabet','blog.google':'Google','google.com':'Google','aboutamazon.com':'Amazon','amazon.com':'Amazon','meta.com':'Meta','about.fb.com':'Meta','oracle.com':'Oracle','nvidia.com':'NVIDIA','amd.com':'AMD','broadcom.com':'Broadcom','tsmc.com':'TSMC','coreweave.com':'CoreWeave','sec.gov':'U.S. SEC','federalreserve.gov':'Federal Reserve','commerce.gov':'U.S. Commerce Department','energy.gov':'U.S. Department of Energy','whitehouse.gov':'White House','congress.gov':'U.S. Congress','europa.eu':'European Union','ec.europa.eu':'European Commission','gov.uk':'UK Government'}
 
 SCHEMA={'type':'object','additionalProperties':False,'properties':{'stories':{'type':'array','items':{'type':'object','additionalProperties':False,'properties':{'headline':{'type':'string'},'summary_zh':{'type':'string'},'category':{'type':'string','enum':CATS},'importance_score':{'type':'integer','minimum':0,'maximum':100},'bubble_direction':{'type':'string','enum':['risk_up','risk_down','neutral']},'bubble_risk_score':{'type':'integer','minimum':-100,'maximum':100},'reason_zh':{'type':'string'},'companies':{'type':'array','items':{'type':'string'}},'published_at':{'type':'string'},'sources':{'type':'array','items':{'type':'object','additionalProperties':False,'properties':{'name':{'type':'string'},'url':{'type':'string'}},'required':['name','url']}}},'required':['headline','summary_zh','category','importance_score','bubble_direction','bubble_risk_score','reason_zh','companies','published_at','sources']}}},'required':['stories']}
+HEADERS=lambda key:{'Authorization':'Bearer '+key,'Content-Type':'application/json'}
 
 def hostinfo(url):
  try:h=(urlparse(url).hostname or '').lower().removeprefix('www.')
@@ -36,25 +37,40 @@ def sim(a,b):
  x=set(norm(a).split());y=set(norm(b).split());return len(x&y)/len(x|y) if x and y else 0
 def sid(t,d):return hashlib.sha1((norm(t)+'|'+str(d)[:10]).encode()).hexdigest()[:14]
 def output_text(r):
- if isinstance(r.get('output_text'),str):return r['output_text']
+ if isinstance(r.get('output_text'),str) and r.get('output_text').strip():return r['output_text']
  parts=[]
  for o in r.get('output',[]) or []:
   for c in o.get('content',[]) or []:
    if c.get('type') in ('output_text','text') and c.get('text'):parts.append(c['text'])
- return '\n'.join(parts)
+ return '\n'.join(parts).strip()
 
-def call_search(key,mode,focus):
+def post(key,body):
+ r=requests.post(API,headers=HEADERS(key),json=body,timeout=210);r.raise_for_status();return r.json()
+
+def search_research(key,mode,focus):
  deep=mode=='deep'; since=(NOW-timedelta(days=7) if deep else NOW-timedelta(hours=8)).isoformat(timespec='minutes')
- instr='''You are the news analyst for an AI-bubble risk dashboard. You MUST use web_search and ground every event in search results. Only use reliable established news organizations or official company/regulator/government websites. Never invent URLs, dates, facts, companies or amounts. Merge multiple reports of the same underlying event. Classify every event into exactly one allowed category. importance_score is 0-100 for significance to AI bubble formation/unwind. bubble_risk_score is -100..100: positive means higher bubble/unwind risk; negative means stronger fundamental support/lower bubble risk. summary_zh and reason_zh must be concise Chinese. If evidence is weak, omit the event.'''
- prompt=f'''Search the web for AI-bubble-relevant events published since {since} Singapore time.\nFocus: {focus}\nAllowed categories: {', '.join(CATS)}.\nPrioritize Reuters, Bloomberg, Financial Times, WSJ, CNBC, AP and primary official sources. Use TechCrunch/The Information/Semafor/Fortune only when useful.\nReturn only events with importance_score >= 50. Each source URL must be an exact page you found through web search.'''
- body={'model':MODEL,'instructions':instr,'input':prompt,'tools':[{'type':'web_search'}],'tool_choice':{'type':'web_search'},'reasoning':{'effort':'high' if deep else 'low'},'max_output_tokens':16000 if deep else 10000,'text':{'format':{'type':'json_schema','name':'ai_bubble_news','schema':SCHEMA}}}
- h={'Authorization':'Bearer '+key,'Content-Type':'application/json'}
+ prompt=f'''You are researching news for an AI-bubble risk dashboard. Search the web for events published since {since} Singapore time.\nFocus: {focus}\nThe eight categories are: {', '.join(CATS)}.\nUse only reliable established news organizations or official company/regulator/government websites. Strongly prioritize Reuters, Bloomberg, Financial Times, Wall Street Journal, CNBC, AP and primary official sources. Use The Information, TechCrunch, Semafor, Fortune, Barron\'s, The Economist or NYTimes only when useful.\nFor every event, give: factual headline, publication date/time if available, source name, the exact source page URL, key facts, and why it matters to AI bubble formation or unwind. Merge obvious duplicates. Do not invent facts, dates, amounts, or URLs. Be comprehensive but exclude low-value product announcements and opinion pieces.'''
+ body={'model':MODEL,'instructions':'Perform careful source-grounded web research. Every factual event must have at least one exact source URL found through web_search.','input':prompt,'tools':[{'type':'web_search'}],'tool_choice':{'type':'web_search'},'reasoning':{'effort':'high' if deep else 'low'},'max_output_tokens':14000 if deep else 8000}
  for i in range(2):
   try:
-   r=requests.post(API,headers=h,json=body,timeout=210);r.raise_for_status();return json.loads(output_text(r.json()).strip())
+   raw=post(key,body);txt=output_text(raw)
+   if not txt:raise ValueError(f'empty research text; status={raw.get("status")} output_types={[x.get("type") for x in raw.get("output",[])]}')
+   return txt
   except Exception as e:
    if i==1:raise
-   print('[news] retry DeepSeek search:',e);time.sleep(3)
+   print('[news] retry web research:',e);time.sleep(3)
+
+def structure_research(key,mode,research):
+ instr='''Convert the supplied research notes into structured AI-bubble news data. Use ONLY facts and URLs present in the notes; never invent or repair a URL. Merge reports of the same underlying event. Return only events with importance_score >= 50. importance_score is 0-100 for significance to AI bubble formation/unwind. bubble_risk_score is -100..100: positive means higher bubble/unwind risk; negative means stronger fundamental support/lower bubble risk. summary_zh and reason_zh must be concise Chinese. Every story needs at least one source.'''
+ body={'model':MODEL,'instructions':instr,'input':research,'reasoning':{'effort':'high' if mode=='deep' else 'low'},'max_output_tokens':12000 if mode=='deep' else 7000,'text':{'format':{'type':'json_schema','name':'ai_bubble_news','schema':SCHEMA}}}
+ for i in range(2):
+  try:
+   raw=post(key,body);txt=output_text(raw)
+   if not txt:raise ValueError(f'empty structured text; status={raw.get("status")}')
+   return json.loads(txt)
+  except Exception as e:
+   if i==1:raise
+   print('[news] retry structured extraction:',e);time.sleep(2)
 
 def validate(raw):
  out=[];cut=NOW-timedelta(days=7,hours=3)
@@ -95,7 +111,7 @@ def merge(new,existing):
   imp=max(0,min(100,int(s.get('importance_score',0))));risk=max(-100,min(100,int(s.get('bubble_risk_score',0))));s['importance_score']=imp;s['bubble_risk_score']=risk;s['critical']=imp>=85 or (imp>=75 and abs(risk)>=60);res.append(s)
  res.sort(key=lambda s:(int(s.get('importance_score',0)),str(s.get('published_at',''))),reverse=True);return res[:120]
 def save(mode,stories):
- p={'generated_at_sgt':NOW.isoformat(timespec='seconds'),'timezone':'Asia/Singapore','model':'deepseek-flash','model_display':'DeepSeek V4.1 Flash','scan_mode':mode,'acquisition':'DeepSeek V4.1 Flash server-side web_search','display_window_days':7,'homepage_limits':{'critical':10,'feed':10},'policy':{'important_threshold':60,'critical_rule':'importance>=85 OR (importance>=75 AND abs(bubble_risk_score)>=60)','trusted_sources_only':True,'sort':'importance_score desc, then published_at desc'},'categories':CATS,'stats':{'stored_stories':len(stories),'important_7d':sum(int(s.get('importance_score',0))>=60 for s in stories),'critical_7d':sum(bool(s.get('critical')) for s in stories)},'stories':stories}
+ p={'generated_at_sgt':NOW.isoformat(timespec='seconds'),'timezone':'Asia/Singapore','model':'deepseek-flash','model_display':'DeepSeek V4.1 Flash','scan_mode':mode,'acquisition':'DeepSeek V4.1 Flash web_search research + schema extraction','display_window_days':7,'homepage_limits':{'critical':10,'feed':10},'policy':{'important_threshold':60,'critical_rule':'importance>=85 OR (importance>=75 AND abs(bubble_risk_score)>=60)','trusted_sources_only':True,'sort':'importance_score desc, then published_at desc'},'categories':CATS,'stats':{'stored_stories':len(stories),'important_7d':sum(int(s.get('importance_score',0))>=60 for s in stories),'critical_7d':sum(bool(s.get('critical')) for s in stories)},'stories':stories}
  OUT.write_text(json.dumps(p,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 def main():
  key=os.getenv('DEEPSEEK_API_KEY','').strip();mode=os.getenv('NEWS_SCAN_MODE','auto').lower()
@@ -103,9 +119,9 @@ def main():
  if mode=='auto':mode='deep' if NOW.hour==8 else 'incremental'
  if mode not in ('deep','incremental'):raise SystemExit('bad NEWS_SCAN_MODE')
  print('[news] mode=',mode,'now=',NOW.isoformat())
- focuses=['AI company revenue/monetization; hyperscaler AI CAPEX; AI valuations/funding; semiconductor/GPU demand','data centers/power; AI credit/debt; layoffs/cancellations; macro policy/regulation'] if mode=='deep' else ['all eight AI bubble categories; emphasize events newly published in the last 8 hours']
+ focuses=['AI company revenue/monetization; hyperscaler AI CAPEX; AI valuations/funding; semiconductor/GPU demand','data centers/power; AI credit/debt; layoffs/project cancellations; macro policy/regulation'] if mode=='deep' else ['all eight AI bubble categories; emphasize genuinely new events in the last 8 hours']
  fresh=[]
  for focus in focuses:
-  data=call_search(key,mode,focus); batch=validate(data);fresh.extend(batch);print('[news] validated batch=',len(batch))
- stories=merge(fresh,old());save(mode,stories);print('[news] saved',len(stories),'important',sum(s.get('importance_score',0)>=60 for s in stories))
+  notes=search_research(key,mode,focus);print('[news] research chars=',len(notes));data=structure_research(key,mode,notes);batch=validate(data);fresh.extend(batch);print('[news] validated batch=',len(batch))
+ stories=merge(fresh,old());save(mode,stories);print('[news] saved',len(stories),'important',sum(s.get('importance_score',0)>=60 for s in stories),'critical',sum(bool(s.get('critical')) for s in stories))
 if __name__=='__main__':main()
