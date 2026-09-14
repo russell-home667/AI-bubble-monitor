@@ -58,7 +58,9 @@ jobs:
         run: |
           set -euo pipefail
           MODE="${REQUESTED_MODE:-auto}"
-          if [ "$MODE" = "auto" ]; then
+          if [ "${{ github.event_name }}" = "push" ]; then
+            MODE="deep"
+          elif [ "$MODE" = "auto" ]; then
             HOUR="$(TZ=Asia/Singapore date +%H)"
             if [ "$HOUR" = "08" ]; then
               MODE="deep"
