@@ -14,7 +14,7 @@
     yahooQQQ: {label:'Yahoo Finance · QQQ', url:'https://finance.yahoo.com/quote/QQQ/'},
     yahooRSP: {label:'Yahoo Finance · RSP', url:'https://finance.yahoo.com/quote/RSP/'},
     yahooBrent: {label:'Yahoo Finance · BZ=F', url:'https://finance.yahoo.com/quote/BZ=F/'},
-    investingGold: {label:'Investing.com · XAU/USD', url:'https://www.investing.com/currencies/xau-usd'},
+    xausGold: {label:'XAUS · XAU/USD Spot', url:'https://xaus.com/'},
 
     // VIX is acquired directly from Cboe's official historical dataset.
     cboeVIX: {label:'Cboe · VIX Historical Data', url:'https://www.cboe.com/tradable_products/vix/vix_historical_data/'},
@@ -97,8 +97,8 @@
     if (t.includes('historical proxy') || t.includes('1999–present') || t.includes('1999-present')) return many(BACKTEST);
 
     // Commodity.
-    if (contains(t,['macro commodity','brent crude & gold spot','brent crude + gold spot'])) return many([S.yahooBrent,S.investingGold]);
-    if (t.includes('xau/usd') || t.includes('gold spot')) return one(S.investingGold);
+    if (contains(t,['macro commodity','brent crude & gold spot','brent crude + gold spot'])) return many([S.yahooBrent,S.xausGold]);
+    if (t.includes('xau/usd') || t.includes('gold spot')) return one(S.xausGold);
     if (t.includes('brent crude') || t === 'bz=f' || t.includes('brent bz=f')) return one(S.yahooBrent);
 
     // Market prices.
