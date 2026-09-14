@@ -23,7 +23,7 @@
       {
         type: 'inside',
         xAxisIndex: 0,
-        filterMode: 'none',
+        filterMode: 'filter',
         zoomOnMouseWheel: true,
         moveOnMouseMove: true,
         moveOnMouseWheel: false
