@@ -36,26 +36,18 @@
   "history_start": "1990-01-01",
   "history_end": "2026-09-14",
   "observation_count": 1639,
-  "history_data_state": {
-    "status": "fresh",
-    "as_of": "2026-09-14T07:30:26.600Z",
-    "source": "upstream",
-    "age_seconds": 0
-  },
-  "history_fetch_warning": null,
+  "history_data_state": {},
+  "history_fetch_warning": "503 Server Error: Service Unavailable for url: https://xaus.com/api/v1/history",
   "world_bank_fetch_warning": null,
   "latest_quote": {
-    "price": 4285.0,
-    "timestamp": "2026-09-14T09:42:20.341Z",
-    "quote_status": "XAUS_FRESH",
-    "source": "XAUS Gold Data API",
+    "price": 4287.5,
+    "timestamp": "2026-09-14T10:11:37Z",
+    "quote_status": "GOLD_API_REALTIME",
+    "source": "gold-api.com",
     "source_state": {
-      "status": "fresh",
-      "as_of": "2026-09-14T09:42:20.341Z",
-      "source": "upstream",
-      "age_seconds": 0
+      "status": "fresh"
     },
-    "retrieved_at_bjt": "2026-09-14T17:42:31+08:00",
+    "retrieved_at_bjt": "2026-09-14T18:12:01+08:00",
     "observation_date": "2026-09-14"
   },
   "data": [
@@ -12791,5 +12783,5 @@
       "low": 4357.9
     }
   ],
-  "updated_at_bjt": "2026-09-14T17:42:31+08:00"
+  "updated_at_bjt": "2026-09-14T18:12:01+08:00"
 }
