@@ -1,10 +1,10 @@
 {
-  "generated_at_sgt": "2026-09-14T15:06:00+08:00",
+  "generated_at_sgt": "2026-09-14T15:09:13+08:00",
   "timezone": "Asia/Singapore",
   "model": "deepseek-flash",
   "model_display": "DeepSeek V4.1 Flash",
   "scan_mode": "deep",
-  "acquisition": "DeepSeek V4.1 Flash web_search research + schema extraction",
+  "acquisition": "Bing News RSS discovery + trusted-domain whitelist + DeepSeek V4.1 Flash analysis",
   "display_window_days": 7,
   "homepage_limits": {
     "critical": 10,
@@ -27,9 +27,131 @@
     "Macro / Regulation"
   ],
   "stats": {
-    "stored_stories": 0,
-    "important_7d": 0,
-    "critical_7d": 0
+    "stored_stories": 4,
+    "important_7d": 4,
+    "critical_7d": 1
   },
-  "stories": []
+  "stories": [
+    {
+      "id": "04ced2eb5dec5d",
+      "headline": "AI安全警告引发市场担忧，SoftBank股价重挫，Altman称OpenAI今年不IPO",
+      "summary_zh": "OpenAI与Anthropic负责人呼吁放缓AI开发以防范安全风险，令SoftBank股价创近三个月最大跌幅，亚洲股市涨跌互现、美股期货走低；Altman同时表示OpenAI今年不会IPO。",
+      "category": "Macro / Regulation",
+      "importance_score": 85,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 60,
+      "reason_zh": "AI安全担忧升温可能引发监管收紧和投资情绪转弱，市场抛售显示泡沫回撤风险上升。",
+      "companies": [
+        "SoftBank",
+        "OpenAI",
+        "Anthropic"
+      ],
+      "published_at": "2026-09-14T01:00+08:00",
+      "sources": [
+        {
+          "name": "Bloomberg",
+          "domain": "bloomberg.com",
+          "url": "https://www.bloomberg.com/news/articles/2026-09-14/softbank-group-shares-fall-after-openai-ipo-delay-ai-warning",
+          "published_at": "2026-09-14T01:00+08:00"
+        },
+        {
+          "name": "Reuters",
+          "domain": "reuters.com",
+          "url": "https://www.reuters.com/legal/litigation/openai-ipo-will-not-happen-2026-amid-ai-safety-fears-altman-says-2026-09-12/",
+          "published_at": "2026-09-12T21:38+08:00"
+        },
+        {
+          "name": "Associated Press",
+          "domain": "apnews.com",
+          "url": "https://apnews.com/article/stocks-markets-oil-ai-rates-0b44bfb43960c6ae850567c0c4e5003a",
+          "published_at": "2026-09-14T06:18+08:00"
+        },
+        {
+          "name": "CNBC",
+          "domain": "cnbc.com",
+          "url": "https://www.cnbc.com/2026/09/13/stock-futures-today-live-updates.html",
+          "published_at": "2026-09-13T23:06+08:00"
+        }
+      ],
+      "critical": true
+    },
+    {
+      "id": "3084e5fcc6e610",
+      "headline": "SoftBank获119亿美元贷款用于投资OpenAI",
+      "summary_zh": "SoftBank Group获得119亿美元贷款，用于支持其对OpenAI的投资，规模较此前100亿美元目标上调。",
+      "category": "AI Credit / Debt",
+      "importance_score": 70,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 55,
+      "reason_zh": "以债务融资加码AI投资，杠杆水平上升，若AI回报不及预期将放大信用与估值风险。",
+      "companies": [
+        "SoftBank",
+        "OpenAI"
+      ],
+      "published_at": "2026-09-14T01:00+08:00",
+      "sources": [
+        {
+          "name": "Bloomberg",
+          "domain": "bloomberg.com",
+          "url": "https://www.bloomberg.com/news/articles/2026-09-14/softbank-gets-upsized-11-9-billion-loan-in-openai-funding-push",
+          "published_at": "2026-09-14T01:00+08:00"
+        }
+      ],
+      "critical": false
+    },
+    {
+      "id": "80e5954c6d96f4",
+      "headline": "Z.ai宣布约50亿美元新融资后股价大跌超10%",
+      "summary_zh": "中国AI公司Z.ai（智谱AI）计划通过配股和可转债融资约50亿美元，为两个月内第二次大额融资，消息后股价跌超10%。",
+      "category": "AI Valuation / Funding",
+      "importance_score": 65,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 50,
+      "reason_zh": "密集大额融资叠加股价下跌，反映市场对AI估值和股权稀释的担忧，融资依赖度上升。",
+      "companies": [
+        "Z.ai",
+        "Zhipu AI"
+      ],
+      "published_at": "2026-09-14T01:00+08:00",
+      "sources": [
+        {
+          "name": "CNBC",
+          "domain": "cnbc.com",
+          "url": "https://www.cnbc.com/2026/09/14/zai-shares-tumble-second-major-raise-two-months-.html",
+          "published_at": "2026-09-14T01:00+08:00"
+        },
+        {
+          "name": "Wall Street Journal",
+          "domain": "wsj.com",
+          "url": "https://www.wsj.com/tech/ai/z-ai-plans-5-0-billion-fundraising-to-fuel-ai-expansion-56da16dc",
+          "published_at": "2026-09-14T00:55+08:00"
+        }
+      ],
+      "critical": false
+    },
+    {
+      "id": "18448e8e8e3318",
+      "headline": "Anthropic选择纳斯达克作为IPO上市地",
+      "summary_zh": "Anthropic PBC已选择纳斯达克作为其潜在创纪录IPO的上市地，具体时间未定。",
+      "category": "AI Valuation / Funding",
+      "importance_score": 60,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 30,
+      "reason_zh": "大型AI公司IPO将检验公开市场估值承受力，可能进一步推高AI板块融资与泡沫风险。",
+      "companies": [
+        "Anthropic",
+        "Nasdaq"
+      ],
+      "published_at": "2026-09-13T20:07+08:00",
+      "sources": [
+        {
+          "name": "Bloomberg",
+          "domain": "bloomberg.com",
+          "url": "https://www.bloomberg.com/news/articles/2026-09-13/anthropic-said-to-choose-nasdaq-for-much-anticipated-ipo-listing",
+          "published_at": "2026-09-13T20:07+08:00"
+        }
+      ],
+      "critical": false
+    }
+  ]
 }
