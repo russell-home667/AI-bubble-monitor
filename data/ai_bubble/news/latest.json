@@ -1,5 +1,5 @@
 {
-  "generated_at_sgt": "2026-09-14T15:09:13+08:00",
+  "generated_at_sgt": "2026-09-14T15:13:45+08:00",
   "timezone": "Asia/Singapore",
   "model": "deepseek-flash",
   "model_display": "DeepSeek V4.1 Flash",
@@ -27,20 +27,20 @@
     "Macro / Regulation"
   ],
   "stats": {
-    "stored_stories": 4,
-    "important_7d": 4,
-    "critical_7d": 1
+    "stored_stories": 5,
+    "important_7d": 5,
+    "critical_7d": 2
   },
   "stories": [
     {
-      "id": "04ced2eb5dec5d",
-      "headline": "AI安全警告引发市场担忧，SoftBank股价重挫，Altman称OpenAI今年不IPO",
-      "summary_zh": "OpenAI与Anthropic负责人呼吁放缓AI开发以防范安全风险，令SoftBank股价创近三个月最大跌幅，亚洲股市涨跌互现、美股期货走低；Altman同时表示OpenAI今年不会IPO。",
+      "id": "e1938ea5d54aca",
+      "headline": "AI safety warnings from OpenAI/Anthropic chiefs trigger SoftBank selloff and risk-off move",
+      "summary_zh": "OpenAI与Anthropic负责人呼吁放缓AI开发，引发AI安全担忧；软银股价创近三月最大跌幅，亚洲股市分化、美股期货承压，油价因供应担忧上涨。",
       "category": "Macro / Regulation",
       "importance_score": 85,
       "bubble_direction": "risk_up",
       "bubble_risk_score": 60,
-      "reason_zh": "AI安全担忧升温可能引发监管收紧和投资情绪转弱，市场抛售显示泡沫回撤风险上升。",
+      "reason_zh": "行业领袖警告叠加市场抛售，放大AI监管与情绪风险，可能触发估值回撤。",
       "companies": [
         "SoftBank",
         "OpenAI",
@@ -55,16 +55,16 @@
           "published_at": "2026-09-14T01:00+08:00"
         },
         {
-          "name": "Reuters",
-          "domain": "reuters.com",
-          "url": "https://www.reuters.com/legal/litigation/openai-ipo-will-not-happen-2026-amid-ai-safety-fears-altman-says-2026-09-12/",
-          "published_at": "2026-09-12T21:38+08:00"
-        },
-        {
           "name": "Associated Press",
           "domain": "apnews.com",
           "url": "https://apnews.com/article/stocks-markets-oil-ai-rates-0b44bfb43960c6ae850567c0c4e5003a",
           "published_at": "2026-09-14T06:18+08:00"
+        },
+        {
+          "name": "Associated Press",
+          "domain": "apnews.com",
+          "url": "https://apnews.com/article/artificial-intelligence-threats-humanity-anthropic-openai-98316b0d64de17191f33c0fbf1d37858",
+          "published_at": "2026-09-14T05:09+08:00"
         },
         {
           "name": "CNBC",
@@ -76,14 +76,14 @@
       "critical": true
     },
     {
-      "id": "3084e5fcc6e610",
-      "headline": "SoftBank获119亿美元贷款用于投资OpenAI",
-      "summary_zh": "SoftBank Group获得119亿美元贷款，用于支持其对OpenAI的投资，规模较此前100亿美元目标上调。",
+      "id": "c4a89302f13f0e",
+      "headline": "SoftBank upsizes $11.9 billion loan for OpenAI investment",
+      "summary_zh": "软银将其用于投资OpenAI的贷款规模上调至118.7亿美元，高于此前100亿美元目标。",
       "category": "AI Credit / Debt",
-      "importance_score": 70,
+      "importance_score": 82,
       "bubble_direction": "risk_up",
-      "bubble_risk_score": 55,
-      "reason_zh": "以债务融资加码AI投资，杠杆水平上升，若AI回报不及预期将放大信用与估值风险。",
+      "bubble_risk_score": 70,
+      "reason_zh": "以债务加码OpenAI投资，提高杠杆与循环融资风险，或助推AI资本泡沫。",
       "companies": [
         "SoftBank",
         "OpenAI"
@@ -97,47 +97,17 @@
           "published_at": "2026-09-14T01:00+08:00"
         }
       ],
-      "critical": false
+      "critical": true
     },
     {
-      "id": "80e5954c6d96f4",
-      "headline": "Z.ai宣布约50亿美元新融资后股价大跌超10%",
-      "summary_zh": "中国AI公司Z.ai（智谱AI）计划通过配股和可转债融资约50亿美元，为两个月内第二次大额融资，消息后股价跌超10%。",
+      "id": "1b2ff0f2d49749",
+      "headline": "Anthropic picks Nasdaq for much-anticipated IPO",
+      "summary_zh": "Anthropic据称已选择纳斯达克作为上市地点，潜在IPO可能创纪录。",
       "category": "AI Valuation / Funding",
-      "importance_score": 65,
+      "importance_score": 76,
       "bubble_direction": "risk_up",
       "bubble_risk_score": 50,
-      "reason_zh": "密集大额融资叠加股价下跌，反映市场对AI估值和股权稀释的担忧，融资依赖度上升。",
-      "companies": [
-        "Z.ai",
-        "Zhipu AI"
-      ],
-      "published_at": "2026-09-14T01:00+08:00",
-      "sources": [
-        {
-          "name": "CNBC",
-          "domain": "cnbc.com",
-          "url": "https://www.cnbc.com/2026/09/14/zai-shares-tumble-second-major-raise-two-months-.html",
-          "published_at": "2026-09-14T01:00+08:00"
-        },
-        {
-          "name": "Wall Street Journal",
-          "domain": "wsj.com",
-          "url": "https://www.wsj.com/tech/ai/z-ai-plans-5-0-billion-fundraising-to-fuel-ai-expansion-56da16dc",
-          "published_at": "2026-09-14T00:55+08:00"
-        }
-      ],
-      "critical": false
-    },
-    {
-      "id": "18448e8e8e3318",
-      "headline": "Anthropic选择纳斯达克作为IPO上市地",
-      "summary_zh": "Anthropic PBC已选择纳斯达克作为其潜在创纪录IPO的上市地，具体时间未定。",
-      "category": "AI Valuation / Funding",
-      "importance_score": 60,
-      "bubble_direction": "risk_up",
-      "bubble_risk_score": 30,
-      "reason_zh": "大型AI公司IPO将检验公开市场估值承受力，可能进一步推高AI板块融资与泡沫风险。",
+      "reason_zh": "明星AI公司IPO或强化一级与二级市场估值热潮及资本循环，提升泡沫风险。",
       "companies": [
         "Anthropic",
         "Nasdaq"
@@ -149,6 +119,61 @@
           "domain": "bloomberg.com",
           "url": "https://www.bloomberg.com/news/articles/2026-09-13/anthropic-said-to-choose-nasdaq-for-much-anticipated-ipo-listing",
           "published_at": "2026-09-13T20:07+08:00"
+        }
+      ],
+      "critical": false
+    },
+    {
+      "id": "7b7787e8ac6b3f",
+      "headline": "Z.AI plans $5 billion fundraising as shares tumble",
+      "summary_zh": "智谱AI/Z.AI拟通过配股和可转债融资约50亿美元，为不到两个月内第二次大额融资；消息后股价一度跌超10%。",
+      "category": "AI Valuation / Funding",
+      "importance_score": 72,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 45,
+      "reason_zh": "密集大额融资显示AI扩张资金需求强，但股价下跌反映稀释与估值担忧，增加泡沫波动风险。",
+      "companies": [
+        "Z.AI",
+        "Zhipu AI"
+      ],
+      "published_at": "2026-09-14T00:55+08:00",
+      "sources": [
+        {
+          "name": "Wall Street Journal",
+          "domain": "wsj.com",
+          "url": "https://www.wsj.com/tech/ai/z-ai-plans-5-0-billion-fundraising-to-fuel-ai-expansion-56da16dc",
+          "published_at": "2026-09-14T00:55+08:00"
+        },
+        {
+          "name": "CNBC",
+          "domain": "cnbc.com",
+          "url": "https://www.cnbc.com/2026/09/14/zai-shares-tumble-second-major-raise-two-months-.html",
+          "published_at": "2026-09-14T01:00+08:00"
+        }
+      ],
+      "critical": false
+    },
+    {
+      "id": "3376746c152e7b",
+      "headline": "Goldman Sachs, JPMorgan expect September Fed hike as inflation lingers",
+      "summary_zh": "高盛与摩根大通预计美联储将在9月加息25个基点，通胀压力持续。",
+      "category": "Macro / Regulation",
+      "importance_score": 64,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 40,
+      "reason_zh": "利率上行将压制高估值AI资产，紧缩预期加大AI泡沫回撤风险。",
+      "companies": [
+        "Goldman Sachs",
+        "JPMorgan",
+        "Federal Reserve"
+      ],
+      "published_at": "2026-09-14T01:00+08:00",
+      "sources": [
+        {
+          "name": "Reuters",
+          "domain": "reuters.com",
+          "url": "https://www.reuters.com/business/goldman-sachs-now-expects-fed-hike-rates-september-2026-09-14/",
+          "published_at": "2026-09-14T01:00+08:00"
         }
       ],
       "critical": false
