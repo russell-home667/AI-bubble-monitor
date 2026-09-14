@@ -12,16 +12,14 @@ on:
           - auto
           - deep
           - incremental
-  push:
-    branches: [main]
-    paths:
-      - 'scripts/update_ai_news.py'
-      - 'scripts/install_ai_news_frontend.py'
-      - 'assets/ai-news.js'
-      - 'news.html'
-      - '.github/workflows/update-ai-news.yml'
   schedule:
-    - cron: '0 8-12 * * *'
+    - cron: '0 9 * * *'
+      timezone: 'Asia/Singapore'
+    - cron: '0 13 * * *'
+      timezone: 'Asia/Singapore'
+    - cron: '1 17 * * *'
+      timezone: 'Asia/Singapore'
+    - cron: '30 20 * * *'
       timezone: 'Asia/Singapore'
 
 permissions:
@@ -58,11 +56,9 @@ jobs:
         run: |
           set -euo pipefail
           MODE="${REQUESTED_MODE:-auto}"
-          if [ "${{ github.event_name }}" = "push" ]; then
-            MODE="deep"
-          elif [ "$MODE" = "auto" ]; then
+          if [ "$MODE" = "auto" ]; then
             HOUR="$(TZ=Asia/Singapore date +%H)"
-            if [ "$HOUR" = "08" ]; then
+            if [ "$HOUR" = "09" ]; then
               MODE="deep"
             else
               MODE="incremental"
