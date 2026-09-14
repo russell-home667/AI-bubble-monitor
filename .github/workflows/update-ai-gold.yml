@@ -59,10 +59,13 @@ jobs:
           assert d.get('ticker') == 'XAU/USD'
           assert d.get('unit') == 'USD/oz'
           assert d.get('instrument_type') == 'spot'
-          assert d.get('source') == 'XAUS Gold Data API'
-          assert len(rows) >= 20
+          assert d.get('source') == 'World Bank Pink Sheet + XAUS Gold Data API'
+          assert d.get('historical_source') == 'World Bank Commodity Markets (Pink Sheet)'
+          assert len(rows) >= 1500
+          assert rows[0]['date'] <= '1990-01-01'
           assert rows == sorted(rows, key=lambda x: x['date'])
           assert all('date' in x and 'value' in x for x in rows)
+          assert any(x.get('frequency') == 'monthly_average' for x in rows[:500])
           assert float(rows[-1]['value']) > 100
           assert float(quote['price']) > 100
           assert quote.get('timestamp')
