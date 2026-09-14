@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       full_backfill:
-        description: 'Force full XAU/USD history backfill'
+        description: 'Force full XAU/USD history refresh'
         required: false
         default: 'false'
   push:
@@ -13,7 +13,7 @@ on:
       - 'scripts/update_ai_gold.py'
       - '.github/workflows/update-ai-gold.yml'
   schedule:
-    # Every 30 minutes, Monday-Saturday. Display timestamps remain Beijing time.
+    # AI Bubble Monitor convention: every 30 minutes, Monday-Saturday.
     - cron: '*/30 * * * 1-6'
 
 permissions:
@@ -25,10 +25,7 @@ concurrency:
 
 jobs:
   update:
-    # Investing.com intermittently blocks Azure Linux IP ranges. GitHub-hosted macOS
-    # runners have been consistently reachable in our diagnostics. The updater uses
-    # direct HistoricalDataAjax requests and does not repeatedly prime full pages.
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
@@ -39,9 +36,9 @@ jobs:
           python-version: '3.12'
 
       - name: Install dependencies
-        run: pip install --disable-pip-version-check curl-cffi beautifulsoup4
+        run: pip install --disable-pip-version-check requests
 
-      - name: Update XAU/USD
+      - name: Update XAU/USD spot gold
         run: |
           set -euo pipefail
           if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.full_backfill }}" = "true" ]; then
@@ -50,20 +47,27 @@ jobs:
             python scripts/update_ai_gold.py
           fi
 
-      - name: Validate gold data
+      - name: Validate AI Bubble Monitor gold format
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
-          p=Path('data/ai_bubble/macro/gold_xauusd.json')
-          d=json.loads(p.read_text())
-          rows=d.get('data',[])
+          p = Path('data/ai_bubble/macro/gold_xauusd.json')
+          d = json.loads(p.read_text())
+          rows = d.get('data', [])
+          quote = d.get('latest_quote', {})
           assert d.get('ticker') == 'XAU/USD'
-          assert d.get('instrument_id') == '68'
+          assert d.get('unit') == 'USD/oz'
+          assert d.get('instrument_type') == 'spot'
+          assert d.get('source') == 'XAUS Gold Data API'
           assert len(rows) >= 20
-          assert rows[-1]['value'] > 100
           assert rows == sorted(rows, key=lambda x: x['date'])
-          print('rows',len(rows),'coverage',rows[0]['date'],'to',rows[-1]['date'],'latest',d['latest_quote']['price'])
+          assert all('date' in x and 'value' in x for x in rows)
+          assert float(rows[-1]['value']) > 100
+          assert float(quote['price']) > 100
+          assert quote.get('timestamp')
+          assert d.get('updated_at_bjt')
+          print('rows', len(rows), 'coverage', rows[0]['date'], 'to', rows[-1]['date'], 'latest', quote['price'], 'status', d.get('status'))
           PY
 
       - name: Commit data
