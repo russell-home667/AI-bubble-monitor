@@ -49,7 +49,7 @@ def call_search(key,mode,focus):
  h={'Authorization':'Bearer '+key,'Content-Type':'application/json'}
  for i in range(2):
   try:
-   r=requests.post(API,headers=h,json=body,timeout=210);r.raise_for_status();return json.loads(output_text(r))
+   r=requests.post(API,headers=h,json=body,timeout=210);r.raise_for_status();return json.loads(output_text(r.json()))
   except Exception as e:
    if i==1:raise
    print('[news] retry DeepSeek search:',e);time.sleep(3)
