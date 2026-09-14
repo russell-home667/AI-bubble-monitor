@@ -1,193 +1,30 @@
 #!/usr/bin/env python3
 import argparse
 import json
-import re
-import sys
-import time
-from datetime import date, datetime, timedelta
+from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-from bs4 import BeautifulSoup
-from curl_cffi import requests
+import requests
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "data" / "ai_bubble" / "macro" / "gold_xauusd.json"
 OUT.parent.mkdir(parents=True, exist_ok=True)
 
-PAIR_ID = "68"  # Investing.com XAU/USD Gold Spot / US Dollar; not Gold Futures 8830.
-CANONICAL_URL = "https://www.investing.com/currencies/xau-usd"
-CANONICAL_HISTORICAL_URL = "https://www.investing.com/currencies/xau-usd-historical-data"
-REGIONAL_HOSTS = ["https://uk.investing.com", "https://au.investing.com", "https://ca.investing.com"]
 TZ_BJT = ZoneInfo("Asia/Shanghai")
-UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
+XAUS_HISTORY_URL = "https://xaus.com/api/v1/history"
+XAUS_SPOT_URL = "https://xaus.com/api/v1/spot?compact=1"
+GOLD_API_SPOT_URL = "https://api.gold-api.com/price/XAU"
 
 
-def clean_number(v):
-    if v is None:
-        return None
-    if isinstance(v, (int, float)):
-        return float(v)
-    s = re.sub(r"[^0-9.\-]", "", str(v).replace(",", "").strip())
-    if not s or s in {"-", "."}:
-        return None
-    try:
-        return float(s)
-    except Exception:
-        return None
-
-
-def parse_date(v):
-    if v is None:
-        return None
-    s = str(v).strip()
-    if not s:
-        return None
-    if re.fullmatch(r"\d{9,13}(?:\.0+)?", s):
-        ts = float(s)
-        if ts > 10_000_000_000:
-            ts /= 1000
-        return datetime.utcfromtimestamp(ts).date().isoformat()
-    for fmt in ("%Y-%m-%d", "%b %d, %Y", "%m/%d/%Y", "%d/%m/%Y", "%b %d, %y"):
-        try:
-            return datetime.strptime(s, fmt).date().isoformat()
-        except Exception:
-            pass
-    m = re.search(r"(?:19|20)\d{2}-\d{2}-\d{2}", s)
-    return m.group(0) if m else None
-
-
-def extract_html_rows(html):
-    soup = BeautifulSoup(html, "html.parser")
-    table = soup.select_one("table#curr_table") or soup.select_one("table.historicalTbl")
-    if not table:
-        return []
-    out = []
-    for tr in table.select("tbody tr"):
-        td = tr.find_all("td")
-        if len(td) < 2:
-            continue
-        # Prefer visible date text: it avoids timezone shifts from Unix timestamps embedded by the page.
-        d = parse_date(td[0].get_text(" ", strip=True))
-        price = clean_number(td[1].get("data-real-value") or td[1].get_text(" ", strip=True))
-        if not d or price is None:
-            continue
-        rec = {"date": d, "value": round(price, 2)}
-        if len(td) >= 5:
-            for idx, key in ((2, "open"), (3, "high"), (4, "low")):
-                n = clean_number(td[idx].get("data-real-value") or td[idx].get_text(" ", strip=True))
-                if n is not None:
-                    rec[key] = round(n, 2)
-        out.append(rec)
-    return out
-
-
-class InvestingFetcher:
-    def __init__(self):
-        self.sessions = {host: requests.Session(impersonate="chrome") for host in REGIONAL_HOSTS}
-
-    @staticmethod
-    def headers(host):
-        hist = host + "/currencies/xau-usd-historical-data"
-        return {
-            "user-agent": UA,
-            "accept-language": "en-GB,en;q=0.9",
-            "accept": "text/html, */*; q=0.01",
-            "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
-            "x-requested-with": "XMLHttpRequest",
-            "origin": host,
-            "referer": hist,
-        }
-
-    def fetch_from_host(self, host, start, end):
-        payload = {
-            "curr_id": PAIR_ID,
-            "smlID": "12345678",
-            "header": "XAU/USD Historical Data",
-            "st_date": start.strftime("%m/%d/%Y"),
-            "end_date": end.strftime("%m/%d/%Y"),
-            "interval_sec": "Daily",
-            "sort_col": "date",
-            "sort_ord": "DESC",
-            "action": "historical_data",
-        }
-        resp = self.sessions[host].post(
-            host + "/instruments/HistoricalDataAjax",
-            headers=self.headers(host),
-            data=payload,
-            timeout=75,
-        )
-        if resp.status_code != 200:
-            raise RuntimeError(f"HTTP {resp.status_code}")
-        return extract_html_rows(resp.text)
-
-    def fetch_period(self, start, end):
-        errors = []
-        for host in REGIONAL_HOSTS:
-            try:
-                rows = self.fetch_from_host(host, start, end)
-                # A 200 response with no rows is a valid empty period, not a reason to hammer another host.
-                print(f"Investing.com {host}: {len(rows)} rows for request {start} -> {end}")
-                return rows, host
-            except Exception as exc:
-                errors.append(f"{host}: {exc}")
-                time.sleep(0.6)
-        raise RuntimeError(" | ".join(errors))
-
-
-FETCHER = InvestingFetcher()
-
-
-def fetch_full_history():
-    """Backfill maximum source history without gaps.
-
-    Investing.com's HistoricalDataAjax caps one response at roughly 658 trading days (~2.5 years).
-    Therefore requests start every two calendar years, intentionally overlapping the source cap;
-    the final merge deduplicates dates. Starting in 1970 lets the source determine its true earliest row.
-    """
-    cur = date(1970, 1, 1)
-    today = date.today()
-    rows = []
-    used_hosts = set()
-    while cur <= today:
-        end = min(date(cur.year + 1, 12, 31), today)
-        try:
-            chunk, host = FETCHER.fetch_period(cur, end)
-            rows.extend(chunk)
-            used_hosts.add(host)
-        except Exception as exc:
-            print(f"Chunk {cur}->{end} failed: {exc}", file=sys.stderr)
-        cur = date(cur.year + 2, 1, 1)
-        time.sleep(0.35)
-    return rows, sorted(used_hosts)
-
-
-def fetch_latest_window():
-    # Request slightly more than one year; the source cap is much larger, so this safely refreshes recent data.
-    return FETCHER.fetch_period(date.today() - timedelta(days=450), date.today())
-
-
-def fetch_page_quote():
-    # Optional: if the human-readable Investing page is reachable, use its current quote.
-    # Failure never replaces or contaminates the official historical series.
-    for host in REGIONAL_HOSTS:
-        try:
-            resp = requests.get(
-                host + "/currencies/xau-usd",
-                headers={"user-agent": UA, "accept-language": "en-GB,en;q=0.9"},
-                impersonate="chrome",
-                timeout=20,
-            )
-            if resp.status_code != 200:
-                continue
-            node = BeautifulSoup(resp.text, "html.parser").select_one('[data-test="instrument-price-last"]')
-            if node:
-                value = clean_number(node.get_text(" ", strip=True))
-                if value and value > 100:
-                    return value, host
-        except Exception:
-            pass
-    return None, None
+def request_json(url: str, timeout: int = 30):
+    headers = {
+        "User-Agent": "Mozilla/5.0 (compatible; AI-bubble-monitor/1.0; personal research)",
+        "Accept": "application/json",
+    }
+    response = requests.get(url, headers=headers, timeout=timeout)
+    response.raise_for_status()
+    return response.json()
 
 
 def load_existing():
@@ -199,64 +36,176 @@ def load_existing():
         return {}
 
 
-def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--full", action="store_true")
-    args = ap.parse_args()
+def fetch_xaus_history():
+    payload = request_json(XAUS_HISTORY_URL, 45)
+    points = payload.get("points") or []
+    rows = []
 
+    for point in points:
+        d = point.get("d")
+        close = point.get("c")
+        if not d or close is None:
+            continue
+        try:
+            close = float(close)
+        except (TypeError, ValueError):
+            continue
+        if close <= 100:
+            continue
+
+        row = {"date": str(d)[:10], "value": round(close, 2)}
+        if point.get("h") is not None:
+            row["high"] = round(float(point["h"]), 2)
+        if point.get("l") is not None:
+            row["low"] = round(float(point["l"]), 2)
+        rows.append(row)
+
+    rows.sort(key=lambda x: x["date"])
+    if len(rows) < 20:
+        raise RuntimeError(f"XAUS history unexpectedly short: {len(rows)} rows")
+    return rows, payload.get("data_state") or {}
+
+
+def fetch_live_quote():
+    errors = []
+
+    # Primary: keyless XAUS XAU/USD spot endpoint.
+    try:
+        payload = request_json(XAUS_SPOT_URL, 25)
+        price = payload.get("spot_usd_oz")
+        if price is None:
+            price = (payload.get("xau") or {}).get("price")
+        price = float(price)
+        state = payload.get("data_state") or {}
+        status = str(state.get("status") or "fresh").lower()
+        if price > 100 and status != "unavailable":
+            timestamp = (
+                payload.get("updated_at")
+                or state.get("as_of")
+                or datetime.now(TZ_BJT).isoformat(timespec="seconds")
+            )
+            return {
+                "price": round(price, 2),
+                "timestamp": timestamp,
+                "quote_status": "XAUS_FRESH" if status == "fresh" else "XAUS_STALE",
+                "source": "XAUS Gold Data API",
+                "source_state": state,
+            }
+    except Exception as exc:
+        errors.append(f"XAUS: {exc}")
+
+    # Secondary: keyless real-time XAU endpoint, only when XAUS is unavailable.
+    try:
+        payload = request_json(GOLD_API_SPOT_URL, 25)
+        price = float(payload.get("price"))
+        if price > 100:
+            timestamp = (
+                payload.get("updatedAt")
+                or payload.get("updated_at")
+                or datetime.now(TZ_BJT).isoformat(timespec="seconds")
+            )
+            return {
+                "price": round(price, 2),
+                "timestamp": timestamp,
+                "quote_status": "GOLD_API_REALTIME",
+                "source": "gold-api.com",
+                "source_state": {"status": "fresh"},
+            }
+    except Exception as exc:
+        errors.append(f"gold-api.com: {exc}")
+
+    raise RuntimeError("No XAU/USD spot quote available: " + " | ".join(errors))
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--full",
+        action="store_true",
+        help="Retained for AI Bubble Monitor workflow compatibility; XAUS returns its maximum daily history",
+    )
+    parser.parse_args()
+
+    now_bjt = datetime.now(TZ_BJT)
     existing = load_existing()
     old_rows = existing.get("data", []) if isinstance(existing, dict) else []
-    used_hosts = set(existing.get("retrieval_hosts", [])) if isinstance(existing, dict) else set()
 
-    if args.full or not old_rows:
-        fetched, hosts = fetch_full_history()
-        used_hosts.update(hosts)
-    else:
-        fetched, host = fetch_latest_window()
-        used_hosts.add(host)
+    history_rows = []
+    history_state = {}
+    history_error = None
+    try:
+        history_rows, history_state = fetch_xaus_history()
+        print(
+            f"XAUS daily history: {len(history_rows)} rows, "
+            f"{history_rows[0]['date']} -> {history_rows[-1]['date']}"
+        )
+    except Exception as exc:
+        history_error = str(exc)
+        print(f"History warning: {exc}")
 
     by_date = {}
-    for row in old_rows + fetched:
-        if isinstance(row, dict) and row.get("date") and row.get("value") is not None:
-            by_date[row["date"]] = row
-    merged = sorted(by_date.values(), key=lambda x: x["date"])
-    if not merged:
-        raise RuntimeError("No XAU/USD history available after merge")
+    for row in old_rows + history_rows:
+        if not isinstance(row, dict) or not row.get("date") or row.get("value") is None:
+            continue
+        try:
+            value = float(row["value"])
+        except (TypeError, ValueError):
+            continue
+        if value <= 100:
+            continue
+        clean = dict(row)
+        clean["date"] = str(row["date"])[:10]
+        clean["value"] = round(value, 2)
+        by_date[clean["date"]] = clean
 
-    live, live_host = fetch_page_quote()
-    if live_host:
-        used_hosts.add(live_host)
-    latest_daily = merged[-1]
-    now_bjt = datetime.now(TZ_BJT)
-    latest_price = round(live if live is not None else float(latest_daily["value"]), 2)
+    merged = [by_date[d] for d in sorted(by_date)]
+    if not merged:
+        raise RuntimeError("No XAU/USD daily history available")
+
+    try:
+        quote = fetch_live_quote()
+    except Exception as exc:
+        if not existing.get("latest_quote"):
+            raise
+        quote = dict(existing["latest_quote"])
+        quote["quote_status"] = "STALE_STORED_QUOTE"
+        quote["fallback_reason"] = str(exc)
+        print(f"Quote warning: {exc}; preserving prior stored quote")
 
     payload = {
         "name": "Gold Spot / US Dollar",
         "ticker": "XAU/USD",
         "unit": "USD/oz",
-        "instrument_id": PAIR_ID,
-        "source": "Investing.com",
-        "source_url": CANONICAL_URL,
-        "historical_source_url": CANONICAL_HISTORICAL_URL,
-        "retrieval_hosts": sorted(used_hosts),
+        "instrument_type": "spot",
+        "source": "XAUS Gold Data API",
+        "source_url": "https://xaus.com/",
+        "api_source_url": "https://xaus.com/api/",
+        "live_fallback_source": "gold-api.com",
+        "live_fallback_url": GOLD_API_SPOT_URL,
         "frequency": "Daily historical series; updater checks every 30 minutes Monday-Saturday",
         "price_field": "XAU/USD spot price",
-        "status": "LIVE" if live is not None else "DAILY_CLOSE",
-        "history_scope": "Maximum Investing.com XAU/USD daily history discovered by two-year overlapping pagination; no synthetic weekend/interpolated rows",
+        "status": "LIVE" if quote.get("quote_status") in {"XAUS_FRESH", "GOLD_API_REALTIME"} else "STALE",
+        "history_scope": "Up to five years of XAU/USD daily closes from XAUS; no gold-futures substitution and no synthetic interpolation",
         "history_start": merged[0]["date"],
         "history_end": merged[-1]["date"],
         "observation_count": len(merged),
+        "history_data_state": history_state,
+        "history_fetch_warning": history_error,
         "latest_quote": {
-            "price": latest_price,
-            "timestamp": now_bjt.isoformat(timespec="seconds"),
-            "quote_status": "INVESTING_PAGE" if live is not None else "LATEST_DAILY_CLOSE",
-            "observation_date": latest_daily["date"],
+            **quote,
+            "retrieved_at_bjt": now_bjt.isoformat(timespec="seconds"),
+            "observation_date": merged[-1]["date"],
         },
         "data": merged,
         "updated_at_bjt": now_bjt.isoformat(timespec="seconds"),
     }
+
     OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(f"Gold updated: {payload['history_start']} -> {payload['history_end']} ({len(merged)} rows), latest={latest_price}")
+    print(
+        f"Gold updated: {payload['history_start']} -> {payload['history_end']} "
+        f"({len(merged)} rows), latest={payload['latest_quote']['price']} "
+        f"via {payload['latest_quote'].get('source')}"
+    )
 
 
 if __name__ == "__main__":
