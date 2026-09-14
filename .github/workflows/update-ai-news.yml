@@ -1,0 +1,117 @@
+name: Update AI Bubble News Radar
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: News scan mode
+        required: true
+        default: auto
+        type: choice
+        options:
+          - auto
+          - deep
+          - incremental
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/update_ai_news.py'
+      - 'scripts/install_ai_news_frontend.py'
+      - 'assets/ai-news.js'
+      - 'news.html'
+      - '.github/workflows/update-ai-news.yml'
+  schedule:
+    - cron: '0 8-12 * * *'
+      timezone: 'Asia/Singapore'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ai-bubble-news-radar
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install 'requests>=2.32'
+
+      - name: Resolve scan mode
+        id: mode
+        env:
+          REQUESTED_MODE: ${{ github.event.inputs.mode }}
+        run: |
+          set -euo pipefail
+          MODE="${REQUESTED_MODE:-auto}"
+          if [ "$MODE" = "auto" ]; then
+            HOUR="$(TZ=Asia/Singapore date +%H)"
+            if [ "$HOUR" = "08" ]; then
+              MODE="deep"
+            else
+              MODE="incremental"
+            fi
+          fi
+          echo "mode=$MODE" >> "$GITHUB_OUTPUT"
+          echo "Resolved NEWS_SCAN_MODE=$MODE"
+
+      - name: Ensure homepage news module is installed
+        run: python scripts/install_ai_news_frontend.py
+
+      - name: Refresh AI news radar
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          NEWS_SCAN_MODE: ${{ steps.mode.outputs.mode }}
+        run: |
+          set -euo pipefail
+          python scripts/update_ai_news.py
+
+      - name: Validate news payload
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('data/ai_bubble/news/latest.json')
+          if not p.exists():
+              raise SystemExit('news latest.json missing')
+          d=json.loads(p.read_text(encoding='utf-8'))
+          if d.get('model') != 'deepseek-flash':
+              raise SystemExit(f"Unexpected model: {d.get('model')}")
+          cats=set(d.get('categories') or [])
+          if len(cats) != 8:
+              raise SystemExit(f'Expected 8 categories, got {len(cats)}')
+          for s in d.get('stories', []):
+              if s.get('category') not in cats:
+                  raise SystemExit(f"Bad category: {s.get('category')}")
+              if not s.get('sources'):
+                  raise SystemExit(f"Story missing sources: {s.get('headline')}")
+          print(d.get('stats', {}))
+          PY
+
+      - name: Commit refreshed news data
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html data/ai_bubble/news/latest.json
+          if git diff --cached --quiet; then
+            echo "No news changes to commit"
+            exit 0
+          fi
+          git commit -m "data: refresh AI bubble news radar"
+          git pull --rebase origin main
+          git push origin HEAD:main
