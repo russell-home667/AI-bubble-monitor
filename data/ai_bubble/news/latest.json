@@ -1,10 +1,10 @@
 {
-  "generated_at_sgt": "2026-09-14T14:51:14+08:00",
+  "generated_at_sgt": "2026-09-14T15:06:00+08:00",
   "timezone": "Asia/Singapore",
   "model": "deepseek-flash",
   "model_display": "DeepSeek V4.1 Flash",
-  "scan_mode": "pending_first_run",
-  "acquisition": "pending",
+  "scan_mode": "deep",
+  "acquisition": "DeepSeek V4.1 Flash web_search research + schema extraction",
   "display_window_days": 7,
   "homepage_limits": {
     "critical": 10,
