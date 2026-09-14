@@ -2,7 +2,7 @@
   "module": "AI Bubble Monitor - Hyperscaler Financials",
   "step": 6,
   "timezone": "Asia/Shanghai",
-  "generated_at_bjt": "2026-09-13T09:07:03+08:00",
+  "generated_at_bjt": "2026-09-14T09:08:53+08:00",
   "source_policy": {
     "automated_source": "Yahoo Finance quarterly financial statements via yfinance",
     "official_validation_source": "SEC EDGAR / company investor relations",
