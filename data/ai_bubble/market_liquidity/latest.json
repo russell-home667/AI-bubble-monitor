@@ -2,7 +2,7 @@
   "module": "AI Bubble Monitor - Market & Liquidity",
   "step": 5,
   "timezone": "Asia/Shanghai",
-  "generated_at_bjt": "2026-09-12T12:17:13+08:00",
+  "generated_at_bjt": "2026-09-14T23:47:05+08:00",
   "indicators": {
     "ndx": {
       "name": "Nasdaq-100",
@@ -96,7 +96,7 @@
       "source": "Cboe Global Markets",
       "source_symbol": "VIX",
       "source_url": "https://www.cboe.com/tradable_products/vix/vix_historical_data/",
-      "fetched_at_bjt": "2026-09-12T09:13:24+08:00",
+      "fetched_at_bjt": "2026-09-13T19:55:03+08:00",
       "status": "fresh"
     },
     "dfii10": {
@@ -107,10 +107,10 @@
       "change_1obs": 0.09,
       "change_5obs": 0.1,
       "change_20obs": 0.13,
-      "source": "Federal Reserve / FRED",
+      "source": "Federal Reserve Board H.15 / FRED",
       "source_symbol": "DFII10",
       "source_url": "https://fred.stlouisfed.org/series/DFII10",
-      "fetched_at_bjt": "2026-09-12T12:17:12+08:00",
+      "fetched_at_bjt": "2026-09-13T19:55:03+08:00",
       "status": "fresh"
     },
     "dgs10": {
@@ -124,7 +124,7 @@
       "source": "Federal Reserve Board H.15 / FRED",
       "source_symbol": "DGS10",
       "source_url": "https://fred.stlouisfed.org/series/DGS10",
-      "fetched_at_bjt": "2026-09-12T12:17:13+08:00",
+      "fetched_at_bjt": "2026-09-13T19:55:02+08:00",
       "status": "fresh"
     },
     "dgs30": {
@@ -138,49 +138,49 @@
       "source": "Federal Reserve Board H.15 / FRED",
       "source_symbol": "DGS30",
       "source_url": "https://fred.stlouisfed.org/series/DGS30",
-      "fetched_at_bjt": "2026-09-12T12:17:13+08:00",
+      "fetched_at_bjt": "2026-09-13T19:55:02+08:00",
       "status": "fresh"
     },
     "hy_oas": {
       "name": "ICE BofA US High Yield Index Option-Adjusted Spread",
-      "observation_date": "2026-09-10",
-      "value": 2.7,
+      "observation_date": "2026-09-11",
+      "value": 2.65,
       "unit": "%",
-      "change_1obs": -0.01,
-      "change_5obs": 0.05,
-      "change_20obs": -0.01,
+      "change_1obs": -0.05,
+      "change_5obs": -0.03,
+      "change_20obs": -0.02,
       "source": "ICE BofA / FRED",
       "source_symbol": "BAMLH0A0HYM2",
       "source_url": "https://fred.stlouisfed.org/series/BAMLH0A0HYM2",
-      "fetched_at_bjt": "2026-09-12T00:43:06+08:00",
+      "fetched_at_bjt": "2026-09-14T23:47:05+08:00",
       "status": "fresh"
     },
     "ig_oas": {
       "name": "ICE BofA US Corporate Index Option-Adjusted Spread",
-      "observation_date": "2026-09-10",
+      "observation_date": "2026-09-11",
       "value": 0.8,
       "unit": "%",
-      "change_1obs": -0.01,
+      "change_1obs": 0.0,
       "change_5obs": -0.01,
-      "change_20obs": 0.01,
+      "change_20obs": 0.0,
       "source": "ICE BofA / FRED",
       "source_symbol": "BAMLC0A0CM",
       "source_url": "https://fred.stlouisfed.org/series/BAMLC0A0CM",
-      "fetched_at_bjt": "2026-09-12T00:43:06+08:00",
+      "fetched_at_bjt": "2026-09-14T23:47:05+08:00",
       "status": "fresh"
     },
     "baa10y_proxy": {
       "name": "Moody's Seasoned Baa Corporate Bond Yield Relative to 10-Year Treasury",
-      "observation_date": "2026-09-09",
-      "value": 1.55,
+      "observation_date": "2026-09-10",
+      "value": 1.51,
       "unit": "%",
-      "change_1obs": -0.02,
-      "change_5obs": -0.03,
-      "change_20obs": -0.09,
+      "change_1obs": -0.04,
+      "change_5obs": -0.07,
+      "change_20obs": -0.15,
       "source": "Moody's / Federal Reserve / FRED",
       "source_symbol": "BAA10Y",
       "source_url": "https://fred.stlouisfed.org/series/BAA10Y",
-      "fetched_at_bjt": "2026-09-12T00:43:06+08:00",
+      "fetched_at_bjt": "2026-09-14T23:47:05+08:00",
       "status": "fresh"
     }
   },
