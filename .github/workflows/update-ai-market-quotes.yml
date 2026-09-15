@@ -2,6 +2,11 @@ name: Update AI Market Quotes
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/update_ai_market_quotes.py'
+      - '.github/workflows/update-ai-market-quotes.yml'
   schedule:
     - cron: '30-59/5 9 * * 1-5'
       timezone: 'America/New_York'
