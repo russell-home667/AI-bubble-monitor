@@ -19,9 +19,7 @@
   const patched = new WeakSet();
 
   // The commodity payload timestamps are ISO instants (normally UTC with a trailing Z).
-  // The inline commodity renderer used to strip the timezone and append "BJT", which
-  // mislabeled UTC clock time as Beijing time. Normalize the displayed quote timestamps
-  // here without changing the underlying data or acquisition pipeline.
+  // Normalize them to Beijing time before display.
   function formatBeijingTimestamp(value) {
     if (!value) return null;
     const d = new Date(value);
@@ -41,20 +39,126 @@
     return `${p.year}-${p.month}-${p.day} ${p.hour}:${p.minute}:${p.second} BJT`;
   }
 
-  function syncCommodityQuoteTimes() {
+  function ensureGoldLargeQuote() {
+    const row = document.querySelector('#brentMacroSection .brent-quote-row');
+    if (!row) return null;
+
+    let block = document.getElementById('goldQuoteMain');
+    if (!block) {
+      const style = document.createElement('style');
+      style.id = 'gold-large-quote-style';
+      style.textContent = `
+        #brentMacroSection .brent-quote-row{
+          display:grid;
+          grid-template-columns:minmax(0,1fr) minmax(0,1fr) auto;
+          align-items:end;
+          gap:34px;
+        }
+        #brentMacroSection .gold-quote-main{min-width:230px;}
+        #brentMacroSection .commodity-quote-label{
+          color:#6f8fa6;
+          font-size:11px;
+          font-weight:700;
+          letter-spacing:.75px;
+          margin-bottom:7px;
+          text-transform:uppercase;
+        }
+        #brentMacroSection .gold-price-line{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;}
+        #brentMacroSection .gold-value{
+          font-size:46px;
+          line-height:1;
+          font-weight:700;
+          letter-spacing:.4px;
+          color:#f0f8ff;
+        }
+        #brentMacroSection .gold-unit{color:#7895aa;font-size:13px;font-weight:600;}
+        #brentMacroSection .gold-change{margin-top:8px;font-size:14px;font-weight:600;color:#8fa7b7;}
+        #brentMacroSection .gold-time{margin-top:7px;color:#66859b;font-size:10px;line-height:1.45;}
+        #brentMacroSection .brent-quote-row > div:first-child::before{
+          content:'BRENT CRUDE';
+          display:block;
+          color:#6f8fa6;
+          font-size:11px;
+          font-weight:700;
+          letter-spacing:.75px;
+          margin-bottom:7px;
+        }
+        @media(max-width:900px){
+          #brentMacroSection .brent-quote-row{grid-template-columns:1fr 1fr;}
+          #brentMacroSection .brent-meta{grid-column:1/-1;text-align:left;grid-template-columns:auto 1fr;}
+        }
+        @media(max-width:620px){
+          #brentMacroSection .brent-quote-row{grid-template-columns:1fr;gap:22px;}
+          #brentMacroSection .gold-value{font-size:39px;}
+        }
+      `;
+      document.head.appendChild(style);
+
+      block = document.createElement('div');
+      block.id = 'goldQuoteMain';
+      block.className = 'gold-quote-main';
+      block.innerHTML = `
+        <div class="commodity-quote-label">GOLD SPOT · XAU/USD</div>
+        <div class="gold-price-line">
+          <span class="gold-value" id="goldBigValue">—</span>
+          <span class="gold-unit">USD/oz · Gold</span>
+        </div>
+        <div class="gold-change" id="goldBigChange">—</div>
+        <div class="gold-time" id="goldBigDate">—</div>
+      `;
+
+      const meta = row.querySelector('.brent-meta');
+      if (meta) row.insertBefore(block, meta);
+      else row.appendChild(block);
+
+      // The small metadata price/date are now redundant; keep Sources visible.
+      ['goldLatest', 'goldDate'].forEach(id => {
+        const value = document.getElementById(id);
+        if (!value) return;
+        const label = value.previousElementSibling;
+        value.style.display = 'none';
+        if (label) label.style.display = 'none';
+      });
+    }
+    return block;
+  }
+
+  function syncCommodityQuotes() {
     const brent = typeof brentPayload !== 'undefined' ? brentPayload : null;
     const gold = typeof goldPayload !== 'undefined' ? goldPayload : null;
-    const pairs = [
-      ['brentDate', brent?.latest_quote?.timestamp],
-      ['goldDate', gold?.latest_quote?.timestamp]
-    ];
 
-    pairs.forEach(([id, timestamp]) => {
-      if (!timestamp) return;
-      const el = document.getElementById(id);
-      const formatted = formatBeijingTimestamp(timestamp);
-      if (el && formatted && el.textContent !== formatted) el.textContent = formatted;
-    });
+    const brentTime = brent?.latest_quote?.timestamp;
+    const brentDateEl = document.getElementById('brentDate');
+    const brentFormatted = formatBeijingTimestamp(brentTime);
+    if (brentDateEl && brentFormatted && brentDateEl.textContent !== brentFormatted) {
+      brentDateEl.textContent = brentFormatted;
+    }
+
+    ensureGoldLargeQuote();
+    const goldQuote = gold?.latest_quote || {};
+    const goldRows = Array.isArray(gold?.data) ? gold.data : [];
+    const goldLast = goldRows.length ? goldRows[goldRows.length - 1] : null;
+    const goldPrice = Number(goldQuote.price ?? goldLast?.value);
+
+    const goldValueEl = document.getElementById('goldBigValue');
+    if (goldValueEl && Number.isFinite(goldPrice)) {
+      goldValueEl.textContent = goldPrice.toLocaleString(undefined, {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      });
+    }
+
+    const goldTime = formatBeijingTimestamp(goldQuote.timestamp);
+    const goldBigDate = document.getElementById('goldBigDate');
+    if (goldBigDate && goldTime) goldBigDate.textContent = `Latest quote · ${goldTime}`;
+
+    const goldChangeEl = document.getElementById('goldBigChange');
+    const base = Number(goldLast?.value);
+    if (goldChangeEl && Number.isFinite(goldPrice) && Number.isFinite(base) && base !== 0) {
+      const change = (goldPrice / base - 1) * 100;
+      goldChangeEl.textContent = `${change >= 0 ? '+' : ''}${change.toFixed(2)}% vs prior completed daily close`;
+      goldChangeEl.style.color = change > 0 ? 'var(--green)' : change < 0 ? 'var(--red)' : 'var(--muted)';
+    }
   }
 
   function aviationDataZoom() {
@@ -99,7 +203,6 @@
     if (!option || typeof option !== 'object') return option;
     const out = { ...option };
 
-    // Same bottom spacing as the aviation dashboard so the mini-history window is easy to grab.
     if (Array.isArray(out.grid)) {
       out.grid = out.grid.map((g, i) => i === 0 ? { ...g, bottom: Math.max(Number(g?.bottom) || 0, 57) } : g);
     } else {
@@ -119,8 +222,6 @@
     };
 
     patched.add(chart);
-
-    // If the page rendered before this shared asset loaded, merge the aviation-style navigator now.
     originalSetOption({
       grid: { bottom: 57 },
       dataZoom: aviationDataZoom()
@@ -134,20 +235,11 @@
       const chart = echarts.getInstanceByDom(dom);
       if (chart) patchChart(chart);
     });
-    syncCommodityQuoteTimes();
+    syncCommodityQuotes();
   }
-
-  // Keep the quote-time labels correct after the async commodity fetch and after range
-  // buttons call the inline renderer again. Observe only the two tiny label nodes.
-  const quoteTimeObserver = new MutationObserver(syncCommodityQuoteTimes);
-  ['brentDate', 'goldDate'].forEach(id => {
-    const el = document.getElementById(id);
-    if (el) quoteTimeObserver.observe(el, { childList: true, characterData: true, subtree: true });
-  });
 
   scan();
 
-  // Most charts are created only after async CSV/JSON loads, so keep scanning briefly.
   const observer = new MutationObserver(scan);
   observer.observe(document.documentElement, { childList: true, subtree: true });
 
