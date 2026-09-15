@@ -1,15 +1,15 @@
 {
-  "generated_at_bjt": "2026-09-15T23:08:40+08:00",
+  "generated_at_bjt": "2026-09-15T23:24:48+08:00",
   "timezone": "Asia/Shanghai",
   "source": "Yahoo Finance 1-minute chart bars",
   "poll_frequency": "5 minutes during U.S. regular trading hours",
   "note": "Latest-value tiles use these quotes. Historical normalized charts remain completed-session only. Yahoo Finance quotes may be delayed.",
   "quotes": {
     "ndx": {
-      "price": 28972.496094,
+      "price": 28980.478516,
       "previous_close": 29127.158,
-      "change_1d_pct": -0.531,
-      "timestamp": "2026-09-15T23:08:35+08:00",
+      "change_1d_pct": -0.5036,
+      "timestamp": "2026-09-15T23:24:41+08:00",
       "bar_interval": "1m",
       "poll_frequency": "5 minutes",
       "source": "Yahoo Finance ^NDX",
@@ -19,10 +19,10 @@
       "unit": "index"
     },
     "sox": {
-      "price": 11192.933594,
+      "price": 11193.780273,
       "previous_close": 11131.281,
-      "change_1d_pct": 0.5539,
-      "timestamp": "2026-09-15T23:08:37+08:00",
+      "change_1d_pct": 0.5615,
+      "timestamp": "2026-09-15T23:24:46+08:00",
       "bar_interval": "1m",
       "poll_frequency": "5 minutes",
       "source": "Yahoo Finance ^SOX",
@@ -32,10 +32,10 @@
       "unit": "index"
     },
     "nvda": {
-      "price": 212.25,
+      "price": 212.121597,
       "previous_close": 210.96,
-      "change_1d_pct": 0.6115,
-      "timestamp": "2026-09-15T23:08:39+08:00",
+      "change_1d_pct": 0.5506,
+      "timestamp": "2026-09-15T23:24:46+08:00",
       "bar_interval": "1m",
       "poll_frequency": "5 minutes",
       "source": "Yahoo Finance NVDA",
