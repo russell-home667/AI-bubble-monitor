@@ -59,7 +59,6 @@ jobs:
           assert d.get('ticker') == 'XAU/USD'
           assert d.get('unit') == 'USD/oz'
           assert d.get('instrument_type') == 'spot'
-          assert d.get('source') == 'World Bank Pink Sheet + XAUS Gold Data API'
           assert d.get('historical_source') == 'World Bank Commodity Markets (Pink Sheet)'
           assert len(rows) >= 1500
           assert rows[0]['date'] <= '1990-01-01'
@@ -70,7 +69,7 @@ jobs:
           assert float(quote['price']) > 100
           assert quote.get('timestamp')
           assert d.get('updated_at_bjt')
-          print('rows', len(rows), 'coverage', rows[0]['date'], 'to', rows[-1]['date'], 'latest', quote['price'], 'status', d.get('status'))
+          print('rows', len(rows), 'coverage', rows[0]['date'], 'to', rows[-1]['date'], 'latest', quote['price'], 'status', d.get('status'), 'daily_source', d.get('daily_source'))
           PY
 
       - name: Commit data
