@@ -1,8 +1,6 @@
 (() => {
   'use strict';
 
-  // Shared ECharts time navigation, intentionally matched to the aviation-leasing dashboard.
-  // Only true time-series charts are included; cross-sectional charts are excluded.
   const TIME_CHART_IDS = new Set([
     'brentChart',
     'marketChart',
@@ -18,13 +16,10 @@
 
   const patched = new WeakSet();
 
-  // The commodity payload timestamps are ISO instants (normally UTC with a trailing Z).
-  // Normalize them to Beijing time before display.
   function formatBeijingTimestamp(value) {
     if (!value) return null;
     const d = new Date(value);
     if (Number.isNaN(d.getTime())) return null;
-
     const parts = new Intl.DateTimeFormat('en-CA', {
       timeZone: 'Asia/Shanghai',
       year: 'numeric',
@@ -58,10 +53,7 @@
           padding-bottom:8px;
         }
         #brentMacroSection .brent-quote-main,
-        #brentMacroSection .gold-quote-main{
-          min-width:0;
-          max-width:520px;
-        }
+        #brentMacroSection .gold-quote-main{min-width:0;max-width:520px;}
         #brentMacroSection .commodity-quote-label,
         #brentMacroSection .brent-quote-row > div:first-child::before{
           color:#6f8fa6;
@@ -86,16 +78,9 @@
         #brentMacroSection .gold-unit{color:#7895aa;font-size:13px;font-weight:600;}
         #brentMacroSection .gold-change{margin-top:8px;font-size:14px;font-weight:600;color:#8fa7b7;}
         #brentMacroSection .brent-time,
-        #brentMacroSection .gold-time{
-          margin-top:9px;
-          color:#66859b;
-          font-size:10px;
-          line-height:1.45;
-        }
+        #brentMacroSection .gold-time{margin-top:9px;color:#66859b;font-size:10px;line-height:1.45;}
         #brentMacroSection .brent-meta{display:none!important;}
-        @media(max-width:900px){
-          #brentMacroSection .brent-quote-row{gap:36px;}
-        }
+        @media(max-width:900px){#brentMacroSection .brent-quote-row{gap:36px;}}
         @media(max-width:620px){
           #brentMacroSection .brent-quote-row{grid-template-columns:1fr;gap:24px;}
           #brentMacroSection .gold-value{font-size:39px;}
@@ -141,15 +126,13 @@
 
     ensureCommodityQuoteLayout();
 
-    const brentTime = brent?.latest_quote?.timestamp;
-    const brentFormatted = formatBeijingTimestamp(brentTime);
+    const brentFormatted = formatBeijingTimestamp(brent?.latest_quote?.timestamp);
     const brentQuoteTime = document.getElementById('brentQuoteTime');
     if (brentQuoteTime && brentFormatted) {
       const nextText = `Latest quote · ${brentFormatted}`;
       if (brentQuoteTime.textContent !== nextText) brentQuoteTime.textContent = nextText;
     }
 
-    // Keep the legacy metadata node synchronized even though it is now visually hidden.
     const brentDateEl = document.getElementById('brentDate');
     if (brentDateEl && brentFormatted && brentDateEl.textContent !== brentFormatted) {
       brentDateEl.textContent = brentFormatted;
@@ -202,6 +185,7 @@
     const chart = document.getElementById('liquidityChart');
     const card = chart?.closest('.chart-card');
     if (!card) return null;
+    card.classList.add('liquidity-card-enhanced');
 
     const head = card.querySelector('.chart-head');
     const sub = head?.querySelector('.chart-sub');
@@ -217,6 +201,12 @@
       const style = document.createElement('style');
       style.id = 'liquidity-latest-style';
       style.textContent = `
+        .liquidity-card-enhanced .chart-head{align-items:flex-start;gap:14px;}
+        .liquidity-card-enhanced .chart-title{line-height:1.35;}
+        .liquidity-card-enhanced .chart-sub{max-width:520px;line-height:1.4;}
+        .liquidity-card-enhanced .range{flex-wrap:nowrap;flex-shrink:0;gap:4px;}
+        .liquidity-card-enhanced .range button{min-width:38px;}
+        .liquidity-card-enhanced .source-row{font-size:9px;line-height:1.45;margin-top:4px;}
         #liquidityLatestGrid{
           display:grid;
           grid-template-columns:repeat(3,minmax(0,1fr));
@@ -244,28 +234,12 @@
           overflow:hidden;
           text-overflow:ellipsis;
         }
-        #liquidityLatestGrid .liq-value-row{
-          display:flex;
-          align-items:baseline;
-          gap:6px;
-          margin-top:7px;
-          min-width:0;
-        }
-        #liquidityLatestGrid .liq-value{
-          color:#f0f8ff;
-          font-size:31px;
-          line-height:1;
-          font-weight:720;
-          letter-spacing:.2px;
-        }
+        #liquidityLatestGrid .liq-value-row{display:flex;align-items:baseline;gap:6px;margin-top:7px;min-width:0;}
+        #liquidityLatestGrid .liq-value{color:#f0f8ff;font-size:31px;line-height:1;font-weight:720;letter-spacing:.2px;}
         #liquidityLatestGrid .liq-unit{color:#718aa1;font-size:10px;font-weight:600;}
-        #liquidityLatestGrid .liq-date{
-          margin-top:7px;
-          color:#5f7b92;
-          font-size:9px;
-          line-height:1.35;
-        }
+        #liquidityLatestGrid .liq-date{margin-top:7px;color:#5f7b92;font-size:9px;line-height:1.35;}
         @media(max-width:980px){
+          .liquidity-card-enhanced .range{flex-wrap:wrap;}
           #liquidityLatestGrid{grid-template-columns:repeat(2,minmax(0,1fr));}
           #liquidityLatestGrid .liq-quote{border-right:1px solid rgba(89,151,190,.12);border-bottom:1px solid rgba(89,151,190,.12);}
           #liquidityLatestGrid .liq-quote:nth-child(2n){border-right:0;}
@@ -322,7 +296,6 @@
   function syncLiquidityQuotes() {
     ensureLiquidityQuoteLayout();
     if (typeof state === 'undefined' || !state?.raw) return;
-
     setLiquidityQuote('liq10y', latestFiniteRow(state.raw.dgs10, 'value'), 2);
     setLiquidityQuote('liq30y', latestFiniteRow(state.raw.dgs30, 'value'), 2);
     setLiquidityQuote('liqReal10', latestFiniteRow(state.raw.dfii10, 'value'), 2);
@@ -331,7 +304,28 @@
     setLiquidityQuote('liqNfci', latestFiniteRow(state.raw.nfci, 'value'), 3);
   }
 
-  function aviationDataZoom() {
+  function syncLiquiditySources() {
+    const card = document.getElementById('liquidityChart')?.closest('.chart-card');
+    const row = card?.querySelector('.chart-title .source-row');
+    if (!row || row.querySelector('[data-nfci-source="1"]')) return;
+
+    row.appendChild(document.createTextNode(' · '));
+    const a = document.createElement('a');
+    a.className = 'source-link';
+    a.href = 'https://fred.stlouisfed.org/series/NFCI';
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
+    a.dataset.nfciSource = '1';
+    a.setAttribute('aria-label', 'Chicago Fed / FRED · NFCI source');
+    a.appendChild(document.createTextNode('Chicago Fed / FRED · NFCI '));
+    const arrow = document.createElement('span');
+    arrow.className = 'source-arrow';
+    arrow.textContent = '↗';
+    a.appendChild(arrow);
+    row.appendChild(a);
+  }
+
+  function aviationDataZoom(chartId) {
     return [
       {
         type: 'inside',
@@ -357,12 +351,10 @@
           borderColor: '#46c1ff',
           borderWidth: 1.4
         },
-        moveHandleStyle: {
-          color: 'rgba(142, 172, 201, 0.78)'
-        },
+        moveHandleStyle: { color: 'rgba(142, 172, 201, 0.78)' },
         textStyle: { color: '#647f92' },
         showDetail: false,
-        showDataShadow: true,
+        showDataShadow: chartId !== 'liquidityChart',
         brushSelect: true,
         zoomLock: false
       }
@@ -380,6 +372,16 @@
       top: Math.max(Number((Array.isArray(out.grid) ? out.grid[0]?.top : out.grid?.top)) || 0, 54),
       bottom: 57,
       containLabel: false
+    };
+
+    out.legend = {
+      ...(out.legend || {}),
+      top: 8,
+      left: 'center',
+      itemGap: 12,
+      itemWidth: 18,
+      itemHeight: 8,
+      textStyle: { ...((out.legend || {}).textStyle || {}), color: '#8ea2bc', fontSize: 10 }
     };
 
     const axes = Array.isArray(out.yAxis) ? out.yAxis.map(x => ({ ...x })) : [{ ...(out.yAxis || {}) }];
@@ -409,21 +411,35 @@
       nameGap: 14,
       scale: true,
       splitLine: { show: false },
-      axisLine: { show: true, lineStyle: { color: '#65b7d6' } },
+      axisLine: { show: true, lineStyle: { color: '#58c6e8' } },
       axisLabel: { ...(baseAxis.axisLabel || {}), color: '#74a9c2' }
     };
     out.yAxis = axes;
 
+    const seriesStyle = {
+      'US 10Y Treasury': { color: '#6f83ff', width: 2.0 },
+      'US 30Y Treasury': { color: '#9bd66f', width: 2.0 },
+      '10Y Real Yield': { color: '#f5c75b', width: 2.0 },
+      'HY OAS': { color: '#ff746d', width: 2.0 },
+      'VIX': { color: '#b78cff', width: 2.0 },
+      'NFCI': { color: '#58c6e8', width: 1.9, type: 'dashed' }
+    };
+
     if (Array.isArray(out.series)) {
       out.series = out.series.map(series => {
-        if (series?.name !== 'NFCI') return series;
-        return {
+        const style = seriesStyle[series?.name];
+        const next = style ? {
           ...series,
-          yAxisIndex: 2,
-          connectNulls: true,
-          showSymbol: false,
-          lineStyle: { ...(series.lineStyle || {}), type: 'dashed', width: 1.8 }
-        };
+          lineStyle: { ...(series.lineStyle || {}), color: style.color, width: style.width, ...(style.type ? { type: style.type } : {}) },
+          itemStyle: { ...(series.itemStyle || {}), color: style.color }
+        } : { ...series };
+
+        if (series?.name === 'NFCI') {
+          next.yAxisIndex = 2;
+          next.connectNulls = true;
+          next.showSymbol = false;
+        }
+        return next;
       });
     }
 
@@ -433,7 +449,6 @@
   function withAviationZoom(option, chartId) {
     if (!option || typeof option !== 'object') return option;
     let out = { ...option };
-
     if (chartId === 'liquidityChart') out = tuneLiquidityOption(out);
 
     if (Array.isArray(out.grid)) {
@@ -442,7 +457,7 @@
       out.grid = { ...(out.grid || {}), bottom: Math.max(Number(out.grid?.bottom) || 0, 57) };
     }
 
-    out.dataZoom = aviationDataZoom();
+    out.dataZoom = aviationDataZoom(chartId);
     return out;
   }
 
@@ -458,7 +473,7 @@
     const initial = chartId === 'liquidityChart'
       ? tuneLiquidityOption({ grid: { bottom: 57 } })
       : { grid: { bottom: 57 } };
-    originalSetOption({ ...initial, dataZoom: aviationDataZoom() }, false);
+    originalSetOption({ ...initial, dataZoom: aviationDataZoom(chartId) }, false);
   }
 
   function scan() {
@@ -470,11 +485,9 @@
     });
     syncCommodityQuotes();
     syncLiquidityQuotes();
+    syncLiquiditySources();
   }
 
-  // Run once immediately, then use a bounded lightweight poll while async chart/data
-  // initialization finishes. Do not observe the whole document: commodity DOM writes and
-  // ECharts mutations can otherwise recursively retrigger scans and freeze the page.
   scan();
 
   let attempts = 0;
