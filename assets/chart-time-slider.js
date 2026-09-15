@@ -187,6 +187,150 @@
     }
   }
 
+  function latestFiniteRow(rows, valueKey) {
+    if (!Array.isArray(rows)) return null;
+    for (let i = rows.length - 1; i >= 0; i -= 1) {
+      const row = rows[i];
+      if (!row) continue;
+      const value = Number(row[valueKey]);
+      if (Number.isFinite(value)) return { ...row, __value: value };
+    }
+    return null;
+  }
+
+  function ensureLiquidityQuoteLayout() {
+    const chart = document.getElementById('liquidityChart');
+    const card = chart?.closest('.chart-card');
+    if (!card) return null;
+
+    const head = card.querySelector('.chart-head');
+    const sub = head?.querySelector('.chart-sub');
+    if (sub) {
+      const fixed = '10Y & 30Y Treasury / 10Y Real Yield / HY OAS / VIX / NFCI';
+      if (sub.textContent !== fixed) sub.textContent = fixed;
+    }
+
+    let grid = document.getElementById('liquidityLatestGrid');
+    if (grid) return grid;
+
+    if (!document.getElementById('liquidity-latest-style')) {
+      const style = document.createElement('style');
+      style.id = 'liquidity-latest-style';
+      style.textContent = `
+        #liquidityLatestGrid{
+          display:grid;
+          grid-template-columns:repeat(3,minmax(0,1fr));
+          margin:14px 16px 2px;
+          border:1px solid rgba(89,151,190,.15);
+          border-radius:12px;
+          overflow:hidden;
+          background:rgba(3,14,25,.22);
+        }
+        #liquidityLatestGrid .liq-quote{
+          min-width:0;
+          padding:13px 14px 12px;
+          border-right:1px solid rgba(89,151,190,.12);
+          border-bottom:1px solid rgba(89,151,190,.12);
+        }
+        #liquidityLatestGrid .liq-quote:nth-child(3n){border-right:0;}
+        #liquidityLatestGrid .liq-quote:nth-child(n+4){border-bottom:0;}
+        #liquidityLatestGrid .liq-label{
+          color:#7893aa;
+          font-size:10px;
+          font-weight:700;
+          letter-spacing:.55px;
+          text-transform:uppercase;
+          white-space:nowrap;
+          overflow:hidden;
+          text-overflow:ellipsis;
+        }
+        #liquidityLatestGrid .liq-value-row{
+          display:flex;
+          align-items:baseline;
+          gap:6px;
+          margin-top:7px;
+          min-width:0;
+        }
+        #liquidityLatestGrid .liq-value{
+          color:#f0f8ff;
+          font-size:31px;
+          line-height:1;
+          font-weight:720;
+          letter-spacing:.2px;
+        }
+        #liquidityLatestGrid .liq-unit{color:#718aa1;font-size:10px;font-weight:600;}
+        #liquidityLatestGrid .liq-date{
+          margin-top:7px;
+          color:#5f7b92;
+          font-size:9px;
+          line-height:1.35;
+        }
+        @media(max-width:980px){
+          #liquidityLatestGrid{grid-template-columns:repeat(2,minmax(0,1fr));}
+          #liquidityLatestGrid .liq-quote{border-right:1px solid rgba(89,151,190,.12);border-bottom:1px solid rgba(89,151,190,.12);}
+          #liquidityLatestGrid .liq-quote:nth-child(2n){border-right:0;}
+          #liquidityLatestGrid .liq-quote:nth-child(n+5){border-bottom:0;}
+        }
+        @media(max-width:620px){
+          #liquidityLatestGrid{grid-template-columns:1fr;}
+          #liquidityLatestGrid .liq-quote{border-right:0!important;border-bottom:1px solid rgba(89,151,190,.12)!important;}
+          #liquidityLatestGrid .liq-quote:last-child{border-bottom:0!important;}
+          #liquidityLatestGrid .liq-value{font-size:28px;}
+        }
+      `;
+      document.head.appendChild(style);
+    }
+
+    grid = document.createElement('div');
+    grid.id = 'liquidityLatestGrid';
+    grid.innerHTML = [
+      ['liq10y','US 10Y Treasury','%'],
+      ['liq30y','US 30Y Treasury','%'],
+      ['liqReal10','10Y Real Yield','%'],
+      ['liqHy','HY OAS','%'],
+      ['liqVix','VIX','index'],
+      ['liqNfci','NFCI','index']
+    ].map(([id,label,unit]) => `
+      <div class="liq-quote">
+        <div class="liq-label">${label}</div>
+        <div class="liq-value-row"><span class="liq-value" id="${id}Value">—</span><span class="liq-unit">${unit}</span></div>
+        <div class="liq-date" id="${id}Date">Latest · —</div>
+      </div>
+    `).join('');
+
+    if (head?.nextSibling) card.insertBefore(grid, head.nextSibling);
+    else if (head) head.after(grid);
+    else card.insertBefore(grid, chart);
+    return grid;
+  }
+
+  function setLiquidityQuote(id, row, decimals) {
+    if (!row) return;
+    const valueEl = document.getElementById(`${id}Value`);
+    const dateEl = document.getElementById(`${id}Date`);
+    if (valueEl) {
+      const nextValue = Number(row.__value).toFixed(decimals);
+      if (valueEl.textContent !== nextValue) valueEl.textContent = nextValue;
+    }
+    if (dateEl) {
+      const date = row.date || row.observation_date || '—';
+      const nextDate = `Latest · ${date}`;
+      if (dateEl.textContent !== nextDate) dateEl.textContent = nextDate;
+    }
+  }
+
+  function syncLiquidityQuotes() {
+    ensureLiquidityQuoteLayout();
+    if (typeof state === 'undefined' || !state?.raw) return;
+
+    setLiquidityQuote('liq10y', latestFiniteRow(state.raw.dgs10, 'value'), 2);
+    setLiquidityQuote('liq30y', latestFiniteRow(state.raw.dgs30, 'value'), 2);
+    setLiquidityQuote('liqReal10', latestFiniteRow(state.raw.dfii10, 'value'), 2);
+    setLiquidityQuote('liqHy', latestFiniteRow(state.raw.hy, 'value'), 2);
+    setLiquidityQuote('liqVix', latestFiniteRow(state.raw.vix, 'close'), 2);
+    setLiquidityQuote('liqNfci', latestFiniteRow(state.raw.nfci, 'value'), 3);
+  }
+
   function aviationDataZoom() {
     return [
       {
@@ -225,9 +369,72 @@
     ];
   }
 
-  function withAviationZoom(option) {
+  function tuneLiquidityOption(option) {
     if (!option || typeof option !== 'object') return option;
     const out = { ...option };
+
+    out.grid = {
+      ...(Array.isArray(out.grid) ? (out.grid[0] || {}) : (out.grid || {})),
+      left: 72,
+      right: 118,
+      top: Math.max(Number((Array.isArray(out.grid) ? out.grid[0]?.top : out.grid?.top)) || 0, 54),
+      bottom: 57,
+      containLabel: false
+    };
+
+    const axes = Array.isArray(out.yAxis) ? out.yAxis.map(x => ({ ...x })) : [{ ...(out.yAxis || {}) }];
+    const baseAxis = axes[0] || { type: 'value', scale: true };
+    axes[0] = {
+      ...baseAxis,
+      name: 'Yield / OAS (%)',
+      position: 'left',
+      offset: 0,
+      nameGap: 14,
+      scale: true
+    };
+    axes[1] = {
+      ...(axes[1] || baseAxis),
+      name: 'VIX',
+      position: 'right',
+      offset: 0,
+      nameGap: 14,
+      scale: true,
+      splitLine: { show: false }
+    };
+    axes[2] = {
+      ...baseAxis,
+      name: 'NFCI',
+      position: 'right',
+      offset: 54,
+      nameGap: 14,
+      scale: true,
+      splitLine: { show: false },
+      axisLine: { show: true, lineStyle: { color: '#65b7d6' } },
+      axisLabel: { ...(baseAxis.axisLabel || {}), color: '#74a9c2' }
+    };
+    out.yAxis = axes;
+
+    if (Array.isArray(out.series)) {
+      out.series = out.series.map(series => {
+        if (series?.name !== 'NFCI') return series;
+        return {
+          ...series,
+          yAxisIndex: 2,
+          connectNulls: true,
+          showSymbol: false,
+          lineStyle: { ...(series.lineStyle || {}), type: 'dashed', width: 1.8 }
+        };
+      });
+    }
+
+    return out;
+  }
+
+  function withAviationZoom(option, chartId) {
+    if (!option || typeof option !== 'object') return option;
+    let out = { ...option };
+
+    if (chartId === 'liquidityChart') out = tuneLiquidityOption(out);
 
     if (Array.isArray(out.grid)) {
       out.grid = out.grid.map((g, i) => i === 0 ? { ...g, bottom: Math.max(Number(g?.bottom) || 0, 57) } : g);
@@ -239,19 +446,19 @@
     return out;
   }
 
-  function patchChart(chart) {
+  function patchChart(chart, chartId) {
     if (!chart || patched.has(chart)) return;
     const originalSetOption = chart.setOption.bind(chart);
 
     chart.setOption = function(option, ...args) {
-      return originalSetOption(withAviationZoom(option), ...args);
+      return originalSetOption(withAviationZoom(option, chartId), ...args);
     };
 
     patched.add(chart);
-    originalSetOption({
-      grid: { bottom: 57 },
-      dataZoom: aviationDataZoom()
-    }, false);
+    const initial = chartId === 'liquidityChart'
+      ? tuneLiquidityOption({ grid: { bottom: 57 } })
+      : { grid: { bottom: 57 } };
+    originalSetOption({ ...initial, dataZoom: aviationDataZoom() }, false);
   }
 
   function scan() {
@@ -259,9 +466,10 @@
       const dom = document.getElementById(id);
       if (!dom) return;
       const chart = echarts.getInstanceByDom(dom);
-      if (chart) patchChart(chart);
+      if (chart) patchChart(chart, id);
     });
     syncCommodityQuotes();
+    syncLiquidityQuotes();
   }
 
   // Run once immediately, then use a bounded lightweight poll while async chart/data
