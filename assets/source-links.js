@@ -14,7 +14,8 @@
     yahooQQQ: {label:'Yahoo Finance · QQQ', url:'https://finance.yahoo.com/quote/QQQ/'},
     yahooRSP: {label:'Yahoo Finance · RSP', url:'https://finance.yahoo.com/quote/RSP/'},
     yahooBrent: {label:'Yahoo Finance · BZ=F', url:'https://finance.yahoo.com/quote/BZ=F/'},
-    xausGold: {label:'XAUS · XAU/USD Spot', url:'https://xaus.com/'},
+    xausGold: {label:'XAUS Gold Data API · XAU/USD Spot', url:'https://xaus.com/'},
+    goldApiGold: {label:'gold-api.com · XAU/USD Spot', url:'https://api.gold-api.com/price/XAU'},
 
     // VIX is acquired directly from Cboe's official historical dataset.
     cboeVIX: {label:'Cboe · VIX Historical Data', url:'https://www.cboe.com/tradable_products/vix/vix_historical_data/'},
@@ -68,6 +69,30 @@
   function one(src){ return {kind:'single', source:src}; }
   function many(sources){ return {kind:'multi', sources}; }
 
+  function currentGoldSource(){
+    let source='';
+    try {
+      if (typeof goldPayload !== 'undefined') source=String(goldPayload?.latest_quote?.source || '');
+    } catch (_) {}
+    const s=source.toLowerCase();
+    if (s.includes('gold-api.com')) return S.goldApiGold;
+    if (s.includes('xaus')) return S.xausGold;
+    return null;
+  }
+
+  function syncCommoditySourceText(){
+    const desc=document.querySelector('#brentMacroSection .brent-desc');
+    if(!desc) return;
+    let brent=null, gold=null;
+    try { if(typeof brentPayload !== 'undefined') brent=brentPayload; } catch (_) {}
+    try { if(typeof goldPayload !== 'undefined') gold=goldPayload; } catch (_) {}
+    if(!brent || !gold) return;
+    const brentSource=brent?.latest_quote?.source || brent?.source || '—';
+    const goldSource=gold?.latest_quote?.source || gold?.source || '—';
+    const next=`Current quote sources · Brent: ${brentSource} · Gold: ${goldSource}`;
+    if(desc.textContent !== next) desc.textContent=next;
+  }
+
   function ruleFor(raw){
     const t = norm(raw);
     if (!t) return null;
@@ -96,9 +121,16 @@
 
     if (t.includes('historical proxy') || t.includes('1999–present') || t.includes('1999-present')) return many(BACKTEST);
 
-    // Commodity.
-    if (contains(t,['macro commodity','brent crude & gold spot','brent crude + gold spot'])) return many([S.yahooBrent,S.xausGold]);
-    if (t.includes('xau/usd') || t.includes('gold spot')) return one(S.xausGold);
+    // Commodity. The Gold live quote provider can switch between XAUS and gold-api.com,
+    // so never hard-code the provider in the visible source label.
+    if (contains(t,['macro commodity','brent crude & gold spot','brent crude + gold spot'])) {
+      const goldSource=currentGoldSource();
+      return goldSource ? many([S.yahooBrent,goldSource]) : null;
+    }
+    if (t.includes('xau/usd') || t.includes('gold spot')) {
+      const goldSource=currentGoldSource();
+      return goldSource ? one(goldSource) : null;
+    }
     if (t.includes('brent crude') || t === 'bz=f' || t.includes('brent bz=f')) return one(S.yahooBrent);
 
     // Market prices.
@@ -199,6 +231,7 @@
   }
 
   function decorateAll(){
+    syncCommoditySourceText();
     document.querySelectorAll('.score-title,.regime-kicker,.metric-name,.chart-title,.brent-title,.brent-ticker,.name,.title').forEach(decorate);
     decorateComponentRows();
   }
