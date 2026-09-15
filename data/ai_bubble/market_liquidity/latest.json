@@ -2,7 +2,7 @@
   "module": "AI Bubble Monitor - Market & Liquidity",
   "step": 5,
   "timezone": "Asia/Shanghai",
-  "generated_at_bjt": "2026-09-15T06:42:54+08:00",
+  "generated_at_bjt": "2026-09-15T08:09:31+08:00",
   "indicators": {
     "ndx": {
       "name": "Nasdaq-100",
@@ -110,7 +110,7 @@
       "source": "Federal Reserve / FRED",
       "source_symbol": "DFII10",
       "source_url": "https://fred.stlouisfed.org/series/DFII10",
-      "fetched_at_bjt": "2026-09-15T06:42:53+08:00",
+      "fetched_at_bjt": "2026-09-15T08:09:31+08:00",
       "status": "fresh"
     },
     "dgs10": {
@@ -124,7 +124,7 @@
       "source": "Federal Reserve Board H.15 / FRED",
       "source_symbol": "DGS10",
       "source_url": "https://fred.stlouisfed.org/series/DGS10",
-      "fetched_at_bjt": "2026-09-15T06:42:53+08:00",
+      "fetched_at_bjt": "2026-09-15T08:09:31+08:00",
       "status": "fresh"
     },
     "dgs30": {
@@ -138,7 +138,7 @@
       "source": "Federal Reserve Board H.15 / FRED",
       "source_symbol": "DGS30",
       "source_url": "https://fred.stlouisfed.org/series/DGS30",
-      "fetched_at_bjt": "2026-09-15T06:42:53+08:00",
+      "fetched_at_bjt": "2026-09-15T08:09:31+08:00",
       "status": "fresh"
     },
     "hy_oas": {
