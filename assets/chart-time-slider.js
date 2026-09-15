@@ -18,6 +18,45 @@
 
   const patched = new WeakSet();
 
+  // The commodity payload timestamps are ISO instants (normally UTC with a trailing Z).
+  // The inline commodity renderer used to strip the timezone and append "BJT", which
+  // mislabeled UTC clock time as Beijing time. Normalize the displayed quote timestamps
+  // here without changing the underlying data or acquisition pipeline.
+  function formatBeijingTimestamp(value) {
+    if (!value) return null;
+    const d = new Date(value);
+    if (Number.isNaN(d.getTime())) return null;
+
+    const parts = new Intl.DateTimeFormat('en-CA', {
+      timeZone: 'Asia/Shanghai',
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hourCycle: 'h23'
+    }).formatToParts(d);
+    const p = Object.fromEntries(parts.map(x => [x.type, x.value]));
+    return `${p.year}-${p.month}-${p.day} ${p.hour}:${p.minute}:${p.second} BJT`;
+  }
+
+  function syncCommodityQuoteTimes() {
+    const brent = typeof brentPayload !== 'undefined' ? brentPayload : null;
+    const gold = typeof goldPayload !== 'undefined' ? goldPayload : null;
+    const pairs = [
+      ['brentDate', brent?.latest_quote?.timestamp],
+      ['goldDate', gold?.latest_quote?.timestamp]
+    ];
+
+    pairs.forEach(([id, timestamp]) => {
+      if (!timestamp) return;
+      const el = document.getElementById(id);
+      const formatted = formatBeijingTimestamp(timestamp);
+      if (el && formatted && el.textContent !== formatted) el.textContent = formatted;
+    });
+  }
+
   function aviationDataZoom() {
     return [
       {
@@ -95,7 +134,16 @@
       const chart = echarts.getInstanceByDom(dom);
       if (chart) patchChart(chart);
     });
+    syncCommodityQuoteTimes();
   }
+
+  // Keep the quote-time labels correct after the async commodity fetch and after range
+  // buttons call the inline renderer again. Observe only the two tiny label nodes.
+  const quoteTimeObserver = new MutationObserver(syncCommodityQuoteTimes);
+  ['brentDate', 'goldDate'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) quoteTimeObserver.observe(el, { childList: true, characterData: true, subtree: true });
+  });
 
   scan();
 
