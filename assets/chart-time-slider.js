@@ -142,22 +142,28 @@
 
     const goldValueEl = document.getElementById('goldBigValue');
     if (goldValueEl && Number.isFinite(goldPrice)) {
-      goldValueEl.textContent = goldPrice.toLocaleString(undefined, {
+      const nextValue = goldPrice.toLocaleString(undefined, {
         minimumFractionDigits: 2,
         maximumFractionDigits: 2
       });
+      if (goldValueEl.textContent !== nextValue) goldValueEl.textContent = nextValue;
     }
 
     const goldTime = formatBeijingTimestamp(goldQuote.timestamp);
     const goldBigDate = document.getElementById('goldBigDate');
-    if (goldBigDate && goldTime) goldBigDate.textContent = `Latest quote · ${goldTime}`;
+    if (goldBigDate && goldTime) {
+      const nextDate = `Latest quote · ${goldTime}`;
+      if (goldBigDate.textContent !== nextDate) goldBigDate.textContent = nextDate;
+    }
 
     const goldChangeEl = document.getElementById('goldBigChange');
     const base = Number(goldLast?.value);
     if (goldChangeEl && Number.isFinite(goldPrice) && Number.isFinite(base) && base !== 0) {
       const change = (goldPrice / base - 1) * 100;
-      goldChangeEl.textContent = `${change >= 0 ? '+' : ''}${change.toFixed(2)}% vs prior completed daily close`;
-      goldChangeEl.style.color = change > 0 ? 'var(--green)' : change < 0 ? 'var(--red)' : 'var(--muted)';
+      const nextChange = `${change >= 0 ? '+' : ''}${change.toFixed(2)}% vs prior completed daily close`;
+      const nextColor = change > 0 ? 'var(--green)' : change < 0 ? 'var(--red)' : 'var(--muted)';
+      if (goldChangeEl.textContent !== nextChange) goldChangeEl.textContent = nextChange;
+      if (goldChangeEl.style.color !== nextColor) goldChangeEl.style.color = nextColor;
     }
   }
 
@@ -238,18 +244,15 @@
     syncCommodityQuotes();
   }
 
+  // Run once immediately, then use a bounded lightweight poll while async chart/data
+  // initialization finishes. Do not observe the whole document: commodity DOM writes and
+  // ECharts mutations can otherwise recursively retrigger scans and freeze the page.
   scan();
-
-  const observer = new MutationObserver(scan);
-  observer.observe(document.documentElement, { childList: true, subtree: true });
 
   let attempts = 0;
   const timer = setInterval(() => {
     scan();
     attempts += 1;
-    if (attempts >= 80) {
-      clearInterval(timer);
-      observer.disconnect();
-    }
-  }, 250);
+    if (attempts >= 40) clearInterval(timer);
+  }, 500);
 })();
