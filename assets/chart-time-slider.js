@@ -39,7 +39,7 @@
     return `${p.year}-${p.month}-${p.day} ${p.hour}:${p.minute}:${p.second} BJT`;
   }
 
-  function ensureGoldLargeQuote() {
+  function ensureCommodityQuoteLayout() {
     const row = document.querySelector('#brentMacroSection .brent-quote-row');
     if (!row) return null;
 
@@ -48,20 +48,32 @@
       const style = document.createElement('style');
       style.id = 'gold-large-quote-style';
       style.textContent = `
+        #brentMacroSection .brent-desc{display:none;}
         #brentMacroSection .brent-quote-row{
           display:grid;
-          grid-template-columns:minmax(0,1fr) minmax(0,1fr) auto;
-          align-items:end;
-          gap:34px;
+          grid-template-columns:repeat(2,minmax(0,1fr));
+          align-items:start;
+          gap:72px;
+          padding-top:24px;
+          padding-bottom:8px;
         }
-        #brentMacroSection .gold-quote-main{min-width:230px;}
-        #brentMacroSection .commodity-quote-label{
+        #brentMacroSection .brent-quote-main,
+        #brentMacroSection .gold-quote-main{
+          min-width:0;
+          max-width:520px;
+        }
+        #brentMacroSection .commodity-quote-label,
+        #brentMacroSection .brent-quote-row > div:first-child::before{
           color:#6f8fa6;
           font-size:11px;
           font-weight:700;
           letter-spacing:.75px;
           margin-bottom:7px;
           text-transform:uppercase;
+        }
+        #brentMacroSection .brent-quote-row > div:first-child::before{
+          content:'BRENT CRUDE';
+          display:block;
         }
         #brentMacroSection .gold-price-line{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;}
         #brentMacroSection .gold-value{
@@ -73,26 +85,35 @@
         }
         #brentMacroSection .gold-unit{color:#7895aa;font-size:13px;font-weight:600;}
         #brentMacroSection .gold-change{margin-top:8px;font-size:14px;font-weight:600;color:#8fa7b7;}
-        #brentMacroSection .gold-time{margin-top:7px;color:#66859b;font-size:10px;line-height:1.45;}
-        #brentMacroSection .brent-quote-row > div:first-child::before{
-          content:'BRENT CRUDE';
-          display:block;
-          color:#6f8fa6;
-          font-size:11px;
-          font-weight:700;
-          letter-spacing:.75px;
-          margin-bottom:7px;
+        #brentMacroSection .brent-time,
+        #brentMacroSection .gold-time{
+          margin-top:9px;
+          color:#66859b;
+          font-size:10px;
+          line-height:1.45;
         }
+        #brentMacroSection .brent-meta{display:none!important;}
         @media(max-width:900px){
-          #brentMacroSection .brent-quote-row{grid-template-columns:1fr 1fr;}
-          #brentMacroSection .brent-meta{grid-column:1/-1;text-align:left;grid-template-columns:auto 1fr;}
+          #brentMacroSection .brent-quote-row{gap:36px;}
         }
         @media(max-width:620px){
-          #brentMacroSection .brent-quote-row{grid-template-columns:1fr;gap:22px;}
+          #brentMacroSection .brent-quote-row{grid-template-columns:1fr;gap:24px;}
           #brentMacroSection .gold-value{font-size:39px;}
         }
       `;
       document.head.appendChild(style);
+
+      const brentMain = row.firstElementChild;
+      if (brentMain) {
+        brentMain.classList.add('brent-quote-main');
+        if (!document.getElementById('brentQuoteTime')) {
+          const time = document.createElement('div');
+          time.id = 'brentQuoteTime';
+          time.className = 'brent-time';
+          time.textContent = 'Latest quote · —';
+          brentMain.appendChild(time);
+        }
+      }
 
       block = document.createElement('div');
       block.id = 'goldQuoteMain';
@@ -104,21 +125,12 @@
           <span class="gold-unit">USD/oz · Gold</span>
         </div>
         <div class="gold-change" id="goldBigChange">—</div>
-        <div class="gold-time" id="goldBigDate">—</div>
+        <div class="gold-time" id="goldBigDate">Latest quote · —</div>
       `;
 
       const meta = row.querySelector('.brent-meta');
       if (meta) row.insertBefore(block, meta);
       else row.appendChild(block);
-
-      // The small metadata price/date are now redundant; keep Sources visible.
-      ['goldLatest', 'goldDate'].forEach(id => {
-        const value = document.getElementById(id);
-        if (!value) return;
-        const label = value.previousElementSibling;
-        value.style.display = 'none';
-        if (label) label.style.display = 'none';
-      });
     }
     return block;
   }
@@ -127,14 +139,22 @@
     const brent = typeof brentPayload !== 'undefined' ? brentPayload : null;
     const gold = typeof goldPayload !== 'undefined' ? goldPayload : null;
 
+    ensureCommodityQuoteLayout();
+
     const brentTime = brent?.latest_quote?.timestamp;
-    const brentDateEl = document.getElementById('brentDate');
     const brentFormatted = formatBeijingTimestamp(brentTime);
+    const brentQuoteTime = document.getElementById('brentQuoteTime');
+    if (brentQuoteTime && brentFormatted) {
+      const nextText = `Latest quote · ${brentFormatted}`;
+      if (brentQuoteTime.textContent !== nextText) brentQuoteTime.textContent = nextText;
+    }
+
+    // Keep the legacy metadata node synchronized even though it is now visually hidden.
+    const brentDateEl = document.getElementById('brentDate');
     if (brentDateEl && brentFormatted && brentDateEl.textContent !== brentFormatted) {
       brentDateEl.textContent = brentFormatted;
     }
 
-    ensureGoldLargeQuote();
     const goldQuote = gold?.latest_quote || {};
     const goldRows = Array.isArray(gold?.data) ? gold.data : [];
     const goldLast = goldRows.length ? goldRows[goldRows.length - 1] : null;
