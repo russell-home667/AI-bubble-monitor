@@ -9154,16 +9154,16 @@ date,value,source,source_symbol,endpoint,fetched_at_bjt,status
 2026-08-04,5.18,Federal Reserve Board H.15 / FRED,DGS30,FRED public CSV,2026-09-12T12:17:13+08:00,confirmed
 2026-08-05,5.17,Federal Reserve Board H.15 / FRED,DGS30,FRED public CSV · long-history backfill,2026-09-13T19:55:02+08:00,confirmed
 2026-08-06,5.22,Federal Reserve Board H.15 / FRED,DGS30,FRED public CSV,2026-09-15T05:38:27+08:00,confirmed
-2026-08-07,5.19,Federal Reserve Board H.15 / FRED,DGS30,FRED public CSV,2026-09-15T08:09:31+08:00,confirmed
-2026-08-10,5.25,Federal Reserve Board H.15 / FRED,DGS30,FRED public CSV,2026-09-15T08:09:31+08:00,confirmed
-2026-08-11,5.24,Federal Reserve Board H.15 / FRED,DGS30,FRED public CSV,2026-09-15T08:09:31+08:00,confirmed
-2026-08-12,5.24,Federal Reserve Board H.15 / FRED,DGS30,FRED public CSV,2026-09-15T08:09:31+08:00,confirmed
-2026-08-13,5.21,Federal Reserve Board H.15 / FRED,DGS30,FRED public CSV,2026-09-15T08:09:31+08:00,confirmed
-2026-08-14,5.25,Federal Reserve Board H.15 / FRED,DGS30,FRED public CSV,2026-09-15T08:09:31+08:00,confirmed
-2026-08-17,5.31,Federal Reserve Board H.15 / FRED,DGS30,FRED public CSV,2026-09-15T05:38:27+08:00,confirmed
-2026-08-18,5.28,Federal Reserve Board H.15 / FRED,DGS30,FRED public CSV,2026-09-15T05:38:27+08:00,confirmed
-2026-08-19,5.19,Federal Reserve Board H.15 / FRED,DGS30,FRED public CSV,2026-09-15T05:38:27+08:00,confirmed
-2026-08-20,5.23,Federal Reserve Board H.15 / FRED,DGS30,FRED public CSV,2026-09-12T12:17:13+08:00,confirmed
+2026-08-07,5.19,Federal Reserve Board H.15 / FRED,DGS30,FRED public CSV,2026-09-16T05:35:54+08:00,confirmed
+2026-08-10,5.25,Federal Reserve Board H.15 / FRED,DGS30,FRED public CSV,2026-09-16T05:35:54+08:00,confirmed
+2026-08-11,5.24,Federal Reserve Board H.15 / FRED,DGS30,FRED public CSV,2026-09-16T05:35:54+08:00,confirmed
+2026-08-12,5.24,Federal Reserve Board H.15 / FRED,DGS30,FRED public CSV,2026-09-16T05:35:54+08:00,confirmed
+2026-08-13,5.21,Federal Reserve Board H.15 / FRED,DGS30,FRED public CSV,2026-09-16T05:35:54+08:00,confirmed
+2026-08-14,5.25,Federal Reserve Board H.15 / FRED,DGS30,FRED public CSV,2026-09-16T05:35:54+08:00,confirmed
+2026-08-17,5.31,Federal Reserve Board H.15 / FRED,DGS30,FRED public CSV,2026-09-16T05:35:54+08:00,confirmed
+2026-08-18,5.28,Federal Reserve Board H.15 / FRED,DGS30,FRED public CSV,2026-09-16T05:35:54+08:00,confirmed
+2026-08-19,5.19,Federal Reserve Board H.15 / FRED,DGS30,FRED public CSV,2026-09-16T05:35:54+08:00,confirmed
+2026-08-20,5.23,Federal Reserve Board H.15 / FRED,DGS30,FRED public CSV,2026-09-16T05:35:54+08:00,confirmed
 2026-08-21,5.27,Federal Reserve Board H.15 / FRED,DGS30,FRED public CSV · long-history backfill,2026-09-13T19:55:02+08:00,confirmed
 2026-08-24,5.23,Federal Reserve Board H.15 / FRED,DGS30,FRED public CSV,2026-09-15T08:09:31+08:00,confirmed
 2026-08-25,5.17,Federal Reserve Board H.15 / FRED,DGS30,FRED public CSV,2026-09-12T12:17:13+08:00,confirmed
@@ -9171,11 +9171,12 @@ date,value,source,source_symbol,endpoint,fetched_at_bjt,status
 2026-08-27,5.19,Federal Reserve Board H.15 / FRED,DGS30,FRED public CSV,2026-09-12T12:17:13+08:00,confirmed
 2026-08-28,5.22,Federal Reserve Board H.15 / FRED,DGS30,FRED public CSV,2026-09-15T08:09:31+08:00,confirmed
 2026-08-31,5.25,Federal Reserve Board H.15 / FRED,DGS30,FRED public CSV,2026-09-15T08:09:31+08:00,confirmed
-2026-09-01,5.27,Federal Reserve Board H.15 / FRED,DGS30,FRED public CSV,2026-09-15T08:09:31+08:00,confirmed
-2026-09-02,5.27,Federal Reserve Board H.15 / FRED,DGS30,FRED public CSV,2026-09-15T05:38:27+08:00,confirmed
-2026-09-03,5.25,Federal Reserve Board H.15 / FRED,DGS30,FRED public CSV,2026-09-15T05:38:27+08:00,confirmed
-2026-09-04,5.24,Federal Reserve Board H.15 / FRED,DGS30,FRED public CSV,2026-09-15T08:09:31+08:00,confirmed
-2026-09-08,5.25,Federal Reserve Board H.15 / FRED,DGS30,FRED public CSV,2026-09-15T05:38:27+08:00,confirmed
-2026-09-09,5.28,Federal Reserve Board H.15 / FRED,DGS30,FRED public CSV,2026-09-15T08:09:31+08:00,confirmed
+2026-09-01,5.27,Federal Reserve Board H.15 / FRED,DGS30,FRED public CSV,2026-09-16T05:35:54+08:00,confirmed
+2026-09-02,5.27,Federal Reserve Board H.15 / FRED,DGS30,FRED public CSV,2026-09-16T05:35:54+08:00,confirmed
+2026-09-03,5.25,Federal Reserve Board H.15 / FRED,DGS30,FRED public CSV,2026-09-16T05:35:54+08:00,confirmed
+2026-09-04,5.24,Federal Reserve Board H.15 / FRED,DGS30,FRED public CSV,2026-09-16T05:35:54+08:00,confirmed
+2026-09-08,5.25,Federal Reserve Board H.15 / FRED,DGS30,FRED public CSV,2026-09-16T05:35:54+08:00,confirmed
+2026-09-09,5.28,Federal Reserve Board H.15 / FRED,DGS30,FRED public CSV,2026-09-16T05:35:54+08:00,confirmed
 2026-09-10,5.37,Federal Reserve Board H.15 / FRED,DGS30,FRED public CSV,2026-09-15T08:09:31+08:00,confirmed
 2026-09-11,5.35,Federal Reserve Board H.15 / FRED,DGS30,FRED public CSV,2026-09-15T08:09:31+08:00,confirmed
+2026-09-14,5.34,Federal Reserve Board H.15 / FRED,DGS30,FRED public CSV,2026-09-16T05:35:54+08:00,confirmed
