@@ -19044,6 +19044,10 @@
     {
       "date": "2026-09-13",
       "value": 107.72
+    },
+    {
+      "date": "2026-09-14",
+      "value": 107.08
     }
   ],
   "source_url": "https://finance.yahoo.com/quote/BZ=F/",
@@ -19062,5 +19066,5 @@
   "quote_timezone": "Asia/Shanghai (Beijing Time)",
   "history_scope": "Maximum daily history available from Yahoo Finance BZ=F, seeded from the aviation dashboard archive",
   "seed_source": "russell-home667/aviation-leasing-dashboard data/market_data.json",
-  "updated_at_bjt": "2026-09-15T08:28:26+08:00"
+  "updated_at_bjt": "2026-09-15T08:45:44+08:00"
 }
