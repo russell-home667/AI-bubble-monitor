@@ -2,7 +2,7 @@
   "module": "AI Bubble Monitor - Market & Liquidity",
   "step": 5,
   "timezone": "Asia/Shanghai",
-  "generated_at_bjt": "2026-09-16T06:27:06+08:00",
+  "generated_at_bjt": "2026-09-16T06:39:46+08:00",
   "indicators": {
     "ndx": {
       "name": "Nasdaq-100",
@@ -96,7 +96,7 @@
       "source": "Cboe Global Markets",
       "source_symbol": "VIX",
       "source_url": "https://www.cboe.com/tradable_products/vix/vix_historical_data/",
-      "fetched_at_bjt": "2026-09-15T09:17:13+08:00",
+      "fetched_at_bjt": "2026-09-16T06:39:46+08:00",
       "status": "fresh"
     },
     "dfii10": {
@@ -110,7 +110,7 @@
       "source": "Federal Reserve / FRED",
       "source_symbol": "DFII10",
       "source_url": "https://fred.stlouisfed.org/series/DFII10",
-      "fetched_at_bjt": "2026-09-16T05:35:54+08:00",
+      "fetched_at_bjt": "2026-09-16T06:39:44+08:00",
       "status": "fresh"
     },
     "dgs10": {
@@ -124,7 +124,7 @@
       "source": "Federal Reserve Board H.15 / FRED",
       "source_symbol": "DGS10",
       "source_url": "https://fred.stlouisfed.org/series/DGS10",
-      "fetched_at_bjt": "2026-09-16T05:35:54+08:00",
+      "fetched_at_bjt": "2026-09-16T06:39:45+08:00",
       "status": "fresh"
     },
     "dgs30": {
@@ -138,7 +138,7 @@
       "source": "Federal Reserve Board H.15 / FRED",
       "source_symbol": "DGS30",
       "source_url": "https://fred.stlouisfed.org/series/DGS30",
-      "fetched_at_bjt": "2026-09-16T05:35:54+08:00",
+      "fetched_at_bjt": "2026-09-16T06:39:45+08:00",
       "status": "fresh"
     },
     "hy_oas": {
