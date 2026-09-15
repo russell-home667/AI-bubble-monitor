@@ -2,11 +2,11 @@
   "module": "AI Bubble Monitor - Top Scores",
   "step": 10,
   "timezone": "Asia/Shanghai",
-  "generated_at_bjt": "2026-09-16T05:36:33+08:00",
+  "generated_at_bjt": "2026-09-16T06:27:46+08:00",
   "methodology_version": "hybrid_v2_backtest_calibrated",
   "calibration_note": "Step-12 long-history proxy backtest calibrated Breakdown severity bands. Numeric score weights are unchanged; the 25-point Watch threshold was removed because it generated excessive normal-period alerts. Bubble Score remains a transparent modern-era heuristic because comparable 2000-era CapEx/cloud/GPU data do not exist.",
   "bubble_score": {
-    "score_0_100": 57.2,
+    "score_0_100": 57.1,
     "label": "high",
     "question": "How stretched/excessive is the AI investment and valuation cycle?",
     "components": {
@@ -19,7 +19,7 @@
         "weight_pct": 25
       },
       "market_heat": {
-        "score_0_100": 44.1,
+        "score_0_100": 43.6,
         "weight_pct": 20
       },
       "capital_burden": {
@@ -48,7 +48,7 @@
         "weight_pct": 25
       },
       "market_trend_breakdown": {
-        "score_0_100": 21.0,
+        "score_0_100": 21.1,
         "weight_pct": 30
       },
       "fundamental_deterioration": {
@@ -66,25 +66,25 @@
     },
     "market_breakdown_detail": {
       "ndx": {
-        "ath_drawdown_pct": -5.0,
-        "distance_from_200dma_pct": 7.28,
-        "drawdown_stress": 20.0,
+        "ath_drawdown_pct": -5.62,
+        "distance_from_200dma_pct": 6.51,
+        "drawdown_stress": 22.5,
         "trend_stress": 0.0,
-        "combined_stress": 11.0
+        "combined_stress": 12.4
       },
       "sox": {
-        "ath_drawdown_pct": -23.94,
-        "distance_from_200dma_pct": 11.62,
-        "drawdown_stress": 68.4,
+        "ath_drawdown_pct": -23.64,
+        "distance_from_200dma_pct": 11.81,
+        "drawdown_stress": 67.5,
         "trend_stress": 0.0,
-        "combined_stress": 37.6
+        "combined_stress": 37.1
       },
       "nvda": {
-        "ath_drawdown_pct": -10.51,
-        "distance_from_200dma_pct": 6.75,
-        "drawdown_stress": 26.3,
+        "ath_drawdown_pct": -10.0,
+        "distance_from_200dma_pct": 7.27,
+        "drawdown_stress": 25.0,
         "trend_stress": 0.0,
-        "combined_stress": 14.5
+        "combined_stress": 13.7
       }
     },
     "compute_demand_input_coverage_pct": 70.0
@@ -120,8 +120,8 @@
     }
   },
   "source_generated_at": {
-    "derived_indicators": "2026-09-16T05:36:20+08:00",
-    "market_liquidity": "2026-09-16T05:35:54+08:00",
+    "derived_indicators": "2026-09-16T06:27:31+08:00",
+    "market_liquidity": "2026-09-16T06:27:06+08:00",
     "hyperscalers": "2026-09-15T09:08:51+08:00"
   },
   "errors": {}
