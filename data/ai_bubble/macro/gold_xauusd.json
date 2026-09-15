@@ -55,7 +55,7 @@
     "source_state": {
       "status": "fresh"
     },
-    "retrieved_at_bjt": "2026-09-16T00:41:44+08:00",
+    "retrieved_at_bjt": "2026-09-16T01:10:38+08:00",
     "observation_date": "2026-09-14",
     "fallback_reason": "No XAU/USD spot quote available: XAUS: 503 Server Error: Service Unavailable for url: https://xaus.com/api/v1/spot?compact=1 | gold-api.com: HTTPSConnectionPool(host='api.gold-api.com', port=443): Max retries exceeded with url: /price/XAU (Caused by NameResolutionError(\"HTTPSConnection(host='api.gold-api.com', port=443): Failed to resolve 'api.gold-api.com' ([Errno -2] Name or service not known)\"))"
   },
@@ -12830,5 +12830,5 @@
       "low": 4357.9
     }
   ],
-  "updated_at_bjt": "2026-09-16T00:41:44+08:00"
+  "updated_at_bjt": "2026-09-16T01:10:38+08:00"
 }
