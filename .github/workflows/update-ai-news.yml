@@ -76,7 +76,7 @@ jobs:
           NEWS_SCAN_MODE: ${{ steps.mode.outputs.mode }}
         run: |
           set -euo pipefail
-          python scripts/update_ai_news.py
+          python scripts/run_ai_news_cost_optimized.py
 
       - name: Validate news payload
         run: |
