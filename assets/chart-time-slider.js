@@ -117,6 +117,84 @@
     catch (_) { return false; }
   }
 
+  function ensureMarketQuoteLayout() {
+    const chart = document.getElementById('marketChart');
+    const card = chart?.closest('.chart-card');
+    if (!card) return null;
+    card.classList.add('market-card-enhanced');
+
+    const head = card.querySelector('.chart-head');
+    const sub = head?.querySelector('.chart-sub');
+    if (sub) sub.textContent = 'NDX / SOX / NVDA · normalized to 100 at selected-range start';
+
+    let grid = document.getElementById('marketLatestGrid');
+    if (grid) return grid;
+
+    if (!document.getElementById('market-latest-style')) {
+      const style = document.createElement('style');
+      style.id = 'market-latest-style';
+      style.textContent = `
+        .market-card-enhanced{align-self:start!important;}
+        .market-card-enhanced .chart-head{align-items:flex-start;gap:14px;}
+        .market-card-enhanced .chart-title{line-height:1.35;}
+        .market-card-enhanced .chart-sub{max-width:520px;line-height:1.4;}
+        .market-card-enhanced .range{flex-wrap:nowrap;flex-shrink:0;gap:4px;}
+        .market-card-enhanced .range button{min-width:38px;}
+        .market-card-enhanced .source-row{font-size:9px;line-height:1.45;margin-top:4px;}
+        .market-card-enhanced #marketChart{height:390px!important;}
+        #marketLatestGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:14px 16px 2px;border:1px solid rgba(89,151,190,.15);border-radius:12px;overflow:hidden;background:rgba(3,14,25,.22);}
+        #marketLatestGrid .market-quote{min-width:0;padding:15px 16px 13px;border-right:1px solid rgba(89,151,190,.12);}
+        #marketLatestGrid .market-quote:last-child{border-right:0;}
+        #marketLatestGrid .market-label{color:#7893aa;font-size:10px;font-weight:700;letter-spacing:.55px;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+        #marketLatestGrid .market-value-row{display:flex;align-items:baseline;gap:7px;margin-top:8px;min-width:0;}
+        #marketLatestGrid .market-value{color:#f0f8ff;font-size:32px;line-height:1;font-weight:720;letter-spacing:.2px;}
+        #marketLatestGrid .market-unit{color:#718aa1;font-size:10px;font-weight:600;}
+        #marketLatestGrid .market-change{margin-top:8px;font-size:11px;font-weight:650;}
+        #marketLatestGrid .market-date{margin-top:5px;color:#5f7b92;font-size:9px;line-height:1.35;}
+        @media(max-width:980px){.market-card-enhanced .range{flex-wrap:wrap;}#marketLatestGrid{grid-template-columns:1fr;}#marketLatestGrid .market-quote{border-right:0;border-bottom:1px solid rgba(89,151,190,.12);}#marketLatestGrid .market-quote:last-child{border-bottom:0;}}
+        @media(max-width:620px){.market-card-enhanced #marketChart{height:330px!important;}#marketLatestGrid .market-value{font-size:28px;}}
+      `;
+      document.head.appendChild(style);
+    }
+
+    grid = document.createElement('div');
+    grid.id = 'marketLatestGrid';
+    grid.innerHTML = [
+      ['marketNdx','NASDAQ-100','index'],
+      ['marketSox','PHLX Semiconductor','index'],
+      ['marketNvda','NVIDIA','USD']
+    ].map(([id,label,unit]) => `<div class="market-quote"><div class="market-label">${label}</div><div class="market-value-row"><span class="market-value" id="${id}Value">—</span><span class="market-unit">${unit}</span></div><div class="market-change" id="${id}Change">—</div><div class="market-date" id="${id}Date">Latest · —</div></div>`).join('');
+    if (head?.nextSibling) card.insertBefore(grid, head.nextSibling); else if (head) head.after(grid); else card.insertBefore(grid, chart);
+    return grid;
+  }
+
+  function setMarketQuote(id, indicator, decimals=2) {
+    if (!indicator) return;
+    const value = Number(indicator.value);
+    const change = Number(indicator.change_1d_pct);
+    const valueEl = document.getElementById(`${id}Value`);
+    const changeEl = document.getElementById(`${id}Change`);
+    const dateEl = document.getElementById(`${id}Date`);
+    if (valueEl && Number.isFinite(value)) {
+      valueEl.textContent = value.toLocaleString(undefined,{minimumFractionDigits:decimals,maximumFractionDigits:decimals});
+    }
+    if (changeEl && Number.isFinite(change)) {
+      changeEl.textContent = `${change >= 0 ? '+' : ''}${change.toFixed(2)}% · 1D`;
+      changeEl.style.color = change > 0 ? 'var(--green)' : change < 0 ? 'var(--red)' : 'var(--muted)';
+    }
+    if (dateEl) dateEl.textContent = `Latest completed session · ${indicator.observation_date || '—'}`;
+  }
+
+  function syncMarketQuotes() {
+    ensureMarketQuoteLayout();
+    let market = null;
+    try { market = state?.raw?.market?.indicators || null; } catch (_) {}
+    if (!market) return;
+    setMarketQuote('marketNdx', market.ndx, 2);
+    setMarketQuote('marketSox', market.sox, 2);
+    setMarketQuote('marketNvda', market.nvda, 2);
+  }
+
   function ensureLiquidityQuoteLayout() {
     const chart = document.getElementById('liquidityChart');
     const card = chart?.closest('.chart-card');
@@ -207,6 +285,28 @@
     ];
   }
 
+  function tuneMarketOption(option) {
+    if (!option || typeof option !== 'object') return option;
+    const out = {...option};
+    const sourceGrid = Array.isArray(out.grid) ? (out.grid[0] || {}) : (out.grid || {});
+    out.grid = {...sourceGrid,left:58,right:24,top:54,bottom:57,containLabel:false};
+    out.legend = {...(out.legend||{}),top:8,left:'center',itemGap:16,itemWidth:20,itemHeight:9,textStyle:{...((out.legend||{}).textStyle||{}),color:'#8ea2bc',fontSize:11}};
+    const axis = Array.isArray(out.yAxis) ? {...(out.yAxis[0]||{})} : {...(out.yAxis||{})};
+    out.yAxis = {...axis,name:'Normalized index (start = 100)',nameGap:14,scale:false,min:0,axisLabel:{...(axis.axisLabel||{}),color:'#8296b0'}};
+    const styles = {
+      'NDX':{color:'#7187ff',width:2.2},
+      'SOX':{color:'#96d56c',width:2.2},
+      'NVDA':{color:'#f4c75a',width:2.3}
+    };
+    if (Array.isArray(out.series)) {
+      out.series = out.series.map(series => {
+        const s=styles[series?.name];
+        return s ? {...series,lineStyle:{...(series.lineStyle||{}),color:s.color,width:s.width},itemStyle:{...(series.itemStyle||{}),color:s.color},showSymbol:false,smooth:false} : series;
+      });
+    }
+    return out;
+  }
+
   function tuneLiquidityOption(option) {
     if (!option || typeof option !== 'object') return option;
     const out = { ...option };
@@ -241,6 +341,7 @@
   function withAviationZoom(option, chartId) {
     if (!option || typeof option !== 'object') return option;
     let out = {...option};
+    if (chartId === 'marketChart') out = tuneMarketOption(out);
     if (chartId === 'liquidityChart') out = tuneLiquidityOption(out);
     if (Array.isArray(out.grid)) out.grid = out.grid.map((g,i)=>i===0?{...g,bottom:Math.max(Number(g?.bottom)||0,57)}:g);
     else out.grid = {...(out.grid||{}),bottom:Math.max(Number(out.grid?.bottom)||0,57)};
@@ -253,7 +354,9 @@
     const originalSetOption = chart.setOption.bind(chart);
     chart.setOption = function(option,...args){ return originalSetOption(withAviationZoom(option,chartId),...args); };
     patched.add(chart);
-    const initial = chartId === 'liquidityChart' ? tuneLiquidityOption({grid:{bottom:57}}) : {grid:{bottom:57}};
+    let initial = {grid:{bottom:57}};
+    if (chartId === 'marketChart') initial = tuneMarketOption(initial);
+    if (chartId === 'liquidityChart') initial = tuneLiquidityOption(initial);
     originalSetOption({...initial,dataZoom:aviationDataZoom(chartId)},false);
   }
 
@@ -293,7 +396,10 @@
       const dom=document.getElementById(id); if (!dom) return;
       const chart=echarts.getInstanceByDom(dom); if (chart) patchChart(chart,id);
     });
-    syncCommodityQuotes(); syncLiquidityQuotes(); syncLiquiditySources();
+    syncCommodityQuotes();
+    syncMarketQuotes();
+    syncLiquidityQuotes();
+    syncLiquiditySources();
   }
 
   scan();
