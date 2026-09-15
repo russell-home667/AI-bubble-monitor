@@ -13,9 +13,9 @@ on:
           - deep
           - incremental
   schedule:
-    - cron: '50 8 * * *'
+    - cron: '30 8 * * *'
       timezone: 'Asia/Singapore'
-    - cron: '0 13 * * *'
+    - cron: '30 12 * * *'
       timezone: 'Asia/Singapore'
     - cron: '1 18 * * *'
       timezone: 'Asia/Singapore'
