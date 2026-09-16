@@ -73,6 +73,33 @@ jobs:
               '.market-card-enhanced{align-self:stretch!important;}'
           )
 
+          market_style_updates = {
+              '.market-card-enhanced .chart-head{align-items:flex-start;gap:14px;}':
+                  '.market-card-enhanced .chart-head{align-items:flex-start;gap:18px;padding:20px 22px 0;}',
+              '.market-card-enhanced .chart-sub{max-width:560px;line-height:1.4;}':
+                  '.market-card-enhanced .chart-sub{max-width:620px;line-height:1.55;margin-top:8px;}',
+              '.market-card-enhanced .range{flex-wrap:nowrap;flex-shrink:0;gap:4px;}':
+                  '.market-card-enhanced .range{flex-wrap:nowrap;flex-shrink:0;gap:7px;}',
+              '.market-card-enhanced .range button{min-width:38px;}':
+                  '.market-card-enhanced .range button{min-width:44px;padding:7px 10px;}',
+              '.market-card-enhanced .source-row{font-size:9px;line-height:1.45;margin-top:4px;}':
+                  '.market-card-enhanced .source-row{font-size:9px;line-height:1.6;margin-top:7px;}',
+              '.market-card-enhanced #marketChart{height:360px!important;}':
+                  '.market-card-enhanced #marketChart{height:430px!important;margin-top:10px;}',
+              '#marketLatestGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:12px 16px 4px;border:1px solid rgba(89,151,190,.15);border-radius:12px;overflow:hidden;background:rgba(3,14,25,.22);}':
+                  '#marketLatestGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:20px 22px 16px;border:1px solid rgba(89,151,190,.15);border-radius:14px;overflow:hidden;background:rgba(3,14,25,.22);}',
+              '#marketLatestGrid .market-quote{min-width:0;padding:13px 16px 11px;border-right:1px solid rgba(89,151,190,.12);}':
+                  '#marketLatestGrid .market-quote{min-width:0;padding:20px 22px 18px;border-right:1px solid rgba(89,151,190,.12);}',
+              '#marketLatestGrid .market-value-row{display:flex;align-items:baseline;gap:7px;margin-top:7px;min-width:0;}':
+                  '#marketLatestGrid .market-value-row{display:flex;align-items:baseline;gap:10px;margin-top:11px;min-width:0;}',
+              '#marketLatestGrid .market-change{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-top:8px;font-size:10px;font-weight:650;}':
+                  '#marketLatestGrid .market-change{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:11px;font-size:10px;font-weight:650;}',
+              '#marketLatestGrid .market-date{margin-top:6px;color:#5f7b92;font-size:9px;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}':
+                  '#marketLatestGrid .market-date{margin-top:10px;color:#5f7b92;font-size:9px;line-height:1.5;white-space:normal;overflow:visible;text-overflow:clip;min-height:27px;}',
+          }
+          for old, new in market_style_updates.items():
+              text = text.replace(old, new)
+
           eq_marker = '  function equalizeMarketLiquidityCards() {'
           if eq_marker not in text:
               insert_at = text.find('  function scan() {')
@@ -125,7 +152,7 @@ jobs:
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add assets/chart-time-slider.js
-            git commit -m "fix: force equal market and liquidity card heights"
+            git commit -m "style: improve Market Trend card spacing"
             git pull --rebase origin main
             git push origin HEAD:main
           fi
