@@ -139,5 +139,4 @@ jobs:
           git add data/ai_bubble/market_liquidity/
           if git diff --cached --quiet; then exit 0; fi
           git commit -m 'data: refresh AI bubble market liquidity'
-          git pull --rebase origin main
-          git push origin HEAD:main
+          bash scripts/git_commit_push_retry.sh
