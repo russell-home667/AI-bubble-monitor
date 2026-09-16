@@ -229,7 +229,7 @@
     if (dateEl) {
       const quoteTime = formatBeijingTimestamp(live?.timestamp);
       const obsDate = live?.observation_date || fallback?.observation_date;
-      if (quoteTime) dateEl.textContent = `Latest available · ${quoteTime} · Yahoo Finance · 5m polling`;
+      if (quoteTime) dateEl.textContent = `Latest available · ${quoteTime} · Yahoo Finance · 10m polling`;
       else if (obsDate) dateEl.textContent = `Last completed session · ${obsDate} · Yahoo Finance`;
       else dateEl.textContent = 'Latest quote · unavailable';
     }
