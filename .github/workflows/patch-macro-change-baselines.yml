@@ -33,8 +33,8 @@ jobs:
           python -m py_compile scripts/update_ai_brent_quote.py scripts/update_ai_gold.py
           node --check assets/chart-time-slider.js
           grep -q "quote.previous_close??last.value" index.html
-          grep -q "quote.previous_close ?? last?.value" assets/chart-time-slider.js
-          grep -q "fetch_investing_previous_close" scripts/update_ai_gold.py
+          grep -q "const base = Number(quote.previous_close);" assets/chart-time-slider.js
+          grep -q "fetch_xaus_previous_close" scripts/update_ai_gold.py
 
       - name: Commit fixes
         run: |
@@ -46,7 +46,7 @@ jobs:
             echo 'No changes to commit'
             exit 0
           fi
-          git commit -m 'fix: use true prior close for macro commodity changes'
+          git commit -m 'fix: harden macro prior-close calculation'
           git restore .github/workflows/update-ai-brent-quote.yml .github/workflows/update-ai-gold.yml 2>/dev/null || true
           git pull --rebase origin main
           git push origin HEAD:main
