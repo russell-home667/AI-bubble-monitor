@@ -36,7 +36,7 @@ jobs:
           python-version: '3.12'
 
       - name: Install dependencies
-        run: pip install --disable-pip-version-check requests
+        run: pip install --disable-pip-version-check requests curl_cffi
 
       - name: Update XAU/USD spot gold
         run: |
@@ -67,9 +67,12 @@ jobs:
           assert any(x.get('frequency') == 'monthly_average' for x in rows[:500])
           assert float(rows[-1]['value']) > 100
           assert float(quote['price']) > 100
+          assert float(quote['previous_close']) > 100
+          assert quote.get('previous_close_source')
+          assert isinstance(quote.get('change_vs_previous_close_pct'), (int, float))
           assert quote.get('timestamp')
           assert d.get('updated_at_bjt')
-          print('rows', len(rows), 'coverage', rows[0]['date'], 'to', rows[-1]['date'], 'latest', quote['price'], 'status', d.get('status'), 'daily_source', d.get('daily_source'))
+          print('rows', len(rows), 'coverage', rows[0]['date'], 'to', rows[-1]['date'], 'latest', quote['price'], 'prev', quote['previous_close'], 'change%', quote['change_vs_previous_close_pct'], 'status', d.get('status'), 'daily_source', d.get('daily_source'))
           PY
 
       - name: Commit data
