@@ -133,6 +133,111 @@ jobs:
               ])
               text = text[:insert_at] + helper + text[insert_at:]
 
+          # Match the Aircraft Leasing dashboard interaction globally:
+          # hovering a legend item focuses its series and blurs the others.
+          focus_marker = '  function applyLegendSeriesFocus(option) {'
+          if focus_marker not in text:
+              insert_at = text.find('  function withAviationZoom(option, chartId) {')
+              if insert_at < 0:
+                  raise SystemExit('withAviationZoom() insertion point not found')
+              focus_helper = "\n".join([
+                  "  function applyLegendSeriesFocus(option) {",
+                  "    if (!option || typeof option !== 'object') return option;",
+                  "    const out = {...option};",
+                  "    if (Array.isArray(out.series)) {",
+                  "      out.series = out.series.map(series => {",
+                  "        if (!series || typeof series !== 'object') return series;",
+                  "        return {...series,emphasis:{...(series.emphasis||{}),focus:'series'}};",
+                  "      });",
+                  "    }",
+                  "    return out;",
+                  "  }",
+                  "",
+                  "",
+              ])
+              text = text[:insert_at] + focus_helper + text[insert_at:]
+
+          old_patch = "\n".join([
+              "  function patchChart(chart, chartId) {",
+              "    if (!chart || patched.has(chart)) return;",
+              "    const originalSetOption = chart.setOption.bind(chart);",
+              "    chart.setOption = function(option,...args){ return originalSetOption(withAviationZoom(option,chartId),...args); };",
+              "    patched.add(chart);",
+              "    let initial = {grid:{bottom:57}};",
+              "    if (chartId === 'marketChart') initial = tuneMarketOption(initial);",
+              "    if (chartId === 'liquidityChart') initial = tuneLiquidityOption(initial);",
+              "    originalSetOption({...initial,dataZoom:aviationDataZoom(chartId)},false);",
+              "  }",
+          ])
+          new_patch = "\n".join([
+              "  function patchChart(chart, chartId) {",
+              "    if (!chart || patched.has(chart)) return;",
+              "    const originalSetOption = chart.setOption.bind(chart);",
+              "    chart.setOption = function(option,...args){",
+              "      let next = applyLegendSeriesFocus(option);",
+              "      if (TIME_CHART_IDS.has(chartId)) next = withAviationZoom(next,chartId);",
+              "      return originalSetOption(next,...args);",
+              "    };",
+              "    patched.add(chart);",
+              "    if (TIME_CHART_IDS.has(chartId)) {",
+              "      let initial = {grid:{bottom:57}};",
+              "      if (chartId === 'marketChart') initial = tuneMarketOption(initial);",
+              "      if (chartId === 'liquidityChart') initial = tuneLiquidityOption(initial);",
+              "      originalSetOption({...initial,dataZoom:aviationDataZoom(chartId)},false);",
+              "    }",
+              "    const current = chart.getOption?.();",
+              "    if (Array.isArray(current?.series) && current.series.length) {",
+              "      originalSetOption({series:current.series.map(series => ({",
+              "        ...(series?.id != null ? {id:series.id} : {}),",
+              "        ...(series?.name != null ? {name:series.name} : {}),",
+              "        emphasis:{focus:'series'}",
+              "      }))},false);",
+              "    }",
+              "  }",
+          ])
+          if old_patch in text:
+              text = text.replace(old_patch, new_patch, 1)
+          elif "let next = applyLegendSeriesFocus(option);" not in text:
+              raise SystemExit('patchChart() shape changed; legend-focus patch not applied')
+
+          old_scan = "\n".join([
+              "  function scan() {",
+              "    TIME_CHART_IDS.forEach(id => {",
+              "      const dom=document.getElementById(id); if (!dom) return;",
+              "      const chart=echarts.getInstanceByDom(dom); if (chart) patchChart(chart,id);",
+              "    });",
+          ])
+          new_scan = "\n".join([
+              "  function scan() {",
+              "    document.querySelectorAll('[_echarts_instance_]').forEach(dom => {",
+              "      const chart=echarts.getInstanceByDom(dom); if (chart) patchChart(chart,dom.id||'');",
+              "    });",
+          ])
+          if old_scan in text:
+              text = text.replace(old_scan, new_scan, 1)
+          elif "document.querySelectorAll('[_echarts_instance_]')" not in text:
+              raise SystemExit('scan() shape changed; global chart scan not applied')
+
+          init_marker = '__aiBubbleLegendFocusInitPatched'
+          if init_marker not in text:
+              insert_at = text.find('  function scan() {')
+              if insert_at < 0:
+                  raise SystemExit('scan() insertion point not found for init wrapper')
+              init_helper = "\n".join([
+                  "  if (!window.__aiBubbleLegendFocusInitPatched) {",
+                  "    const originalEchartsInit = echarts.init.bind(echarts);",
+                  "    echarts.init = function(dom,...args) {",
+                  "      const chart = originalEchartsInit(dom,...args);",
+                  "      patchChart(chart,dom?.id||'');",
+                  "      return chart;",
+                  "    };",
+                  "    window.__aiBubbleLegendFocusInitPatched = true;",
+                  "  }",
+                  "",
+                  "",
+              ])
+              text = text[:insert_at] + init_helper + text[insert_at:]
+
           resize_marker = "window.addEventListener('resize', () => requestAnimationFrame(equalizeMarketLiquidityCards));"
           if resize_marker not in text:
               scan_needle = "    syncLiquidityQuotes();\n    syncLiquiditySources();\n  }\n\n  scan();"
@@ -152,7 +257,7 @@ jobs:
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add assets/chart-time-slider.js
-            git commit -m "style: improve Market Trend card spacing"
+            git commit -m "feat: focus chart series on legend hover"
             git pull --rebase origin main
             git push origin HEAD:main
           fi
