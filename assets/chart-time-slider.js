@@ -511,6 +511,29 @@
     }
   }
 
+  function equalizeMarketLiquidityCards() {
+    const left = document.getElementById('marketChart')?.closest('.chart-card');
+    const right = document.getElementById('liquidityChart')?.closest('.chart-card');
+    if (!left || !right || left.parentElement !== right.parentElement) return;
+    const row = left.parentElement;
+    row.style.alignItems = 'stretch';
+    if (window.innerWidth <= 760) {
+      left.style.height = '';
+      right.style.height = '';
+      return;
+    }
+    left.style.height = 'auto';
+    right.style.height = 'auto';
+    const target = Math.ceil(Math.max(
+      left.getBoundingClientRect().height,
+      right.getBoundingClientRect().height
+    ));
+    if (target > 0) {
+      left.style.height = `${target}px`;
+      right.style.height = `${target}px`;
+    }
+  }
+
   function scan() {
     TIME_CHART_IDS.forEach(id => {
       const dom=document.getElementById(id); if (!dom) return;
@@ -520,7 +543,10 @@
     syncMarketQuotes();
     syncLiquidityQuotes();
     syncLiquiditySources();
+    requestAnimationFrame(equalizeMarketLiquidityCards);
   }
+
+  window.addEventListener('resize', () => requestAnimationFrame(equalizeMarketLiquidityCards));
 
   scan();
   ensureNfciData();
