@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
-"""Refresh latest NDX, SOX and NVDA quotes without touching daily history.
+"""Refresh Yahoo intraday quotes used by the AI Bubble Monitor.
 
-Yahoo Finance provides 1-minute source bars. GitHub Actions polls this script every
-5 minutes during the regular U.S. trading session. The dashboard uses these quotes
-only for the large latest-value tiles; normalized history remains completed-session
-only in update_ai_market_liquidity.py.
+The 5-minute quote layer covers NDX, SOX, NVDA, VIX, 10Y Treasury (^TNX) and
+30Y Treasury (^TYX). 10Y/30Y official daily closes remain sourced from the
+U.S. Treasury by update_ai_market_liquidity.py.
 """
 from __future__ import annotations
 
@@ -17,14 +16,20 @@ from urllib.request import Request, urlopen
 from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "data" / "ai_bubble" / "market_liquidity" / "market_quotes.json"
+DIR = ROOT / "data" / "ai_bubble" / "market_liquidity"
+OUT = DIR / "market_quotes.json"
+LATEST = DIR / "latest.json"
 BJT = ZoneInfo("Asia/Shanghai")
 
 SYMBOLS = {
     "ndx": {"symbol": "^NDX", "name": "Nasdaq-100", "unit": "index"},
     "sox": {"symbol": "^SOX", "name": "PHLX Semiconductor Index", "unit": "index"},
     "nvda": {"symbol": "NVDA", "name": "NVIDIA", "unit": "USD"},
+    "vix": {"symbol": "^VIX", "name": "Cboe Volatility Index", "unit": "index"},
+    "dgs10": {"symbol": "^TNX", "name": "10-Year Treasury Yield", "unit": "%"},
+    "dgs30": {"symbol": "^TYX", "name": "30-Year Treasury Yield", "unit": "%"},
 }
+LIVE_OVERLAY_KEYS = ("vix", "dgs10", "dgs30")
 
 
 def fetch_quote(symbol: str) -> dict:
@@ -87,6 +92,48 @@ def fetch_quote(symbol: str) -> dict:
     }
 
 
+def sync_latest_quotes(quotes: dict) -> bool:
+    """Overlay Yahoo VIX/10Y/30Y intraday values onto existing daily summaries."""
+    if not LATEST.exists():
+        return False
+    try:
+        payload = json.loads(LATEST.read_text(encoding="utf-8"))
+    except Exception:
+        return False
+
+    indicators = payload.get("indicators") or {}
+    changed = False
+    for key in LIVE_OVERLAY_KEYS:
+        q = quotes.get(key)
+        ind = indicators.get(key)
+        if not q or not ind or q.get("price") is None:
+            continue
+
+        if ind.get("display_layer") != "live_quote":
+            ind["close_value"] = ind.get("value")
+            ind["close_observation_date"] = ind.get("observation_date")
+            ind["close_source"] = ind.get("source")
+            ind["close_source_url"] = ind.get("source_url")
+
+        new_fields = {
+            "value": q["price"],
+            "live_quote_timestamp": q.get("timestamp"),
+            "live_quote_source": q.get("source"),
+            "live_quote_status": q.get("quote_status"),
+            "live_change_1d_pct": q.get("change_1d_pct"),
+            "display_layer": "live_quote",
+        }
+        for field, value in new_fields.items():
+            if ind.get(field) != value:
+                ind[field] = value
+                changed = True
+
+    if changed:
+        payload["generated_at_bjt"] = datetime.now(BJT).isoformat(timespec="seconds")
+        LATEST.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    return changed
+
+
 def main() -> int:
     old = {}
     if OUT.exists():
@@ -105,28 +152,32 @@ def main() -> int:
             q.update({"symbol": meta["symbol"], "name": meta["name"], "unit": meta["unit"]})
             new_quotes[key] = q
             print(f"{meta['symbol']}: {q['price']} @ {q['timestamp']}")
-        except Exception as exc:  # preserve prior good quote on a partial provider failure
+        except Exception as exc:
             errors[key] = str(exc)
             print(f"WARNING {meta['symbol']}: {exc}", file=sys.stderr)
 
     if not new_quotes:
         raise RuntimeError("No market quotes available")
 
-    if new_quotes == old_quotes:
-        print("No new market quote bars; file unchanged")
-        return 0
-
     payload = {
         "generated_at_bjt": datetime.now(BJT).isoformat(timespec="seconds"),
         "timezone": "Asia/Shanghai",
         "source": "Yahoo Finance 1-minute chart bars",
         "poll_frequency": "5 minutes during U.S. regular trading hours",
-        "note": "Latest-value tiles use these quotes. Historical normalized charts remain completed-session only. Yahoo Finance quotes may be delayed.",
+        "note": "VIX/10Y/30Y latest-value tiles use Yahoo intraday quotes when available; Treasury CSV histories remain official U.S. Treasury closes.",
         "quotes": new_quotes,
         "errors": errors,
     }
+
     OUT.parent.mkdir(parents=True, exist_ok=True)
-    OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    serialized = json.dumps(payload, ensure_ascii=False, indent=2) + "\n"
+    quote_changed = not OUT.exists() or OUT.read_text(encoding="utf-8") != serialized
+    if quote_changed:
+        OUT.write_text(serialized, encoding="utf-8")
+
+    latest_changed = sync_latest_quotes(new_quotes)
+    if not quote_changed and not latest_changed:
+        print("No new quote bars; files unchanged")
     return 0
 
 
