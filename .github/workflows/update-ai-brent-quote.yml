@@ -5,6 +5,8 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/update-ai-brent-quote.yml'
+      - 'scripts/update_ai_brent_quote.py'
+      - 'index.html'
   workflow_dispatch:
   schedule:
     - cron: '*/5 * * * 1-6'
@@ -42,6 +44,18 @@ jobs:
           fi
       - name: Update latest BZ=F 1-minute source bar
         run: python scripts/update_ai_brent_quote.py
+      - name: Validate previous completed close
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path('data/ai_bubble/macro/brent.json').read_text())
+          q=d.get('latest_quote') or {}
+          assert float(q.get('price')) > 1
+          assert float(q.get('previous_close')) > 1
+          assert isinstance(q.get('change_vs_previous_close_pct'), (int,float))
+          print('Brent', q['price'], 'prev', q['previous_close'], 'change%', q['change_vs_previous_close_pct'])
+          PY
       - name: Detect changes
         id: detect
         run: |
