@@ -25,15 +25,13 @@ jobs:
           ref: main
           fetch-depth: 0
 
-      - name: Apply P0 hardening
+      - name: Apply source hardening
         shell: bash
         run: |
           python - <<'PY'
           from pathlib import Path
           import re
 
-          # P0-1: make homepage data loading failure-isolated. Every JSON/CSV and
-          # every renderer becomes independent, so one bad module cannot abort load().
           index = Path('index.html')
           text = index.read_text(encoding='utf-8')
           pattern = re.compile(
@@ -72,8 +70,6 @@ jobs:
 
             state.raw={ndx,sox,nvda,vix,dfii10,dgs10,dgs30,hy,h5,tsmc,gpu:gpud,scoreHistory};
 
-            // Keep official/daily market_liquidity/latest.json immutable from the
-            // quote pipeline. Overlay the live quote file only in browser memory.
             let displayMarket=market;
             if(market&&marketQuotes?.quotes){
               try{
@@ -117,8 +113,6 @@ jobs:
               raise SystemExit(f'index load() replacement count={count}; refusing unsafe patch')
           index.write_text(text2, encoding='utf-8')
 
-          # P0-2: make market_quotes.json the sole persisted output of the live quote
-          # pipeline. Official market_liquidity/latest.json gets one writer only.
           script = Path('scripts/update_ai_market_quotes.py')
           s = script.read_text(encoding='utf-8')
           s = s.replace('LATEST = DIR / "latest.json"\n', '')
@@ -139,63 +133,15 @@ jobs:
           if 'LATEST' in s or 'sync_latest_quotes' in s:
               raise SystemExit('market quote script still references shared latest.json overlay')
           script.write_text(s, encoding='utf-8')
-
-          qwf = Path('.github/workflows/update-ai-market-quotes.yml')
-          q = qwf.read_text(encoding='utf-8')
-          validation_block = '''\n          latest=json.loads(Path('data/ai_bubble/market_liquidity/latest.json').read_text(encoding='utf-8'))\n          indicators=latest.get('indicators') or {}\n          for k in ('vix','dgs10','dgs30'):\n              if k in indicators and indicators[k].get('display_layer') != 'live_quote':\n                  raise SystemExit(f'{k} was not overlaid into latest.json')\n'''
-          if validation_block not in q:
-              raise SystemExit('market quote workflow shared-latest validation block not found')
-          q = q.replace(validation_block, '\n', 1)
-          q = q.replace(
-              'data/ai_bubble/market_liquidity/market_quotes.json data/ai_bubble/market_liquidity/latest.json assets/source-links.js',
-              'data/ai_bubble/market_liquidity/market_quotes.json assets/source-links.js'
-          )
-          if 'market_liquidity/latest.json' in q:
-              raise SystemExit('market quote workflow still mutates/validates latest.json')
-          qwf.write_text(q, encoding='utf-8')
-
-          # P0-3: harden every scheduled AI data publisher against simultaneous main
-          # pushes. Different-file races are rebased/retried; real conflicts fail safe.
-          patched=[]
-          raw_pair = re.compile(
-              r'(?m)^(?P<i>\s*)git pull --rebase origin main\s*\n(?P=i)git push origin HEAD:main\s*$'
-          )
-          for wf in sorted(Path('.github/workflows').glob('update-ai-*.yml')):
-              body = wf.read_text(encoding='utf-8')
-              body2, hits = raw_pair.subn(lambda m: m.group('i')+'bash scripts/git_commit_push_retry.sh', body)
-              if hits:
-                  wf.write_text(body2, encoding='utf-8')
-                  patched.append((str(wf), hits))
-          if len(patched) < 8:
-              raise SystemExit(f'Only patched {len(patched)} publisher workflows; expected >=8: {patched}')
-          print('publisher workflows hardened:', patched)
-
-          # Brent daily + intraday quote both own brent.json, so they must never run
-          # concurrently. Use the same non-cancelling concurrency group.
-          for name in ('update-ai-brent-daily.yml','update-ai-brent-quote.yml'):
-              p=Path('.github/workflows')/name
-              body=p.read_text(encoding='utf-8')
-              body=re.sub(r'group: ai-brent-(?:daily|quote)', 'group: ai-brent-data', body, count=1)
-              if 'group: ai-brent-data' not in body or 'cancel-in-progress: false' not in body:
-                  raise SystemExit(f'Brent serialization failed for {name}')
-              p.write_text(body, encoding='utf-8')
-
-          # Final static invariants.
-          assert 'const safeJSON=async' in index.read_text(encoding='utf-8')
-          assert "market_liquidity/market_quotes.json','Live Market Quotes'" in index.read_text(encoding='utf-8')
-          assert 'market_liquidity/latest.json' not in qwf.read_text(encoding='utf-8')
-          assert 'sync_latest_quotes' not in script.read_text(encoding='utf-8')
           PY
 
-      - name: Validate patched code
+      - name: Validate source changes
         shell: bash
         run: |
           set -euo pipefail
           python -m py_compile scripts/update_ai_market_quotes.py
           bash -n scripts/git_commit_push_retry.sh
           node --check assets/chart-time-slider.js
-
-          # Parse every inline JavaScript block in index.html independently.
           python - <<'PY'
           import re, subprocess, tempfile
           from pathlib import Path
@@ -214,28 +160,16 @@ jobs:
           print('validated inline JS blocks:',checked)
           PY
 
-          python - <<'PY'
-          from pathlib import Path
-          offenders=[]
-          for p in Path('.github/workflows').glob('update-ai-*.yml'):
-              s=p.read_text(encoding='utf-8')
-              if 'git pull --rebase origin main' in s and 'git push origin HEAD:main' in s:
-                  offenders.append(str(p))
-          if offenders:
-              raise SystemExit('Unhardened publisher workflows: '+', '.join(offenders))
-          print('all scheduled AI publisher workflows use retry helper')
-          PY
-
-      - name: Commit P0 hardening
+      - name: Commit source hardening
         shell: bash
         run: |
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add index.html scripts/update_ai_market_quotes.py scripts/git_commit_push_retry.sh .github/workflows/update-ai-*.yml
+          git add index.html scripts/update_ai_market_quotes.py
           if git diff --cached --quiet; then
-            echo 'No P0 changes needed'
+            echo 'No source P0 changes needed'
             exit 0
           fi
-          git commit -m 'fix: isolate dashboard failures and harden data publishing'
+          git commit -m 'fix: isolate dashboard module failures and quote ownership'
           bash scripts/git_commit_push_retry.sh
