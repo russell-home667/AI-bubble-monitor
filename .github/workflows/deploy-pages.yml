@@ -67,7 +67,12 @@ jobs:
                   count=1,
               )
               text = text[:start] + block + text[end:]
-              p.write_text(text, encoding='utf-8')
+
+          text = text.replace(
+              '.market-card-enhanced{align-self:start!important;}',
+              '.market-card-enhanced{align-self:stretch!important;}'
+          )
+          p.write_text(text, encoding='utf-8')
           PY
           node --check assets/chart-time-slider.js
 
@@ -78,7 +83,7 @@ jobs:
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add assets/chart-time-slider.js
-            git commit -m "fix: repair live liquidity tile labels"
+            git commit -m "fix: align market and liquidity card heights"
             git pull --rebase origin main
             git push origin HEAD:main
           fi
