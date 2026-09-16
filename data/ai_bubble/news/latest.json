@@ -1,10 +1,15 @@
 {
-  "generated_at_sgt": "2026-09-14T15:13:45+08:00",
+  "generated_at_sgt": "2026-09-16T12:19:56+08:00",
   "timezone": "Asia/Singapore",
   "model": "deepseek-flash",
   "model_display": "DeepSeek V4.1 Flash",
   "scan_mode": "deep",
-  "acquisition": "Bing News RSS discovery + trusted-domain whitelist + DeepSeek V4.1 Flash analysis",
+  "acquisition": "Bing News RSS + Google News RSS + GDELT DOC API discovery; trusted-domain whitelist; history-first incremental filter; conservative Python category lock; DeepSeek V4.1 Flash analysis for new/materially changed candidates",
+  "discovery_sources": [
+    "Bing News RSS",
+    "Google News RSS",
+    "GDELT DOC API"
+  ],
   "display_window_days": 7,
   "homepage_limits": {
     "critical": 10,
@@ -14,7 +19,9 @@
     "important_threshold": 60,
     "critical_rule": "importance>=85 OR (importance>=75 AND abs(bubble_risk_score)>=60)",
     "trusted_sources_only": true,
-    "sort": "importance_score desc, then published_at desc"
+    "sort": "importance_score desc, then published_at desc",
+    "history_first_ai_filter": true,
+    "high_confidence_category_lock": true
   },
   "categories": [
     "AI Revenue / Monetization",
@@ -27,11 +34,1562 @@
     "Macro / Regulation"
   ],
   "stats": {
-    "stored_stories": 5,
-    "important_7d": 5,
-    "critical_7d": 2
+    "stored_stories": 44,
+    "important_7d": 29,
+    "critical_7d": 4,
+    "discovered_candidates": 149,
+    "reused_history_candidates": 0,
+    "ai_candidates": 149,
+    "exact_cache_hits": 0,
+    "story_source_reuse": 0,
+    "category_locked_candidates": 66,
+    "category_ai_judgment_candidates": 83,
+    "deepseek_batches": 4,
+    "deepseek_chunks": 7,
+    "deepseek_empty_responses": 10,
+    "deepseek_fallback_successes": 3,
+    "deepseek_failed_chunks": 3,
+    "analysis_degraded": true,
+    "category_lock_conflicts": 0
   },
+  "candidate_cache": [
+    {
+      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQYjV5VWtDWkRfOXhoRV9IX3ktTl80WGZGR2w5enR5QmZUS0tYLU5qM0VkLTZ0MUtBNC1tWktUXzFOTl9hQVVtaVk5SE15VFVIdnc4ZlhVTTU4bGtiUGVLMlVyU0NSTFZ0a3YtM1NLRGJ6QUhfVXhaUmNub200SGs1VFpvOFo0Y2lNS2c?oc=5",
+      "title": "OpenAI Considers New Financing at a $1.5 Trillion Valuation - The New York Times",
+      "description": "OpenAI Considers New Financing at a $1.5 Trillion Valuation The New York Times",
+      "domain": "nytimes.com",
+      "published_at": "2026-09-16T12:01+08:00",
+      "query_category": "AI Valuation / Funding",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOTW5yQnNCZkM1c1JRdjA5eFNnTnV4d0dfa2xPcWNrcGFwZ3Z0eTR1UUlWRFhtMlBKU0JfNVdnU1ZzV25Ea282aXhfZ3BkLXVnZ1pHbTIxQkI1enlyMmh6RldUNllKUkhGNUtDZVJMU3JFaVQzaGtVN29zQWZMOTMwYXc1bjFsNnJ5YVVadGtmN29RTENOSDdOcWREY3V3eTUxS1dIOEEtdXJjdw?oc=5",
+      "title": "We don’t need AI regulation — leave safety to us, Nvidia’s Jensen Huang says - TechCrunch",
+      "description": "We don’t need AI regulation — leave safety to us, Nvidia’s Jensen Huang says TechCrunch",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-16T08:20+08:00",
+      "query_category": "Macro / Regulation",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQRXNEN016amcxdlpNNG9zNWJGQWl0VWVzeGg4UmV6NFlNSms3ak1yUWxfaG5rZk00OTUyZ1V1dzVXUzh5MXZzdnoxMTJvWXVWNDJ2SGU3UnM0REdEVU1iaEdDaHdMQ2VNbTJiSGgzMGNWTjllbG1JdVk4ZF8wS1lqSGxPRmNwSVdyc2c2WXR5OU9nTVBxMFNkb0ZUS0pwbDBRSEE?oc=5",
+      "title": "Meta Joins Tech’s AI-Fueled Subscription Rush - The Information",
+      "description": "Meta Joins Tech’s AI-Fueled Subscription Rush The Information",
+      "domain": "theinformation.com",
+      "published_at": "2026-09-16T08:00+08:00",
+      "query_category": "AI Revenue / Monetization",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOeDNxSXBBRlR1elJkWkRRc0NuRm1kMzJqeVNNWHJGbThRaXgzR0VUOXE3UjFRYVpubzJ6ZEVCZXVjLVJiUGNuYzhtUnZid2l4UmNwY0pCMnBMTDZzdjV4MXViRlJ6emszRDJJbTNNeEh1MmhhcDZrY05VaDZwb21yLW5pbVdxWURtcDhYZlBGLWVwYlpDSkF4Q09OMzUzX2pkVmt5akhQMjZCUFdvaGFwQg?oc=5",
+      "title": "OpenAI Weighing Funding Round at Over $1.2 Trillion Valuation - bloomberg.com",
+      "description": "OpenAI Weighing Funding Round at Over $1.2 Trillion Valuation bloomberg.com",
+      "domain": "bloomberg.com",
+      "published_at": "2026-09-16T06:31+08:00",
+      "query_category": "AI Valuation / Funding",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1oRFFsUUQ5YkZTeVJCWTNfUzVzTWRKcGx6MlprWUk0dUV6R2JvZHZDNlRxbHBNQ2hvSHliUU9JNzd2Rmo2b3hHekJyVXpzQ2M2cVlIZm9pTFRVODItVlR2dno0NUVsdzllRHAxNlctby1GbXhKbnZHeEwwdWJuZw?oc=5",
+      "title": "Steve Bannon and Bernie Sanders Condemn Tech ‘Oligarchs’ and Demand A.I. Reforms - The New York Times",
+      "description": "Steve Bannon and Bernie Sanders Condemn Tech ‘Oligarchs’ and Demand A.I. Reforms The New York Times",
+      "domain": "nytimes.com",
+      "published_at": "2026-09-16T06:17+08:00",
+      "query_category": "Macro / Regulation",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE44RHpQWkxyODlqZFVxWEs5TjRrN2ZWMktZUGRyWERQMURrUEZSWk53QXRpRURxcmJtMVJvcmIzWTY5Unk3VVBlRThad2J0YVhJcFRkSVdOUlNvU3Jvbzh1anRPTGU3SGZnUXZOOE5GcWtQOXpPMldaR1hCTdIBgAFBVV95cUxNZ1VaYzZvQzNWOHQwX3Vfc1BraXpSRU91R2E5ZWVoSUhaZjNZQ1BfT1hUaFU5aEI5cF95UHE1V3VWX1ExcGpQR2NXc2JsSUJzWGFGRjU3TC1waW1hM0FmbTNRS2c2UlZVcWk3bmxudUNBbXBVYWJDVHRLRm9meG1zQg?oc=5",
+      "title": "Nvidia's Huang rips Anthropic's proposal for AI safety antitrust waiver: 'Completely unnecessary' - CNBC",
+      "description": "Nvidia's Huang rips Anthropic's proposal for AI safety antitrust waiver: 'Completely unnecessary' CNBC",
+      "domain": "cnbc.com",
+      "published_at": "2026-09-16T06:13+08:00",
+      "query_category": "Macro / Regulation",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNc2duRmFITkhXUGVBRGdXU2FzSWEyTkttMzgtVldzZGxnUWZQaVQ3LUk3Z0dRWmZzaUJ6dU9oMmZuaF80MWIyMUJ6ejE5VE0zSExBTGNCbnFnRExLVzJucHBuTEZzY2dEdHVfak9XSDF1NG8tU3ZmakVLU3BpQ3J1LVZLNWs?oc=5",
+      "title": "OpenAI weighs funding round at $1.2tn valuation before IPO - Financial Times",
+      "description": "OpenAI weighs funding round at $1.2tn valuation before IPO Financial Times",
+      "domain": "ft.com",
+      "published_at": "2026-09-16T05:54+08:00",
+      "query_category": "AI Valuation / Funding",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQSUhjREhxYkhIVTU2WXZVNHplQ09DM2Vlbzg4VXF0OHpjcFFSY2lPSHRqNDRxd0pwUkZHYTZyakNMem9QdThDdkNET0RsU2JobmVPWFN2cHM3QmlJdk56UE9iMF81bXE1aTJVbG95UUg3MDhDalBXZUh2RU9GSi05dUN1X295YU9zSDB2SzlhS2hVYzJDWmFzNHpKLTFIbW9Wa0dmS3M0Q0FvR28?oc=5",
+      "title": "The AI data center boom is colliding with cities scarred by big industry - TechCrunch",
+      "description": "The AI data center boom is colliding with cities scarred by big industry TechCrunch",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-16T05:47+08:00",
+      "query_category": "Data Center / Power",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOcW93ckZBY1Y1bHJDS243bGlJbXlENGFaTmQzS08zTWxtQmEwYjlFRkhuQk9WZ1plVjNac2JRSjY4Zk1uLUdlT2p2VHh4WWxfanFHaDNWa3NRWUktMEhsZ0trcWcyTWNMb0RmN05aT2pJV2I1S25nejFtOXNvRjhTVjU4VTFrcTctSzNqWHFCOXpkSmtGNnhadU1EVEdSd19kUllsWA?oc=5",
+      "title": "The push for AI regulation gains unlikely allies. Trump and Congress aren’t among them - AP News",
+      "description": "The push for AI regulation gains unlikely allies. Trump and Congress aren’t among them AP News",
+      "domain": "apnews.com",
+      "published_at": "2026-09-16T05:44+08:00",
+      "query_category": "Macro / Regulation",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxPblh4em00c2c4Q3k4a3NPQUNNQllvbUhsZ2FRdTRjeTd6YTdHMjFuTUpnbklsWHVJXzNNd0Nva3ZqMmxVejdhU3pGMTJBOEdJdkdxdnB5NlViZVpBZk1YcERsdnBDcFpuWnZSejFhdXMwVlE4WXMxTVJ6NEw1bU9YMTFUQ045SDVORVVJbEczZzZEUWsydHBDbzRYVGZmWllSa3hBenk0NzZsVUc1QnhPZ2V2VXpucEhXSXpsRF9fbnJwOUNrTldXelNKUHBDdmdYSHlVQTFNcVFnMkprY3pvWA?oc=5",
+      "title": "Push for AI regulation mounts as talk of AI’s ‘existential’ risks go mainstream. But Trump resists calls for a slowdown - Fortune",
+      "description": "Push for AI regulation mounts as talk of AI’s ‘existential’ risks go mainstream. But Trump resists calls for a slowdown Fortune",
+      "domain": "fortune.com",
+      "published_at": "2026-09-16T05:09+08:00",
+      "query_category": "Macro / Regulation",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNcmdWaGowZ1VTYV9oY2tTVGs3NGdId3ZjR29ZcHZ0bnhDYWFld29NWUZ0WmdZaWtMX2pPUUdQdUpScjMxYkNNaHBYclp4ZzdjcWhGTjVhX3F3MUVGd29XUzZKWkZOakNSVENqcDZUMUFia1RyVzRqS241OXVvc1NsRjItbHRydFBKWEE?oc=5",
+      "title": "The Unlikely Political Bedfellows on A.I. Regulation - The New York Times",
+      "description": "The Unlikely Political Bedfellows on A.I. Regulation The New York Times",
+      "domain": "nytimes.com",
+      "published_at": "2026-09-16T04:10+08:00",
+      "query_category": "Macro / Regulation",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNNnNsRGxHeU9DS2taUXhjcmxfZWFMMllzUzJFTU9lMExQSE9QOGQ1UnNVNm1JM0toT3htcGVIdDJSUW5TaDRpYlhzR0hlTTg4djkyXzFEdU91S2VQNWJTWFA5UFV0b3NRc2VnMm44azg0RnJJSzhQSUdUY1dmWDJjYjJDbmIzdmPSAYwBQVVfeXFMTm5YQ0VnTHFCdDR0alBBTVRLSTN3Tjd1dk9hd2ZzTTB2b1pGN29aUmFlMVNFX3hBMmtLNkxzQ3ZwaEVrYUxTMGNnZ2lVeVBnQk9ENWhjaTNyVHdwaHBVdmJaTzJGaW1rdElMMktYY3JEeDg5VWVyQm5xOEFzU203akJFX0VtNWN4T0pFdHU?oc=5",
+      "title": "Two camps have emerged in the debate over AI safety and regulation - CNBC",
+      "description": "Two camps have emerged in the debate over AI safety and regulation CNBC",
+      "domain": "cnbc.com",
+      "published_at": "2026-09-16T04:05+08:00",
+      "query_category": "Macro / Regulation",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQMTA2ZURVeElEZXBSMFZuVG5YTEhPQVlRY0diaUJhejNIcXJ1UERoRGtrbVlCdGlFUVVqME0zaE15TmFqUjFvQzM2V05BYmtsYzVZMzJCckxOcHlBS0tJZUx5TkJWRnBCZzBwTmpVTmdENkFuYWVKUkJiZTBnY0VBeFFwR1Vtekl4RUUtOXZZRGVyMUNiUGtyelNPX09XTnB4aVNFYkpsTThHdw?oc=5",
+      "title": "Meta Rolls Out New ‘Meta One’ Subscription Plans With Higher AI Usage Limits - The Information",
+      "description": "Meta Rolls Out New ‘Meta One’ Subscription Plans With Higher AI Usage Limits The Information",
+      "domain": "theinformation.com",
+      "published_at": "2026-09-16T03:11+08:00",
+      "query_category": "AI Revenue / Monetization",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPV0dxb01UQjhPVEM1cXAxZ0pZVFRGUlRjRWZhc3cxeDd6WmY2OXNCVkkzNF9kY2QxekpmeTg3QzNoSFVnV01EVWRTUlNodDgyb25aRDl3dE5WZ2J1UHJmLUFtdkJJNzZsajZyTUFrZElKeHJHeWVuLUE3Q0FFWUV1bXNULUtjRVFTWmhjRXg1RlQtdEpNNXc?oc=5",
+      "title": "Meta expands subscription push with new AI-focused plans - TechCrunch",
+      "description": "Meta expands subscription push with new AI-focused plans TechCrunch",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-16T01:05+08:00",
+      "query_category": "AI Revenue / Monetization",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://www.reuters.com/world/asia-pacific/anthropic-signs-first-australia-data-centre-agreement-2026-09-16/",
+      "title": "Anthropic signs first Australia data centre agreement",
+      "description": "AI giant Anthropic signed its first data centre lease agreement ‌in Australia, two people familiar with the deal said, capitalising on a favourable political environment and abundant renewable ...",
+      "domain": "reuters.com",
+      "published_at": "2026-09-16T01:00+08:00",
+      "query_category": "AI Valuation / Funding",
+      "discovery_source": "Bing News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://www.wsj.com/tech/ai/openai-considers-pre-ipo-funding-round-at-more-than-1-2-trillion-valuation-54555295",
+      "title": "OpenAI Considers Pre-IPO Funding Round at More Than $1.2 Trillion Valuation",
+      "description": "The ChatGPT maker has had preliminary investor discussions about a new raise. It is likely to go public next year.",
+      "domain": "wsj.com",
+      "published_at": "2026-09-16T01:00+08:00",
+      "query_category": "AI Valuation / Funding",
+      "discovery_source": "Bing News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOd3FpVERha3hBZnV4MDNqYU5iOVhUUnFwemhmU1h3YUV2dnZFcWF3TEdEd2pHblJiVW1KTUJmMVJXazRoZzFmdmxCSGRlXzVwdG5rdTM3MGM4aEtsRXlCbHdhMVk2OHZsZXFSdHpxNkU0Y3Y4bXVVR2U2dENnZ0xPSVZuSTlwclg5OEsxZ3lqYnNmSGlmeHhtdF9sZk1IVFVsMVFfQg?oc=5",
+      "title": "Exclusive: Manufacturing AI startup CADDi valued at $1.2 billion following $114 million Series D funding round - Fortune",
+      "description": "Exclusive: Manufacturing AI startup CADDi valued at $1.2 billion following $114 million Series D funding round Fortune",
+      "domain": "fortune.com",
+      "published_at": "2026-09-16T01:00+08:00",
+      "query_category": "AI Valuation / Funding",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://www.reuters.com/world/china/global-markets-wrapup-1-2026-09-16/",
+      "title": "Asian markets brittle ahead of Fed decision, oil slips",
+      "description": "Stocks made tentative gains at the start of the Asian trading session on Wednesday as a rise in global bond yields and ​oil prices paused ahead of the Federal Reserve's policy decision due later ‌in ...",
+      "domain": "reuters.com",
+      "published_at": "2026-09-16T01:00+08:00",
+      "query_category": "AI Credit / Debt",
+      "discovery_source": "Bing News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOM0gwNHZJLUJhUzYyYmFRbWZxNmQyZ3pSXzRidzdneHFOdF9GUDZzYjItQ3R2YW9YTlFodkZhVTJxTlhQSkZ6bUlTX21BRGVPQlVLT0pmV3N1VmhTQlVUVjJlc0lfbldSN1FFSkh3ZXR5c2dxVW0tdmthaHhHU2RZc1dJR1F3MFdzUnlENXotNEEzOV9MTWphUTI1azVqeEJwTU1DTlZlNktxQVJTWm9YV2FFdGpRMU9ybnR6VWxrUQ?oc=5",
+      "title": "OpenAI Eyes Canada for Data Centers, Praises Carney’s Plan - bloomberg.com",
+      "description": "OpenAI Eyes Canada for Data Centers, Praises Carney’s Plan bloomberg.com",
+      "domain": "bloomberg.com",
+      "published_at": "2026-09-16T00:58+08:00",
+      "query_category": "AI Valuation / Funding",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://www.reuters.com/legal/transactional/openai-mulls-funding-round-12-trillion-valuation-ahead-ipo-ft-reports-2026-09-15/",
+      "title": "OpenAI mulls funding round at $1.2 trillion valuation ahead of IPO, FT reports",
+      "description": "OpenAI has recently held discussions with large investors about a fresh capital raise ​that would increase the ChatGPT maker's valuation to ‌about $1.2 trillion before it goes public, the Financial ...",
+      "domain": "reuters.com",
+      "published_at": "2026-09-15T23:41+08:00",
+      "query_category": "AI Valuation / Funding",
+      "discovery_source": "Bing News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQMFZfY0lzMjNZc05fRGhjcXQ1bXZPRFhGa0JXbWRYaGJ3SnN2Q1VxLXJuT25IeWRIX3lVX1hRcVBsdHBzWFE5OXBDbFFKWWpOZXozbzhqekhiSnE1TmtxWHhBUEV0QTRQSk50Z1dZeTlkcmlFb0UyOFdlODVlN2VjN1B5aW5zTlU?oc=5",
+      "title": "Congress Has Proposed Many Bills for A.I. Regulation. Lawmakers Have Enacted Few. - The New York Times",
+      "description": "Congress Has Proposed Many Bills for A.I. Regulation. Lawmakers Have Enacted Few. The New York Times",
+      "domain": "nytimes.com",
+      "published_at": "2026-09-15T23:25+08:00",
+      "query_category": "Macro / Regulation",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNakpoelgxRW5SaXNwZlhCM0h4Yk9CT3ZIY2hkRklzWDFEZjE5MUpVSkZaNjNFQ0R5VTNrRU1MQUNISmJHTE0tTzFaYkRCV2h3TWVCZGdjd1V0Q3ZLWmhtaXg2MUQwNUt3aTYxaWpETU4zdEoxejFLZndIaU81UGIzVEpoUzNRNkJIWTlyRk92OUlITWYwWjlGc3VjcWxvSV8yUWExWW0xc1Q0YW9hTzhOLUN3?oc=5",
+      "title": "Attorney General Blanche Opposes AI ‘Regulation by Prosecution’ - bloomberg.com",
+      "description": "Attorney General Blanche Opposes AI ‘Regulation by Prosecution’ bloomberg.com",
+      "domain": "bloomberg.com",
+      "published_at": "2026-09-15T23:17+08:00",
+      "query_category": "Macro / Regulation",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQRW1ON2duQ1MzekVpRGVudVNwQjdXaERxcXVRTHZRa3AwZ1NVd0xhSmRmcHRqZkhCZVJ2Q3JISmNEbzhKNng2QUY5YXF5R2dmVTl6NGJJMlJPZUp5QUxNMVBLdDlXdjBZZGpKZ1M4STBsZ2FlcjRoQjFLY2lNcExzWFd3QklfZEpEV3NKakxvcTlpUDA3QmQ0?oc=5",
+      "title": "FTC chair suspicious of calls for AI antitrust exemptions - Reuters",
+      "description": "FTC chair suspicious of calls for AI antitrust exemptions Reuters",
+      "domain": "reuters.com",
+      "published_at": "2026-09-15T23:15+08:00",
+      "query_category": "Macro / Regulation",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9keDdSVmlFNGR6UkprRmZ3U2tLQk5zWXJBcnY1aGVVY0xPdmRxX2lLREtoSy1DU1JUOFlTcG5McldLUGt6RGZIckNRaU94Q1NVVGdUZ19NOVdfNjZqSldyV19CZml0SFA4OGZqNkQwTllPUdIBd0FVX3lxTE9lOFBWNUxHYU8yNlRQcHAxalc0Z3lMSDdxb00zOE04ZkNOWFYwaW1nVE9STmNUU0d6ZHFxME1HTUJ5WG56OVdpMG53T1ZCYnJYS0ZqSEU2SFBfZXpJZTZ4anJvNHpYSEVqLVlPaEtnV28xWHQ5ZEtV?oc=5",
+      "title": "Musk urges top AI labs, Chinese companies to test each other's models amid calls for slowdown - CNBC",
+      "description": "Musk urges top AI labs, Chinese companies to test each other's models amid calls for slowdown CNBC",
+      "domain": "cnbc.com",
+      "published_at": "2026-09-15T23:02+08:00",
+      "query_category": "Macro / Regulation",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://www.wsj.com/business/media/inside-openais-ad-rush-41c92de2",
+      "title": "Inside OpenAI’s Ad Rush",
+      "description": "The artificial-intelligence company is adding tools and features to woo both top brands and smaller advertisers, with mixed results.",
+      "domain": "wsj.com",
+      "published_at": "2026-09-15T23:00+08:00",
+      "query_category": "AI Revenue / Monetization",
+      "discovery_source": "Bing News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQMjk1X0RPQVJ6YXU1a08yWGRzMEdHUjVmU3lkbjcySmZibDZ4M2dXQTVodzNrbl9jRUNaZmpHSFJqdlFRaVI5NlZFR0Zab0prdzM3NW9QVm9UM2FTSzgtZGNaTTdydTlBcUFyUHczYTlDcGZZNC15emRpN1hRQl9Dc1pxQTlVS015dldSMHJOc0dMQ2pXV0swadIBngFBVV95cUxQdGRnU0tuRTZhTUt1MVBOMUY0Z3RJWGU2WWJIcDFsT09KNzF4WHBkV1JIaXhfZk0zSUZaRmRrbE9xb1luWDYyYm0xOFFXNjMtQ3BtRUc0TkxTd2FiaUhFS3kzRHlLdWhBaTAxbXNaeTdRakp5dTZmTVFFcFkyOVNyNk9HNXA4aHRDOG5EX1BpaEdFSnkzRmZHdzZUczNwUQ?oc=5",
+      "title": "Introducing Meta One: A Subscription Service With More Features and AI to Create, Connect, and Stand Out - meta.com",
+      "description": "Introducing Meta One: A Subscription Service With More Features and AI to Create, Connect, and Stand Out meta.com",
+      "domain": "about.fb.com",
+      "published_at": "2026-09-15T23:00+08:00",
+      "query_category": "AI Revenue / Monetization",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOSjZ5a1pZZ1U5MjZ1eEEyTVE5aW1nX3dYWHN6alZyM09WZWtQTGNRRFdzZ19Xb3dhekl1YWFfUHJzMi1JY3lvZUlfM2Z6YXdRQ09vUGRLa1hlRVA2Y0dWWVlkVElwSHRUMzV2bUV5SHB3WDd0TW9nTURHNjN1RHItVFdiRkFlUWxjam1kc2dKTzB4R3hHN3hoNkwyM2p5dTBSNnZLT25jYmFhMFVjQkNobW01RQ?oc=5",
+      "title": "Carlyle’s Thomas Says AI Financing Echoes Pre-Crisis Mortgages - bloomberg.com",
+      "description": "Carlyle’s Thomas Says AI Financing Echoes Pre-Crisis Mortgages bloomberg.com",
+      "domain": "bloomberg.com",
+      "published_at": "2026-09-15T22:21+08:00",
+      "query_category": "AI Credit / Debt",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://www.nytimes.com/2026/09/15/nyregion/data-center-diesel-fuel-spill-new-jersey.html",
+      "title": "Data Center’s Spill of 5,000 Gallons of Diesel Forces N.J. River Cleanup",
+      "description": "The fuel poured from a storage tank at a large data center in Secaucus, N.J., into a tributary of the Hackensack River.",
+      "domain": "nytimes.com",
+      "published_at": "2026-09-15T20:55+08:00",
+      "query_category": "Data Center / Power",
+      "discovery_source": "Bing News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPTHBPSlpxZXJuN19EUGJqd3RUYmNETUt0ekdFZHpuVUFaVDc4a3AtVG02MmRDTXctTTJmeDNzLUFyZ3RCM0RsMFQ1aGhjTFNVQ2ZxZk5nN2xTd191SDNtOEg4SUE2cHlWOWxsYWVqbGoxMDRVemVlbkEwR2xvVU45NtIBhgFBVV95cUxQZFdrRTdwMWtqV1YxTFUtMWIza1A3NDZ6WkV5NmNFWkZKWk9kWWI5blhVamc4RE1QdEszZ0dRd25hd29Wb2pkZnRjVGdOYzh3bDNlcmwxcVMtRFZSU1E1c2VqaEc1b1VZelFzdFo5S2RLOEdUTjRrRTJJR2toWVBaVVhvYzNXZw?oc=5",
+      "title": "Trump admin. says private sector can solve AI threats as critics balk - CNBC",
+      "description": "Trump admin. says private sector can solve AI threats as critics balk CNBC",
+      "domain": "cnbc.com",
+      "published_at": "2026-09-15T20:46+08:00",
+      "query_category": "Macro / Regulation",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNUFZLOHBYN3gweW0zWS1sRXJqX1RhS1dZYWYyeFIyWF9SclJoa2QwZDNQMGgzb2EwUlliRGU3WVQzanpzNC00bE5TekJsNHBSa1JTVW9VN0xqNnB1Z0FxdnZrZXlmaEhOeVVqcng0RHpOSTBsZlk2dUdXaEM2eVdxdnFZNE9UVVE0c3NyMlY3SjRSQ1AzRE4wblpMTHZjOHNBOE53NnhkU0pIUmJ3cVVmVDh4bUNMeEx6Rk9ZdVVoSEpsR2VqY0E?oc=5",
+      "title": "Kevin Hassett: Pres. Trump 'wholeheartedly rejects' government takeover of AI regulation - CNBC",
+      "description": "Kevin Hassett: Pres. Trump 'wholeheartedly rejects' government takeover of AI regulation CNBC",
+      "domain": "cnbc.com",
+      "published_at": "2026-09-15T20:37+08:00",
+      "query_category": "Macro / Regulation",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://www.cnbc.com/2026/09/15/open-ai-sarah-friar-safety.html",
+      "title": "OpenAI CFO Sarah Friar tells CNBC she isn't worried about slowing AI development",
+      "description": "OpenAI CFO Sarah Friar said, \"We need to take safety seriously\" with AI as the debate rages over potential risks to humanity. Anthropic chief Dario Amodei, SpaceX Elon Musk and OpenAI CEO Sam Altman ...",
+      "domain": "cnbc.com",
+      "published_at": "2026-09-15T20:25+08:00",
+      "query_category": "AI Valuation / Funding",
+      "discovery_source": "Bing News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE52TkhYUFNHRXc4cEFtc1NHeFNMV3NDaWoxTFhSaWdqQXFsNk9tZFBjU3NPbndPZnJfX2lNdldSUHlvSzRUV2J3djQzOENoUGwwbGZDS3NOQVNDamhMVl9oVjc2YUp4TDl5WkdLZkEzamp2Qms?oc=5",
+      "title": "Funding grants for new research into AI and teen development - OpenAI",
+      "description": "Funding grants for new research into AI and teen development OpenAI",
+      "domain": "openai.com",
+      "published_at": "2026-09-15T20:19+08:00",
+      "query_category": "AI Valuation / Funding",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNX3pZRml4TGIxQ2pRYVM1WTV3SUFNSTlBTlY4bkNtS3l0cW5abWwtQkxSV2szVEdmTVRrWmk0NDlVOW9NNW5rd2tEaUtGRGdQdkNId3RrME1udWV0V0FvMi1GcUJpeFhWVEcwQ3hMc3BFQWJLcV90dUl1Z2tJa2xwcm5TcjZCMWZxRTRpN0pqb2NueE9tb19EOEFONnV0QXpjSDc4RDVRYU5nQWY3WXFLRjZWRHk0Zw?oc=5",
+      "title": "Salesforce and Nvidia’s new reasoning model is everything the AI labs should fear - TechCrunch",
+      "description": "Salesforce and Nvidia’s new reasoning model is everything the AI labs should fear TechCrunch",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-15T20:00+08:00",
+      "query_category": "Semiconductor / GPU Demand",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9OUV9xUkVlRkNWc1lCR1NFZzl4clQ3bVBVUXhRb0IwWHhqYzM0bndSbGozd1VyOHhFTXcyOGRuUTgxWDB4b3lJVVQ3LXdQNjg0eVNpMnY4bHFqN2dsSjJram1ZQUtlWGJCVFBhVmx4QnFxNmhCekpKZNIBfkFVX3lxTE8talgzVG0xRVdXdzE2UGdSRGk1X1FOcFFlZlBCZ2tWdWlGYnBiYzBfb1hISERsTUltUUVlR25oTGFyV1lkcXJCenJ4Y0otMVlhWEZpUHlWeDVZU1ZidDlkb3AyVmdNb0FfbkpiS25fcWZXdWhrOUJzSjdZSFBtQQ?oc=5",
+      "title": "Potential AI slowdown is not ‘end of the world’ for data center real estate, says Digital Realty CEO - CNBC",
+      "description": "Potential AI slowdown is not ‘end of the world’ for data center real estate, says Digital Realty CEO CNBC",
+      "domain": "cnbc.com",
+      "published_at": "2026-09-15T20:00+08:00",
+      "query_category": "Data Center / Power",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOc280Tm81MnZOTTZ3TWh2Q05XdHZNRE12dGc3Q2RtSVFoODNfOWRoNkliX1BfZndvajlJQlMxMjlMVDhDTEc4TkdObFdnQzVaTDlXa3NVcFlZX0UyMFU1eEUxeUZJblVFTk50Y0FadllEQlZYMTFXYS1jcTd6NU5XVg?oc=5",
+      "title": "Stocks Selloff, AI Fears Bond Yields, Crypto Vote | September 15 Barron’s Daily - Barron's",
+      "description": "Stocks Selloff, AI Fears Bond Yields, Crypto Vote | September 15 Barron’s Daily Barron's",
+      "domain": "barrons.com",
+      "published_at": "2026-09-15T19:39+08:00",
+      "query_category": "AI Credit / Debt",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQTGQzdThjZDBCbkNRUnpRZ01IOUg2b3VhRThlR1VZNGhSODNXTjUzcnd2RGhfWVJESTVoNmdmUlcwTFA5emZWMGphQ0ZJSVFXWnhzbllaZUZTaFl2aWhpdFFhUlNBTXJyY05tMnVuMDQteV9nMVJwX3RFQ3pVNGJKMUlhUDZ3bnRYbHgwY01faktwcDVSVHhzUU55eWJSSFJ5b09qS3owbDJPd9IBrwFBVV95cUxNRG9mZHpfNm5fMURCR2xWaExISVF2cFQ1X2NvNUhNTVE3RWZaV182X21rZVU3bVpVN1UtSzNkZXN5Y1daUktlV0l0UTd0aU9aMWVtZWt4cjNoblE3cmp1MDJfOE43alBXckg4UTh6NTBUNG14c2xmX3A5LVJkMkI4VnZlcEtBOUhfM2djX2lsTFlYclUtb3pmX0swQVRQQlJua0Y3UG9uakZFaDN1eXB3?oc=5",
+      "title": "Trump’s opposition to AI rules undercuts industry's calls for a slowdown - CNBC",
+      "description": "Trump’s opposition to AI rules undercuts industry's calls for a slowdown CNBC",
+      "domain": "cnbc.com",
+      "published_at": "2026-09-15T19:00+08:00",
+      "query_category": "Macro / Regulation",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOOE1WNDBnc3RjZV9vZmtqSGZHQkZUd2RqdU9tdWJKMDIyMk1uVXJFWXhqOXVuVHE0X1VBNEhPczZRcTk2cFNfamoyOWhqTFpqcVNtRlpDS2oyLWlkMVVmV0U5NTM1WEtwMllrWlpqNy03LWxpeW5fS0dkaEdSc3dETUgxZ19WZVMtQzFfNXpjamxTcUg2aE1BYUZZa2NJeW40a2RxZk1uRjBjUFU?oc=5",
+      "title": "Sam Altman says OpenAI’s IPO window has been pushed to 2027—but markets aren’t the culprit - Fortune",
+      "description": "Sam Altman says OpenAI’s IPO window has been pushed to 2027—but markets aren’t the culprit Fortune",
+      "domain": "fortune.com",
+      "published_at": "2026-09-15T18:59+08:00",
+      "query_category": "AI Valuation / Funding",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOZ2hSb2V1UmhRTkFQRTJYNm9HMXdhd29yM3lXeDdsQ3F0dXpudzA2VTFVNXdKS2JQemFnSFhSRUJZVDNQV051aTQzNkNFaU83TEZwZm16Nkp0U0Zoa281eVBtQXpFUlJZbVhIRnpWTDhUOFk5UHpoMzBOUHdmVy1BbXZULW9Edm5ieWZkNVltWTJkRnJzODB4MWhn?oc=5",
+      "title": "Global selloff in stocks as bond market enters ‘new era’ of risk - Fortune",
+      "description": "Global selloff in stocks as bond market enters ‘new era’ of risk Fortune",
+      "domain": "fortune.com",
+      "published_at": "2026-09-15T18:33+08:00",
+      "query_category": "AI Credit / Debt",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxObVZMNDRvQUNiZWhQc25DZVdkaVlEMHd3MkxvbGtYRWllQnpZby1hNXlwS0ptNE9XdGQzX2FHUHhuR3JDcjM0YVlaRGFrY1Z1SWZuR0FScHphNUtHSS1PYVFZN3JpNXlXbVFXMnJrNm1NM1VZR1pMUVpfdGx6b2pJNURULS1hUdIBiwFBVV95cUxQSkhJSS0yVVdKOWkxSGVKLWx1T3c3VkpPdFNaLUZpQWV6RUZBcGc5X1Ryck43dHFQVlV6eTUybDFia3dLLWdtUGdlMGNxa01lZzN4azF2eWVOdmZKQW9aaXRUMF9YTFYxT3FlN05UTDFiTmNpLWo2ODJJUmd3MS1oM04zaEpJLWMzMkNv?oc=5",
+      "title": "Wall Street weighs prospect of an AI slowdown on data center buildout - CNBC",
+      "description": "Wall Street weighs prospect of an AI slowdown on data center buildout CNBC",
+      "domain": "cnbc.com",
+      "published_at": "2026-09-15T18:00+08:00",
+      "query_category": "AI Credit / Debt",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://www.nytimes.com/2026/09/15/us/politics/ai-polls-midterms.html",
+      "title": "How Popular Is A.I. With Voters? Not Very, a New Poll Finds.",
+      "description": "As fears grow about the threat of artificial intelligence, neither party has claimed an advantage on the technology, a New York Times/Siena poll found. But voters are united in opposition to data ...",
+      "domain": "nytimes.com",
+      "published_at": "2026-09-15T17:47+08:00",
+      "query_category": "Data Center / Power",
+      "discovery_source": "Bing News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNckVKWktKbHNxUnBHa0RINVdzWkVnLUo4SUt2cVRzNjBORTNlVVJENlEyMGVaT05WMUNmOWlfS21mOU9adlIxeHB2Z2F1LWdlb0V2aEZQZFRpX1dNWmN4MVd0Rm01M0JHcDJoZ1hCbk1fSW92YTZyZnFLRWd1RmtmUlRwbnpUUE5XNzd3cThVdjhHZ2RvTEZsaGNkVmRPMmZYSk1DMGFWR0toMFR5ZDlBRnNXV2c?oc=5",
+      "title": "Anthropic's $2 Trillion IPO Is Still On. And So Is the AI Race - bloomberg.com",
+      "description": "Anthropic's $2 Trillion IPO Is Still On. And So Is the AI Race bloomberg.com",
+      "domain": "bloomberg.com",
+      "published_at": "2026-09-15T17:14+08:00",
+      "query_category": "AI Valuation / Funding",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPMkZXSlFZSW80WGpMZkktNHlRcXR4YkJMR0NaSDhfaXNFZGhxaWJ4N3hOYTlTUzFCaUZFb043enNMUDJlQjJsTVdHRHRVYXZCckgwamN0OXVNMy0taVZKcFNKNEhjV0NXMGlPTWFHbjRDa2lsbVJSa0FDVkVtaUNhdnlMMFFCdw?oc=5",
+      "title": "Opinion | The ‘But China!’ Dilemma Driving the A.I. Race - The New York Times",
+      "description": "Opinion | The ‘But China!’ Dilemma Driving the A.I. Race The New York Times",
+      "domain": "nytimes.com",
+      "published_at": "2026-09-15T17:03+08:00",
+      "query_category": "Macro / Regulation",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPYkZfeC15UnBRMUtVY2MtZU1tLVJFZTRIUjdFQ204MExiNnV6bi1OZHVSbllWU3Q2enZLSDVOUlljNWNoeHpFNk9hRVZJWjhvVUNlcWpzVGFoMGo0TG92bVhGX1hQOC1KN3EydGlWYlRLSzZYVE1jUEpFdTNBWmxkUGpxQUVPdUpkdTRiMEh3?oc=5",
+      "title": "Alex Bores Wants Democrats to Make AI Safety a 2028 Election Issue - The New York Times",
+      "description": "Alex Bores Wants Democrats to Make AI Safety a 2028 Election Issue The New York Times",
+      "domain": "nytimes.com",
+      "published_at": "2026-09-15T17:02+08:00",
+      "query_category": "Macro / Regulation",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://www.wsj.com/tech/ai/ai-coding-startup-factory-more-than-triples-valuation-to-5-billion-871da697",
+      "title": "AI Coding Startup Factory More Than Triples Valuation to $5 Billion",
+      "description": "Khosla Ventures, Blackstone and Marc Benioff are among the investors putting $200 million into the startup.",
+      "domain": "wsj.com",
+      "published_at": "2026-09-15T17:00+08:00",
+      "query_category": "AI Valuation / Funding",
+      "discovery_source": "Bing News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOM0R4VVRXcmM3cjdpLU03aDBaVHlwRmFFUHNscjhMV0Q5LUxUWldOakpjN3liVFhMSUlQVkpHODJOUDNUcFMxQUdjbGgxSjl0WC1OdTV5Rml1VXhSYjVvZlZ0bXVDM1hKUjBQNFhRZ3lJN1l2SDZOWUhZWGNuNzg5RXNKVFVxaGoxM0VWdnFtUENKbVBteXZ5cXNxLXVrMzN0LUFJQUNzOENYemVHOEp4VQ?oc=5",
+      "title": "AI Firm Seeks to Raise $100 Million to Cut Bankers’ Grunt Work - bloomberg.com",
+      "description": "AI Firm Seeks to Raise $100 Million to Cut Bankers’ Grunt Work bloomberg.com",
+      "domain": "bloomberg.com",
+      "published_at": "2026-09-15T16:53+08:00",
+      "query_category": "Layoffs / Project Cancellation",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://www.nytimes.com/2026/09/15/us/politics/congress-ai-regulation-bills.html",
+      "title": "Congress Has Plenty of Ideas to Regulate A.I. Nearly All Are Stalled.",
+      "description": "For years, Democrats and Republicans have proposed bills to address the greatest threats posed by artificial intelligence. Many remain stymied by political disputes.",
+      "domain": "nytimes.com",
+      "published_at": "2026-09-15T15:49+08:00",
+      "query_category": "AI Credit / Debt",
+      "discovery_source": "Bing News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQWlJmZ295LW9UZlRIYW5PQTVBQXd6b19UR29sWC1XY1FYNHhoTzVrX0dHclpYVjFQNHpmbjJ0SjJZUEw0VVlsc3BHY3dxZVlpYS1mcG1McGpwYllSOTVjTF96S05xM1hFVkhKNjBKNXJ3SGxDQUwyZC1id1QxSmplb2VBbnQxV3VGSGtBVW9nMzlacEV0UFdCWDR6cFVmTjQ?oc=5",
+      "title": "Why Price Cuts May Rattle Anthropic's IPO Pitch - The Information",
+      "description": "Why Price Cuts May Rattle Anthropic's IPO Pitch The Information",
+      "domain": "theinformation.com",
+      "published_at": "2026-09-15T15:31+08:00",
+      "query_category": "AI Valuation / Funding",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOS0RfZnBKT2ZkQjJKWk1kRWZCRXpEc2hmTGZOVWdJWmhsOGlKVDM3Xy0zcEJ1ZUN4UlM0T0V4ZlhXTVhybVBLOUNjQmtzeE0zNkFRLXBGdDF3MlhlX1I1S3dmZVl6WkMxclB5R0JmLWJtbkhPT29WRm4ySHBkdHMyNEFiWjhWbEk1b0JF?oc=5",
+      "title": "Kate Dohaney says AI demands a different type of leadership—‘I’m not a CEO sitting back saying cut, cut, cut’ - Fortune",
+      "description": "Kate Dohaney says AI demands a different type of leadership—‘I’m not a CEO sitting back saying cut, cut, cut’ Fortune",
+      "domain": "fortune.com",
+      "published_at": "2026-09-15T15:30+08:00",
+      "query_category": "Layoffs / Project Cancellation",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxORlloWG55VWV2R2JTX0VLM2lud3NfbW1NRHNuMVNZN3RQSmVmSXNuTW1DbHpqOW4tbjhoUDVtLVMtemFyMUNHNWM4SEVfa0dlNGpWakZUSGVxMGVvUTIwbnNNRkM4ZVpHQllUS29oTDFGajBVaXhYa3RnTk1OU1NYUk8wWGdJREtHZHdKd0VaODVXVFBX?oc=5",
+      "title": "Anthropic’s Moral Conflict Is Playing Out in Real Time - WSJ",
+      "description": "Anthropic’s Moral Conflict Is Playing Out in Real Time WSJ",
+      "domain": "wsj.com",
+      "published_at": "2026-09-15T09:25+08:00",
+      "query_category": "AI Valuation / Funding",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNZGw0ZmlkVXZvbHRFVV8xTF9mYW1aTjVFVmZqWEJ5Q00zODllSU5mX1RUdFdZQkJHN09CVER5c2s1Q0I0dzRrdHVpWURLVk5QVkkxQ05MYUhmSWlTWEpSbS1yUTZpMWljWVVLZDBGMV83b1NEYTQ3NUZ1NWFabXZNRWJfbEZQVEluc2xlaVJ4cGpoZVhsUm5pSTZHSG1TbkdHM193VkJ4X2RLTEFvTll3?oc=5",
+      "title": "Watch Bond Markets: SocGen Says Higher Yields May Put AI Debt Capex at Risk - bloomberg.com",
+      "description": "Watch Bond Markets: SocGen Says Higher Yields May Put AI Debt Capex at Risk bloomberg.com",
+      "domain": "bloomberg.com",
+      "published_at": "2026-09-15T08:00+08:00",
+      "query_category": "AI Credit / Debt",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPc0ktVC1EQkZnQ0QxcFlvM0lQdDRfT0hFUldiU1JvbHVOcmw2XzgxNjY2d0NoZ1dmenRZbDJ4N2themVnUEZRZngwQ1YzT003dWk3RmdtWjgxZkRQV191S0o3aVJvbjNwM3Y0OFVPanFpelYzYVBESVFLRFpscF9fZk1RVEhqSUctSkktLTd3MG90bjJGOUZKcjMxZWxjMTNTVzI4a0JnRWkyX1RtVEltOUZrY3lISXZkS1o5cTR1TkpHZWdXRVFrYw?oc=5",
+      "title": "Watch Markets: Bond Selloff May Be ‘Nearing the End,’ Says JPM’s Misra - bloomberg.com",
+      "description": "Watch Markets: Bond Selloff May Be ‘Nearing the End,’ Says JPM’s Misra bloomberg.com",
+      "domain": "bloomberg.com",
+      "published_at": "2026-09-15T08:00+08:00",
+      "query_category": "AI Credit / Debt",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOamtMaEl3OW04aFdDZXY3Q0tDMnRWWHNna3h1ak5HTi1INUZIX0h6R1g1Z0JKOC1NSkR1R3VCVUFzTktFR0g0T2V4QzNRQkgtRlZ4YUltRGc0eGdITDhCY3N4M1VaRU5Nd2w1TWJXMnNSNTZPRHBkTUwwM0lUZkhmU1VzNnhtUXl2TTlPcGJ3c2NabEhmTDA3RGNaMGtKTmQzZG1hdm1sbzBDRHlmYXNZZ9IBtgFBVV95cUxQRk56b2o1TFpzTnZKNGpOVm5QeUxNZzk4SC11d1FGUnNNX1ltU0lTaGdYQjB4Qjl5aExrTjVJQ0xpWlVVQ2tqdGE4UU1tajBRZWM5NWVMVXJvcU1zZFFGX254NzV3V3RSLUVUR0E0VVc5REZxM01WbE9IZi1FWkNiaW5VbGJXbmtsdXQyS3Z4d0FNd2VlSDdJRlZDRDJZQnp1dmhyc2hQVDBBMENxaUlYc05IcHhfQQ?oc=5",
+      "title": "Broadcom CEO addresses Anthropic's slowdown push, says AI revenue targets haven't changed - CNBC",
+      "description": "Broadcom CEO addresses Anthropic's slowdown push, says AI revenue targets haven't changed CNBC",
+      "domain": "cnbc.com",
+      "published_at": "2026-09-15T06:43+08:00",
+      "query_category": "AI Revenue / Monetization",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://www.reuters.com/legal/transactional/investors-nervous-about-ai-spending-slowdown-after-industry-warnings-2026-09-15/",
+      "title": "Investors nervous about AI spending slowdown after industry warnings",
+      "description": "Investors are showing some nervousness over the stock market's AI-led rally after industry leaders called for reining in the pace of development — although some say guardrails ​could ultimately ...",
+      "domain": "reuters.com",
+      "published_at": "2026-09-15T06:03+08:00",
+      "query_category": "AI CAPEX",
+      "discovery_source": "Bing News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQWFI4ek1QLUpJaVNKWHpXT2JpRE9jamxzR2ZtRXFsbWQwaENObGwyUHB4aUw0cERCNHR6ZVlvcFRpanlhM19lemZYZW1zYnNxTXBPVXBKTDI0dy1QYk8wOFNJSGM3UEhPRnlaQnJoU3hEbE1WUkV4WExxRWdtNWc0cldzSmU1MjlTWmRzemVrTjBwbFFvc3FTRTZHdThOVmswWV9rRHk3a2gtR1NlMzdURVNsQkZUMWxUQWRvUFQxdw?oc=5",
+      "title": "Fortress Warns Private Credit Lenders Against ‘FOMO’ in AI Rush - bloomberg.com",
+      "description": "Fortress Warns Private Credit Lenders Against ‘FOMO’ in AI Rush bloomberg.com",
+      "domain": "bloomberg.com",
+      "published_at": "2026-09-15T05:18+08:00",
+      "query_category": "AI Credit / Debt",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://apnews.com/article/federal-reserve-kevin-warsh-interest-rates-ffd60cca8bb045bb9b1c389f5f1b73af",
+      "title": "Federal Reserve is expected to raise its benchmark rate, defying Trump’s demands",
+      "description": "The Federal Reserve is widely expected to lift its short-term interest rate Wednesday for the first time in three years to fight stubbornly high inflation, a move that would put the central bank at ...",
+      "domain": "apnews.com",
+      "published_at": "2026-09-15T05:04+08:00",
+      "query_category": "Layoffs / Project Cancellation",
+      "discovery_source": "Bing News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://apnews.com/article/bill-gates-foundation-ai-united-nations-26ce25f9be20574a4fa04a5f983521ae",
+      "title": "Gates Foundation warns AI could widen inequality as foundation pledges $1B to expand access",
+      "description": "Bill Gates is warning technology companies and world leaders that they must act now to ensure artificial intelligence combats social inequities.",
+      "domain": "apnews.com",
+      "published_at": "2026-09-15T05:01+08:00",
+      "query_category": "AI Valuation / Funding",
+      "discovery_source": "Bing News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://apnews.com/article/ai-regulation-trump-congress-tech-politics-d2d1bac8e8666c681937665596a4f603",
+      "title": "The push for AI regulation gains unlikely allies. Trump and Congress aren’t among them",
+      "description": "The technology industry is urgently warning about the potential harm of artificial intelligence, but political inaction in Washington poses a challenge.",
+      "domain": "apnews.com",
+      "published_at": "2026-09-15T05:01+08:00",
+      "query_category": "Layoffs / Project Cancellation",
+      "discovery_source": "Bing News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNNXFPME5ES0Q0aXZ2bmczekhkNi1XR0QtMkZsU2l2b3FheXFxcVB3amEyZDNhT05UeVd3NnBpaDhKMjN1M0NFZVhRUFVBaEpEM2g1WGpxVjYxZm1KM2JOcVIyZTRLMkdqS014dW9UNXRvZUE0MUdYQ2liOTZpZkk1WnVsbnNWaHNES0cwSFBNMmpfdHpGa0w1MW5CVFVZMENjZ1dBQ0ZlVy1VZTVzVkZFZGRCMG1aelcwT1E?oc=5",
+      "title": "Minebea Mitsumi Pauses M&A to Chase AI, Nvidia Demand for Components - bloomberg.com",
+      "description": "Minebea Mitsumi Pauses M&A to Chase AI, Nvidia Demand for Components bloomberg.com",
+      "domain": "bloomberg.com",
+      "published_at": "2026-09-15T05:00+08:00",
+      "query_category": "Semiconductor / GPU Demand",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOX0cwcEttNTNmMUxxVmlnU2JvdUNYUzhlX3l1RlNSSks0TWJCOTZUa1lhdF9jaGZtN2liczJMSEVKbVdtMEhEQTd4OUYwR2dmMDhiTThFcll6UzlsUXFFQXY4ZkZIalZwb2JzOGx3ZlVFMFNIbTRrUDFmOHNoUDBvREFnR3ZLZ1V3ZmJRaWVHMW9qMWU4Umhmem5B?oc=5",
+      "title": "Uber’s CEO says cutting 3,300 corporate jobs could help lower the price of your next ride - Fortune",
+      "description": "Uber’s CEO says cutting 3,300 corporate jobs could help lower the price of your next ride Fortune",
+      "domain": "fortune.com",
+      "published_at": "2026-09-15T02:41+08:00",
+      "query_category": "Layoffs / Project Cancellation",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPdmFIWG1qMktWVG9la3hFdFBRZG1nc1RXV3p6bFZuWUYwTl9nSEUwUTMwTDB5UnRFeGV4MlJ3alp2WG9OdU1KR3V3ekJhWmh4enRZcjVGWkdzN28zSG5UU09wbWtFSGxmZ1RsaHU3blZsMXVqTlQ5SVBHcjNETGRHVmh3NU1VbVpKNzF0bTVrRC1iUkx4WkliZTdQVnM2SmdlQVdLc3J1aGl6Ym1aUkV6TllNaWdZRE1RLWFUZG1yRlpSQzI5emk5VGRSbXRfZXJOZUHSAdcBQVVfeXFMUDZlMzhnZDVDcVNjSE1oV2toUlh3SGRYWEtnYm5KSEJHMk1KOEhDSWFLSW13cWp6d0hBcEZDMlB0azFKSkk0cFNVTm1idjVpRzNUMXpqS2w4ZTA0aXNmdjN1aXZoSHhPUnVxbVZZYlZGTnZLOEhRQzJybjV4aHlDMlRMNndGUUxhdWhXZ19tcGhvaXFqVmlkWElRRHpQR3hvV2l3Z0xnV2JDRnBVRGNLRUd0bXpfMmJaN3dVbUlzU3JIVVhlVEpxNHpOaUVnY0lQSE5JTEU0V00?oc=5",
+      "title": "Which matters more to stocks: the bond market or AI risks? The volatility gauge might offer an answer - CNBC",
+      "description": "Which matters more to stocks: the bond market or AI risks? The volatility gauge might offer an answer CNBC",
+      "domain": "cnbc.com",
+      "published_at": "2026-09-15T02:01+08:00",
+      "query_category": "AI Credit / Debt",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOako0N2w1bExjVVA0azZSLUI0QXdveUdDUWFnM0RKeVJVTEN4TlFlX0t5UHR6Z1FROWp2LVJUSjY4anRUakt0OTBUWkdFdjNKLTFDNmhPZ0RVY3BZSEZzLVFFUjZVdmtLSHk1bVZQRm1ObVJ6SGVSWGpJbXBBdS1EQ3lSMk4xNzNfVTJQT2NYaW1aUkV5c1plNDJNRXk2S3ZPMzA5Yw?oc=5",
+      "title": "Anthropic targets financial advisers with new Claude tool - Reuters",
+      "description": "Anthropic targets financial advisers with new Claude tool Reuters",
+      "domain": "reuters.com",
+      "published_at": "2026-09-15T01:13+08:00",
+      "query_category": "AI Valuation / Funding",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNeHh5QVYwWDZ2bUR1V20yb0ZhQ1lzdjVST1hheU9DODdUNjRWN2Y4aUt1NG0zMElMSnRfYjJ5Yi1ncnMyRUlWTWhIUnNHYlZHel9LMXYxcWE2MEp0UTYtR0U4SWhkTHM3ZjQ2ODcwUUg1Vk9zNGtWZzNmVEh6QU9mNUZTU244MTRDaG1ETUh6bDRtWl9WczJTZm9iYmZuWkpESW5PWUhRSGg0WU53NEp0OXgyS2U?oc=5",
+      "title": "Microsoft drafts code of conduct to keep its AI under human control - Reuters",
+      "description": "Microsoft drafts code of conduct to keep its AI under human control Reuters",
+      "domain": "reuters.com",
+      "published_at": "2026-09-15T00:03+08:00",
+      "query_category": "Layoffs / Project Cancellation",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPeHdfc3I3SlJyd1JBdUZLcWxVSE5TeHRHUlotMVNZSFlhU3RxRTJtZGIxUExBRXdhRXBQbHBFbm9TcVZMNTJvSnZ6OVcxTjdyazFhTWg3WVhQbVdLd0xFY0JWbkk2aUZsdVFrZHgwTk51RkM3TlUzMnhRQTMwWEgwLWo0RTFuM1dMX3kzQ2NkS0hnNzJfRUxsd0dn?oc=5",
+      "title": "Trump Rejects Talk of A.I. Regulation and Calls Out Anthropic’s CEO - The New York Times",
+      "description": "Trump Rejects Talk of A.I. Regulation and Calls Out Anthropic’s CEO The New York Times",
+      "domain": "nytimes.com",
+      "published_at": "2026-09-14T23:49+08:00",
+      "query_category": "Macro / Regulation",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQMEJidFNRQ1I5MGgydDNteUNFSGpyc0R6WEZ5RGRnQ3JBLXZfdVdnUHVpZVJxaG8zMFlIMDNucm5UM3huWVNYa1FZNmtGZk03VEY2aHJFSHBvU0ZVN1JydTVmTko0UHNJc0Z3N0d2UTU3aW5VWUtma3hiNDR3X2FybnJpTW5iMS1VYUU1ZmhLdkY4ZzlCYzVrZW1TbUR5R0VjTmdTWjdTd3UzUVh2Q2NuTC1ObEt1QU0?oc=5",
+      "title": "Europe facing unprecedented risk of being cut off from AI, Lagarde warns - Reuters",
+      "description": "Europe facing unprecedented risk of being cut off from AI, Lagarde warns Reuters",
+      "domain": "reuters.com",
+      "published_at": "2026-09-14T23:25+08:00",
+      "query_category": "Layoffs / Project Cancellation",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPZ0pGV3pUaHlLVDgzbXlIWS1fSjZWNVlfOGlNc3dDSVh5WnpRXzhSYU9wTENCZ05JNHBqVHRMYXEtdnNXYmZNdmVPYUtPSU9Tanl2Rkp1V3BRUU5ZQ1A2RzNtdjhpTFJzbEp6VjBUV1VPNHJDdDF0RkktcGpBNjlwYkVYT2NtZDZuNzBMTjlTT1dUZ1Y5dlhlNjZLZnFRWllTUWFXUngwN29CNzctWWdpaFgwZFc1Vm5rZXozM0VaeTk3ZE5JLVE?oc=5",
+      "title": "President Trump says no need for more AI regulation, slams Anthropic CEO Dario Amodei - CNBC",
+      "description": "President Trump says no need for more AI regulation, slams Anthropic CEO Dario Amodei CNBC",
+      "domain": "cnbc.com",
+      "published_at": "2026-09-14T22:18+08:00",
+      "query_category": "Macro / Regulation",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQM01tVUxzRUtNUHM5YmNCSmlMcVZ0VmJrQU5nWmsySTJXZFNnWEhZajZxTmFOLW8ybTd0Z0lxVEZQSlJLVjV1djJROUFleXBmeHRLeDlpTkowNkZTbDZrSGJPVXBRZ2k1MUJZYlR4VThnSUhTNkl6eWhlTTBZS012UnV0a3kyaVlU0gGOAUFVX3lxTE54dzQxUXo4aFdlV2NKVnY1aHczRlZOTDRnaWVxTHFRUEhqUXhCS25Nd2hYYlY4bFh2WFlaTGRJbVdLTzNGajl5Y2FNSWVUSnBrbzJobTllT1M2Z1VxUTFweFZjVmNaNU9pMnRVZ3lsMkNiWmgwUHpYby1mNEI5TlNEdDliRUc0VUgxQnM4aWc?oc=5",
+      "title": "Trump goes scorched earth on AI warnings, raging about data center opposition and regulation - CNBC",
+      "description": "Trump goes scorched earth on AI warnings, raging about data center opposition and regulation CNBC",
+      "domain": "cnbc.com",
+      "published_at": "2026-09-14T22:09+08:00",
+      "query_category": "Macro / Regulation",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQNFpLRTJmTmFjMDRqWUlrNVhmeHlWR0dGdjI5VmpBMDh3eHRjLXBVVVp4aFNEdGs5WTZzTzRsTFNlQ1lqaDRpRkI3Y1pyTTlUX011Z0MzeHZZc3g0M2JvLWNoZnhZV1pEOC1SeklWbU5rQTVrU0FSMHhBTjdRc3NiaGlLeEo?oc=5",
+      "title": "Steve Bannon and Bernie Sanders unite in AI safety call - Financial Times",
+      "description": "Steve Bannon and Bernie Sanders unite in AI safety call Financial Times",
+      "domain": "ft.com",
+      "published_at": "2026-09-14T20:40+08:00",
+      "query_category": "Macro / Regulation",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQUTExdWhzRjRoWXQwOVNQVTlEV3h1d1A5OVZ1X2I3R3pqNXNLbUhHVUw1c0l5UmM3U29XX0VFYlV6cGlhQ1N2SUlwTGU4cnVKSjV2NGppNEJxbU1tck8yeXdfUEhzdWJrdlpZQ3d1YmdQZW5odmN1Z0NDOURua3pLWTFidkJ1TEU?oc=5",
+      "title": "The A.I. Slowdown Debate Goes Global - The New York Times",
+      "description": "The A.I. Slowdown Debate Goes Global The New York Times",
+      "domain": "nytimes.com",
+      "published_at": "2026-09-14T20:01+08:00",
+      "query_category": "Macro / Regulation",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOVzR4bWl2NTBLNXZTT1JUZkZrZ2gzeGhfdWNfYW5UU3VfTGVQUnhXQS1wVEJQWDVYcmo2VW1jU00ydTMyd2NaSEdiNkJMZUxockxBWDVrbW41VlJPTkNDUzhKYUlZeHd0eThhNmtsTFRIQWl2b05xd2pzUGRBUDNxdTFIbEZzS1RvV1JHYlVmMzJaaGM?oc=5",
+      "title": "OpenAI’s IPO wait grows longer as AI safety fears mount - Fortune",
+      "description": "OpenAI’s IPO wait grows longer as AI safety fears mount Fortune",
+      "domain": "fortune.com",
+      "published_at": "2026-09-14T19:54+08:00",
+      "query_category": "AI Valuation / Funding",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPRWFqQXlMTHZpSkhROE1iQTNDUEtibHVrRFNpRmdjNF9GMU91WFpWZWo0YU9fNEU0c3pvUnFsNnYxQWVvX285dFVEa2x4RUtySFNsR2dHaDJoTkJja2hWMW5kLUlxYl9sWWpBbUxTbzltTllJY1ZvSzBxOWEyRkp3czZpRGFjWVpKSjVtbFdHdk83ekpHN1drMzJFU1E3UXFwNjhlc05abWtzZ9IBrwFBVV95cUxQR3Q5czJ0UGpqdXhDbHVhYnR5S1dMdWszUGVZRkFjSkN1cmhwNlMtSmZNWHp1UEQ4Y09uYWtrV3dIbVdLTmdUUy01dHo5SWZoTG8zUW9lcXlGZ0NGYjR1MWZSVU1aOV9UQXEzWUswb3N4ejA0MjJkQUNIcHNBcm9McjlrRTZBMlJpSHRvWVZDZ3g1aHVSUmhGV1hyWXZGd1RpVTN3TkdFSWl4cVlUSHg4?oc=5",
+      "title": "What Amodei's AI slowdown could mean for Anthropic's imminent IPO - CNBC",
+      "description": "What Amodei's AI slowdown could mean for Anthropic's imminent IPO CNBC",
+      "domain": "cnbc.com",
+      "published_at": "2026-09-14T12:01+08:00",
+      "query_category": "AI Valuation / Funding",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPLVlMNmltZWw5djlZQTVhUnRmNlVTMDYyaFMydVBSRm5HQ2oxQnB6ZUM5aFVXSy0tMnNxNy1WUzMwaHZ5UEZVcnVzclV5YnBQRWlwajlGUGxueVlWb1pWSmpyNTZKQW5pSWUtQXhyY0tCV080c3F0SDg2UnBNa2lFZWNJdw?oc=5",
+      "title": "Some in Silicon Valley Are Questioning the Calls for an A.I. Slowdown - The New York Times",
+      "description": "Some in Silicon Valley Are Questioning the Calls for an A.I. Slowdown The New York Times",
+      "domain": "nytimes.com",
+      "published_at": "2026-09-14T09:54+08:00",
+      "query_category": "Macro / Regulation",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNTEMxeXVSa29wMkM4aVJMNWFSd3NTMUtXU1czYjVreEx0eGJyOXc3VGE0X1hlWVpPS2FzZ3huZWY1eHprdzI0Ykw4Y210WEk0SUNxdGRzZ043N1hYWTZ3c0Z1VWVKSGUtcjU0OElobHZjMEM3QlBYSVpQTWF2UFR2Q3JKd19vR1V0WGo3Yl9LSHR5NHNSSGo2Z1pRNkN2WURQVWpfLTBBc2ZTeFBGTWV1TE1Jcw?oc=5",
+      "title": "SoftBank Gets Upsized $11.9 Billion Loan in OpenAI Funding Push - bloomberg.com",
+      "description": "SoftBank Gets Upsized $11.9 Billion Loan in OpenAI Funding Push bloomberg.com",
+      "domain": "bloomberg.com",
+      "published_at": "2026-09-14T09:42+08:00",
+      "query_category": "AI Valuation / Funding",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOXzFkaEptQk9Gc2REWUZ3MHpYU1ZjbFpqSVp2cFV6b21TMU9pSUNnRWlqajdrYnAwN2FZTzRvNzJvUVlSTkYzcWxDMFlVZ1Ftb2V6OVhURC1haHFyS0NLcnRZUHhpSFRCb3VuQUt4SFFGTHJnVEg4eW0wSHgxcVlmR0JoRQ?oc=5",
+      "title": "Stocks fall as oil and bond yields rise - Reuters",
+      "description": "Stocks fall as oil and bond yields rise Reuters",
+      "domain": "reuters.com",
+      "published_at": "2026-09-14T07:11+08:00",
+      "query_category": "AI Credit / Debt",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPeEJ6YVJJNkh0djM5TC1ZNW9wSkJoeU1nMDA1dmpxeW5XdjR1cmVlZzUzeEJLbHFfQm9KMFNhbkY2S2N1bHV1V2xncGtBMERtRzItTlFqUEFBVHZ0LUJwSDY2eTA5c21rS3hEdzBlWVZNMHgyalBTbnZ3MjgtbEozU00yUnY?oc=5",
+      "title": "Anthropic tells investors it will be profitable for second straight quarter - Financial Times",
+      "description": "Anthropic tells investors it will be profitable for second straight quarter Financial Times",
+      "domain": "ft.com",
+      "published_at": "2026-09-14T06:29+08:00",
+      "query_category": "AI Valuation / Funding",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQOElEaDhNQW5QWVJ5Q0RMQ1M3S3B6OERSdkdoWDE2RGdXVk9XZF9ZOFE0NlY2N05BMzFZZFRBcHlKUkFMTGt2M1B4ODNDMmhtQTFKY0xodVJuRWhMMWYwMlpBZGNzTVZBTUFLMHRMUENiWEJfalVvbWhQOGtLOEdyQW9CZ1dqX1BQakdZbkh6M1RkYWxwMHRn?oc=5",
+      "title": "Trump Sees Race Against China as Key Issue on AI Regulation - WSJ",
+      "description": "Trump Sees Race Against China as Key Issue on AI Regulation WSJ",
+      "domain": "wsj.com",
+      "published_at": "2026-09-14T06:02+08:00",
+      "query_category": "Macro / Regulation",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPRFRjOUtJenNsVEpVTEQ3X0NWb1YxY2RFOE02OEdTc0VrUDQ1R3RfWG9QZENQa2pRYkRhektKVHBHRENSWjBxbXBWdnI2anJIczlDMUw4NVpVQ05UY2JfV0ZITlVIdnJmSElFSzNnMG5xRlNnZmhSZTRNOE56ZXZScVpIMzBZMmtXVHVoZHVpT1lxTkp5ZlYzdnQ5T3NPVjlKSTdPWmFyUElMSW9wa2JlSS1vOEdvNG9VWFRMTzFpdGNLdDdETm44?oc=5",
+      "title": "Video: Trump Says ‘Negative Forces’ Are Calling for A.I. Regulation in the U.S. - The New York Times",
+      "description": "Video: Trump Says ‘Negative Forces’ Are Calling for A.I. Regulation in the U.S. The New York Times",
+      "domain": "nytimes.com",
+      "published_at": "2026-09-14T04:25+08:00",
+      "query_category": "Macro / Regulation",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOdHpaNVFIZFhSb2ZUSG52aTFGdi1ZdHNmaDBzZEMyMkVxRXlNMHR2VWllZmdCREFWOEFSQzZfMHBlTjRCVkY0MTkzZjBqOGhiZERCT3ducXdXY1VhWFduZ3MtQ0NoNTlHYjBlS0prMkNmOWtQQkJId3RGSmRZaEE2alYxay1KaDAyaE14R1ZqTVdJamxneU8zSFJyeG9CQzNZQzU2SktkQVNjR25aMkw0Mlg5blQ1QQ?oc=5",
+      "title": "Anthropic Said to Choose Nasdaq for Much-Anticipated IPO Listing - bloomberg.com",
+      "description": "Anthropic Said to Choose Nasdaq for Much-Anticipated IPO Listing bloomberg.com",
+      "domain": "bloomberg.com",
+      "published_at": "2026-09-14T03:07+08:00",
+      "query_category": "AI Valuation / Funding",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE43ZFdOcUNiZmFDbmRDV3RyN3ZxekV1S3BONUxRZ0twQWlCcFFublhOanpUS3VUaHNiZFBBQ2FiN08wZGxKMW5KTHB3SV9Nc0lYcjhMQTdZZjdkMUtZbzU5dG9aX0t6SWJTUGhLVkJjeGprc2NkbUVtS1RHUk_SAYIBQVVfeXFMTjRGRTZPVklWdGtRb1N3NF8yZlBfTmxSNjZnRHp1WE5ybzZlZXJMZWdNT3JmbGJnTjlQR1JFbEhkQUxzZkdfNGZNeVJkYklSdDd4NGVRdkRBdmZrRi1CS1F5Z2sxZmpFYTlSb0o1WlBiTWI1Z3djM1dUeVFjRlJETjR6Zw?oc=5",
+      "title": "Washington scrambles to meet calls for AI guardrails while the window to act closes - CNBC",
+      "description": "Washington scrambles to meet calls for AI guardrails while the window to act closes CNBC",
+      "domain": "cnbc.com",
+      "published_at": "2026-09-14T00:56+08:00",
+      "query_category": "Macro / Regulation",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPcDg3dC1KTGZCUzVUbnNPOGpvSUZHdUhZTlI0eEJjYmdFUE1ZT3RaV29jd3ZJamtjakVRTnNKbE0zcVFETmtSaC1RRXZHTS1GNG56UV8tYkJkbnJpVEVwSzM4MnhpZ3o2bkhkM3Y0aWVNcW1QT0dJVlZoTUlzc0JfaWhvS2phRVE3dVYyYnpzSmJ3UzhZRWVVb0FSblpxUDA?oc=5",
+      "title": "Anthropic selects Nasdaq for IPO, Business Insider reports - Reuters",
+      "description": "Anthropic selects Nasdaq for IPO, Business Insider reports Reuters",
+      "domain": "reuters.com",
+      "published_at": "2026-09-14T00:23+08:00",
+      "query_category": "AI Valuation / Funding",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE4wV0pYQmdFdDdtdzZyUExENUJfM18tUEJud2Y2aUpNeG9SV2loa3FwMFFQWEhoTktGQnBkQWwxY1gtU0UyYWFYX24wNVMwZnlJbHIzRkFGbDBONlFvdlNJUHhrY01VdU5MSndvUUdkdmdMODF2UEdENG1n?oc=5",
+      "title": "Obama Urges Democrats to Move A.I. Oversight to the Center of Their Agenda - The New York Times",
+      "description": "Obama Urges Democrats to Move A.I. Oversight to the Center of Their Agenda The New York Times",
+      "domain": "nytimes.com",
+      "published_at": "2026-09-13T23:54+08:00",
+      "query_category": "Macro / Regulation",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9Ebm16S0djWjFGYTEyTkZEdFdFR3FjdjRMdE5DeVE1QllJOG1UNmE5bDNTSEVqdkVRcGdSckN1N0xyWVh2aEc1bm5FNHpvNFlIYnJQaEI4eFR4TnNnM0hKRkhaOUNCLXVjTGJUZlN0YmpHZmJTdkNwamNDTkLSAYIBQVVfeXFMTmJXdGZqZG1xWURORnhQc0FLRjN4VGxQSG4yTkhxRzNjWWFtZzNQamFPZ3Z1TS1pVm13bzdHaWU0d0FER1BQUnlHUnk4U00zbmU0aGdfd3YwMzBaaWpvNlBvRjA2NFVIWWY3ZGduU1U2SkdSQWMyUlRiM2UxdkpHVElpZw?oc=5",
+      "title": "Anthropic's Amodei says China presents 'toughest dilemma' for his proposed AI slowdown - CNBC",
+      "description": "Anthropic's Amodei says China presents 'toughest dilemma' for his proposed AI slowdown CNBC",
+      "domain": "cnbc.com",
+      "published_at": "2026-09-13T23:46+08:00",
+      "query_category": "AI Valuation / Funding",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPc3NTenhlaVBsazZZaUR4TlFZSzl0VzY4aXZqa3BrZHRoQ3N6a3JpR3BpQW5Nc3kzUk5hV1Eydk10SlVLUDRvMDMxRHQ2TlBUVlUxUmp0ZGZzbzlySEIzZ2tWcG1JTzZrMHVLLWdqb2E5ei14d0MzY1FlQmxWSHYzWGF2bkFrRjRkX0ZPUV9LMA?oc=5",
+      "title": "Top Lawmakers Agree A.I.’s Risks Are Rising but Say They Have No Quick Fix - The New York Times",
+      "description": "Top Lawmakers Agree A.I.’s Risks Are Rising but Say They Have No Quick Fix The New York Times",
+      "domain": "nytimes.com",
+      "published_at": "2026-09-13T23:39+08:00",
+      "query_category": "Macro / Regulation",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNSkNHUFFrUlZCVWVKZ2dpVVkxSzBmcy16aFFHVTJDV25PZ0YzMjBLVlFQZ0pJcU5EVWJlUW13azNiV1BwOENLcTFVOFpZYVVlT0haaXI2ZkFaOUZxTGp2eE1kaGZCb2pXV1dBQy1XcjQ2NmNXMFA3Nnk5ZnA3MU5wWGZCV0ktTWZad2o0LVBmeW1BclBndWRfWEJScFduQklEZUFEX0NteFBhNDYxRG5keUdiUml3dVYz?oc=5",
+      "title": "OpenAI's Altman won't do IPO this year, calls AI extinction risk 'unacceptable' - Reuters",
+      "description": "OpenAI's Altman won't do IPO this year, calls AI extinction risk 'unacceptable' Reuters",
+      "domain": "reuters.com",
+      "published_at": "2026-09-13T13:44+08:00",
+      "query_category": "AI Valuation / Funding",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPbmduYjZNYlh4TmVDd3dMTzZmU21ud1Q5WVVaYXBOM2hUQ201U2tjeDhoWHd6ZjhlQzdtUWxiNmFibkRpc2VlcmxjbWMzTWljZ0ZZSkF6VHFPWnJVUFQwc2g4RDNtb1FCWjN1R3BBcFRzUHkyTXJiRXZpa0NxV29IWFc1LV9lUXh0bXc3TWNrSHZhT0lPTVU2dEswYWhSVUw2SzFkRkVmSHU0S3c?oc=5",
+      "title": "EXCLUSIVE: Nvidia in talks to invest in Anthropic’s mega IPO, sources say - Reuters",
+      "description": "EXCLUSIVE: Nvidia in talks to invest in Anthropic’s mega IPO, sources say Reuters",
+      "domain": "reuters.com",
+      "published_at": "2026-09-13T12:38+08:00",
+      "query_category": "AI Valuation / Funding",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNMm5STnhuRG5MT1ZWUjlzeWNqVEFGTjVxaVdkX2hzdjF5VElRajFKd3B2NlkwcWxNSFgwOVczb1l1N284MVlhNTRtMFN4T1dyY1NNVmdFeDBRQVdGWmZmRjdYM0NuTTN5SXhvbi1UaE55TDhCUmdINEZ6c2VobFZQX3ptWm9sTkE3UjB0bDZzNkxlLUxzZHE3N25R?oc=5",
+      "title": "Sam Altman: OpenAI won't go public this year as IPO now would come at an 'ill-advised moment' - Fortune",
+      "description": "Sam Altman: OpenAI won't go public this year as IPO now would come at an 'ill-advised moment' Fortune",
+      "domain": "fortune.com",
+      "published_at": "2026-09-13T02:04+08:00",
+      "query_category": "AI Valuation / Funding",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQTm04ZFVKR3oyYTZEX2MycTc3MVFjejV3cVd3ekJtUWN4ZWJIRVFLYVVic1lvVUt3aGItR3JnMjRFVHQ1TDBqTmZsMnJwMjdBdDVpM0lTUDRMSUxKNmQ5ZnNYZ0JUX25YUTJfc2tqcWpnQTM1ay0yYnF1d2g2S2otVkFqaUR5aDdVOEtJcnRKeENHZ1BOcUpiUU1zRQ?oc=5",
+      "title": "Exclusive: Sam Altman addresses AI doomsday fears in new interview - Fortune",
+      "description": "Exclusive: Sam Altman addresses AI doomsday fears in new interview Fortune",
+      "domain": "fortune.com",
+      "published_at": "2026-09-13T00:38+08:00",
+      "query_category": "AI Valuation / Funding",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQbWdEQ1p3VzJkd2E3ZmYwWmRkRWlwWEhFSm1PTjQ3Y1N1bGNPd1lXcjZncEhPVVNrd3dFT3oxd1FVbzVMZmZTVEJVZGJ6MHNxTUd0eVI5MkpuY191WG9CaUozc3AzWkhPQUlzUDh0dXFqQzlNd09CR0NrQ01NaVBERHhCUE9vcmR1UmlfMFVXdmFlcDNocnJkMkJOa0pWQ0p0SVhia1QwS3A4LVZjYXdfLWhiRTHSAboBQVVfeXFMUE44bkREVTl5S1B2R2RMNUlMSlZlT1N0RU5yeTJLaDhFd0dWZ2wwRmdaVUpWRGpYbTBtVVlITnRNLTJRcW43RlhKQzZFVTluc2E2dVhuSzNOWWtoVzFwRDFDX0wxVWszTDk5NkcxQjNaN3JCWGlpUnhTdGM4dzliVHFQam1IV2x6dW1jMkh4SkFNWjVRbzlSQVpaZEFvbE9QZHNiSWJMS3l4aDVMLVFRdk9FbGYxLXBZdjNB?oc=5",
+      "title": "OpenAI rules out IPO this year as Altman, Musk & Amodei warn AI is moving too fast - CNBC",
+      "description": "OpenAI rules out IPO this year as Altman, Musk & Amodei warn AI is moving too fast CNBC",
+      "domain": "cnbc.com",
+      "published_at": "2026-09-13T00:22+08:00",
+      "query_category": "AI Valuation / Funding",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9laGIxcTRhWEtfQUFPb0hIUmgzeXMyYXVhTF80YzVUaTV5dExyODhETXJpdC1fdVpqRkVZYTk3ZDRsbTZrdmFCdXRKZWpBMGJzSnZNTTJfaWpPMFFzZmU4ZldSS01ydEw5QnVrWG9TTzFZM1ZabTJjZDI3X0M?oc=5",
+      "title": "The world's largest health and beauty retailer says AI will make shopping 'more human, not less' - Fortune",
+      "description": "The world's largest health and beauty retailer says AI will make shopping 'more human, not less' Fortune",
+      "domain": "fortune.com",
+      "published_at": "2026-09-12T21:46+08:00",
+      "query_category": "Layoffs / Project Cancellation",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPejh5Z2pxSV9CczNGcjF1V3V2N1ZvWE4tdUhmUTJtam1IbTZZbTBFUURqYjNYczFKQ1dXV3RpOFJ3MnhqdWdndXBtU3h1Ry1jb25fVUJlWjFOZ0FiNnAyb2J4SUhHX1YyY2JKdm0tNDF4SWtkN1Y1SFRod1Y1MnlvVEVqRGFkNnM?oc=5",
+      "title": "Why data centers could be the next big market for catastrophe bonds - CNBC",
+      "description": "Why data centers could be the next big market for catastrophe bonds CNBC",
+      "domain": "cnbc.com",
+      "published_at": "2026-09-12T13:00+08:00",
+      "query_category": "AI Credit / Debt",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQdDBsRHFoaDBPR1JoeTZ4cmZ4a2U1dnhTWGpyd1BlTUJmLXZuZGZDbG9BNVpmMW9RZE9LR0RBVWpCdVRnZ3NYQUkwTjlFTnBENDU2QkR3dUhIM0ZlSldKOXVMSmhNYXQ2Z1hBN2NjRUM1UzBDd1RsRDhqcGFiNkgxOVRoaF9oTmlaamZPR3FmWjdmY3ZSak1uMVN4bmJ6Z05mVy01bzM4VXZlUzBabmNLYg?oc=5",
+      "title": "Nvidia Mulls $10 Billion Anthropic IPO Backing, Reuters Says - bloomberg.com",
+      "description": "Nvidia Mulls $10 Billion Anthropic IPO Backing, Reuters Says bloomberg.com",
+      "domain": "bloomberg.com",
+      "published_at": "2026-09-12T07:35+08:00",
+      "query_category": "AI Valuation / Funding",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNTGZaVVZMNnl5WVlrdVF0UVk3bVZHNExhTXJWemUwOHhPVUE3a0EyOHRYSTFiV3FvSEVxLTRpZHozUVIzZE9KekJOdHBfemlMUmtCaWt0bGlCX2tkWEpxb3JYWHM0VmVjQTllUU9PODZYQzNtaUd4TE5mbmtGNnJCbEdRampsUlpxdkMzMUZJR05LYV8yQUVhblB4cmZ1SVU5THRJc1pvOG12cnJWQlE?oc=5",
+      "title": "Goldman, BofA Vie to Manage Anthropic Staffers’ IPO Millions - bloomberg.com",
+      "description": "Goldman, BofA Vie to Manage Anthropic Staffers’ IPO Millions bloomberg.com",
+      "domain": "bloomberg.com",
+      "published_at": "2026-09-12T04:15+08:00",
+      "query_category": "AI Valuation / Funding",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNZjd5bE8wcUZHZlhfS0lwZmxpX2xTTXBOMkJoVVItRmNjNGRsNjFJQVNXOERhYUljdFBscjBKekNlNXlmNmktZUpNNW1CbXQ5ODlxZWYyZUJScmI3cllZM2o0bUl0YW9FM3Z3TUI0Q1hDbVhMdkxHWi0yNTBFekhRYlc2NjhBeW43cktndU1fQUltQS1nclZVbQ?oc=5",
+      "title": "Kimi-maker Moonshot AI targets $2B in annual revenue - TechCrunch",
+      "description": "Kimi-maker Moonshot AI targets $2B in annual revenue TechCrunch",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-12T03:35+08:00",
+      "query_category": "AI Revenue / Monetization",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNNHFCRWNlOGV6b2dNSUlNbUU0OFFWcWlncFZLY0hjZnRtTW5nQng3dm85djRHNDRaS3BZX280T1F6OEw2d1VqVThnUk16WnF2a3FMQWNJTXA5S3V1V25fcGtKU0FtalpTUGkxa1UwMW9jZG1OQkJsSEV5dFd4el9hTXlRenU?oc=5",
+      "title": "JPMorgan cut off Situational Awareness lending after AI losses - Financial Times",
+      "description": "JPMorgan cut off Situational Awareness lending after AI losses Financial Times",
+      "domain": "ft.com",
+      "published_at": "2026-09-12T01:15+08:00",
+      "query_category": "Layoffs / Project Cancellation",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQdGd0VG54MXV1a2FoakVMYVFNUXVONnNFOXRRYkVRSlVoOXJvT0NUTGdEMjgzczd6eC1sdW5HWHA1cHVpN00tMGppaDRFZHZleHdjaGtRVFU5M3hvUUZkSTJqNmRjd0EyTmJCNTJmUGJJa1lSdmtjbWpxNTlzYldpV2xqTVZ0b2RKZVlNNUFxWThlZHRI0gGaAUFVX3lxTE9OVlEtTk9ieG5NY2Y2Tl8ydlcyY1Z1d2RHclRQRXBkbnNGWXg2TmRHSVlhY05JOHRMZHY2N1VtaUZOMkN5Y0dPSWJpX28tX1FLVC0zemNLTGZodnF4MTdQVjE5aUtxaG1WOFhkMkFuQ0RZdUlYdG5WbjFpX0Y2Slhwczc3ZE9lQTZ2VF9KUVBuajV2RnNSdWpJUHc?oc=5",
+      "title": "AI regulation calls grow in DC after researcher's extinction warning - CNBC",
+      "description": "AI regulation calls grow in DC after researcher's extinction warning CNBC",
+      "domain": "cnbc.com",
+      "published_at": "2026-09-11T21:31+08:00",
+      "query_category": "Macro / Regulation",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNOTl2cnpoSl9lYlB5ZmdKSy1ZZXNrcm4yamEtelY1bDYtemhkaTFyWno0RU1zTEEwRFNxeFBtbE9tZnZrVXliUTJveGIxamFYbmlMMl9BTEtGZlExMnVZU1JkQmRLTWl3WVRUVndraUxxNlEyM1RZN1B0VXpDQzU4X2ZYQU9sakZ2OUNxdVZQOW9vVVUwYzRHZDM1OXF3TnZjMzdyUXJCcWdBNWt5TGVnVg?oc=5",
+      "title": "US Convertible Bond Market Hits Record as AI Spending Surges - bloomberg.com",
+      "description": "US Convertible Bond Market Hits Record as AI Spending Surges bloomberg.com",
+      "domain": "bloomberg.com",
+      "published_at": "2026-09-11T21:00+08:00",
+      "query_category": "AI Credit / Debt",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE03bWRldmRDa3pmTDdxb0k3UUFKbXNNcnJGQVBCNkN5SVRwdnBnQTgxa3dxU2RERmxGbVJtRi16Y0wtZTZ3dWtvcXJPbTlwOG9COGpOcGhPMkFzZ1U1aEE1Q2Q0RkFuc01CeXhHdzc2WWhtSVNRYTNvRFZB0gF_QVVfeXFMTWpqdW9VSEdvOHFvMFl4Qm91UlFPVlRBaVhTOU52MVBDTmRkRGxqclFEVmdaeklvLXc2U21jNmlGMDlUSzBwZVd2d0YtTXBsb0h3cFVaNDhXYTJOUW9WSG9xd0dVdTdPVnVIamRxZzhETnFsTXV5MWpHZDJ1d184OA?oc=5",
+      "title": "Oracle posts 30% revenue growth fueled by AI cloud demand as debts hits $125 billion - CNBC",
+      "description": "Oracle posts 30% revenue growth fueled by AI cloud demand as debts hits $125 billion CNBC",
+      "domain": "cnbc.com",
+      "published_at": "2026-09-11T19:22+08:00",
+      "query_category": "AI Credit / Debt",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOaXdNOTVXY3kwZHluN2wtdk16OHYyYjR6aWxCZ3RFaDNveWtIMTZ3dzFwZExPZmpOX1YxbTJMdmdEeVZabF9NTjV3ei1KSWJXR2NKR2lnbWZjczZyQlBEU0x6c0dnWFplWFVteEJoQ0JTMGpFdnZqd2hXR2JpSF9ILU9WM2tGUTAtQWxuQnl4LXhZQWRnZXNEdFZlUFBDbXhxLTJVUVoyRkwtQm1KS3R5M05uaktvT0dWVzhV?oc=5",
+      "title": "EXCLUSIVE: UAE revises AI data center plan after Iranian attacks, sources say - Reuters",
+      "description": "EXCLUSIVE: UAE revises AI data center plan after Iranian attacks, sources say Reuters",
+      "domain": "reuters.com",
+      "published_at": "2026-09-11T17:49+08:00",
+      "query_category": "Data Center / Power",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNTlVNVmVmRkpaMmdEZ2dFdTB6Q0JsUUM1YVpCTC1DcHBVVE45b1otS1djRWJHSFlFX0N2bVAzVkRaaTdpVVpmVFU4UEdQc0NYSVllZ0lxcGliaWpBbmVaZFZGMHRWLVlkYWVSWDVzZ3BaVWtCdXE0b1hBMF8yVWJZWA?oc=5",
+      "title": "Opinion | This Is Really Bad - The New York Times",
+      "description": "Opinion | This Is Really Bad The New York Times",
+      "domain": "nytimes.com",
+      "published_at": "2026-09-11T17:02+08:00",
+      "query_category": "Macro / Regulation",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQMk5MZDBuUUItQ1c2dnBiWWJudnJhczJ4MUh1azQxTjBBNmhCZHJsWVNEcWFRLUtJX1p6WXFaLVFrZ0tPeHNWWEhYYXZYd3BwNU1XZ2lvSEgxOUdHLW1mZ1dJdkZFYUg5bjZIVm9SbWNHdmw2MjBnenIzekF3UkJJdG5DTnVjc1ZXazR6M3UwZzA0X3c4by1uSUE2Z0o2U2hwTTJRdURmQTRFTzBQSDZWeDUzSENMYjdMYzJ6VUx3?oc=5",
+      "title": "Nvidia plans major expansion of data centre capacity in Australia to meet AI demand - Reuters",
+      "description": "Nvidia plans major expansion of data centre capacity in Australia to meet AI demand Reuters",
+      "domain": "reuters.com",
+      "published_at": "2026-09-11T16:27+08:00",
+      "query_category": "Semiconductor / GPU Demand",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPc1JXS3NuMXZ5dmJzcWZFa1Z0WEhZOUFndVhaNHo5U2ZDVGlVdDZtQ1QySEkzRGVfa3FfU19OM1R6dU1JUGJfbGFNemswcThQUmg1MEZDT0owSHBMellHYndGa0dueHZIR3p4NHlvYV9FVUZzcEk3MXp2c0hsQ19pNl83QTg?oc=5",
+      "title": "Transcript: Will US debt burst the AI bubble? With Ruchir Sharma - Financial Times",
+      "description": "Transcript: Will US debt burst the AI bubble? With Ruchir Sharma Financial Times",
+      "domain": "ft.com",
+      "published_at": "2026-09-11T12:09+08:00",
+      "query_category": "AI Credit / Debt",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPRXJMZWdoQWFkTHJITkVsNjYwWkFGZWk4OVlpdS1tTDNyMnNQd0Zicmx0UktIZDFxS0xwOFBlSkxOakxPZ2RjRy13UzduVWdhcUN3WVNXWWpjVEJXRFNpOFlVLUFHMEtxV0I3cWMwZWY1REVYTkhFNGZJZDJmTzRDSU9hQ3hmbGtNNzc3dFlPSzRwVjFlYnh3RDFLbW9UNUxMYWMwb2RTbldvZ3dWZHladi1TYkpnY0hZN1lN?oc=5",
+      "title": "Microsoft Plans Data Center Push to Triple Its Computing Power - bloomberg.com",
+      "description": "Microsoft Plans Data Center Push to Triple Its Computing Power bloomberg.com",
+      "domain": "bloomberg.com",
+      "published_at": "2026-09-11T11:03+08:00",
+      "query_category": "Data Center / Power",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQemo3R0FQcmVIT3NkY3piQzNHd3JaSTM5TUhESmw0a18wVVBBb0p4Mi1mV1NSdndpeHhIT2ZQV0w3XzVRaWQ0RFJYTHI3ckhtVVNtWGwxcGJFb2w3UnMzVnMweV84MEN3SkV6cUppLUFYQTJqbW1ZS3Z0NmFpYlZJTm5BQzlGMlhFLUw3T3hOcEdxdTY2aWdqcDNKS29Pd3c?oc=5",
+      "title": "Oracle Keeps a Lid on Capex as Customers Pay Up-Front - The Information",
+      "description": "Oracle Keeps a Lid on Capex as Customers Pay Up-Front The Information",
+      "domain": "theinformation.com",
+      "published_at": "2026-09-11T08:00+08:00",
+      "query_category": "AI CAPEX",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNQm56T2dLMnFMeVp3a0tJY2s1eVdLalpSQ2c4bXBGQ2dOclF3a0dCVjhDYldvcEJMbEQ5TUQ5RXJuZXllZ1FvR3phRVlGNHhBazR0LXlaTy1DQmdXUENkQ1hLcWZrZlh0Ni0zdVVhSEhNdGxSckNpbHpiMi1GbUM0aUhSOFluSkZ0aG9WVG9DZ0pzQm13d2ZjRG9hZEZrdFRYUTU3bHoyWmhVYjNXUFN4TGtZRGdXbmM?oc=5",
+      "title": "Pentagon in talks to lend $5 billion to AI cloud startup Fluidstack, WSJ reports - Reuters",
+      "description": "Pentagon in talks to lend $5 billion to AI cloud startup Fluidstack, WSJ reports Reuters",
+      "domain": "reuters.com",
+      "published_at": "2026-09-11T06:52+08:00",
+      "query_category": "AI Credit / Debt",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNTHBHOWMxWUFLYUt0NHZRR1c4V1RvckEzcFBfZHlhUG5POTFyeklqXzB3SW5CMVlMaUhCTGZjLXZOeno0RFduTXlkbUgwT1V2WmU0T2FPU25MM0YxRmdCdEl6V2w4SDI1a0xLOEFDTmdieWxrOTAtWlM5YWdVek9qcjdleGhFNGNCYUd4LU10YTJyY1g4Mm42Z0EtdjN6VkFiVFRDRklsU29WbG8tdTFWc3M4VnZCM2hjVzFnRUxBNjVtNWM?oc=5",
+      "title": "Microsoft plans 38 gigawatts of data center capacity by 2032, Bloomberg News reports - Reuters",
+      "description": "Microsoft plans 38 gigawatts of data center capacity by 2032, Bloomberg News reports Reuters",
+      "domain": "reuters.com",
+      "published_at": "2026-09-11T06:24+08:00",
+      "query_category": "Data Center / Power",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNR0MzWHlsQmg2a0g0RGE1UUp0OTVjUkpsTG8wVHUya2V0clh0RERnRWFaVi1udEVPSzZJMGVaeE5iT2xZbXJoM0thVDV2UEZxNGRWWmRWcC1ZRTBzZk0yMU16cEpqWXZ5Z3hfTGxQdHR3dmNRd3VFU0htQWdoaWxTZGtIdE5HZmlTNDJCMEZFNWRCN1c3MGdhV1JxVUFEY0VXaF9kUUFMTQ?oc=5",
+      "title": "Jensen Huang explains why Nvidia will grow an astounding 70% next year - TechCrunch",
+      "description": "Jensen Huang explains why Nvidia will grow an astounding 70% next year TechCrunch",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-11T05:51+08:00",
+      "query_category": "Semiconductor / GPU Demand",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOWU1OdlM4b0w3OWIxeFNFNEVhTnE4c0RpXzVzNk5wWTVGYXFPMXU4VUpVeEVoaWJyTDFRdkkwYXBUNnpwV2ZNZEZ1M2pkUV9nTnZTS28zaWZadlF2MHlwYXdNWHhEekFiRENSeDFQYXhGbk1XMEM2Sm5tNDNyejRFRk5KaF9uUXY0SkZQQkxlMk5lQ0R0aDFxbmJRbkF3cGJWTTJub2Fkc0U0dVBJZ2tXdlVpdXo?oc=5",
+      "title": "Exclusive | Pentagon in Talks to Get Into AI Infrastructure Funding With a $5 Billion Loan - WSJ",
+      "description": "Exclusive | Pentagon in Talks to Get Into AI Infrastructure Funding With a $5 Billion Loan WSJ",
+      "domain": "wsj.com",
+      "published_at": "2026-09-11T05:38+08:00",
+      "query_category": "AI Credit / Debt",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPQlg3UkdZdk5WOTFROEhsZU0wVjJUVHNLUlpTbmRTcjV4SEJ0UmN4SktqYUtqakZBQ3pxU053bzFIeXlHUlJZOFlaUzl4ZFF1NmtZSTliUjJhWV9jTjJ2Q0FoXzFKQzJzeUNfbEtqQTYxaWUtRlVBeHc1S0VNRVN4S0J0MXJQOTNoeHNKLUlYUm5JREV3SHM0?oc=5",
+      "title": "OpenAI puts Pro subscriptions on hold due to Astra demand - TechCrunch",
+      "description": "OpenAI puts Pro subscriptions on hold due to Astra demand TechCrunch",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-11T04:59+08:00",
+      "query_category": "AI Revenue / Monetization",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPdDl6dy1QRDVJNEJhTGVsZEgyY2kxMWQ0Ty1IOWo3S1VSa3dhTFdxZFdZUTZSdnNSam8xNXpoVFlKYmZHS2FXTkRhRElwdWVFcGhBQk5LMUMzWEQ3aUxmblFSTUxjQlZaZjRJVUgwYkJyYUxTSWdsMTVFRjVLNXJMN3JXRE5QdXc?oc=5",
+      "title": "Inside Blackstone’s Bid to Rule Over AI Financing - The Information",
+      "description": "Inside Blackstone’s Bid to Rule Over AI Financing The Information",
+      "domain": "theinformation.com",
+      "published_at": "2026-09-11T03:54+08:00",
+      "query_category": "AI Credit / Debt",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOSldUSEZwamtyN2hWd3dvU2RoWXpwWG1jWW9IRmFWM2Y0MlFSWG9qekUyN0NiWFdGT0F1RFZoNVZVbXQyOW5hbjFTNHpNYlkzLVNrelJGbG9kQjJhcVJTX3A3OFJDb01FQkFoaUE0TS1wdkNQdDR1ZWpQOEpJWVR0RUVnT1otQUg1R1JVTVlteGRJbl94OWNSLWtlQlo?oc=5",
+      "title": "OpenAI launches ChatGPT for financial services industry - Reuters",
+      "description": "OpenAI launches ChatGPT for financial services industry Reuters",
+      "domain": "reuters.com",
+      "published_at": "2026-09-11T03:13+08:00",
+      "query_category": "AI Valuation / Funding",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNS3BpVTdBYWozS0QzbFdJakhBcUltUHd6T3RDQ0ZJZ3VYZjFNejEwWlR6MUlLdklGdlMycXpQbkhGcHBXRVFiVDhSQ3J1dWdJT0RxT3AzdXhnRFlWcEJUdzA1Vzdmb3cwbGQ0eWR6aWVUWTNuYlc3Y3BuUzRiRHVwOEdrN0dkUnIzQW9tYQ?oc=5",
+      "title": "Clean Energy Resources to Meet Data Center Electricity Demand - Department of Energy (.gov)",
+      "description": "Clean Energy Resources to Meet Data Center Electricity Demand Department of Energy (.gov)",
+      "domain": "energy.gov",
+      "published_at": "2026-09-11T00:21+08:00",
+      "query_category": "Data Center / Power",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPUDhMUUhDeWhhQ0lZSWh1T0ZhYy1YWTFIWXozdlJ0UlRydU0ycVNIdzk5TnhVSzlVZmtNSUVrV1M5OWROTURhNm9ZdlExN1hVSk9QTDAxQl9rV1l2R0xuTEFCazlXbEIxNGlLQkQwV1U4MUY0UTFQekY5c2dFWllsTlUtRHc?oc=5",
+      "title": "Vantage Data Centers seeks $2bn in loans from Pimco and PGIM - Financial Times",
+      "description": "Vantage Data Centers seeks $2bn in loans from Pimco and PGIM Financial Times",
+      "domain": "ft.com",
+      "published_at": "2026-09-11T00:04+08:00",
+      "query_category": "AI Credit / Debt",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQWmR2LWtCZEZ3VmZvekplYVJINjA0dmk0Si1ORi1qTWM4WDhCUVJkNlVYZkJ5MW0zeDNlRWNCcnQweU9qRG5tTGxoQm4yeHY4Qm5fMnJFTmx5M2NhZ3cyYnB1WGViU0o0MWFraWw1X1NpYzJIdEVpT1hvUXNwV0FtV1A2eS1KX2pSSkoyTE5WajFLN2NzcDRicHJkbTFfZms?oc=5",
+      "title": "Nvidia and Palantir Expand AI Partnership. What It Means for the Stocks. - Barron's",
+      "description": "Nvidia and Palantir Expand AI Partnership. What It Means for the Stocks. Barron's",
+      "domain": "barrons.com",
+      "published_at": "2026-09-10T22:40+08:00",
+      "query_category": "Semiconductor / GPU Demand",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE1WNlR3Xy0yVTE3YUNxeW9FRGFnME56emVBalV4SUREQnI4Nmx3WmhwZHVUZ0ltSDRycldFdVJlM1VzNkhwN3lSMkdvTi1OVzFFZHNVMXNpaHJaR3I1UTNPYXU0WHNub2VxRnVv?oc=5",
+      "title": "Expanding AI access and cyber defense for federal, state, local, and tribal governments - OpenAI",
+      "description": "Expanding AI access and cyber defense for federal, state, local, and tribal governments OpenAI",
+      "domain": "openai.com",
+      "published_at": "2026-09-10T22:34+08:00",
+      "query_category": "Macro / Regulation",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQZGx3NG5aQWxfS2lsaHZGVTlSdXlycUJjM2Jrc1VKZ1BHMGJPbEFxUktDR3RBWGdGSms2MXp2X3VaOGRRNjJrXzRCS0lmQmJSZFJZdUc2M0U2TEtGVFhmdmVXUTFESEpyZklnQTRhbmlTX0F3RjFjRWNKVXVULWVFWmRDeDBNNkVfaGxlc0Zyd3lScnFaeldLOTlqMGhNRUJyU2xmaV9YWQ?oc=5",
+      "title": "SpaceX Overhauls Data Center Build-Out, Potentially Slowing Expansion - The Information",
+      "description": "SpaceX Overhauls Data Center Build-Out, Potentially Slowing Expansion The Information",
+      "domain": "theinformation.com",
+      "published_at": "2026-09-10T21:21+08:00",
+      "query_category": "Data Center / Power",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9Hd1c0Ym54ZVdQTmRKSHZjbnVuOFRvVjh4aUxJVTJqRHpRRjZWemlDYnVuZUZhQUVMZW9heHkyUjhZQ282ZVpuczQyM1M1ZElJaUNpdjg5TGd4Vm9TNlQwNlNKbHB4RXdEWDBkR3JEWdIBdEFVX3lxTE9BbFlMMEtIYWsxakliVUgtbWFHb1ZkaHdPYTZqSE9ucFc0SzhVSTV4SjJsQzRzdTdrTTBUR005RzJLeFpFcExIaW9OU2NDVnk0NXNNRENGNEtnSndybGdmVlF0R0NwY2Y1TU9HLS1SQkVQQmVk?oc=5",
+      "title": "Amazon gives OpenAI's ad business a boost, letting its advertisers into ChatGPT - CNBC",
+      "description": "Amazon gives OpenAI's ad business a boost, letting its advertisers into ChatGPT CNBC",
+      "domain": "cnbc.com",
+      "published_at": "2026-09-10T21:01+08:00",
+      "query_category": "AI Revenue / Monetization",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOdm5mVDc0SEY4NTZnQTZsSXFsRmJIRm03VVFjR2dKWFVqTWJRdUdjZWNvWmIyeFFlUC1tZkdSLUdGenZtcWNZeFBHR0ZjdTJsanhZNldKakVvRjVid0JTTnR5RGpOdTVVRDkwbzFkc0I5TEZKLVlxRUN6Zldpbk5GOUM4eV9zLTBRV2FmeGNsYWg4MnM1S3ZuZlZtTE5ZaHZNR00ycmVMRWtOMmFhZ0RTenJxUQ?oc=5",
+      "title": "AI Debt Binge Is Reordering Risk Hierarchy With Emerging Bonds - bloomberg.com",
+      "description": "AI Debt Binge Is Reordering Risk Hierarchy With Emerging Bonds bloomberg.com",
+      "domain": "bloomberg.com",
+      "published_at": "2026-09-10T20:24+08:00",
+      "query_category": "AI Credit / Debt",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOY2tINE40YUE5SWdyVnltX3kzTkhPN2V0RDh1cjZKNURBeHRVdXMxMU5SWUpsYV9oZUVTVHdVTlJ3Umxrd3gxdXB4ck1sOUFMZHNZWHJkV0ZWcVBlbnVHbUszMnA3ajRBUTg4TUVVS3doNTZNMWJJbWZaVWsxbVEzSkREdnAzUQ?oc=5",
+      "title": "A string of controversies hits OpenAI, Anthropic - Fortune",
+      "description": "A string of controversies hits OpenAI, Anthropic Fortune",
+      "domain": "fortune.com",
+      "published_at": "2026-09-10T20:22+08:00",
+      "query_category": "AI Valuation / Funding",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNeGJydjRSLXNUYlJuVWxDaFA5cFUxNW9TMDBTM2hiQ1BlOURvako3dUhqNzhvS1N6SXp6Z2VfT2xVdWozN0RYcHdJeEZvQkliamxTTUZOUnVSNHB2bm44NldKNEFtNG9pczdxaDYwTWlzelhMa0tMbUd2UjJObzlWSjlPczBlRzZiU3F4dXJPUm05UURrcUhHWGRKY2pDNXM4WUxkTlZ1QVpRVmlWRG1oTzRPc2JZYUhhM1RWSXdPdXZuUQ?oc=5",
+      "title": "COMMENTARY: AI debt splurge is warping credit spreads - Reuters",
+      "description": "COMMENTARY: AI debt splurge is warping credit spreads Reuters",
+      "domain": "reuters.com",
+      "published_at": "2026-09-10T20:05+08:00",
+      "query_category": "AI Credit / Debt",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNcDUzRnJ3dHpQaFN0aF9CVHRZbTExQ1h4UHg2OEFaQmxHeHZsdUwtN2piZzdPdk5oYUticEdmSEIyS0RYUlpKYUpRX3ptWFp6WGFNbGp2QXlVNjRIVFdvanlTWXdubklpcXZzUHNWQWxURlBrU3hpcTU0dVJ2M1NEUEpRU3FhUzhHa25XRklRbUo2LUVoVWlsV3dVcVY5SENFc29hd3JXRUZQZG1FbHEw?oc=5",
+      "title": "AI boom poses new financial stability risks, BIS head says - Reuters",
+      "description": "AI boom poses new financial stability risks, BIS head says Reuters",
+      "domain": "reuters.com",
+      "published_at": "2026-09-10T19:33+08:00",
+      "query_category": "AI Credit / Debt",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOZmtEXzVYTG9YMUdiR0YxRDFfUlFucHJMSFpPRUdlVEVqd29TTGZ2OEJ2NjNWV1k2UTZEd2RwSFlYMnoyeXN4TzFoamk5b1ZiRkY4RVVtRV9hSmp1aVIwUkI2OGIzckNzOTVPSDNrbG5XLWM4bU4yZlpGOFlZNnAyczdLSGE0VVJTQktz0gGQAUFVX3lxTE01eW9yU0xQdzc3YkxMVmpaY0RKVjRvcWs1SVZEbkw4OVFoeGdTeGg0N0hybl9IU3Nna2dkWmNZaTd6V2swUldYdXVUeUFNTnQ5VnpDUkFrYWkxZ3J6YTR1d0Jtem44dzBZbmQ4cHlnRTMxZW9ScGpnRm4wR2pKRFB5eGFLYUc0cWh0ZkxReHp1RQ?oc=5",
+      "title": "'Extinction' warnings ramp up as more OpenAI, Anthropic researchers join calls for an AI slowdown - CNBC",
+      "description": "'Extinction' warnings ramp up as more OpenAI, Anthropic researchers join calls for an AI slowdown CNBC",
+      "domain": "cnbc.com",
+      "published_at": "2026-09-10T18:12+08:00",
+      "query_category": "AI Valuation / Funding",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQM1BGN3ZBNTNDNW5DeGNuUmhNSnM3M1JfZ1NGaWF1ZFpvNHg3THdibUkzRkNrSkMwX2g2bDRzaUdmcklQNW9tNDZNTWREV2M0c0I1bXlFejQwZkFhTzRybzFjd1UzWS1BbFFyeWoxbzlWMXpyQTN3MF9ydzZxQ0ktYjhLY1dPRlM1alU1UUdGd0psUFBPOE5KU0VNSTdzNWs4RWFRYlpVaHJMd0Nt?oc=5",
+      "title": "OpenAI pushes for mandatory national AI safety rules - Reuters",
+      "description": "OpenAI pushes for mandatory national AI safety rules Reuters",
+      "domain": "reuters.com",
+      "published_at": "2026-09-10T17:44+08:00",
+      "query_category": "Macro / Regulation",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQWXRfamJETmNWUTMzNDNJeUU5RFZjN1pwN0NkVW02MHZ2RzJKeTB2RXJ2ZDIwWE1YRG5YSlNqSlZoWkgyYndZWDJVM1BmRmVxb3k3SDFRcmZwZXp4OEtZN21kMmtmSVBoX2JlbG90TXBjcWY2cGRHbW1YTlgzWkM4VlNYRWU3eThHOHIybEMtRGV6UU4wSjVoNWNyLUFIM1I1MUhqcWN4QllzQXJVdkZNZXlUY3ZyWVluWmVsWjJVUlZJTXM4M0NTMFU1NWY?oc=5",
+      "title": "From Wafer-Out to First Token: Codifying Supply Chain Expertise with Nemotron and Palantir Foundry - NVIDIA Developer",
+      "description": "From Wafer-Out to First Token: Codifying Supply Chain Expertise with Nemotron and Palantir Foundry NVIDIA Developer",
+      "domain": "nvidia.com",
+      "published_at": "2026-09-10T17:19+08:00",
+      "query_category": "Semiconductor / GPU Demand",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOMWp5NmlTNEIxeThhRTdwR0VjTy1RYkFpUjh4LS05Y3l1UVhHa0tUOWhGM0s4emNhc20wR213OEZYY0JNTlhFY1lqRDRPMHlWdFF0Nm01UWt4YUpkR2ZvYnRVVXRNS19BSkt0dVdGc0hpZDFMWDQwLVU4elp1WGdlano1VFdQOTEyazN2UzJ1STBhcFBUd1JjQS1mSzdJdmhSYjVVOTI1TVdDb1ZnVXJwbQ?oc=5",
+      "title": "More US lawmakers seek new AI rules after Anthropic researchers warn of human extinction - Reuters",
+      "description": "More US lawmakers seek new AI rules after Anthropic researchers warn of human extinction Reuters",
+      "domain": "reuters.com",
+      "published_at": "2026-09-10T17:14+08:00",
+      "query_category": "Macro / Regulation",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPUHJuN3VLbFEyOVRPTTE0dmlyNW5fRmNPb1FwMUlISVh2V09NYURFMHB4blh4bWtpTnU5djZjQUUtR1M0ZHBGSkkwQVVxYjk4VkJtbnFZbWhNQ0F2TlRmYkRaSXByOVB6RmY0bGJ3V200SmRlS3lkUGVVTU1lRy1fQkVmaFk1ODkwVGZSdmg4QlYzbWpRQUJ1ZThTVzRCcVdwd2R6cW5iVU1pTkwyOE9kSA?oc=5",
+      "title": "Nvidia-Backed MediaTek’s Sales Soar 44% With AI Chip Momentum - bloomberg.com",
+      "description": "Nvidia-Backed MediaTek’s Sales Soar 44% With AI Chip Momentum bloomberg.com",
+      "domain": "bloomberg.com",
+      "published_at": "2026-09-10T17:03+08:00",
+      "query_category": "Semiconductor / GPU Demand",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOdHhQeVBvckRTZ05yV0QtbjlqbnNORU1NbEJVemdhRnA4ZW1mdEE5cl9uUl95MFdmREFDcTlTbTBaYU52b2ZrQzg3RnNpVWwtRHFTLTVTTThvQjhBaWppazNKOElicFFsN0dxTFZQWS1saHYzWXU0cUhzNVYyWjRvcDRuNFZhVGFvbnZJRk1qOWtLVm8yY0JtM3hiMA?oc=5",
+      "title": "Meet the data center capital of Europe as Google joins Microsoft and TikTok in betting over $30.2 billion on Finland - Fortune",
+      "description": "Meet the data center capital of Europe as Google joins Microsoft and TikTok in betting over $30.2 billion on Finland Fortune",
+      "domain": "fortune.com",
+      "published_at": "2026-09-10T15:00+08:00",
+      "query_category": "AI CAPEX",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPYl9WbFZJWVZKbXo0TnhxTjVzWGxBRk54QTA0VW8wZm9CZFhZMDZNdWdsT2R6dGpkMVNVUkpsNmJfREgyOG82UllIclZRNjZTTUR6RExJbWFoSVg1QzVyWDF0eW1TeWN6LVBrNGttZGtWd3ljdHZqNjhkUnpaSE5vMmxrZWUyWlhYdWFjMTN6ZW5sUFlsVjV2Zl9jM0JwS0VwMnRZcFZWX3pQMGs?oc=5",
+      "title": "TSMC Revenue Rises 53% as AI Chip Demand Outstrips Supply - bloomberg.com",
+      "description": "TSMC Revenue Rises 53% as AI Chip Demand Outstrips Supply bloomberg.com",
+      "domain": "bloomberg.com",
+      "published_at": "2026-09-10T13:35+08:00",
+      "query_category": "Semiconductor / GPU Demand",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9ycjd0eDNoeHBMd2Y4OE5TT2JvVUlNbVlhREFBc19jRTU3b0lrRTkxU1JrSmdmZ1AwcGFsWUlvZXBfT3FVS093cWxNZDA0WlRmb3haODhHVHREaDlyV3RYWVNjdEtYWTMtdGxwUEhPb3kzd9IBd0FVX3lxTE51eV9XN2ZtTHdhbUJaX1dtaTFWT0k5THItMFBIb3RRN3ZZT2dlamlnLXRaMkROcHFCQjBTWkcyQ3BlTWc1bmRsMUpsTnRwU2VKUWRxSW5lQ3FiTV9MRzVKX1QwUi1LYThTaEhpdUs0dTcyd0hER2Jn?oc=5",
+      "title": "World’s largest contract chipmaker TSMC sees August revenue surge over 53% to record high - CNBC",
+      "description": "World’s largest contract chipmaker TSMC sees August revenue surge over 53% to record high CNBC",
+      "domain": "cnbc.com",
+      "published_at": "2026-09-10T13:33+08:00",
+      "query_category": "Semiconductor / GPU Demand",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPd2dkbUp0Zi13THRQMU1kMXNIZVktQVN5NVR2cEszemg1RWM1cURfcDBCRGhLMGJfc3NTaW12anhJeGVDb1FfTC1SaHUzcnVUTzBnVmJseHBuUngteFBFLUZQT2FkMzBaTEEzclA0WFJGT0FmZ1htaFFSX1YwNnVTNk1yT0dnNVhzUm9Vbms0U0N0ck5UNVpyUlNZZ2JaQ3NDZ0hHUEw1VE5BMjZ0dGFIX2plWTRqRHRDeG5yQTFnY3pHZlFhcG9Ndw?oc=5",
+      "title": "NVIDIA Expands AI Infrastructure Capacity in Partnership With Australia’s Data Center Ecosystem - NVIDIA Newsroom",
+      "description": "NVIDIA Expands AI Infrastructure Capacity in Partnership With Australia’s Data Center Ecosystem NVIDIA Newsroom",
+      "domain": "nvidia.com",
+      "published_at": "2026-09-10T08:09+08:00",
+      "query_category": "Semiconductor / GPU Demand",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNX2tuLTd0emY0Z0tKZzRpNWMxdnBBNktXVVdKSFRjLUVwQUVaQURvWUNmY0lPWm1JUERSbXFTUXBOaUdjSHR0YlVLQ3ZaSFBnRTV2VlhEM2VYTHpFYkVwTnd1bXl6aFhralJKN1RWamZWMnRMeWp5U3dDRERPVXBHN195MU5IaWk4d01JbzNhSkhrdnRYbC1lOHpPQnNJamdNam9MU2pFM01hVHRYUlRIZTdVMHFqb3BVRWxjSFBzZzZEcTJKaEpLZA?oc=5",
+      "title": "Government, made easier. Governor Newsom introduces AskCA, a new AI-powered tool for Californians - California State Portal | CA.gov",
+      "description": "Government, made easier. Governor Newsom introduces AskCA, a new AI-powered tool for Californians California State Portal | CA.gov",
+      "domain": "gov.ca.gov",
+      "published_at": "2026-09-10T08:05+08:00",
+      "query_category": "Macro / Regulation",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQb2trVEdpZFZBc3NXNXdyOUFZYXU4ekpNSHNiWHUyY0xyeXAtTEFKbmRlRVBJMWVyTkZVdFBXQV8zR05XMlJsZk94M0dOOGVQWTVqUnhBYlBYWkN1RDhwUUtrUFJSTDkycTlFbVdDc2t3M2N1MTJEaENrN2huV0tlaDV4QmN1bGkxZ3RJQ1dRck83Z2tTS214RnFKUDlXS3FoRXZPQw?oc=5",
+      "title": "Anthropic’s IPO Marketing Meets Extinction Risk - The Information",
+      "description": "Anthropic’s IPO Marketing Meets Extinction Risk The Information",
+      "domain": "theinformation.com",
+      "published_at": "2026-09-10T08:01+08:00",
+      "query_category": "AI Valuation / Funding",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE16Nk92bjU2QkFrUWR3enpvc2JRd2RDR2JMRDJpb0RvbFdpOEVDTEtfbVBvbm5NTllaOUNmR1ZDTmtoYXFLalVMSlBtZEpqckZaaTJfMw?oc=5",
+      "title": "The AI policy window is open. We need to act. - OpenAI",
+      "description": "The AI policy window is open. We need to act. OpenAI",
+      "domain": "openai.com",
+      "published_at": "2026-09-10T07:56+08:00",
+      "query_category": "Macro / Regulation",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxPbUZRVHhudU1zcDhNQmhkRHpFNk9SOUJlN2EzZHlwZEZPdVFIcVJpU0pieUhsVGFNRUFNTWxidHRFeEJhR3ViMThRNWRHeFZncmp0dTZTazBYcXJLaXJTY0k4VmFCRW5KU0loMlJuWWhSdnhSdzFyTVNndlk2NFNRam9Pdk40U19KUnZaamZzcHYwamFLb2JkQ1hTNHJOc0Uxb1ZMbzJ1Xy1yM0p3NER2bFJuVlZESXZMNVBDRzhzVkRpREtfX1JzWGFMRkVIY2doVDY0dG50WERMdWZmcmtNbWFSYXE5ZmdZbU1sQ2RkWWNQSGc?oc=5",
+      "title": "Governor Newsom signs first-in-the-nation AI safeguards to protect Californians, calls on the federal government to do its part - California State Portal | CA.gov",
+      "description": "Governor Newsom signs first-in-the-nation AI safeguards to protect Californians, calls on the federal government to do its part California State Portal | CA.gov",
+      "domain": "gov.ca.gov",
+      "published_at": "2026-09-10T07:20+08:00",
+      "query_category": "Macro / Regulation",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPRFVqSF9UMzZ2akpONjZtWXU3SG9zdHRoQl9CSVU2WUkxaVNiVWhmQzdSTHREZmVCVFIyZTUyRzZ5aHJRZ3VHZUhOcnhFNkhyMmVYMlkyRUo4TDNhN1U2aVFlbzNvaEd0bXVpLTBuR0dhQTNES2tyeVFTQ21nUnJuaThjYTZwVnNfamR1cmJBZEE1bVF2U2dyNA?oc=5",
+      "title": "Massachusetts hits data centers with new clean power rules - TechCrunch",
+      "description": "Massachusetts hits data centers with new clean power rules TechCrunch",
+      "domain": "techcrunch.com",
+      "published_at": "2026-09-10T05:43+08:00",
+      "query_category": "Data Center / Power",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5QXzc1aGxiTS1XLV9ldDBxbzdtWm1SSHQzcVpfeXpWbFdxZ191dHMwdDRkYWFpXzdRYm9LQjk2V1p6U2JqNzdDRFZkbXZxdEtrRjd0T1Qxb2RNWDVxVGplcDN2NFBHblZXai1UOTM3TQ?oc=5",
+      "title": "The latest ‘crack in the thesis’ for the trillion-dollar AI boom: Tokens are getting cheaper - Fortune",
+      "description": "The latest ‘crack in the thesis’ for the trillion-dollar AI boom: Tokens are getting cheaper Fortune",
+      "domain": "fortune.com",
+      "published_at": "2026-09-10T04:22+08:00",
+      "query_category": "AI Revenue / Monetization",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPRG1Kd1pMbklLVGdUdmJnTkxrZl9lMnlwVzVPLWx1bHJNTElmQW14M2haNlFWaklkd2VPbUFNd040cVlHS3ZrVHVlam9kVzVnR3ZmeS1sMlhqTTFZRG1BM1g1TmdZNXc4ZGNhVTlyMW0zb1h0cEFzRkpUdFpDOXlMQ2U4MWNKR29hUXBoaVVGelFvNVo4T2E5R0dybnd3cVN1N1NEckd5aEhBSms5YWd0cFNHRkRfdFBGREE?oc=5",
+      "title": "Seems like Anthropic will beat OpenAI to IPO, says FirstMark's Rick Heitzmann - CNBC",
+      "description": "Seems like Anthropic will beat OpenAI to IPO, says FirstMark's Rick Heitzmann CNBC",
+      "domain": "cnbc.com",
+      "published_at": "2026-09-10T04:12+08:00",
+      "query_category": "AI Valuation / Funding",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOc29UbEJhZWNRQU54VDlKbE05X1BiT2lxcUM0aFowZ25tZE51SnpycF9GTGhkbHA4V251MHBJSXlVbnE0ckZRdWoyUUhXeWo4X3ItLWJLVTRHNDJnOGtITndqZmtSR194QkdzcWRXS1gwa2JaX2FDRE1NWlBWSGQ1RTNCOTZ0RlRONGRXcTIzcUVDem9OTnpqRXduZ2haOExuSGNpc1otSFpaWFVFbW83UDdiTFBrZw?oc=5",
+      "title": "AI-Driven IPO Wave Set to Accompany Anthropic Listing - bloomberg.com",
+      "description": "AI-Driven IPO Wave Set to Accompany Anthropic Listing bloomberg.com",
+      "domain": "bloomberg.com",
+      "published_at": "2026-09-10T03:35+08:00",
+      "query_category": "AI Valuation / Funding",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNdlB6ckhOUjNOZ3VfSVNXTVBvQWlkLTRiWUwxLU1KZG9fT0t3QVI5U043NS1pdGp6UHpCM0hjTHFzZm5OelhkWVdZbkY3RnBBbEdCVnFTXzhJNl8yTW4tOHo5UzU3SEU5VW0xNFZnQkhCNjJzWVVWTmZEQUhsUVNYalpYNnpIZUo1S0UxNEF0MHFtalVablBwWFF1ZDE5V25OSDIzd2tadlZqdU9xdDFQc1YwR1FxNW91aDJKeHNaeF9iQQ?oc=5",
+      "title": "Legal AI startup Harvey reaches $15.5 billion valuation in new funding round - Reuters",
+      "description": "Legal AI startup Harvey reaches $15.5 billion valuation in new funding round Reuters",
+      "domain": "reuters.com",
+      "published_at": "2026-09-10T03:33+08:00",
+      "query_category": "AI Valuation / Funding",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQdWNrUjZIQ0hJTWpBaUpXcGxGb3QxSkJVSjd3eEkyODFmSVljSmRLQml3U3BMaWk5bmttQ2xfQ1A4ajNjeFRuNGlzcUR0RUd3X2s3dnVaeUdPdDhBaGZmODhfWFlpR2lGTUhyNlhiQk9OZnRkY1ZMbVNjclRNSE9XWHUzc0E4aXhvalBtcGZlbHB4MWY2ZWxIbTdEeG1wOXMxb0gyZkp0OXRSU2RBSEdwVzlhYw?oc=5",
+      "title": "Dell Seeks to Raise $4 Billion From Bond Sale to Refinance Debt - bloomberg.com",
+      "description": "Dell Seeks to Raise $4 Billion From Bond Sale to Refinance Debt bloomberg.com",
+      "domain": "bloomberg.com",
+      "published_at": "2026-09-10T03:23+08:00",
+      "query_category": "AI Credit / Debt",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNTnB0VndnOFIycENhaVBEcEpwLTRMdkRvMjhjbjNzX3Q5REFTVDVfM3dxWElsOXNXeXc1RGRIZFlBczdPRnFHT0RtZm9WQkU2VnVCcS1jXzJ4d0JsUVJQSTZ1a0E3NVJKYkltdkRnNTh0NDhIaTB4TkV5eVE5dDNTWUNUaDBFZlBManN1eDNLQkxpR0tkN2hkRUZ2UmhjQ3BQWTRtb282SEZPUUxLd3RTblh5bVRsZw?oc=5",
+      "title": "US power use to beat record highs in 2026 and 2027 as AI use surges, EIA says - Reuters",
+      "description": "US power use to beat record highs in 2026 and 2027 as AI use surges, EIA says Reuters",
+      "domain": "reuters.com",
+      "published_at": "2026-09-10T02:11+08:00",
+      "query_category": "Data Center / Power",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNM3FoYV9rTnlleVNaMVFXd2tacXNIdzc0MUthMFhpX2F3WXlLd2FHVFlzbjlQZ2VkTllRcFBkOU9ZUk9UaXhSeTBuQUh5ZnE3Ty1HNU1uMEVCT04xYjZJSVRZQ2J2MC1DMU50aVhYYWZVb1Uwc2l0eW5VX1NWSUttN0k1UW94bVhITmFNOFF6NUM3V1E?oc=5",
+      "title": "Tackle your to-do list with new features in our Google AI plans. - blog.google",
+      "description": "Tackle your to-do list with new features in our Google AI plans. blog.google",
+      "domain": "blog.google",
+      "published_at": "2026-09-10T01:34+08:00",
+      "query_category": "AI Revenue / Monetization",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOQkNXOVd1RnJGS09XOUY5M1FVNHk2ZUdOUTRtWlFOYXNoSzFBR1RKS01HVGYySlZSb2xfeUppdFJLTTgxNXEtS3IxR1dDV0YtZWhOWUtCQy1XS3VvYW51MXZQRk8td0ZXakpzVzRrQWg1UkJST2g1cnZyRTk1X0lIUjJzR09ZZDhwbFM1NQ?oc=5",
+      "title": "Anthropic Researchers Raise Alarm Over A.I. Acceleration, Warning of Threat to Humanity - The New York Times",
+      "description": "Anthropic Researchers Raise Alarm Over A.I. Acceleration, Warning of Threat to Humanity The New York Times",
+      "domain": "nytimes.com",
+      "published_at": "2026-09-10T01:14+08:00",
+      "query_category": "Macro / Regulation",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNdGJVR1dKNWhQNGZ4Uzg1d0hEZkMzSWNpa1g0UUw3ZkpCbEdTWXVYQjVPMnZGSGdMXzhpVWlQSmZtZWVIWHJyQUtLU29PQVNwbS1IME9EUEk3WnhhWG9sV0R2MjllcURJajMzZnFOQUtmejV3ZEtzR3VIZEZuSm5YOGw2Zm9nZndBVHRqeHVqR0tBTVlycTFJckVoUS0tMzU0VzVjMkFtMHd5dGlYN2VmX05Paw?oc=5",
+      "title": "US Firms Unleash Record Wave of Bond Sales in European Markets - bloomberg.com",
+      "description": "US Firms Unleash Record Wave of Bond Sales in European Markets bloomberg.com",
+      "domain": "bloomberg.com",
+      "published_at": "2026-09-10T00:42+08:00",
+      "query_category": "AI Credit / Debt",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOVWpXNzRLdWRISWlLckd4QkZoUWJXdXZ2WFMwM0ItRkZTaTBWbGR0Sy1BU2VFcmlwcGZhczJ6U3dxcFdpZFQ5bzVfVmYwbjFIWjFIUlV6VlhtQU9PcnVoOWw0T3duZlNBbGpEakZZcklMdDQ5U2g2VURXcGFNVXVMOUNIOUt2UTdYOGRxNXp4a1lxVTF3c1ZING1iRDBYQlNpNmh6RXZ1bzdQV0pZMmRFRzBjZmM4NXdxQkZNdnIybjRYQ19v?oc=5",
+      "title": "States That Gave Data Centers Billions in Tax Breaks Are Now Ripping Up the Deals - WSJ",
+      "description": "States That Gave Data Centers Billions in Tax Breaks Are Now Ripping Up the Deals WSJ",
+      "domain": "wsj.com",
+      "published_at": "2026-09-09T22:42+08:00",
+      "query_category": "Data Center / Power",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQREhwVXAwSTZnRkR2SXlxWXZ0Z1NkQnJHNmVPeTZab0ZqdkVwM2I4T3poZ0hFRU8wSy1RdDZvU2xTbEVnczRYTFdYOU90VGhNSXBfTEFzLXVXZ2FaekdxODVQSmdQaFJ0WFVybGpUQ3pMTThEZzdYZ0JRWWZ2RzZCbllESHBRMmRSbFNmMU5mLUhCWXFTSVNQdzFlZHRUQzA?oc=5",
+      "title": "Anthropic researcher resigns, warning that AI companies are “gambling with our lives” - Fortune",
+      "description": "Anthropic researcher resigns, warning that AI companies are “gambling with our lives” Fortune",
+      "domain": "fortune.com",
+      "published_at": "2026-09-09T22:35+08:00",
+      "query_category": "AI Valuation / Funding",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE1VTTZSeEh0NU5UNXE5RElRbUlyZ3pMTW44Z3JuUmxzajM0dzNYMDNSQW5aWEE3UFBjTVg0Z2JFZDlLOG16VmVWRi1ocTUxbEdYYWdXU2FGSVBkOXlPblVYTlJlUVdrUl9zU1c3a0ZZeS14aENGUG9ZbU13c9IBgAFBVV95cUxOSTJWLVdCcjlFdHBzNGdwcF9lNXFFM3RSMFZCa0hCbFc0WTFXeHJORkttTUJndWxVSFgyZnh0QzN1b3BCcFR6VzQtNHhqaUdiRWpZYVJmUk13dTdiU2hnQkNXUXkwV250Ni11OTR1ZExJQU9vM2tqT3FjMEFyeFF0TQ?oc=5",
+      "title": "AI data centers won't create as many UK jobs as the tech sector projects, think tank warns - CNBC",
+      "description": "AI data centers won't create as many UK jobs as the tech sector projects, think tank warns CNBC",
+      "domain": "cnbc.com",
+      "published_at": "2026-09-09T20:26+08:00",
+      "query_category": "Data Center / Power",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOWUZ0dVVSMlFqYzd0aVZXY3ZjejBvb1pYYzRVeV9DT2Q2RlBtbHFiY1hsR2NmdF9wbFltamlEMGdhTVpVckVUUW5TaWNmQWtsdFVLQWhPMGdzWnZ4N3lOWFEwX0J1WjRNeDBOYlBMeHkzY2Rna2QtUjc5bXg2V1ozS3NGcTdUMFdB?oc=5",
+      "title": "Anthropic Researcher Quits, Exposing AI Threat Ahead of Its IPO and OpenAI Debut - Barron's",
+      "description": "Anthropic Researcher Quits, Exposing AI Threat Ahead of Its IPO and OpenAI Debut Barron's",
+      "domain": "barrons.com",
+      "published_at": "2026-09-09T20:20+08:00",
+      "query_category": "AI Valuation / Funding",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPUnRWOHhfSHVOanRzam11TkE1MkFfZWhyLTBaOERZYmZjNFlNOHR0S1B4NnVPMnpVWjB1UkpXQldDWUE1VUU1aUwxWFNpMERibV9GQk9vZW52UHMwdVdKMDl1QzlQdDRIcmdxUm9WcXJCZ3RDSHQtY3pwd2pXR2tlejQxUzRMTll6X2FoRk02MG82TjF5cHo4bGpmNFNDMmI4RlFjV1RiTjdhci1MR2JoOUliTV8?oc=5",
+      "title": "Google to Invest €13 Billion in AI Infrastructure in Finland - bloomberg.com",
+      "description": "Google to Invest €13 Billion in AI Infrastructure in Finland bloomberg.com",
+      "domain": "bloomberg.com",
+      "published_at": "2026-09-09T19:13+08:00",
+      "query_category": "Data Center / Power",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNSVlBVDVfVTQ3WGd1MlRsZ2NaZjB4V2pxUnQtM3hmS1RXZ3loTmw3NGdFdzI4R2JRM2xodnFickRXb00xbTBya0tKVnpCQmUyQTIzejh0RmNBZG5QQVRJTGNJbHRGeWt2OG1wLTBXbTlpT2MzUzBidGkyR2NEY2xIUlYzajFfaXPSAYwBQVVfeXFMTndMOWU2SmdmUGZ4UjNzU1g3WXlSTmZKZmdrakhYZlkyZDRFZzdnTHd5YzN6STNWVnlRTWxLcEhjZUlNUXl1WVhrQ1lpc3lTLVhWRHVtVHVsWll6SE41aER6ZnpHR1dONjhUbkJwanRVeFVyLUV5ZlY5eHNYYThqX24wLS15bHJnNUFpbEw?oc=5",
+      "title": "Google to invest record $15 billion in AI infrastructure in the 'Texas of Europe' - CNBC",
+      "description": "Google to invest record $15 billion in AI infrastructure in the 'Texas of Europe' CNBC",
+      "domain": "cnbc.com",
+      "published_at": "2026-09-09T15:24+08:00",
+      "query_category": "Data Center / Power",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOWHFqVUxBYVJnaWdudjhTVVZoakRwSUZqbHVKcWFxNlNRT2JNTDdwQk0tT3ppYmxNczFwWXluNDhoVHh4UUR1TlZHSlpWaGpBdDZwMTZsdldCMXVkd0t3eXJWVEl4RmpUVGJ4aHBrT1RpZEt2Umw3dDBXTVQ5VDM2a3c0a1l6QlZVRmxuUzZqLUtaVlVNYUYxanAyZDVlVVpIdUFXbzFuYXhScmNleE9R?oc=5",
+      "title": "Google deepens its commitment to Finland with a €13 billion investment in AI infrastructure - blog.google",
+      "description": "Google deepens its commitment to Finland with a €13 billion investment in AI infrastructure blog.google",
+      "domain": "blog.google",
+      "published_at": "2026-09-09T15:12+08:00",
+      "query_category": "Data Center / Power",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T12:19:56+08:00"
+    }
+  ],
   "stories": [
+    {
+      "id": "ed3ed52293e47b",
+      "headline": "OpenAI Weighs Pre-IPO Funding Round at ~$1.2 Trillion Valuation",
+      "summary_zh": "多家权威媒体报道，OpenAI正与大型投资者就上市前新一轮融资进行初步洽谈，估值约1.2万亿美元（纽约时报称最高达1.5万亿美元），并预计在明年启动IPO。",
+      "category": "AI Valuation / Funding",
+      "importance_score": 88,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 60,
+      "reason_zh": "万亿美元级别的私募估值与上市前巨额融资，是AI估值泡沫最直接的指标，涉及巨额资本涌入与循环融资担忧；一旦融资或IPO遇冷，将触发全行业估值重估。",
+      "companies": [
+        "OpenAI"
+      ],
+      "published_at": "2026-09-16T05:54+08:00",
+      "sources": [
+        {
+          "name": "Financial Times",
+          "domain": "ft.com",
+          "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNc2duRmFITkhXUGVBRGdXU2FzSWEyTkttMzgtVldzZGxnUWZQaVQ3LUk3Z0dRWmZzaUJ6dU9oMmZuaF80MWIyMUJ6ejE5VE0zSExBTGNCbnFnRExLVzJucHBuTEZzY2dEdHVfak9XSDF1NG8tU3ZmakVLU3BpQ3J1LVZLNWs?oc=5",
+          "published_at": "2026-09-16T05:54+08:00",
+          "discovered_via": "Google News RSS"
+        },
+        {
+          "name": "Reuters",
+          "domain": "reuters.com",
+          "url": "https://www.reuters.com/legal/transactional/openai-mulls-funding-round-12-trillion-valuation-ahead-ipo-ft-reports-2026-09-15/",
+          "published_at": "2026-09-15T23:41+08:00",
+          "discovered_via": "Bing News RSS"
+        },
+        {
+          "name": "Wall Street Journal",
+          "domain": "wsj.com",
+          "url": "https://www.wsj.com/tech/ai/openai-considers-pre-ipo-funding-round-at-more-than-1-2-trillion-valuation-54555295",
+          "published_at": "2026-09-16T01:00+08:00",
+          "discovered_via": "Bing News RSS"
+        },
+        {
+          "name": "Bloomberg",
+          "domain": "bloomberg.com",
+          "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOeDNxSXBBRlR1elJkWkRRc0NuRm1kMzJqeVNNWHJGbThRaXgzR0VUOXE3UjFRYVpubzJ6ZEVCZXVjLVJiUGNuYzhtUnZid2l4UmNwY0pCMnBMTDZzdjV4MXViRlJ6emszRDJJbTNNeEh1MmhhcDZrY05VaDZwb21yLW5pbVdxWURtcDhYZlBGLWVwYlpDSkF4Q09OMzUzX2pkVmt5akhQMjZCUFdvaGFwQg?oc=5",
+          "published_at": "2026-09-16T06:31+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": true
+    },
     {
       "id": "e1938ea5d54aca",
       "headline": "AI safety warnings from OpenAI/Anthropic chiefs trigger SoftBank selloff and risk-off move",
@@ -76,6 +1634,38 @@
       "critical": true
     },
     {
+      "id": "fa5fa4d291505c",
+      "headline": "Nvidia据悉洽谈向Anthropic大规模IPO投资100亿美元",
+      "summary_zh": "路透独家报道称，英伟达正洽谈在Anthropic的大规模IPO中投资约100亿美元；彭博随后转引该消息。此举被视为芯片供应商对头部模型客户的循环式投资，可能进一步推高AI估值热度。",
+      "category": "AI Valuation / Funding",
+      "importance_score": 85,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 55,
+      "reason_zh": "供应商向核心客户注资是典型的循环融资与估值互推信号，放大AI泡沫形成风险；且发生在Anthropic IPO前夕，强化一级市场的估值锚定效应。",
+      "companies": [
+        "Nvidia",
+        "Anthropic"
+      ],
+      "published_at": "2026-09-13T12:38+08:00",
+      "sources": [
+        {
+          "name": "Reuters",
+          "domain": "reuters.com",
+          "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPbmduYjZNYlh4TmVDd3dMTzZmU21ud1Q5WVVaYXBOM2hUQ201U2tjeDhoWHd6ZjhlQzdtUWxiNmFibkRpc2VlcmxjbWMzTWljZ0ZZSkF6VHFPWnJVUFQwc2g4RDNtb1FCWjN1R3BBcFRzUHkyTXJiRXZpa0NxV29IWFc1LV9lUXh0bXc3TWNrSHZhT0lPTVU2dEswYWhSVUw2SzFkRkVmSHU0S3c?oc=5",
+          "published_at": "2026-09-13T12:38+08:00",
+          "discovered_via": "Google News RSS"
+        },
+        {
+          "name": "Bloomberg",
+          "domain": "bloomberg.com",
+          "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQdDBsRHFoaDBPR1JoeTZ4cmZ4a2U1dnhTWGpyd1BlTUJmLXZuZGZDbG9BNVpmMW9RZE9LR0RBVWpCdVRnZ3NYQUkwTjlFTnBENDU2QkR3dUhIM0ZlSldKOXVMSmhNYXQ2Z1hBN2NjRUM1UzBDd1RsRDhqcGFiNkgxOVRoaF9oTmlaamZPR3FmWjdmY3ZSak1uMVN4bmJ6Z05mVy01bzM4VXZlUzBabmNLYg?oc=5",
+          "published_at": "2026-09-12T07:35+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": true
+    },
+    {
       "id": "c4a89302f13f0e",
       "headline": "SoftBank upsizes $11.9 billion loan for OpenAI investment",
       "summary_zh": "软银将其用于投资OpenAI的贷款规模上调至118.7亿美元，高于此前100亿美元目标。",
@@ -100,6 +1690,91 @@
       "critical": true
     },
     {
+      "id": "b62cb8eff7ce7c",
+      "headline": "TSMC August revenue surges 53% to record high on AI chip demand",
+      "summary_zh": "台积电8月营收同比大增53%创历史新高，公司称AI芯片需求超过供给，先进制程与封装产能持续吃紧。",
+      "category": "Semiconductor / GPU Demand",
+      "importance_score": 80,
+      "bubble_direction": "risk_down",
+      "bubble_risk_score": -45,
+      "reason_zh": "作为AI算力最上游的核心代工厂，53%的营收增速验证终端AI芯片需求真实且强劲，为AI资本开支叙事提供硬性基本面支撑，短期削弱泡沫破裂担忧。",
+      "companies": [
+        "TSMC"
+      ],
+      "published_at": "2026-09-10T13:35+08:00",
+      "sources": [
+        {
+          "name": "Bloomberg",
+          "domain": "bloomberg.com",
+          "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPYl9WbFZJWVZKbXo0TnhxTjVzWGxBRk54QTA0VW8wZm9CZFhZMDZNdWdsT2R6dGpkMVNVUkpsNmJfREgyOG82UllIclZRNjZTTUR6RExJbWFoSVg1QzVyWDF0eW1TeWN6LVBrNGttZGtWd3ljdHZqNjhkUnpaSE5vMmxrZWUyWlhYdWFjMTN6ZW5sUFlsVjV2Zl9jM0JwS0VwMnRZcFZWX3pQMGs?oc=5",
+          "published_at": "2026-09-10T13:35+08:00",
+          "discovered_via": "Google News RSS"
+        },
+        {
+          "name": "CNBC",
+          "domain": "cnbc.com",
+          "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9ycjd0eDNoeHBMd2Y4OE5TT2JvVUlNbVlhREFBc19jRTU3b0lrRTkxU1JrSmdmZ1AwcGFsWUlvZXBfT3FVS093cWxNZDA0WlRmb3haODhHVHREaDlyV3RYWVNjdEtYWTMtdGxwUEhPb3kzd9IBd0FVX3lxTE51eV9XN2ZtTHdhbUJaX1dtaTFWT0k5THItMFBIb3RRN3ZZT2dlamlnLXRaMkROcHFCQjBTWkcyQ3BlTWc1bmRsMUpsTnRwU2VKUWRxSW5lQ3FiTV9MRzVKX1QwUi1LYThTaEhpdUs0dTcyd0hER2Jn?oc=5",
+          "published_at": "2026-09-10T13:33+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false
+    },
+    {
+      "id": "f73cb51304a8f4",
+      "headline": "软银获超额认购的119亿美元贷款以推进对OpenAI的投资",
+      "summary_zh": "彭博报道，软银将贷款规模上调至119亿美元，用于推进对OpenAI的投资。大规模债务融资支撑AI投资，加大杠杆与信用风险。",
+      "category": "AI Credit / Debt",
+      "importance_score": 78,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 55,
+      "reason_zh": "以债务融资支撑巨额AI投资，提升系统杠杆与信用风险，是AI资本开支泡沫化的重要信号。",
+      "companies": [
+        "SoftBank",
+        "OpenAI"
+      ],
+      "published_at": "2026-09-14T09:42+08:00",
+      "sources": [
+        {
+          "name": "Bloomberg",
+          "domain": "bloomberg.com",
+          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNTEMxeXVSa29wMkM4aVJMNWFSd3NTMUtXU1czYjVreEx0eGJyOXc3VGE0X1hlWVpPS2FzZ3huZWY1eHprdzI0Ykw4Y210WEk0SUNxdGRzZ043N1hYWTZ3c0Z1VWVKSGUtcjU0OElobHZjMEM3QlBYSVpQTWF2UFR2Q3JKd19vR1V0WGo3Yl9LSHR5NHNSSGo2Z1pRNkN2WURQVWpfLTBBc2ZTeFBGTWV1TE1Jcw?oc=5",
+          "published_at": "2026-09-14T09:42+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false
+    },
+    {
+      "id": "ac3256f2e038fc",
+      "headline": "AI debt binge is warping credit spreads and reordering risk hierarchy",
+      "summary_zh": "彭博与路透报道，AI相关企业发债规模激增，正在扭曲信用利差并重塑信用市场的风险层级，AI债券与新兴市场债券的相对风险排序被打乱。",
+      "category": "AI Credit / Debt",
+      "importance_score": 78,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 55,
+      "reason_zh": "AI军备竞赛转向债务融资驱动，信用市场定价被大规模AI发债行为扰动，一旦投资回报不及预期，杠杆偿付压力将放大系统性风险，是泡沫累积的关键警示。",
+      "companies": [],
+      "published_at": "2026-09-10T20:24+08:00",
+      "sources": [
+        {
+          "name": "Bloomberg",
+          "domain": "bloomberg.com",
+          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOdm5mVDc0SEY4NTZnQTZsSXFsRmJIRm03VVFjR2dKWFVqTWJRdUdjZWNvWmIyeFFlUC1tZkdSLUdGenZtcWNZeFBHR0ZjdTJsanhZNldKakVvRjVid0JTTnR5RGpOdTVVRDkwbzFkc0I5TEZKLVlxRUN6Zldpbk5GOUM4eV9zLTBRV2FmeGNsYWg4MnM1S3ZuZlZtTE5ZaHZNR00ycmVMRWtOMmFhZ0RTenJxUQ?oc=5",
+          "published_at": "2026-09-10T20:24+08:00",
+          "discovered_via": "Google News RSS"
+        },
+        {
+          "name": "Reuters",
+          "domain": "reuters.com",
+          "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNeGJydjRSLXNUYlJuVWxDaFA5cFUxNW9TMDBTM2hiQ1BlOURvako3dUhqNzhvS1N6SXp6Z2VfT2xVdWozN0RYcHdJeEZvQkliamxTTUZOUnVSNHB2bm44NldKNEFtNG9pczdxaDYwTWlzelhMa0tMbUd2UjJObzlWSjlPczBlRzZiU3F4dXJPUm05UURrcUhHWGRKY2pDNXM4WUxkTlZ1QVpRVmlWRG1oTzRPc2JZYUhhM1RWSXdPdXZuUQ?oc=5",
+          "published_at": "2026-09-10T20:05+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false
+    },
+    {
       "id": "1b2ff0f2d49749",
       "headline": "Anthropic picks Nasdaq for much-anticipated IPO",
       "summary_zh": "Anthropic据称已选择纳斯达克作为上市地点，潜在IPO可能创纪录。",
@@ -119,6 +1794,125 @@
           "domain": "bloomberg.com",
           "url": "https://www.bloomberg.com/news/articles/2026-09-13/anthropic-said-to-choose-nasdaq-for-much-anticipated-ipo-listing",
           "published_at": "2026-09-13T20:07+08:00"
+        }
+      ],
+      "critical": false
+    },
+    {
+      "id": "d52a4d97c6679c",
+      "headline": "Google to Invest €13 Billion in AI Infrastructure in Finland",
+      "summary_zh": "谷歌宣布在芬兰投资130亿欧元建设AI基础设施（含数据中心及配套能源），为其在欧洲的史上最大级别投资之一，显示超大规模云厂商资本开支周期仍在加速扩张。",
+      "category": "AI CAPEX",
+      "importance_score": 76,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 35,
+      "reason_zh": "超大厂继续以百亿欧元量级扩张AI基础设施，强化算力军备竞赛与泡沫形成逻辑；虽由自有现金流支撑、短期融资风险有限，但资本开支强度上升加剧行业产能过剩与投资回报率下行担忧。",
+      "companies": [
+        "Google",
+        "Alphabet"
+      ],
+      "published_at": "2026-09-09T19:13+08:00",
+      "sources": [
+        {
+          "name": "Bloomberg",
+          "domain": "bloomberg.com",
+          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPUnRWOHhfSHVOanRzam11TkE1MkFfZWhyLTBaOERZYmZjNFlNOHR0S1B4NnVPMnpVWjB1UkpXQldDWUE1VUU1aUwxWFNpMERibV9GQk9vZW52UHMwdVdKMDl1QzlQdDRIcmdxUm9WcXJCZ3RDSHQtY3pwd2pXR2tlejQxUzRMTll6X2FoRk02MG82TjF5cHo4bGpmNFNDMmI4RlFjV1RiTjdhci1MR2JoOUliTV8?oc=5",
+          "published_at": "2026-09-09T19:13+08:00",
+          "discovered_via": "Google News RSS"
+        },
+        {
+          "name": "Google",
+          "domain": "blog.google",
+          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOWHFqVUxBYVJnaWdudjhTVVZoakRwSUZqbHVKcWFxNlNRT2JNTDdwQk0tT3ppYmxNczFwWXluNDhoVHh4UUR1TlZHSlpWaGpBdDZwMTZsdldCMXVkd0t3eXJWVEl4RmpUVGJ4aHBrT1RpZEt2Umw3dDBXTVQ5VDM2a3c0a1l6QlZVRmxuUzZqLUtaVlVNYUYxanAyZDVlVVpIdUFXbzFuYXhScmNleE9R?oc=5",
+          "published_at": "2026-09-09T15:12+08:00",
+          "discovered_via": "Google News RSS"
+        },
+        {
+          "name": "CNBC",
+          "domain": "cnbc.com",
+          "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNSVlBVDVfVTQ3WGd1MlRsZ2NaZjB4V2pxUnQtM3hmS1RXZ3loTmw3NGdFdzI4R2JRM2xodnFickRXb00xbTBya0tKVnpCQmUyQTIzejh0RmNBZG5QQVRJTGNJbHRGeWt2OG1wLTBXbTlpT2MzUzBidGkyR2NEY2xIUlYzajFfaXPSAYwBQVVfeXFMTndMOWU2SmdmUGZ4UjNzU1g3WXlSTmZKZmdrakhYZlkyZDRFZzdnTHd5YzN6STNWVnlRTWxLcEhjZUlNUXl1WVhrQ1lpc3lTLVhWRHVtVHVsWll6SE41aER6ZnpHR1dONjhUbkJwanRVeFVyLUV5ZlY5eHNYYThqX24wLS15bHJnNUFpbEw?oc=5",
+          "published_at": "2026-09-09T15:24+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false
+    },
+    {
+      "id": "2af81964f9c665",
+      "headline": "Anthropic据悉选择纳斯达克作为IPO上市地",
+      "summary_zh": "彭博报道称，Anthropic已选择纳斯达克作为其备受关注的IPO上市地；路透引述Business Insider报道同一消息。这标志着史上规模最大的AI公司上市之一进入实质推进阶段。",
+      "category": "AI Valuation / Funding",
+      "importance_score": 75,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 40,
+      "reason_zh": "超大型AI公司IPO将带来巨额流动性事件，往往成为市场情绪与估值高点的标志，推升泡沫风险。",
+      "companies": [
+        "Anthropic",
+        "Nasdaq"
+      ],
+      "published_at": "2026-09-14T03:07+08:00",
+      "sources": [
+        {
+          "name": "Bloomberg",
+          "domain": "bloomberg.com",
+          "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOdHpaNVFIZFhSb2ZUSG52aTFGdi1ZdHNmaDBzZEMyMkVxRXlNMHR2VWllZmdCREFWOEFSQzZfMHBlTjRCVkY0MTkzZjBqOGhiZERCT3ducXdXY1VhWFduZ3MtQ0NoNTlHYjBlS0prMkNmOWtQQkJId3RGSmRZaEE2alYxay1KaDAyaE14R1ZqTVdJamxneU8zSFJyeG9CQzNZQzU2SktkQVNjR25aMkw0Mlg5blQ1QQ?oc=5",
+          "published_at": "2026-09-14T03:07+08:00",
+          "discovered_via": "Google News RSS"
+        },
+        {
+          "name": "Reuters",
+          "domain": "reuters.com",
+          "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPcDg3dC1KTGZCUzVUbnNPOGpvSUZHdUhZTlI0eEJjYmdFUE1ZT3RaV29jd3ZJamtjakVRTnNKbE0zcVFETmtSaC1RRXZHTS1GNG56UV8tYkJkbnJpVEVwSzM4MnhpZ3o2bkhkM3Y0aWVNcW1QT0dJVlZoTUlzc0JfaWhvS2phRVE3dVYyYnpzSmJ3UzhZRWVVb0FSblpxUDA?oc=5",
+          "published_at": "2026-09-14T00:23+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false
+    },
+    {
+      "id": "b25db453ef6d42",
+      "headline": "AI-Driven IPO Wave Set to Accompany Anthropic Listing",
+      "summary_zh": "彭博报道称，Anthropic的上市将伴随一波AI企业IPO潮，AI一级市场发行与估值扩张进入密集阶段。",
+      "category": "AI Valuation / Funding",
+      "importance_score": 73,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 45,
+      "reason_zh": "AI企业集中上市意味着股票供给放量与估值集中检验窗口临近，市场情绪与流动性驱动的估值扩张进入后段，泡沫积聚与回撤风险同步上升。",
+      "companies": [
+        "Anthropic"
+      ],
+      "published_at": "2026-09-10T03:35+08:00",
+      "sources": [
+        {
+          "name": "Bloomberg",
+          "domain": "bloomberg.com",
+          "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOc29UbEJhZWNRQU54VDlKbE05X1BiT2lxcUM0aFowZ25tZE51SnpycF9GTGhkbHA4V251MHBJSXlVbnE0ckZRdWoyUUhXeWo4X3ItLWJLVTRHNDJnOGtITndqZmtSR194QkdzcWRXS1gwa2JaX2FDRE1NWlBWSGQ1RTNCOTZ0RlRONGRXcTIzcUVDem9OTnpqRXduZ2haOExuSGNpc1otSFpaWFVFbW83UDdiTFBrZw?oc=5",
+          "published_at": "2026-09-10T03:35+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false
+    },
+    {
+      "id": "e82cacb914b0dd",
+      "headline": "Anthropic向投资者表示将连续第二个季度实现盈利",
+      "summary_zh": "据英国《金融时报》，Anthropic告知投资者其将连续第二个季度实现盈利，显示头部AI模型公司的商业化能力改善。",
+      "category": "AI Valuation / Funding",
+      "importance_score": 72,
+      "bubble_direction": "risk_down",
+      "bubble_risk_score": -45,
+      "reason_zh": "头部模型公司持续盈利为AI收入兑现提供基本面支撑，削弱“毫无盈利的泡沫”叙事，降低泡沫风险。",
+      "companies": [
+        "Anthropic"
+      ],
+      "published_at": "2026-09-14T06:29+08:00",
+      "sources": [
+        {
+          "name": "Financial Times",
+          "domain": "ft.com",
+          "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPeEJ6YVJJNkh0djM5TC1ZNW9wSkJoeU1nMDA1dmpxeW5XdjR1cmVlZzUzeEJLbHFfQm9KMFNhbkY2S2N1bHV1V2xncGtBMERtRzItTlFqUEFBVHZ0LUJwSDY2eTA5c21rS3hEdzBlWVZNMHgyalBTbnZ3MjgtbEozU00yUnY?oc=5",
+          "published_at": "2026-09-14T06:29+08:00",
+          "discovered_via": "Google News RSS"
         }
       ],
       "critical": false
@@ -154,6 +1948,118 @@
       "critical": false
     },
     {
+      "id": "5df23b38fb7b4e",
+      "headline": "BIS chief warns AI boom poses new financial stability risks",
+      "summary_zh": "国际清算银行（BIS）负责人警告，AI热潮正在带来新的金融稳定风险，监管层需关注AI相关融资与估值的快速膨胀。",
+      "category": "Macro / Regulation",
+      "importance_score": 72,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 50,
+      "reason_zh": "全球央行核心机构公开点名AI热潮的金融稳定风险，意味着AI相关信贷与估值问题已进入宏观审慎视野，可能触发更严监管并加剧市场对泡沫的担忧。",
+      "companies": [],
+      "published_at": "2026-09-10T19:33+08:00",
+      "sources": [
+        {
+          "name": "Reuters",
+          "domain": "reuters.com",
+          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNcDUzRnJ3dHpQaFN0aF9CVHRZbTExQ1h4UHg2OEFaQmxHeHZsdUwtN2piZzdPdk5oYUticEdmSEIyS0RYUlpKYUpRX3ptWFp6WGFNbGp2QXlVNjRIVFdvanlTWXdubklpcXZzUHNWQWxURlBrU3hpcTU0dVJ2M1NEUEpRU3FhUzhHa25XRklRbUo2LUVoVWlsV3dVcVY5SENFc29hd3JXRUZQZG1FbHEw?oc=5",
+          "published_at": "2026-09-10T19:33+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false
+    },
+    {
+      "id": "89298884e92c86",
+      "headline": "Tokens getting cheaper is the latest 'crack in the thesis' for the trillion-dollar AI boom",
+      "summary_zh": "Fortune指出，AI推理token价格持续走低，被视为万亿美元AI繁荣叙事的又一道裂缝，单位算力收入的通缩压力正在显现。",
+      "category": "AI Revenue / Monetization",
+      "importance_score": 72,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 45,
+      "reason_zh": "token价格下跌直接压缩AI算力变现的单位收入，若算力成本与资本开支仍高速增长而价格持续下行，收入无法覆盖投入的风险将显著上升，削弱泡沫支撑。",
+      "companies": [],
+      "published_at": "2026-09-10T04:22+08:00",
+      "sources": [
+        {
+          "name": "Fortune",
+          "domain": "fortune.com",
+          "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5QXzc1aGxiTS1XLV9ldDBxbzdtWm1SSHQzcVpfeXpWbFdxZ191dHMwdDRkYWFpXzdRYm9LQjk2V1p6U2JqNzdDRFZkbXZxdEtrRjd0T1Qxb2RNWDVxVGplcDN2NFBHblZXai1UOTM3TQ?oc=5",
+          "published_at": "2026-09-10T04:22+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false
+    },
+    {
+      "id": "045433217f1a1d",
+      "headline": "US Power Use to Beat Record Highs in 2026 and 2027 as AI Use Surges, EIA Says",
+      "summary_zh": "美国能源信息署（EIA）预计，受AI数据中心用电激增推动，美国电力需求将在2026年和2027年连续刷新历史高位。",
+      "category": "Data Center / Power",
+      "importance_score": 70,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 30,
+      "reason_zh": "AI算力带来的刚性电力需求验证数据中心扩张的真实性，但同时也加剧电力供给紧张与成本约束，是AI基建泡沫风险与基本面支撑并存的关键变量。",
+      "companies": [],
+      "published_at": "2026-09-10T02:11+08:00",
+      "sources": [
+        {
+          "name": "Reuters",
+          "domain": "reuters.com",
+          "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNTnB0VndnOFIycENhaVBEcEpwLTRMdkRvMjhjbjNzX3Q5REFTVDVfM3dxWElsOXNXeXc1RGRIZFlBczdPRnFHT0RtZm9WQkU2VnVCcS1jXzJ4d0JsUVJQSTZ1a0E3NVJKYkltdkRnNTh0NDhIaTB4TkV5eVE5dDNTWUNUaDBFZlBManN1eDNLQkxpR0tkN2hkRUZ2UmhjQ3BQWTRtb282SEZPUUxLd3RTblh5bVRsZw?oc=5",
+          "published_at": "2026-09-10T02:11+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false
+    },
+    {
+      "id": "a74e8eca755570",
+      "headline": "Legal AI Startup Harvey Reaches $15.5 Billion Valuation in New Funding Round",
+      "summary_zh": "法律AI初创公司Harvey在新一轮融资中估值达到155亿美元，AI应用层初创企业估值继续快速抬升。",
+      "category": "AI Valuation / Funding",
+      "importance_score": 67,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 45,
+      "reason_zh": "垂直应用层初创以极高估值完成融资，反映一级市场AI资产定价持续升温，估值与商业化收入之间的缺口扩大，进一步推高泡沫风险。",
+      "companies": [
+        "Harvey"
+      ],
+      "published_at": "2026-09-10T03:33+08:00",
+      "sources": [
+        {
+          "name": "Reuters",
+          "domain": "reuters.com",
+          "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNdlB6ckhOUjNOZ3VfSVNXTVBvQWlkLTRiWUwxLU1KZG9fT0t3QVI5U043NS1pdGp6UHpCM0hjTHFzZm5OelhkWVdZbkY3RnBBbEdCVnFTXzhJNl8yTW4tOHo5UzU3SEU5VW0xNFZnQkhCNjJzWVVWTmZEQUhsUVNYalpYNnpIZUo1S0UxNEF0MHFtalVablBwWFF1ZDE5V25OSDIzd2tadlZqdU9xdDFQc1YwR1FxNW91aDJKeHNaeF9iQQ?oc=5",
+          "published_at": "2026-09-10T03:33+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false
+    },
+    {
+      "id": "768f70c02ac2cb",
+      "headline": "States That Gave Data Centers Billions in Tax Breaks Are Now Ripping Up the Deals",
+      "summary_zh": "《华尔街日报》报道，曾向数据中心提供数十亿美元税收优惠的多个州正撕毁或收回相关协议，数据中心补贴环境明显逆转。",
+      "category": "Data Center / Power",
+      "importance_score": 65,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 28,
+      "reason_zh": "地方政府撤回补贴将抬高数据中心项目成本、削弱项目回报确定性，依赖税收优惠支撑的扩建计划面临重估，增加AI基建投资的政策与回报风险。",
+      "companies": [],
+      "published_at": "2026-09-09T22:42+08:00",
+      "sources": [
+        {
+          "name": "Wall Street Journal",
+          "domain": "wsj.com",
+          "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOVWpXNzRLdWRISWlLckd4QkZoUWJXdXZ2WFMwM0ItRkZTaTBWbGR0Sy1BU2VFcmlwcGZhczJ6U3dxcFdpZFQ5bzVfVmYwbjFIWjFIUlV6VlhtQU9PcnVoOWw0T3duZlNBbGpEakZZcklMdDQ5U2g2VURXcGFNVXVMOUNIOUt2UTdYOGRxNXp4a1lxVTF3c1ZING1iRDBYQlNpNmh6RXZ1bzdQV0pZMmRFRzBjZmM4NXdxQkZNdnIybjRYQ19v?oc=5",
+          "published_at": "2026-09-09T22:42+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false
+    },
+    {
       "id": "3376746c152e7b",
       "headline": "Goldman Sachs, JPMorgan expect September Fed hike as inflation lingers",
       "summary_zh": "高盛与摩根大通预计美联储将在9月加息25个基点，通胀压力持续。",
@@ -174,6 +2080,726 @@
           "domain": "reuters.com",
           "url": "https://www.reuters.com/business/goldman-sachs-now-expects-fed-hike-rates-september-2026-09-14/",
           "published_at": "2026-09-14T01:00+08:00"
+        }
+      ],
+      "critical": false
+    },
+    {
+      "id": "14d39aca8f178d",
+      "headline": "OpenAI今年不推进IPO，Altman等警告AI发展过快",
+      "summary_zh": "路透、CNBC与《财富》报道，OpenAI今年不会上市，Altman称当前是“不合时宜的时机”，并称AI灭绝风险“不可接受”；Altman、Musk、Amodei均警告AI发展过快。",
+      "category": "AI Valuation / Funding",
+      "importance_score": 62,
+      "bubble_direction": "neutral",
+      "bubble_risk_score": -10,
+      "reason_zh": "头部公司暂缓上市削弱短期IPO热潮，但其对AI风险的警告加剧监管与情绪不确定性，整体影响偏中性、略偏谨慎。",
+      "companies": [
+        "OpenAI"
+      ],
+      "published_at": "2026-09-13T13:44+08:00",
+      "sources": [
+        {
+          "name": "Reuters",
+          "domain": "reuters.com",
+          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNSkNHUFFrUlZCVWVKZ2dpVVkxSzBmcy16aFFHVTJDV25PZ0YzMjBLVlFQZ0pJcU5EVWJlUW13azNiV1BwOENLcTFVOFpZYVVlT0haaXI2ZkFaOUZxTGp2eE1kaGZCb2pXV1dBQy1XcjQ2NmNXMFA3Nnk5ZnA3MU5wWGZCV0ktTWZad2o0LVBmeW1BclBndWRfWEJScFduQklEZUFEX0NteFBhNDYxRG5keUdiUml3dVYz?oc=5",
+          "published_at": "2026-09-13T13:44+08:00",
+          "discovered_via": "Google News RSS"
+        },
+        {
+          "name": "Fortune",
+          "domain": "fortune.com",
+          "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNMm5STnhuRG5MT1ZWUjlzeWNqVEFGTjVxaVdkX2hzdjF5VElRajFKd3B2NlkwcWxNSFgwOVczb1l1N284MVlhNTRtMFN4T1dyY1NNVmdFeDBRQVdGWmZmRjdYM0NuTTN5SXhvbi1UaE55TDhCUmdINEZ6c2VobFZQX3ptWm9sTkE3UjB0bDZzNkxlLUxzZHE3N25R?oc=5",
+          "published_at": "2026-09-13T02:04+08:00",
+          "discovered_via": "Google News RSS"
+        },
+        {
+          "name": "CNBC",
+          "domain": "cnbc.com",
+          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQbWdEQ1p3VzJkd2E3ZmYwWmRkRWlwWEhFSm1PTjQ3Y1N1bGNPd1lXcjZncEhPVVNrd3dFT3oxd1FVbzVMZmZTVEJVZGJ6MHNxTUd0eVI5MkpuY191WG9CaUozc3AzWkhPQUlzUDh0dXFqQzlNd09CR0NrQ01NaVBERHhCUE9vcmR1UmlfMFVXdmFlcDNocnJkMkJOa0pWQ0p0SVhia1QwS3A4LVZjYXdfLWhiRTHSAboBQVVfeXFMUE44bkREVTl5S1B2R2RMNUlMSlZlT1N0RU5yeTJLaDhFd0dWZ2wwRmdaVUpWRGpYbTBtVVlITnRNLTJRcW43RlhKQzZFVTluc2E2dVhuSzNOWWtoVzFwRDFDX0wxVWszTDk5NkcxQjNaN3JCWGlpUnhTdGM4dzliVHFQam1IV2x6dW1jMkh4SkFNWjVRbzlSQVpaZEFvbE9QZHNiSWJMS3l4aDVMLVFRdk9FbGYxLXBZdjNB?oc=5",
+          "published_at": "2026-09-13T00:22+08:00",
+          "discovered_via": "Google News RSS"
+        },
+        {
+          "name": "Fortune",
+          "domain": "fortune.com",
+          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQTm04ZFVKR3oyYTZEX2MycTc3MVFjejV3cVd3ekJtUWN4ZWJIRVFLYVVic1lvVUt3aGItR3JnMjRFVHQ1TDBqTmZsMnJwMjdBdDVpM0lTUDRMSUxKNmQ5ZnNYZ0JUX25YUTJfc2tqcWpnQTM1ay0yYnF1d2g2S2otVkFqaUR5aDdVOEtJcnRKeENHZ1BOcUpiUU1zRQ?oc=5",
+          "published_at": "2026-09-13T00:38+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false
+    },
+    {
+      "id": "199e1b7a3f81b4",
+      "headline": "Nvidia-backed MediaTek sales soar 44% on AI chip momentum",
+      "summary_zh": "获英伟达投资的联发科销售额同比飙升44%，受AI芯片业务动能推动，显示AI相关芯片需求仍在快速扩张。",
+      "category": "Semiconductor / GPU Demand",
+      "importance_score": 62,
+      "bubble_direction": "risk_down",
+      "bubble_risk_score": -30,
+      "reason_zh": "联发科作为AI芯片链重要参与者营收高增，进一步 corroborate 半导体需求端景气，为AI硬件投资回报提供基本面证据，抑制泡沫风险。",
+      "companies": [
+        "MediaTek",
+        "NVIDIA"
+      ],
+      "published_at": "2026-09-10T17:03+08:00",
+      "sources": [
+        {
+          "name": "Bloomberg",
+          "domain": "bloomberg.com",
+          "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPUHJuN3VLbFEyOVRPTTE0dmlyNW5fRmNPb1FwMUlISVh2V09NYURFMHB4blh4bWtpTnU5djZjQUUtR1M0ZHBGSkkwQVVxYjk4VkJtbnFZbWhNQ0F2TlRmYkRaSXByOVB6RmY0bGJ3V200SmRlS3lkUGVVTU1lRy1fQkVmaFk1ODkwVGZSdmg4QlYzbWpRQUJ1ZThTVzRCcVdwd2R6cW5iVU1pTkwyOE9kSA?oc=5",
+          "published_at": "2026-09-10T17:03+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false
+    },
+    {
+      "id": "ab82bcd4fb2a08",
+      "headline": "Google joins Microsoft and TikTok in $30.2 billion bet on Finland data centers",
+      "summary_zh": "谷歌加入微软与TikTok行列，押注芬兰成为欧洲数据中心之都，相关投资规模超过302亿美元。",
+      "category": "AI CAPEX",
+      "importance_score": 62,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 30,
+      "reason_zh": "超300亿美元的欧洲数据中心集群投资是AI资本开支扩张的又一佐证，巨额长周期投入若缺乏对等收入兑现，将加大产能过剩与投资回报错配的泡沫风险。",
+      "companies": [
+        "Google",
+        "Microsoft",
+        "TikTok"
+      ],
+      "published_at": "2026-09-10T15:00+08:00",
+      "sources": [
+        {
+          "name": "Fortune",
+          "domain": "fortune.com",
+          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOdHhQeVBvckRTZ05yV0QtbjlqbnNORU1NbEJVemdhRnA4ZW1mdEE5cl9uUl95MFdmREFDcTlTbTBaYU52b2ZrQzg3RnNpVWwtRHFTLTVTTThvQjhBaWppazNKOElicFFsN0dxTFZQWS1saHYzWXU0cUhzNVYyWjRvcDRuNFZhVGFvbnZJRk1qOWtLVm8yY0JtM3hiMA?oc=5",
+          "published_at": "2026-09-10T15:00+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false
+    },
+    {
+      "id": "4e1e2d21726e4a",
+      "headline": "Anthropic Researcher Resigns, Warning AI Companies Are 'Gambling With Our Lives' Ahead of IPO",
+      "summary_zh": "Anthropic研究员公开警告AI公司正在“拿我们的生命冒险”并离职，多名研究员此前也对AI加速风险发声，事件正值Anthropic筹备IPO之际。",
+      "category": "AI Valuation / Funding",
+      "importance_score": 62,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 20,
+      "reason_zh": "安全与伦理争议在Anthropic上市前发酵，可能招致更严格的监管审查与舆论压力，削弱AI叙事并对IPO估值构成不确定性，属情绪与政策面的边际风险。",
+      "companies": [
+        "Anthropic"
+      ],
+      "published_at": "2026-09-10T01:14+08:00",
+      "sources": [
+        {
+          "name": "New York Times",
+          "domain": "nytimes.com",
+          "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOQkNXOVd1RnJGS09XOUY5M1FVNHk2ZUdOUTRtWlFOYXNoSzFBR1RKS01HVGYySlZSb2xfeUppdFJLTTgxNXEtS3IxR1dDV0YtZWhOWUtCQy1XS3VvYW51MXZQRk8td0ZXakpzVzRrQWg1UkJST2g1cnZyRTk1X0lIUjJzR09ZZDhwbFM1NQ?oc=5",
+          "published_at": "2026-09-10T01:14+08:00",
+          "discovered_via": "Google News RSS"
+        },
+        {
+          "name": "Barron's",
+          "domain": "barrons.com",
+          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOWUZ0dVVSMlFqYzd0aVZXY3ZjejBvb1pYYzRVeV9DT2Q2RlBtbHFiY1hsR2NmdF9wbFltamlEMGdhTVpVckVUUW5TaWNmQWtsdFVLQWhPMGdzWnZ4N3lOWFEwX0J1WjRNeDBOYlBMeHkzY2Rna2QtUjc5bXg2V1ozS3NGcTdUMFdB?oc=5",
+          "published_at": "2026-09-09T20:20+08:00",
+          "discovered_via": "Google News RSS"
+        },
+        {
+          "name": "Fortune",
+          "domain": "fortune.com",
+          "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQREhwVXAwSTZnRkR2SXlxWXZ0Z1NkQnJHNmVPeTZab0ZqdkVwM2I4T3poZ0hFRU8wSy1RdDZvU2xTbEVnczRYTFdYOU90VGhNSXBfTEFzLXVXZ2FaekdxODVQSmdQaFJ0WFVybGpUQ3pMTThEZzdYZ0JRWWZ2RzZCbllESHBRMmRSbFNmMU5mLUhCWXFTSVNQdzFlZHRUQzA?oc=5",
+          "published_at": "2026-09-09T22:35+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false
+    },
+    {
+      "id": "59028aed55a8f0",
+      "headline": "AI Regulation Push Gains Unlikely Political Allies, But Trump and Congress Resist",
+      "summary_zh": "美国AI监管呼声升温，Bannon与Sanders等跨党派人士罕见联手批评科技‘寡头’并要求AI改革，‘AI生存风险’讨论主流化；但特朗普与国会抵制放缓AI的呼吁，国会虽提出大量AI监管法案却极少落地。",
+      "category": "Macro / Regulation",
+      "importance_score": 60,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 10,
+      "reason_zh": "政策不确定性上升但实质监管始终缺位，AI扩张与高估值继续受益于宽松环境；同时‘AI生存风险’被主流化讨论，本身也是泡沫情绪高企的信号。",
+      "companies": [],
+      "published_at": "2026-09-16T05:44+08:00",
+      "sources": [
+        {
+          "name": "Associated Press",
+          "domain": "apnews.com",
+          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOcW93ckZBY1Y1bHJDS243bGlJbXlENGFaTmQzS08zTWxtQmEwYjlFRkhuQk9WZ1plVjNac2JRSjY4Zk1uLUdlT2p2VHh4WWxfanFHaDNWa3NRWUktMEhsZ0trcWcyTWNMb0RmN05aT2pJV2I1S25nejFtOXNvRjhTVjU4VTFrcTctSzNqWHFCOXpkSmtGNnhadU1EVEdSd19kUllsWA?oc=5",
+          "published_at": "2026-09-16T05:44+08:00",
+          "discovered_via": "Google News RSS"
+        },
+        {
+          "name": "New York Times",
+          "domain": "nytimes.com",
+          "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNcmdWaGowZ1VTYV9oY2tTVGs3NGdId3ZjR29ZcHZ0bnhDYWFld29NWUZ0WmdZaWtMX2pPUUdQdUpScjMxYkNNaHBYclp4ZzdjcWhGTjVhX3F3MUVGd29XUzZKWkZOakNSVENqcDZUMUFia1RyVzRqS241OXVvc1NsRjItbHRydFBKWEE?oc=5",
+          "published_at": "2026-09-16T04:10+08:00",
+          "discovered_via": "Google News RSS"
+        },
+        {
+          "name": "New York Times",
+          "domain": "nytimes.com",
+          "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQMFZfY0lzMjNZc05fRGhjcXQ1bXZPRFhGa0JXbWRYaGJ3SnN2Q1VxLXJuT25IeWRIX3lVX1hRcVBsdHBzWFE5OXBDbFFKWWpOZXozbzhqekhiSnE1TmtxWHhBUEV0QTRQSk50Z1dZeTlkcmlFb0UyOFdlODVlN2VjN1B5aW5zTlU?oc=5",
+          "published_at": "2026-09-15T23:25+08:00",
+          "discovered_via": "Google News RSS"
+        },
+        {
+          "name": "CNBC",
+          "domain": "cnbc.com",
+          "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNNnNsRGxHeU9DS2taUXhjcmxfZWFMMllzUzJFTU9lMExQSE9QOGQ1UnNVNm1JM0toT3htcGVIdDJSUW5TaDRpYlhzR0hlTTg4djkyXzFEdU91S2VQNWJTWFA5UFV0b3NRc2VnMm44azg0RnJJSzhQSUdUY1dmWDJjYjJDbmIzdmPSAYwBQVVfeXFMTm5YQ0VnTHFCdDR0alBBTVRLSTN3Tjd1dk9hd2ZzTTB2b1pGN29aUmFlMVNFX3hBMmtLNkxzQ3ZwaEVrYUxTMGNnZ2lVeVBnQk9ENWhjaTNyVHdwaHBVdmJaTzJGaW1rdElMMktYY3JEeDg5VWVyQm5xOEFzU203akJFX0VtNWN4T0pFdHU?oc=5",
+          "published_at": "2026-09-16T04:05+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false
+    },
+    {
+      "id": "c4f103964ef52c",
+      "headline": "Meta Rolls Out 'Meta One' AI Subscription Plans",
+      "summary_zh": "Meta推出新的‘Meta One’订阅方案，提供更高AI使用额度，正式加入科技巨头以AI为核心的订阅变现浪潮。",
+      "category": "AI Revenue / Monetization",
+      "importance_score": 60,
+      "bubble_direction": "risk_down",
+      "bubble_risk_score": -15,
+      "reason_zh": "订阅化收入为庞大AI资本开支提供现金流支撑，边际上缓解‘只烧钱不赚钱’的泡沫担忧，但增量收入规模仍待验证，支撑力度有限。",
+      "companies": [
+        "Meta"
+      ],
+      "published_at": "2026-09-16T03:11+08:00",
+      "sources": [
+        {
+          "name": "The Information",
+          "domain": "theinformation.com",
+          "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQMTA2ZURVeElEZXBSMFZuVG5YTEhPQVlRY0diaUJhejNIcXJ1UERoRGtrbVlCdGlFUVVqME0zaE15TmFqUjFvQzM2V05BYmtsYzVZMzJCckxOcHlBS0tJZUx5TkJWRnBCZzBwTmpVTmdENkFuYWVKUkJiZTBnY0VBeFFwR1Vtekl4RUUtOXZZRGVyMUNiUGtyelNPX09XTnB4aVNFYkpsTThHdw?oc=5",
+          "published_at": "2026-09-16T03:11+08:00",
+          "discovered_via": "Google News RSS"
+        },
+        {
+          "name": "The Information",
+          "domain": "theinformation.com",
+          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQRXNEN016amcxdlpNNG9zNWJGQWl0VWVzeGg4UmV6NFlNSms3ak1yUWxfaG5rZk00OTUyZ1V1dzVXUzh5MXZzdnoxMTJvWXVWNDJ2SGU3UnM0REdEVU1iaEdDaHdMQ2VNbTJiSGgzMGNWTjllbG1JdVk4ZF8wS1lqSGxPRmNwSVdyc2c2WXR5OU9nTVBxMFNkb0ZUS0pwbDBRSEE?oc=5",
+          "published_at": "2026-09-16T08:00+08:00",
+          "discovered_via": "Google News RSS"
+        },
+        {
+          "name": "TechCrunch",
+          "domain": "techcrunch.com",
+          "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPV0dxb01UQjhPVEM1cXAxZ0pZVFRGUlRjRWZhc3cxeDd6WmY2OXNCVkkzNF9kY2QxekpmeTg3QzNoSFVnV01EVWRTUlNodDgyb25aRDl3dE5WZ2J1UHJmLUFtdkJJNzZsajZyTUFrZElKeHJHeWVuLUE3Q0FFWUV1bXNULUtjRVFTWmhjRXg1RlQtdEpNNXc?oc=5",
+          "published_at": "2026-09-16T01:05+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false
+    },
+    {
+      "id": "5ee457f668cfed",
+      "headline": "特朗普将与中国竞争视为AI监管核心议题",
+      "summary_zh": "《华尔街日报》与《纽约时报》报道，特朗普将与中国竞争视为AI监管的关键议题，并指责“负面势力”推动美国AI监管。",
+      "category": "Macro / Regulation",
+      "importance_score": 60,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 15,
+      "reason_zh": "以对华竞争为由倾向放松监管、加速AI投入，可能为AI资本扩张提供政策顺风，边际推升泡沫风险。",
+      "companies": [],
+      "published_at": "2026-09-14T06:02+08:00",
+      "sources": [
+        {
+          "name": "Wall Street Journal",
+          "domain": "wsj.com",
+          "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQOElEaDhNQW5QWVJ5Q0RMQ1M3S3B6OERSdkdoWDE2RGdXVk9XZF9ZOFE0NlY2N05BMzFZZFRBcHlKUkFMTGt2M1B4ODNDMmhtQTFKY0xodVJuRWhMMWYwMlpBZGNzTVZBTUFLMHRMUENiWEJfalVvbWhQOGtLOEdyQW9CZ1dqX1BQakdZbkh6M1RkYWxwMHRn?oc=5",
+          "published_at": "2026-09-14T06:02+08:00",
+          "discovered_via": "Google News RSS"
+        },
+        {
+          "name": "New York Times",
+          "domain": "nytimes.com",
+          "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPRFRjOUtJenNsVEpVTEQ3X0NWb1YxY2RFOE02OEdTc0VrUDQ1R3RfWG9QZENQa2pRYkRhektKVHBHRENSWjBxbXBWdnI2anJIczlDMUw4NVpVQ05UY2JfV0ZITlVIdnJmSElFSzNnMG5xRlNnZmhSZTRNOE56ZXZScVpIMzBZMmtXVHVoZHVpT1lxTkp5ZlYzdnQ5T3NPVjlKSTdPWmFyUElMSW9wa2JlSS1vOEdvNG9VWFRMTzFpdGNLdDdETm44?oc=5",
+          "published_at": "2026-09-14T04:25+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false
+    },
+    {
+      "id": "20901f0d7de9bd",
+      "headline": "Amazon opens ChatGPT ad inventory to its advertisers, boosting OpenAI ad business",
+      "summary_zh": "亚马逊将其广告主资源接入ChatGPT，为OpenAI广告业务提供助力，AI聊天入口的广告变现路径进一步打开。",
+      "category": "AI Revenue / Monetization",
+      "importance_score": 60,
+      "bubble_direction": "risk_down",
+      "bubble_risk_score": -20,
+      "reason_zh": "对话式AI的广告变现落地并获得亚马逊广告生态支持，为巨额模型投入提供新的可验证收入来源，对泡沫叙事形成一定对冲。",
+      "companies": [
+        "Amazon",
+        "OpenAI"
+      ],
+      "published_at": "2026-09-10T21:01+08:00",
+      "sources": [
+        {
+          "name": "CNBC",
+          "domain": "cnbc.com",
+          "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9Hd1c0Ym54ZVdQTmRKSHZjbnVuOFRvVjh4aUxJVTJqRHpRRjZWemlDYnVuZUZhQUVMZW9heHkyUjhZQ282ZVpuczQyM1M1ZElJaUNpdjg5TGd4Vm9TNlQwNlNKbHB4RXdEWDBkR3JEWdIBdEFVX3lxTE9BbFlMMEtIYWsxakliVUgtbWFHb1ZkaHdPYTZqSE9ucFc0SzhVSTV4SjJsQzRzdTdrTTBUR005RzJLeFpFcExIaW9OU2NDVnk0NXNNRENGNEtnSndybGdmVlF0R0NwY2Y1TU9HLS1SQkVQQmVk?oc=5",
+          "published_at": "2026-09-10T21:01+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false
+    },
+    {
+      "id": "ecf23a738d9465",
+      "headline": "AI safety and 'extinction' warnings spur researchers and US lawmakers to seek slowdown and new rules",
+      "summary_zh": "随着更多OpenAI、Anthropic研究人员加入呼吁AI减速的行列并提供人类灭绝风险警告，更多美国议员寻求出台新的AI监管规则。",
+      "category": "Macro / Regulation",
+      "importance_score": 60,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 18,
+      "reason_zh": "头部AI实验室内部人员集体发出风险警告并推动政策干预，可能引来更严格的开发与部署限制，抬升AI商业化的政策与合规不确定性。",
+      "companies": [
+        "OpenAI",
+        "Anthropic"
+      ],
+      "published_at": "2026-09-10T17:14+08:00",
+      "sources": [
+        {
+          "name": "Reuters",
+          "domain": "reuters.com",
+          "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOMWp5NmlTNEIxeThhRTdwR0VjTy1RYkFpUjh4LS05Y3l1UVhHa0tUOWhGM0s4emNhc20wR213OEZYY0JNTlhFY1lqRDRPMHlWdFF0Nm01UWt4YUpkR2ZvYnRVVXRNS19BSkt0dVdGc0hpZDFMWDQwLVU4elp1WGdlano1VFdQOTEyazN2UzJ1STBhcFBUd1JjQS1mSzdJdmhSYjVVOTI1TVdDb1ZnVXJwbQ?oc=5",
+          "published_at": "2026-09-10T17:14+08:00",
+          "discovered_via": "Google News RSS"
+        },
+        {
+          "name": "CNBC",
+          "domain": "cnbc.com",
+          "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOZmtEXzVYTG9YMUdiR0YxRDFfUlFucHJMSFpPRUdlVEVqd29TTGZ2OEJ2NjNWV1k2UTZEd2RwSFlYMnoyeXN4TzFoamk5b1ZiRkY4RVVtRV9hSmp1aVIwUkI2OGIzckNzOTVPSDNrbG5XLWM4bU4yZlpGOFlZNnAyczdLSGE0VVJTQktz0gGQAUFVX3lxTE01eW9yU0xQdzc3YkxMVmpaY0RKVjRvcWs1SVZEbkw4OVFoeGdTeGg0N0hybl9IU3Nna2dkWmNZaTd6V2swUldYdXVUeUFNTnQ5VnpDUkFrYWkxZ3J6YTR1d0Jtem44dzBZbmQ4cHlnRTMxZW9ScGpnRm4wR2pKRFB5eGFLYUc0cWh0ZkxReHp1RQ?oc=5",
+          "published_at": "2026-09-10T18:12+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false
+    },
+    {
+      "id": "a6686b9254120f",
+      "headline": "Anthropic's IPO marketing meets extinction risk, may beat OpenAI to listing",
+      "summary_zh": "The Information与CNBC报道，Anthropic推进IPO营销之际恰逢安全争议升温，市场人士认为Anthropic可能比OpenAI更早上市。",
+      "category": "AI Valuation / Funding",
+      "importance_score": 60,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 25,
+      "reason_zh": "头部大模型公司加速冲刺公开市场，意味着AI私募高估值将接受公开市场定价检验，同时也把AI估值周期推向后段，IPO窗口与安全争议叠加放大估值波动风险。",
+      "companies": [
+        "Anthropic",
+        "OpenAI"
+      ],
+      "published_at": "2026-09-10T08:01+08:00",
+      "sources": [
+        {
+          "name": "The Information",
+          "domain": "theinformation.com",
+          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQb2trVEdpZFZBc3NXNXdyOUFZYXU4ekpNSHNiWHUyY0xyeXAtTEFKbmRlRVBJMWVyTkZVdFBXQV8zR05XMlJsZk94M0dOOGVQWTVqUnhBYlBYWkN1RDhwUUtrUFJSTDkycTlFbVdDc2t3M2N1MTJEaENrN2huV0tlaDV4QmN1bGkxZ3RJQ1dRck83Z2tTS214RnFKUDlXS3FoRXZPQw?oc=5",
+          "published_at": "2026-09-10T08:01+08:00",
+          "discovered_via": "Google News RSS"
+        },
+        {
+          "name": "CNBC",
+          "domain": "cnbc.com",
+          "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPRG1Kd1pMbklLVGdUdmJnTkxrZl9lMnlwVzVPLWx1bHJNTElmQW14M2haNlFWaklkd2VPbUFNd040cVlHS3ZrVHVlam9kVzVnR3ZmeS1sMlhqTTFZRG1BM1g1TmdZNXc4ZGNhVTlyMW0zb1h0cEFzRkpUdFpDOXlMQ2U4MWNKR29hUXBoaVVGelFvNVo4T2E5R0dybnd3cVN1N1NEckd5aEhBSms5YWd0cFNHRkRfdFBGREE?oc=5",
+          "published_at": "2026-09-10T04:12+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false
+    },
+    {
+      "id": "5ff0a2888d3ff4",
+      "headline": "OpenAI pushes for mandatory national AI safety rules",
+      "summary_zh": "OpenAI公开呼吁美国制定强制性的国家级AI安全规则，并称当前政策窗口期已打开，需要尽快采取行动。",
+      "category": "Macro / Regulation",
+      "importance_score": 58,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 10,
+      "reason_zh": "领先AI公司主动推动强制监管，短期抬高行业合规成本并可能形成准入壁垒，虽有助于长期规范化，但增加AI商业化节奏与政策不确定性的风险。",
+      "companies": [
+        "OpenAI"
+      ],
+      "published_at": "2026-09-10T17:44+08:00",
+      "sources": [
+        {
+          "name": "Reuters",
+          "domain": "reuters.com",
+          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQM1BGN3ZBNTNDNW5DeGNuUmhNSnM3M1JfZ1NGaWF1ZFpvNHg3THdibUkzRkNrSkMwX2g2bDRzaUdmcklQNW9tNDZNTWREV2M0c0I1bXlFejQwZkFhTzRybzFjd1UzWS1BbFFyeWoxbzlWMXpyQTN3MF9ydzZxQ0ktYjhLY1dPRlM1alU1UUdGd0psUFBPOE5KU0VNSTdzNWs4RWFRYlpVaHJMd0Nt?oc=5",
+          "published_at": "2026-09-10T17:44+08:00",
+          "discovered_via": "Google News RSS"
+        },
+        {
+          "name": "OpenAI",
+          "domain": "openai.com",
+          "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE16Nk92bjU2QkFrUWR3enpvc2JRd2RDR2JMRDJpb0RvbFdpOEVDTEtfbVBvbm5NTllaOUNmR1ZDTmtoYXFLalVMSlBtZEpqckZaaTJfMw?oc=5",
+          "published_at": "2026-09-10T07:56+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false
+    },
+    {
+      "id": "c6fdf4857ef2e2",
+      "headline": "California Governor Newsom signs first-in-the-nation AI safeguards",
+      "summary_zh": "加州州长纽森签署全美首个AI安全保护法案，并呼吁联邦政府跟进，加州成为AI监管先行州。",
+      "category": "Macro / Regulation",
+      "importance_score": 58,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 15,
+      "reason_zh": "美国最大AI产业聚集地立法监管，标志州级AI合规要求正式落地，可能抬高模型开发与部署成本，增加AI企业运营与估值的不确定性。",
+      "companies": [],
+      "published_at": "2026-09-10T07:20+08:00",
+      "sources": [
+        {
+          "name": "Official government source",
+          "domain": "gov.ca.gov",
+          "url": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxPbUZRVHhudU1zcDhNQmhkRHpFNk9SOUJlN2EzZHlwZEZPdVFIcVJpU0pieUhsVGFNRUFNTWxidHRFeEJhR3ViMThRNWRHeFZncmp0dTZTazBYcXJLaXJTY0k4VmFCRW5KU0loMlJuWWhSdnhSdzFyTVNndlk2NFNRam9Pdk40U19KUnZaamZzcHYwamFLb2JkQ1hTNHJOc0Uxb1ZMbzJ1Xy1yM0p3NER2bFJuVlZESXZMNVBDRzhzVkRpREtfX1JzWGFMRkVIY2doVDY0dG50WERMdWZmcmtNbWFSYXE5ZmdZbU1sQ2RkWWNQSGc?oc=5",
+          "published_at": "2026-09-10T07:20+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false
+    },
+    {
+      "id": "581b301a9ee18f",
+      "headline": "数据中心或成为巨灾债券的下一个大市场",
+      "summary_zh": "CNBC报道，数据中心可能成为巨灾债券（catastrophe bonds）的下一个大型市场，为数据中心风险提供新型证券化融资渠道。",
+      "category": "AI Credit / Debt",
+      "importance_score": 57,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 35,
+      "reason_zh": "将数据中心风险证券化并引入巨灾债券市场，意味着AI基础设施融资进一步金融化与加杠杆，增加潜在系统性风险。",
+      "companies": [],
+      "published_at": "2026-09-12T13:00+08:00",
+      "sources": [
+        {
+          "name": "CNBC",
+          "domain": "cnbc.com",
+          "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPejh5Z2pxSV9CczNGcjF1V3V2N1ZvWE4tdUhmUTJtam1IbTZZbTBFUURqYjNYczFKQ1dXV3RpOFJ3MnhqdWdndXBtU3h1Ry1jb25fVUJlWjFOZ0FiNnAyb2J4SUhHX1YyY2JKdm0tNDF4SWtkN1Y1SFRod1Y1MnlvVEVqRGFkNnM?oc=5",
+          "published_at": "2026-09-12T13:00+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false
+    },
+    {
+      "id": "f1b9cbe6fe50af",
+      "headline": "US Firms Unleash Record Wave of Bond Sales in European Markets",
+      "summary_zh": "美国企业在欧洲市场掀起创纪录的债券发行潮，融资窗口大开，为包括AI相关投资在内的资本支出提供充裕资金。",
+      "category": "AI Credit / Debt",
+      "importance_score": 57,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 25,
+      "reason_zh": "信用市场供给放量与宽松融资条件支撑AI资本开支继续扩张，但也意味着企业杠杆水平上升，一旦市场情绪逆转，再融资压力将被放大。",
+      "companies": [],
+      "published_at": "2026-09-10T00:42+08:00",
+      "sources": [
+        {
+          "name": "Bloomberg",
+          "domain": "bloomberg.com",
+          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNdGJVR1dKNWhQNGZ4Uzg1d0hEZkMzSWNpa1g0UUw3ZkpCbEdTWXVYQjVPMnZGSGdMXzhpVWlQSmZtZWVIWHJyQUtLU29PQVNwbS1IME9EUEk3WnhhWG9sV0R2MjllcURJajMzZnFOQUtmejV3ZEtzR3VIZEZuSm5YOGw2Zm9nZndBVHRqeHVqR0tBTVlycTFJckVoUS0tMzU0VzVjMkFtMHd5dGlYN2VmX05Paw?oc=5",
+          "published_at": "2026-09-10T00:42+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false
+    },
+    {
+      "id": "3bb82961b53086",
+      "headline": "Nvidia's Huang and Musk Push Back on AI Regulation and Safety Proposals",
+      "summary_zh": "英伟达CEO黄仁勋公开表示不需要AI监管、应由行业自行保障安全，并批评Anthropic提出的AI安全反垄断豁免方案‘完全没有必要’；马斯克则呼吁各AI实验室互相测试模型，抵制放缓AI的呼声。",
+      "category": "Macro / Regulation",
+      "importance_score": 55,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 10,
+      "reason_zh": "行业巨头游说反对监管与安全约束，短期降低AI扩张与估值叙事的政策阻力，但‘由行业自我监管’本身强化了泡沫期的乐观情绪。",
+      "companies": [
+        "Nvidia",
+        "Anthropic"
+      ],
+      "published_at": "2026-09-16T06:13+08:00",
+      "sources": [
+        {
+          "name": "CNBC",
+          "domain": "cnbc.com",
+          "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE44RHpQWkxyODlqZFVxWEs5TjRrN2ZWMktZUGRyWERQMURrUEZSWk53QXRpRURxcmJtMVJvcmIzWTY5Unk3VVBlRThad2J0YVhJcFRkSVdOUlNvU3Jvbzh1anRPTGU3SGZnUXZOOE5GcWtQOXpPMldaR1hCTdIBgAFBVV95cUxNZ1VaYzZvQzNWOHQwX3Vfc1BraXpSRU91R2E5ZWVoSUhaZjNZQ1BfT1hUaFU5aEI5cF95UHE1V3VWX1ExcGpQR2NXc2JsSUJzWGFGRjU3TC1waW1hM0FmbTNRS2c2UlZVcWk3bmxudUNBbXBVYWJDVHRLRm9meG1zQg?oc=5",
+          "published_at": "2026-09-16T06:13+08:00",
+          "discovered_via": "Google News RSS"
+        },
+        {
+          "name": "TechCrunch",
+          "domain": "techcrunch.com",
+          "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOTW5yQnNCZkM1c1JRdjA5eFNnTnV4d0dfa2xPcWNrcGFwZ3Z0eTR1UUlWRFhtMlBKU0JfNVdnU1ZzV25Ea282aXhfZ3BkLXVnZ1pHbTIxQkI1enlyMmh6RldUNllKUkhGNUtDZVJMU3JFaVQzaGtVN29zQWZMOTMwYXc1bjFsNnJ5YVVadGtmN29RTENOSDdOcWREY3V3eTUxS1dIOEEtdXJjdw?oc=5",
+          "published_at": "2026-09-16T08:20+08:00",
+          "discovered_via": "Google News RSS"
+        },
+        {
+          "name": "CNBC",
+          "domain": "cnbc.com",
+          "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9keDdSVmlFNGR6UkprRmZ3U2tLQk5zWXJBcnY1aGVVY0xPdmRxX2lLREtoSy1DU1JUOFlTcG5McldLUGt6RGZIckNRaU94Q1NVVGdUZ19NOVdfNjZqSldyV19CZml0SFA4OGZqNkQwTllPUdIBd0FVX3lxTE9lOFBWNUxHYU8yNlRQcHAxalc0Z3lMSDdxb00zOE04ZkNOWFYwaW1nVE9STmNUU0d6ZHFxME1HTUJ5WG56OVdpMG53T1ZCYnJYS0ZqSEU2SFBfZXpJZTZ4anJvNHpYSEVqLVlPaEtnV28xWHQ5ZEtV?oc=5",
+          "published_at": "2026-09-15T23:02+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false
+    },
+    {
+      "id": "985efcf23f5ee5",
+      "headline": "AI Data Center Boom Collides With Cities Scarred by Heavy Industry",
+      "summary_zh": "AI数据中心建设热潮正与美国曾受重工业创伤的地方社区产生冲突，选址、电力与土地问题引发居民反弹。",
+      "category": "Data Center / Power",
+      "importance_score": 55,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 15,
+      "reason_zh": "超大规模算力基建加速落地并遭地方阻力，反映AI资本开支的非常规扩张及其社会成本，是泡沫形成期的典型特征。",
+      "companies": [],
+      "published_at": "2026-09-16T05:47+08:00",
+      "sources": [
+        {
+          "name": "TechCrunch",
+          "domain": "techcrunch.com",
+          "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQSUhjREhxYkhIVTU2WXZVNHplQ09DM2Vlbzg4VXF0OHpjcFFSY2lPSHRqNDRxd0pwUkZHYTZyakNMem9QdThDdkNET0RsU2JobmVPWFN2cHM3QmlJdk56UE9iMF81bXE1aTJVbG95UUg3MDhDalBXZUh2RU9GSi05dUN1X295YU9zSDB2SzlhS2hVYzJDWmFzNHpKLTFIbW9Wa0dmS3M0Q0FvR28?oc=5",
+          "published_at": "2026-09-16T05:47+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false
+    },
+    {
+      "id": "a819accb3955d4",
+      "headline": "Anthropic Signs First Australia Data Centre Agreement",
+      "summary_zh": "据路透报道，Anthropic签署其在澳大利亚的首个数据中心租约，看中当地有利的政治环境与丰富的可再生能源。",
+      "category": "Data Center / Power",
+      "importance_score": 55,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 15,
+      "reason_zh": "头部AI公司持续加码全球算力基建，数据中心与GPU需求进一步上行，同时加剧对过度投资的担忧。",
+      "companies": [
+        "Anthropic"
+      ],
+      "published_at": "2026-09-16T01:00+08:00",
+      "sources": [
+        {
+          "name": "Reuters",
+          "domain": "reuters.com",
+          "url": "https://www.reuters.com/world/asia-pacific/anthropic-signs-first-australia-data-centre-agreement-2026-09-16/",
+          "published_at": "2026-09-16T01:00+08:00",
+          "discovered_via": "Bing News RSS"
+        }
+      ],
+      "critical": false
+    },
+    {
+      "id": "4a57f73d2360f8",
+      "headline": "OpenAI Eyes Canada for Data Centers",
+      "summary_zh": "OpenAI考虑在加拿大建设数据中心，并公开赞赏卡尼政府的相关计划。",
+      "category": "Data Center / Power",
+      "importance_score": 55,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 15,
+      "reason_zh": "AI巨头全球扩张数据中心布局，资本开支与算力需求继续上行，强化估值与投入互相推动的泡沫逻辑。",
+      "companies": [
+        "OpenAI"
+      ],
+      "published_at": "2026-09-16T00:58+08:00",
+      "sources": [
+        {
+          "name": "Bloomberg",
+          "domain": "bloomberg.com",
+          "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOM0gwNHZJLUJhUzYyYmFRbWZxNmQyZ3pSXzRidzdneHFOdF9GUDZzYjItQ3R2YW9YTlFodkZhVTJxTlhQSkZ6bUlTX21BRGVPQlVLT0pmV3N1VmhTQlVUVjJlc0lfbldSN1FFSkh3ZXR5c2dxVW0tdmthaHhHU2RZc1dJR1F3MFdzUnlENXotNEEzOV9MTWphUTI1azVqeEJwTU1DTlZlNktxQVJTWm9YV2FFdGpRMU9ybnR6VWxrUQ?oc=5",
+          "published_at": "2026-09-16T00:58+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false
+    },
+    {
+      "id": "e6891db37afede",
+      "headline": "Amodei提出“AI减速”主张，称中国是最棘手难题",
+      "summary_zh": "CNBC报道，Anthropic的Amodei提出AI减速主张，并称中国因素是最大难题；相关讨论也牵动其即将到来的IPO。",
+      "category": "AI Valuation / Funding",
+      "importance_score": 55,
+      "bubble_direction": "neutral",
+      "bubble_risk_score": -10,
+      "reason_zh": "行业领袖公开呼吁放缓AI发展，反映对过快扩张的担忧，可能边际抑制投资狂热，但短期对估值影响有限。",
+      "companies": [
+        "Anthropic"
+      ],
+      "published_at": "2026-09-14T12:01+08:00",
+      "sources": [
+        {
+          "name": "CNBC",
+          "domain": "cnbc.com",
+          "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPRWFqQXlMTHZpSkhROE1iQTNDUEtibHVrRFNpRmdjNF9GMU91WFpWZWo0YU9fNEU0c3pvUnFsNnYxQWVvX285dFVEa2x4RUtySFNsR2dHaDJoTkJja2hWMW5kLUlxYl9sWWpBbUxTbzltTllJY1ZvSzBxOWEyRkp3czZpRGFjWVpKSjVtbFdHdk83ekpHN1drMzJFU1E3UXFwNjhlc05abWtzZ9IBrwFBVV95cUxQR3Q5czJ0UGpqdXhDbHVhYnR5S1dMdWszUGVZRkFjSkN1cmhwNlMtSmZNWHp1UEQ4Y09uYWtrV3dIbVdLTmdUUy01dHo5SWZoTG8zUW9lcXlGZ0NGYjR1MWZSVU1aOV9UQXEzWUswb3N4ejA0MjJkQUNIcHNBcm9McjlrRTZBMlJpSHRvWVZDZ3g1aHVSUmhGV1hyWXZGd1RpVTN3TkdFSWl4cVlUSHg4?oc=5",
+          "published_at": "2026-09-14T12:01+08:00",
+          "discovered_via": "Google News RSS"
+        },
+        {
+          "name": "CNBC",
+          "domain": "cnbc.com",
+          "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9Ebm16S0djWjFGYTEyTkZEdFdFR3FjdjRMdE5DeVE1QllJOG1UNmE5bDNTSEVqdkVRcGdSckN1N0xyWVh2aEc1bm5FNHpvNFlIYnJQaEI4eFR4TnNnM0hKRkhaOUNCLXVjTGJUZlN0YmpHZmJTdkNwamNDTkLSAYIBQVVfeXFMTmJXdGZqZG1xWURORnhQc0FLRjN4VGxQSG4yTkhxRzNjWWFtZzNQamFPZ3Z1TS1pVm13bzdHaWU0d0FER1BQUnlHUnk4U00zbmU0aGdfd3YwMzBaaWpvNlBvRjA2NFVIWWY3ZGduU1U2SkdSQWMyUlRiM2UxdkpHVElpZw?oc=5",
+          "published_at": "2026-09-13T23:46+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false
+    },
+    {
+      "id": "34495ce7c3017d",
+      "headline": "NVIDIA expands AI infrastructure capacity with Australia data center ecosystem",
+      "summary_zh": "英伟达宣布与澳大利亚数据中心生态合作，扩大AI基础设施产能，进一步拓展区域算力布局。",
+      "category": "Semiconductor / GPU Demand",
+      "importance_score": 55,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 12,
+      "reason_zh": "英伟达持续在区域市场扩张AI基础设施，反映算力供给端继续加码，需求与产能同步扩张下需警惕后续利用率与回报兑现风险。",
+      "companies": [
+        "NVIDIA"
+      ],
+      "published_at": "2026-09-10T08:09+08:00",
+      "sources": [
+        {
+          "name": "NVIDIA",
+          "domain": "nvidia.com",
+          "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPd2dkbUp0Zi13THRQMU1kMXNIZVktQVN5NVR2cEszemg1RWM1cURfcDBCRGhLMGJfc3NTaW12anhJeGVDb1FfTC1SaHUzcnVUTzBnVmJseHBuUngteFBFLUZQT2FkMzBaTEEzclA0WFJGT0FmZ1htaFFSX1YwNnVTNk1yT0dnNVhzUm9Vbms0U0N0ck5UNVpyUlNZZ2JaQ3NDZ0hHUEw1VE5BMjZ0dGFIX2plWTRqRHRDeG5yQTFnY3pHZlFhcG9Ndw?oc=5",
+          "published_at": "2026-09-10T08:09+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false
+    },
+    {
+      "id": "ba269eacb7392d",
+      "headline": "Massachusetts imposes new clean power rules on data centers",
+      "summary_zh": "马萨诸塞州对数据中心实施新的清洁电力规则，要求其满足更高的绿色用电标准，AI数据中心面临电力合规压力。",
+      "category": "Data Center / Power",
+      "importance_score": 55,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 18,
+      "reason_zh": "电力与清洁能源合规要求收紧，直接推高数据中心建设与运营成本，AI算力扩张的能源瓶颈与监管摩擦进一步显现。",
+      "companies": [],
+      "published_at": "2026-09-10T05:43+08:00",
+      "sources": [
+        {
+          "name": "TechCrunch",
+          "domain": "techcrunch.com",
+          "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPRFVqSF9UMzZ2akpONjZtWXU3SG9zdHRoQl9CSVU2WUkxaVNiVWhmQzdSTHREZmVCVFIyZTUyRzZ5aHJRZ3VHZUhOcnhFNkhyMmVYMlkyRUo4TDNhN1U2aVFlbzNvaEd0bXVpLTBuR0dhQTNES2tyeVFTQ21nUnJuaThjYTZwVnNfamR1cmJBZEE1bVF2U2dyNA?oc=5",
+          "published_at": "2026-09-10T05:43+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false
+    },
+    {
+      "id": "e29001ad70e429",
+      "headline": "US Officials Signal Skepticism on Regulating AI Through Enforcement",
+      "summary_zh": "美国司法部长Blanche反对以‘起诉代监管’的方式监管AI，FTC主席也对要求给予AI反垄断豁免的呼声表示怀疑。",
+      "category": "Macro / Regulation",
+      "importance_score": 52,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 8,
+      "reason_zh": "执法机构倾向宽松、对反垄断豁免持保留态度，短期降低AI巨头并购与扩张的监管阻力，边际上推升泡沫风险。",
+      "companies": [],
+      "published_at": "2026-09-15T23:15+08:00",
+      "sources": [
+        {
+          "name": "Reuters",
+          "domain": "reuters.com",
+          "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQRW1ON2duQ1MzekVpRGVudVNwQjdXaERxcXVRTHZRa3AwZ1NVd0xhSmRmcHRqZkhCZVJ2Q3JISmNEbzhKNng2QUY5YXF5R2dmVTl6NGJJMlJPZUp5QUxNMVBLdDlXdjBZZGpKZ1M4STBsZ2FlcjRoQjFLY2lNcExzWFd3QklfZEpEV3NKakxvcTlpUDA3QmQ0?oc=5",
+          "published_at": "2026-09-15T23:15+08:00",
+          "discovered_via": "Google News RSS"
+        },
+        {
+          "name": "Bloomberg",
+          "domain": "bloomberg.com",
+          "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNakpoelgxRW5SaXNwZlhCM0h4Yk9CT3ZIY2hkRklzWDFEZjE5MUpVSkZaNjNFQ0R5VTNrRU1MQUNISmJHTE0tTzFaYkRCV2h3TWVCZGdjd1V0Q3ZLWmhtaXg2MUQwNUt3aTYxaWpETU4zdEoxejFLZndIaU81UGIzVEpoUzNRNkJIWTlyRk92OUlITWYwWjlGc3VjcWxvSV8yUWExWW0xc1Q0YW9hTzhOLUN3?oc=5",
+          "published_at": "2026-09-15T23:17+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false
+    },
+    {
+      "id": "0ed22b2f1e72d1",
+      "headline": "华盛顿与国会在AI监管上陷入僵局",
+      "summary_zh": "CNBC与《纽约时报》报道，华盛顿急于回应AI护栏呼声但行动窗口收窄，两党高层承认AI风险上升却无快速解决方案。",
+      "category": "Macro / Regulation",
+      "importance_score": 52,
+      "bubble_direction": "neutral",
+      "bubble_risk_score": 0,
+      "reason_zh": "监管迟迟无法落地使政策不确定性延续，对AI投资与估值的短期方向性影响偏中性。",
+      "companies": [],
+      "published_at": "2026-09-14T00:56+08:00",
+      "sources": [
+        {
+          "name": "CNBC",
+          "domain": "cnbc.com",
+          "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE43ZFdOcUNiZmFDbmRDV3RyN3ZxekV1S3BONUxRZ0twQWlCcFFublhOanpUS3VUaHNiZFBBQ2FiN08wZGxKMW5KTHB3SV9Nc0lYcjhMQTdZZjdkMUtZbzU5dG9aX0t6SWJTUGhLVkJjeGprc2NkbUVtS1RHUk_SAYIBQVVfeXFMTjRGRTZPVklWdGtRb1N3NF8yZlBfTmxSNjZnRHp1WE5ybzZlZXJMZWdNT3JmbGJnTjlQR1JFbEhkQUxzZkdfNGZNeVJkYklSdDd4NGVRdkRBdmZrRi1CS1F5Z2sxZmpFYTlSb0o1WlBiTWI1Z3djM1dUeVFjRlJETjR6Zw?oc=5",
+          "published_at": "2026-09-14T00:56+08:00",
+          "discovered_via": "Google News RSS"
+        },
+        {
+          "name": "New York Times",
+          "domain": "nytimes.com",
+          "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPc3NTenhlaVBsazZZaUR4TlFZSzl0VzY4aXZqa3BrZHRoQ3N6a3JpR3BpQW5Nc3kzUk5hV1Eydk10SlVLUDRvMDMxRHQ2TlBUVlUxUmp0ZGZzbzlySEIzZ2tWcG1JTzZrMHVLLWdqb2E5ei14d0MzY1FlQmxWSHYzWGF2bkFrRjRkX0ZPUV9LMA?oc=5",
+          "published_at": "2026-09-13T23:39+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false
+    },
+    {
+      "id": "3f6b6e9100b8b5",
+      "headline": "Dell Seeks to Raise $4 Billion From Bond Sale to Refinance Debt",
+      "summary_zh": "戴尔拟通过发行40亿美元债券进行债务再融资，AI服务器供应链厂商继续借助债券市场管理资产负债结构。",
+      "category": "AI Credit / Debt",
+      "importance_score": 52,
+      "bubble_direction": "neutral",
+      "bubble_risk_score": 8,
+      "reason_zh": "属于债务再融资而非新增AI资本开支，短期影响中性；但若AI服务器需求不及预期，硬件厂商的债务偿付能力值得持续关注。",
+      "companies": [
+        "Dell"
+      ],
+      "published_at": "2026-09-10T03:23+08:00",
+      "sources": [
+        {
+          "name": "Bloomberg",
+          "domain": "bloomberg.com",
+          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQdWNrUjZIQ0hJTWpBaUpXcGxGb3QxSkJVSjd3eEkyODFmSVljSmRLQml3U3BMaWk5bmttQ2xfQ1A4ajNjeFRuNGlzcUR0RUd3X2s3dnVaeUdPdDhBaGZmODhfWFlpR2lGTUhyNlhiQk9OZnRkY1ZMbVNjclRNSE9XWHUzc0E4aXhvalBtcGZlbHB4MWY2ZWxIbTdEeG1wOXMxb0gyZkp0OXRSU2RBSEdwVzlhYw?oc=5",
+          "published_at": "2026-09-10T03:23+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false
+    },
+    {
+      "id": "239366904b52e4",
+      "headline": "AI Data Centers Won't Create as Many UK Jobs as Tech Sector Projects, Think Tank Warns",
+      "summary_zh": "智库警告称，AI数据中心为英国创造的就业岗位将远低于科技行业的宣传，其经济效益被明显高估。",
+      "category": "Data Center / Power",
+      "importance_score": 50,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 10,
+      "reason_zh": "对数据中心就业拉动效应的质疑，反映AI基建的社会效益叙事正被重新审视，可能削弱政策支持力度，边际增加基建投资的政策与舆论风险。",
+      "companies": [],
+      "published_at": "2026-09-09T20:26+08:00",
+      "sources": [
+        {
+          "name": "CNBC",
+          "domain": "cnbc.com",
+          "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE1VTTZSeEh0NU5UNXE5RElRbUlyZ3pMTW44Z3JuUmxzajM0dzNYMDNSQW5aWEE3UFBjTVg0Z2JFZDlLOG16VmVWRi1ocTUxbEdYYWdXU2FGSVBkOXlPblVYTlJlUVdrUl9zU1c3a0ZZeS14aENGUG9ZbU13c9IBgAFBVV95cUxOSTJWLVdCcjlFdHBzNGdwcF9lNXFFM3RSMFZCa0hCbFc0WTFXeHJORkttTUJndWxVSFgyZnh0QzN1b3BCcFR6VzQtNHhqaUdiRWpZYVJmUk13dTdiU2hnQkNXUXkwV250Ni11OTR1ZExJQU9vM2tqT3FjMEFyeFF0TQ?oc=5",
+          "published_at": "2026-09-09T20:26+08:00",
+          "discovered_via": "Google News RSS"
         }
       ],
       "critical": false
