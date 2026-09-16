@@ -6,6 +6,7 @@ on:
     branches: [main]
     paths:
       - 'scripts/update_ai_market_liquidity.py'
+      - 'scripts/bootstrap_treasury_history.py'
       - '.github/workflows/update-ai-market-liquidity.yml'
   schedule:
     - cron: '30 5 * * 2-6'
@@ -30,7 +31,7 @@ permissions:
 
 concurrency:
   group: ai-bubble-market-liquidity
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   update:
@@ -64,9 +65,7 @@ jobs:
           done
 
           if [[ "$EVENT" == "push" && "$BOOTSTRAP_MISSING" == "1" ]]; then
-            # First rebuild after the source switch: fetch only the four affected
-            # series instead of re-downloading unrelated market and credit history.
-            GROUPS_TO_RUN='macro vix'
+            GROUPS_TO_RUN='vix'
           elif [[ "$EVENT" == "workflow_dispatch" || "$EVENT" == "push" ]]; then
             GROUPS_TO_RUN='all'
           else
@@ -80,8 +79,10 @@ jobs:
               *) GROUPS_TO_RUN='all' ;;
             esac
           fi
-          echo "bootstrap_missing=$BOOTSTRAP_MISSING"
+          echo "bootstrap_missing=$BOOTSTRAP_MISSING" >> "$GITHUB_OUTPUT"
           echo "groups=$GROUPS_TO_RUN" >> "$GITHUB_OUTPUT"
+          echo "bootstrap_missing=$BOOTSTRAP_MISSING"
+          echo "groups=$GROUPS_TO_RUN"
       - name: Update data
         env:
           FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
@@ -89,6 +90,9 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          if [[ '${{ steps.groups.outputs.bootstrap_missing }}' == '1' && '${{ github.event_name }}' == 'push' ]]; then
+            python scripts/bootstrap_treasury_history.py
+          fi
           for group in ${{ steps.groups.outputs.groups }}; do
             python scripts/update_ai_market_liquidity.py --group "$group"
           done
@@ -131,7 +135,7 @@ jobs:
         run: |
           set -euo pipefail
           git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git config user.email '4189828+github-actions[bot]@users.noreply.github.com'
           git add data/ai_bubble/market_liquidity/
           if git diff --cached --quiet; then exit 0; fi
           git commit -m 'data: refresh AI bubble market liquidity'
