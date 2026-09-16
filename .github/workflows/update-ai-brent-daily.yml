@@ -14,7 +14,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: ai-brent-daily
+  group: ai-brent-data
   cancel-in-progress: false
 
 jobs:
@@ -48,7 +48,6 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add data/ai_bubble/macro/brent.json
           git commit -m 'data: update Brent daily history'
-          git pull --rebase origin main
-          git push origin HEAD:main
+          bash scripts/git_commit_push_retry.sh
 
 # manual refresh trigger: 2026-09-12 13:22 BJT
