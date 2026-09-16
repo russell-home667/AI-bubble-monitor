@@ -2,7 +2,7 @@
   "module": "AI Bubble Monitor - Market & Liquidity",
   "step": 5,
   "timezone": "Asia/Shanghai",
-  "generated_at_bjt": "2026-09-16T22:13:33+08:00",
+  "generated_at_bjt": "2026-09-16T22:43:50+08:00",
   "indicators": {
     "ndx": {
       "name": "Nasdaq-100",
@@ -87,7 +87,7 @@
     "vix": {
       "name": "Cboe Volatility Index",
       "observation_date": "2026-09-15",
-      "value": 16.73,
+      "value": 16.879999,
       "unit": "index",
       "change_1d_pct": 0.5848,
       "change_5d_pct": 9.4148,
@@ -107,10 +107,10 @@
       "close_observation_date": "2026-09-15",
       "close_source": "Yahoo Finance",
       "close_source_url": "https://finance.yahoo.com/quote/%5EVIX/history/",
-      "live_quote_timestamp": "2026-09-16T21:56:46+08:00",
+      "live_quote_timestamp": "2026-09-16T22:20:46+08:00",
       "live_quote_source": "Yahoo Finance ^VIX",
       "live_quote_status": "DELAYED",
-      "live_change_1d_pct": -2.7326,
+      "live_change_1d_pct": -1.8605,
       "display_layer": "live_quote"
     },
     "dgs10": {
@@ -131,7 +131,7 @@
       "close_observation_date": "2026-09-15",
       "close_source": "U.S. Department of the Treasury",
       "close_source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve",
-      "live_quote_timestamp": "2026-09-16T22:11:48+08:00",
+      "live_quote_timestamp": "2026-09-16T22:35:55+08:00",
       "live_quote_source": "Investing.com US 10Y Bond Yield",
       "live_quote_status": "INVESTING_REALTIME",
       "live_change_1d_pct": -0.5004,
@@ -140,7 +140,7 @@
     "dgs30": {
       "name": "30-Year Treasury Par Yield Curve Rate",
       "observation_date": "2026-09-15",
-      "value": 5.351,
+      "value": 5.345,
       "unit": "%",
       "change_1obs": 0.02,
       "change_5obs": 0.11,
@@ -155,10 +155,10 @@
       "close_observation_date": "2026-09-15",
       "close_source": "U.S. Department of the Treasury",
       "close_source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve",
-      "live_quote_timestamp": "2026-09-16T22:11:48+08:00",
+      "live_quote_timestamp": "2026-09-16T22:35:56+08:00",
       "live_quote_source": "Investing.com US 30Y Bond Yield",
       "live_quote_status": "INVESTING_REALTIME",
-      "live_change_1d_pct": -0.2238,
+      "live_change_1d_pct": -0.3356,
       "display_layer": "live_quote"
     },
     "dfii10": {
@@ -187,7 +187,7 @@
       "source": "ICE BofA / FRED",
       "source_symbol": "BAMLH0A0HYM2",
       "source_url": "https://fred.stlouisfed.org/series/BAMLH0A0HYM2",
-      "fetched_at_bjt": "2026-09-16T22:13:33+08:00",
+      "fetched_at_bjt": "2026-09-16T22:43:49+08:00",
       "status": "fresh",
       "data_layer": "official_close"
     },
@@ -202,7 +202,7 @@
       "source": "ICE BofA / FRED",
       "source_symbol": "BAMLC0A0CM",
       "source_url": "https://fred.stlouisfed.org/series/BAMLC0A0CM",
-      "fetched_at_bjt": "2026-09-16T22:13:33+08:00",
+      "fetched_at_bjt": "2026-09-16T22:43:49+08:00",
       "status": "fresh",
       "data_layer": "official_close"
     },
@@ -217,7 +217,7 @@
       "source": "Moody's / Federal Reserve / FRED",
       "source_symbol": "BAA10Y",
       "source_url": "https://fred.stlouisfed.org/series/BAA10Y",
-      "fetched_at_bjt": "2026-09-16T22:13:33+08:00",
+      "fetched_at_bjt": "2026-09-16T22:43:50+08:00",
       "status": "fresh",
       "data_layer": "official_close"
     }
