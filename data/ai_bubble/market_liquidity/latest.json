@@ -2,7 +2,7 @@
   "module": "AI Bubble Monitor - Market & Liquidity",
   "step": 5,
   "timezone": "Asia/Shanghai",
-  "generated_at_bjt": "2026-09-16T16:41:28+08:00",
+  "generated_at_bjt": "2026-09-16T16:54:40+08:00",
   "indicators": {
     "ndx": {
       "name": "Nasdaq-100",
@@ -87,7 +87,7 @@
     "vix": {
       "name": "Cboe Volatility Index",
       "observation_date": "2026-09-15",
-      "value": 17.059999,
+      "value": 17.120001,
       "unit": "index",
       "change_1d_pct": 0.5848,
       "change_5d_pct": 9.4148,
@@ -107,10 +107,10 @@
       "close_observation_date": "2026-09-15",
       "close_source": "Yahoo Finance",
       "close_source_url": "https://finance.yahoo.com/quote/%5EVIX/history/",
-      "live_quote_timestamp": "2026-09-16T16:26:16+08:00",
+      "live_quote_timestamp": "2026-09-16T16:39:31+08:00",
       "live_quote_source": "Yahoo Finance ^VIX",
       "live_quote_status": "DELAYED",
-      "live_change_1d_pct": -0.814,
+      "live_change_1d_pct": -0.4651,
       "display_layer": "live_quote",
       "live_quote_source_url": "https://finance.yahoo.com/quote/%5EVIX/"
     },
@@ -132,12 +132,12 @@
       "close_observation_date": "2026-09-15",
       "close_source": "U.S. Department of the Treasury",
       "close_source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve",
-      "live_quote_timestamp": "2026-09-16T16:41:26+08:00",
-      "live_quote_source": "Investing.com US 10Y Bond Yield",
-      "live_quote_status": "INVESTING_REALTIME",
-      "live_change_1d_pct": 0.1601,
+      "live_quote_timestamp": "2026-09-16T16:54:40+08:00",
+      "live_quote_source": "TradingView TVC:US10Y",
+      "live_quote_status": "TRADINGVIEW_FALLBACK",
+      "live_change_1d_pct": -0.04,
       "display_layer": "live_quote",
-      "live_quote_source_url": "https://www.investing.com/rates-bonds/u.s.-10-year-bond-yield"
+      "live_quote_source_url": "https://www.tradingview.com/symbols/TVC-US10Y/"
     },
     "dgs30": {
       "name": "30-Year Treasury Par Yield Curve Rate",
@@ -157,12 +157,12 @@
       "close_observation_date": "2026-09-15",
       "close_source": "U.S. Department of the Treasury",
       "close_source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve",
-      "live_quote_timestamp": "2026-09-16T16:41:28+08:00",
+      "live_quote_timestamp": "2026-09-16T16:54:40+08:00",
       "live_quote_source": "Investing.com US 30Y Bond Yield",
       "live_quote_status": "INVESTING_REALTIME",
-      "live_change_1d_pct": null,
+      "live_change_1d_pct": 0.2051,
       "display_layer": "live_quote",
-      "live_quote_source_url": "https://www.investing.com/rates-bonds/u.s.-30-year-bond-yield-historical-data"
+      "live_quote_source_url": "https://www.investing.com/rates-bonds/u.s.-30-year-bond-yield"
     },
     "dfii10": {
       "name": "10-Year Treasury Par Real Yield Curve Rate",
