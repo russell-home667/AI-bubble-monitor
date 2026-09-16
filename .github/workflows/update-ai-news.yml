@@ -111,5 +111,4 @@ jobs:
             exit 0
           fi
           git commit -m "data: refresh AI bubble news radar"
-          git pull --rebase origin main
-          git push origin HEAD:main
+          bash scripts/git_commit_push_retry.sh
