@@ -26,6 +26,7 @@ YAHOO_GOLD_PAGE = "https://finance.yahoo.com/quote/XAUUSD%3DX/history/"
 GOLDPRICE_BARS_BASE = "https://api.goldprice.dev/v1/bars"
 GOLDPRICE_DOCS = "https://goldprice.dev/docs/historical"
 XAUS_SPOT_URL = "https://xaus.com/api/v1/spot?compact=1"
+XAUS_HISTORY_URL = "https://xaus.com/api/v1/history"
 GOLD_API_SPOT_URL = "https://api.gold-api.com/price/XAU"
 INVESTING_GOLD_URLS = [
     "https://www.investing.com/currencies/xau-usd",
@@ -285,6 +286,46 @@ def fetch_investing_previous_close(live_price: float | None = None):
     raise RuntimeError(" | ".join(errors))
 
 
+
+def fetch_xaus_previous_close(live_price: float | None = None):
+    """Return the latest completed XAU/USD daily close from XAUS history."""
+    payload = request_json(XAUS_HISTORY_URL, 35)
+    points = payload.get("points") or []
+    today = datetime.now(NY_TZ).date()
+    candidates = []
+    for point in points:
+        raw_date = point.get("d") or point.get("date")
+        raw_close = point.get("c") if point.get("c") is not None else point.get("close")
+        if not raw_date or raw_close is None:
+            continue
+        try:
+            d = datetime.fromisoformat(str(raw_date)[:10]).date()
+            close = float(raw_close)
+        except Exception:
+            continue
+        # Exclude the current calendar/session date: the card is explicitly
+        # comparing to the prior *completed* daily close.
+        if d >= today or not 100.0 < close < 20000.0:
+            continue
+        candidates.append((d, close))
+    if not candidates:
+        raise RuntimeError("XAUS history returned no completed daily close")
+    d, previous_close = max(candidates, key=lambda x: x[0])
+    # Normal weekend / long-weekend gaps are acceptable, but an older series is not.
+    if (today - d).days > 4:
+        raise RuntimeError(f"XAUS prior completed close is stale: {d}")
+    if live_price and abs(float(live_price) / previous_close - 1.0) > 0.15:
+        raise RuntimeError(
+            f"XAUS previous close/live quote divergence exceeds 15% ({previous_close} vs {live_price})"
+        )
+    return {
+        "previous_close": round(previous_close, 2),
+        "previous_close_source": "XAUS Gold Data API daily history",
+        "previous_close_url": XAUS_HISTORY_URL,
+        "previous_close_transport": "requests_json",
+        "previous_close_observation_date": d.isoformat(),
+    }
+
 def fresh_history_previous_close(rows):
     session_date = datetime.now(NY_TZ).date()
     candidates = []
@@ -301,7 +342,8 @@ def fresh_history_previous_close(rows):
     if not candidates:
         return None
     d, value, source = max(candidates, key=lambda x: x[0])
-    if (session_date - d).days > 4:
+    expected = expected_previous_gold_session_date()
+    if d != expected:
         return None
     return {
         "previous_close": round(value, 2),
@@ -433,13 +475,27 @@ def main():
     previous_close_info = None
     try:
         previous_close_info = fetch_investing_previous_close(float(quote.get("price")))
-    except Exception as exc:
-        previous_close_warning = str(exc)
-        previous_close_info = fresh_history_previous_close(merged)
-        if previous_close_info is None:
-            print(f"Previous-close warning: {exc}; no sufficiently fresh completed daily close available")
-        else:
-            print(f"Previous-close warning: {exc}; using fresh stored daily close {previous_close_info['previous_close_observation_date']}")
+    except Exception as investing_exc:
+        previous_close_warning = f"Investing.com: {investing_exc}"
+        try:
+            previous_close_info = fetch_xaus_previous_close(float(quote.get("price")))
+            print(
+                f"Previous-close fallback: Investing.com unavailable; using XAUS daily close "
+                f"{previous_close_info['previous_close_observation_date']}"
+            )
+        except Exception as xaus_exc:
+            previous_close_warning += f" | XAUS history: {xaus_exc}"
+            previous_close_info = fresh_history_previous_close(merged)
+            if previous_close_info is None:
+                print(
+                    f"Previous-close warning: {previous_close_warning}; "
+                    "no validated prior completed daily close available"
+                )
+            else:
+                print(
+                    f"Previous-close fallback: {previous_close_warning}; using stored daily close "
+                    f"{previous_close_info['previous_close_observation_date']}"
+                )
 
     if previous_close_info:
         quote.update(previous_close_info)
