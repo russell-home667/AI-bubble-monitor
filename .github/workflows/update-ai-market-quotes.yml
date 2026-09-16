@@ -86,24 +86,17 @@ jobs:
               if row.get('quote_status') != 'STALE_STORED_QUOTE' and not any(x in source for x in allowed):
                   raise SystemExit(f'{k} unexpected source: {source}')
               print(k, price, row.get('quote_status'), source, row.get('timestamp'))
-
-          latest=json.loads(Path('data/ai_bubble/market_liquidity/latest.json').read_text(encoding='utf-8'))
-          indicators=latest.get('indicators') or {}
-          for k in ('vix','dgs10','dgs30'):
-              if k in indicators and indicators[k].get('display_layer') != 'live_quote':
-                  raise SystemExit(f'{k} was not overlaid into latest.json')
           PY
 
       - name: Commit refreshed quotes
         run: |
           set -euo pipefail
-          if git diff --quiet -- data/ai_bubble/market_liquidity/market_quotes.json data/ai_bubble/market_liquidity/latest.json assets/source-links.js; then
+          if git diff --quiet -- data/ai_bubble/market_liquidity/market_quotes.json assets/source-links.js; then
             echo 'Quotes checked; no externally visible changes'
             exit 0
           fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add data/ai_bubble/market_liquidity/market_quotes.json data/ai_bubble/market_liquidity/latest.json assets/source-links.js
+          git add data/ai_bubble/market_liquidity/market_quotes.json assets/source-links.js
           git commit -m 'data: refresh live rates and market quotes'
-          git pull --rebase origin main
-          git push origin HEAD:main
+          bash scripts/git_commit_push_retry.sh
