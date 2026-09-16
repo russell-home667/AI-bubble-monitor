@@ -2,7 +2,7 @@
   "module": "AI Bubble Monitor - Market & Liquidity",
   "step": 5,
   "timezone": "Asia/Shanghai",
-  "generated_at_bjt": "2026-09-16T10:05:49+08:00",
+  "generated_at_bjt": "2026-09-16T16:27:56+08:00",
   "indicators": {
     "ndx": {
       "name": "Nasdaq-100",
@@ -87,7 +87,7 @@
     "vix": {
       "name": "Cboe Volatility Index",
       "observation_date": "2026-09-15",
-      "value": 17.200001,
+      "value": 17.120001,
       "unit": "index",
       "change_1d_pct": 0.5848,
       "change_5d_pct": 9.4148,
@@ -107,16 +107,17 @@
       "close_observation_date": "2026-09-15",
       "close_source": "Yahoo Finance",
       "close_source_url": "https://finance.yahoo.com/quote/%5EVIX/history/",
-      "live_quote_timestamp": "2026-09-16T04:15:00+08:00",
+      "live_quote_timestamp": "2026-09-16T16:12:46+08:00",
       "live_quote_source": "Yahoo Finance ^VIX",
       "live_quote_status": "DELAYED",
-      "live_change_1d_pct": 0.5848,
-      "display_layer": "live_quote"
+      "live_change_1d_pct": -0.4651,
+      "display_layer": "live_quote",
+      "live_quote_source_url": "https://finance.yahoo.com/quote/%5EVIX/"
     },
     "dgs10": {
       "name": "10-Year Treasury Par Yield Curve Rate",
       "observation_date": "2026-09-15",
-      "value": 4.996,
+      "value": 5.006,
       "unit": "%",
       "change_1obs": 0.03,
       "change_5obs": 0.2,
@@ -131,16 +132,17 @@
       "close_observation_date": "2026-09-15",
       "close_source": "U.S. Department of the Treasury",
       "close_source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve",
-      "live_quote_timestamp": "2026-09-16T02:59:00+08:00",
-      "live_quote_source": "Yahoo Finance ^TNX",
-      "live_quote_status": "DELAYED",
-      "live_change_1d_pct": 0.7055,
-      "display_layer": "live_quote"
+      "live_quote_timestamp": "2026-09-16T16:27:53+08:00",
+      "live_quote_source": "Investing.com US 10Y Bond Yield",
+      "live_quote_status": "INVESTING_REALTIME",
+      "live_change_1d_pct": null,
+      "display_layer": "live_quote",
+      "live_quote_source_url": "https://www.investing.com/rates-bonds/u.s.-10-year-bond-yield-historical-data"
     },
     "dgs30": {
       "name": "30-Year Treasury Par Yield Curve Rate",
       "observation_date": "2026-09-15",
-      "value": 5.364,
+      "value": 5.375,
       "unit": "%",
       "change_1obs": 0.02,
       "change_5obs": 0.11,
@@ -155,11 +157,12 @@
       "close_observation_date": "2026-09-15",
       "close_source": "U.S. Department of the Treasury",
       "close_source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve",
-      "live_quote_timestamp": "2026-09-16T02:59:00+08:00",
-      "live_quote_source": "Yahoo Finance ^TYX",
-      "live_quote_status": "DELAYED",
-      "live_change_1d_pct": 0.6568,
-      "display_layer": "live_quote"
+      "live_quote_timestamp": "2026-09-16T16:27:56+08:00",
+      "live_quote_source": "Investing.com US 30Y Bond Yield",
+      "live_quote_status": "INVESTING_REALTIME",
+      "live_change_1d_pct": null,
+      "display_layer": "live_quote",
+      "live_quote_source_url": "https://www.investing.com/rates-bonds/u.s.-30-year-bond-yield-streaming-chart"
     },
     "dfii10": {
       "name": "10-Year Treasury Par Real Yield Curve Rate",
@@ -229,6 +232,7 @@
     "treasury_real": "dfii10 CSV history is rebuilt from the U.S. Treasury Daily Treasury Par Real Yield Curve (10-year field TC_10YEAR). No intraday proxy is substituted.",
     "vix": "VIX history and current quote use Yahoo Finance ^VIX. Cboe historical CSV is no longer used by this module.",
     "hy_ig_history": "ICE BofA/FRED credit-spread series remain unchanged.",
-    "qqq_rsp": "Derived daily from QQQ close divided by RSP close; higher values indicate stronger mega-cap/tech concentration relative to equal-weight S&P 500."
+    "qqq_rsp": "Derived daily from QQQ close divided by RSP close; higher values indicate stronger mega-cap/tech concentration relative to equal-weight S&P 500.",
+    "treasury_live": "dgs10/dgs30 dashboard headline values poll every 10 minutes. Primary: Investing.com public US 10Y/30Y bond-yield pages; fallback: TradingView TVC:US10Y/US30Y scanner, then Trading Economics public bond pages. Official U.S. Treasury CSV histories remain unchanged."
   }
 }
