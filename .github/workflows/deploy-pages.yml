@@ -78,46 +78,38 @@ jobs:
               insert_at = text.find('  function scan() {')
               if insert_at < 0:
                   raise SystemExit('scan() insertion point not found')
-              helper = '''  function equalizeMarketLiquidityCards() {
-    const left = document.getElementById('marketChart')?.closest('.chart-card');
-    const right = document.getElementById('liquidityChart')?.closest('.chart-card');
-    if (!left || !right || left.parentElement !== right.parentElement) return;
-    const row = left.parentElement;
-    row.style.alignItems = 'stretch';
-    if (window.innerWidth <= 760) {
-      left.style.height = '';
-      right.style.height = '';
-      return;
-    }
-    left.style.height = 'auto';
-    right.style.height = 'auto';
-    const target = Math.ceil(Math.max(
-      left.getBoundingClientRect().height,
-      right.getBoundingClientRect().height
-    ));
-    if (target > 0) {
-      left.style.height = `${target}px`;
-      right.style.height = `${target}px`;
-    }
-  }
-
-'''
+              helper = "\n".join([
+                  "  function equalizeMarketLiquidityCards() {",
+                  "    const left = document.getElementById('marketChart')?.closest('.chart-card');",
+                  "    const right = document.getElementById('liquidityChart')?.closest('.chart-card');",
+                  "    if (!left || !right || left.parentElement !== right.parentElement) return;",
+                  "    const row = left.parentElement;",
+                  "    row.style.alignItems = 'stretch';",
+                  "    if (window.innerWidth <= 760) {",
+                  "      left.style.height = '';",
+                  "      right.style.height = '';",
+                  "      return;",
+                  "    }",
+                  "    left.style.height = 'auto';",
+                  "    right.style.height = 'auto';",
+                  "    const target = Math.ceil(Math.max(",
+                  "      left.getBoundingClientRect().height,",
+                  "      right.getBoundingClientRect().height",
+                  "    ));",
+                  "    if (target > 0) {",
+                  "      left.style.height = `${target}px`;",
+                  "      right.style.height = `${target}px`;",
+                  "    }",
+                  "  }",
+                  "",
+                  "",
+              ])
               text = text[:insert_at] + helper + text[insert_at:]
 
-          scan_needle = '''    syncLiquidityQuotes();
-    syncLiquiditySources();
-  }
-
-  scan();'''
-          scan_replacement = '''    syncLiquidityQuotes();
-    syncLiquiditySources();
-    requestAnimationFrame(equalizeMarketLiquidityCards);
-  }
-
-  window.addEventListener('resize', () => requestAnimationFrame(equalizeMarketLiquidityCards));
-
-  scan();'''
-          if 'window.addEventListener(\'resize\', () => requestAnimationFrame(equalizeMarketLiquidityCards));' not in text:
+          resize_marker = "window.addEventListener('resize', () => requestAnimationFrame(equalizeMarketLiquidityCards));"
+          if resize_marker not in text:
+              scan_needle = "    syncLiquidityQuotes();\n    syncLiquiditySources();\n  }\n\n  scan();"
+              scan_replacement = "    syncLiquidityQuotes();\n    syncLiquiditySources();\n    requestAnimationFrame(equalizeMarketLiquidityCards);\n  }\n\n  window.addEventListener('resize', () => requestAnimationFrame(equalizeMarketLiquidityCards));\n\n  scan();"
               if scan_needle not in text:
                   raise SystemExit('scan() call site not found')
               text = text.replace(scan_needle, scan_replacement, 1)
