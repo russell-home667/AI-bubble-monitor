@@ -83,7 +83,6 @@ jobs:
           git add data/ai_bubble/macro/gold_xauusd.json
           if git diff --cached --quiet; then exit 0; fi
           git commit -m 'data: update XAU/USD gold'
-          git pull --rebase origin main
-          git push origin HEAD:main
+          bash scripts/git_commit_push_retry.sh
 
 # explicit refresh trigger: 2026-09-16 XAUS prior-close fallback validation
