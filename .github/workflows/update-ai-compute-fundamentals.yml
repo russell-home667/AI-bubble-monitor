@@ -66,7 +66,11 @@ jobs:
         run: |
           python - <<'PY'
           import json
+          import subprocess
+          from datetime import date, timedelta
           from pathlib import Path
+          import pandas as pd
+
           p=Path('data/ai_bubble/compute_fundamentals/latest.json')
           if not p.exists(): raise SystemExit('latest.json missing')
           d=json.loads(p.read_text(encoding='utf-8'))
@@ -75,9 +79,44 @@ jobs:
           required=['data_center_revenue_usd_bn','gross_margin_pct','inventory_usd_bn','inventory_days','accounts_receivable_usd_bn','dso_days']
           missing=[k for k in required if n.get(k) is None]
           if missing: raise SystemExit(f'Missing NVDA fields: {missing}')
-          if n.get('period_end') != '2026-07-26': raise SystemExit(f"NVDA period_end not canonical: {n.get('period_end')}")
-          if t.get('revenue_twd_mn') is None or t.get('yoy_pct_reported') is None or t.get('rolling_3m_yoy_pct') is None: raise SystemExit('TSMC latest incomplete')
-          print('NVDA:', n); print('TSMC:', t)
+
+          period_raw=n.get('period_end')
+          try:
+              period=pd.Timestamp(period_raw).date()
+          except Exception as exc:
+              raise SystemExit(f'Invalid NVDA period_end {period_raw!r}: {exc}')
+          if period > date.today() + timedelta(days=7):
+              raise SystemExit(f'NVDA period_end is implausibly in the future: {period}')
+          if period < date(2024,1,1):
+              raise SystemExit(f'NVDA period_end regressed too far: {period}')
+
+          csv=Path('data/ai_bubble/compute_fundamentals/nvda_quarterly.csv')
+          q=pd.read_csv(csv)
+          q['period_end']=pd.to_datetime(q['period_end'],errors='coerce')
+          q=q.dropna(subset=['period_end']).sort_values('period_end')
+          if q.empty: raise SystemExit('nvda_quarterly.csv empty')
+          csv_latest=q.iloc[-1]['period_end'].date()
+          if csv_latest != period:
+              raise SystemExit(f'latest.json / nvda_quarterly.csv mismatch: {period} vs {csv_latest}')
+
+          # Compare against the committed baseline when one exists. Future quarters are
+          # accepted automatically; regressions are not.
+          try:
+              old_raw=subprocess.check_output(
+                  ['git','show','HEAD:data/ai_bubble/compute_fundamentals/latest.json'],
+                  text=True,
+                  stderr=subprocess.DEVNULL,
+              )
+              old=json.loads(old_raw)
+              old_period=pd.Timestamp((old.get('nvda') or {}).get('period_end')).date()
+              if period < old_period:
+                  raise SystemExit(f'NVDA period regressed: {period} < {old_period}')
+          except subprocess.CalledProcessError:
+              pass
+
+          if t.get('revenue_twd_mn') is None or t.get('yoy_pct_reported') is None or t.get('rolling_3m_yoy_pct') is None:
+              raise SystemExit('TSMC latest incomplete')
+          print('NVDA period:', period, 'TSMC month:', t.get('month'))
           PY
       - name: Commit refreshed data
         run: |
