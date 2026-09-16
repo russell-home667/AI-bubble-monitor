@@ -34,7 +34,6 @@ except Exception:  # optional hardening transport
 ROOT = Path(__file__).resolve().parents[1]
 DIR = ROOT / "data" / "ai_bubble" / "market_liquidity"
 OUT = DIR / "market_quotes.json"
-LATEST = DIR / "latest.json"
 BJT = ZoneInfo("Asia/Shanghai")
 
 YAHOO_SYMBOLS = {
@@ -449,59 +448,6 @@ def stable_merge(old_quote: dict | None, new_quote: dict) -> dict:
     return new_quote
 
 
-def sync_latest_quotes(quotes: dict) -> bool:
-    """Overlay VIX/10Y/30Y current values onto existing daily summaries."""
-    if not LATEST.exists():
-        return False
-    try:
-        payload = json.loads(LATEST.read_text(encoding="utf-8"))
-    except Exception:
-        return False
-
-    indicators = payload.get("indicators") or {}
-    changed = False
-    for key in LIVE_OVERLAY_KEYS:
-        q = quotes.get(key)
-        ind = indicators.get(key)
-        if not q or not ind or q.get("price") is None:
-            continue
-
-        if ind.get("display_layer") != "live_quote":
-            ind["close_value"] = ind.get("value")
-            ind["close_observation_date"] = ind.get("observation_date")
-            ind["close_source"] = ind.get("source")
-            ind["close_source_url"] = ind.get("source_url")
-
-        new_fields = {
-            "value": q["price"],
-            "live_quote_timestamp": q.get("timestamp"),
-            "live_quote_source": q.get("source"),
-            "live_quote_source_url": q.get("source_url"),
-            "live_quote_status": q.get("quote_status"),
-            "live_change_1d_pct": q.get("change_1d_pct"),
-            "display_layer": "live_quote",
-        }
-        for field, value in new_fields.items():
-            if ind.get(field) != value:
-                ind[field] = value
-                changed = True
-
-    notes = payload.setdefault("notes", {})
-    note = (
-        "dgs10/dgs30 dashboard headline values poll every 10 minutes. Primary: Investing.com public "
-        "US 10Y/30Y bond-yield pages; fallback: TradingView TVC:US10Y/US30Y scanner, then Trading "
-        "Economics public bond pages. Official U.S. Treasury CSV histories remain unchanged."
-    )
-    if notes.get("treasury_live") != note:
-        notes["treasury_live"] = note
-        changed = True
-
-    if changed:
-        payload["generated_at_bjt"] = now_bjt()
-        LATEST.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    return changed
-
-
 def main() -> int:
     old = {}
     if OUT.exists():
@@ -576,8 +522,7 @@ def main() -> int:
     if quote_changed:
         OUT.write_text(serialized, encoding="utf-8")
 
-    latest_changed = sync_latest_quotes(new_quotes)
-    if not quote_changed and not latest_changed:
+    if not quote_changed:
         print("Quotes checked; no externally visible changes")
     return 0
 
