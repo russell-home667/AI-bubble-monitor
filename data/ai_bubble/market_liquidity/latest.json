@@ -2,7 +2,7 @@
   "module": "AI Bubble Monitor - Market & Liquidity",
   "step": 5,
   "timezone": "Asia/Shanghai",
-  "generated_at_bjt": "2026-09-16T09:35:38+08:00",
+  "generated_at_bjt": "2026-09-16T10:05:49+08:00",
   "indicators": {
     "ndx": {
       "name": "Nasdaq-100",
@@ -21,7 +21,8 @@
       "source_symbol": "^NDX",
       "source_url": "https://finance.yahoo.com/quote/%5ENDX/history/",
       "fetched_at_bjt": "2026-09-16T06:27:05+08:00",
-      "status": "fresh"
+      "status": "fresh",
+      "data_layer": "daily_close"
     },
     "sox": {
       "name": "PHLX Semiconductor Index",
@@ -40,7 +41,8 @@
       "source_symbol": "^SOX",
       "source_url": "https://finance.yahoo.com/quote/%5ESOX/history/",
       "fetched_at_bjt": "2026-09-16T06:27:05+08:00",
-      "status": "fresh"
+      "status": "fresh",
+      "data_layer": "daily_close"
     },
     "nvda": {
       "name": "NVIDIA",
@@ -59,7 +61,8 @@
       "source_symbol": "NVDA",
       "source_url": "https://finance.yahoo.com/quote/NVDA/history/",
       "fetched_at_bjt": "2026-09-16T06:27:05+08:00",
-      "status": "fresh"
+      "status": "fresh",
+      "data_layer": "daily_close"
     },
     "qqq_rsp": {
       "name": "QQQ / RSP concentration ratio",
@@ -78,10 +81,11 @@
       "source_symbol": "QQQ/RSP",
       "source_url": "https://finance.yahoo.com/",
       "fetched_at_bjt": "2026-09-16T06:27:06+08:00",
-      "status": "fresh"
+      "status": "fresh",
+      "data_layer": "daily_close"
     },
     "vix": {
-      "name": "Cboe VIX",
+      "name": "Cboe Volatility Index",
       "observation_date": "2026-09-15",
       "value": 17.200001,
       "unit": "index",
@@ -90,55 +94,43 @@
       "change_20d_pct": 8.5859,
       "sma20": 15.6125,
       "sma50": 16.1702,
-      "sma200": 18.1207,
-      "distance_from_200dma_pct": -5.0809,
+      "sma200": 18.09905,
+      "distance_from_200dma_pct": -4.9674,
       "ath_drawdown_pct": -79.1994,
-      "source": "Cboe Global Markets",
-      "source_symbol": "VIX",
-      "source_url": "https://www.cboe.com/tradable_products/vix/vix_historical_data/",
-      "fetched_at_bjt": "2026-09-16T09:14:50+08:00",
+      "source": "Yahoo Finance",
+      "source_symbol": "^VIX",
+      "source_url": "https://finance.yahoo.com/quote/%5EVIX/history/",
+      "fetched_at_bjt": "2026-09-16T10:05:49+08:00",
       "status": "fresh",
-      "close_value": 17.2,
+      "data_layer": "daily_close",
+      "close_value": 17.200001,
       "close_observation_date": "2026-09-15",
-      "close_source": "Cboe Global Markets",
-      "close_source_url": "https://www.cboe.com/tradable_products/vix/vix_historical_data/",
+      "close_source": "Yahoo Finance",
+      "close_source_url": "https://finance.yahoo.com/quote/%5EVIX/history/",
       "live_quote_timestamp": "2026-09-16T04:15:00+08:00",
       "live_quote_source": "Yahoo Finance ^VIX",
       "live_quote_status": "DELAYED",
       "live_change_1d_pct": 0.5848,
       "display_layer": "live_quote"
     },
-    "dfii10": {
-      "name": "10-Year Treasury Inflation-Indexed Security, Constant Maturity",
-      "observation_date": "2026-09-14",
-      "value": 2.6,
-      "unit": "%",
-      "change_1obs": 0.0,
-      "change_5obs": 0.17,
-      "change_20obs": 0.19,
-      "source": "Federal Reserve / FRED",
-      "source_symbol": "DFII10",
-      "source_url": "https://fred.stlouisfed.org/series/DFII10",
-      "fetched_at_bjt": "2026-09-16T08:09:08+08:00",
-      "status": "fresh"
-    },
     "dgs10": {
-      "name": "10-Year Treasury Constant Maturity Rate",
-      "observation_date": "2026-09-14",
+      "name": "10-Year Treasury Par Yield Curve Rate",
+      "observation_date": "2026-09-15",
       "value": 4.996,
       "unit": "%",
-      "change_1obs": 0.01,
-      "change_5obs": 0.19,
-      "change_20obs": 0.29,
-      "source": "Federal Reserve Board H.15 / FRED",
-      "source_symbol": "DGS10",
-      "source_url": "https://fred.stlouisfed.org/series/DGS10",
-      "fetched_at_bjt": "2026-09-16T08:09:08+08:00",
+      "change_1obs": 0.03,
+      "change_5obs": 0.2,
+      "change_20obs": 0.28,
+      "source": "U.S. Department of the Treasury",
+      "source_symbol": "BC_10YEAR",
+      "source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve",
+      "fetched_at_bjt": "2026-09-16T10:04:30+08:00",
       "status": "fresh",
-      "close_value": 4.97,
-      "close_observation_date": "2026-09-14",
-      "close_source": "Federal Reserve Board H.15 / FRED",
-      "close_source_url": "https://fred.stlouisfed.org/series/DGS10",
+      "data_layer": "official_close",
+      "close_value": 5.0,
+      "close_observation_date": "2026-09-15",
+      "close_source": "U.S. Department of the Treasury",
+      "close_source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve",
       "live_quote_timestamp": "2026-09-16T02:59:00+08:00",
       "live_quote_source": "Yahoo Finance ^TNX",
       "live_quote_status": "DELAYED",
@@ -146,27 +138,43 @@
       "display_layer": "live_quote"
     },
     "dgs30": {
-      "name": "30-Year Treasury Constant Maturity Rate",
-      "observation_date": "2026-09-14",
+      "name": "30-Year Treasury Par Yield Curve Rate",
+      "observation_date": "2026-09-15",
       "value": 5.364,
       "unit": "%",
-      "change_1obs": -0.01,
-      "change_5obs": 0.1,
-      "change_20obs": 0.09,
-      "source": "Federal Reserve Board H.15 / FRED",
-      "source_symbol": "DGS30",
-      "source_url": "https://fred.stlouisfed.org/series/DGS30",
-      "fetched_at_bjt": "2026-09-16T08:09:08+08:00",
+      "change_1obs": 0.02,
+      "change_5obs": 0.11,
+      "change_20obs": 0.05,
+      "source": "U.S. Department of the Treasury",
+      "source_symbol": "BC_30YEAR",
+      "source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve",
+      "fetched_at_bjt": "2026-09-16T10:04:30+08:00",
       "status": "fresh",
-      "close_value": 5.34,
-      "close_observation_date": "2026-09-14",
-      "close_source": "Federal Reserve Board H.15 / FRED",
-      "close_source_url": "https://fred.stlouisfed.org/series/DGS30",
+      "data_layer": "official_close",
+      "close_value": 5.36,
+      "close_observation_date": "2026-09-15",
+      "close_source": "U.S. Department of the Treasury",
+      "close_source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve",
       "live_quote_timestamp": "2026-09-16T02:59:00+08:00",
       "live_quote_source": "Yahoo Finance ^TYX",
       "live_quote_status": "DELAYED",
       "live_change_1d_pct": 0.6568,
       "display_layer": "live_quote"
+    },
+    "dfii10": {
+      "name": "10-Year Treasury Par Real Yield Curve Rate",
+      "observation_date": "2026-09-15",
+      "value": 2.62,
+      "unit": "%",
+      "change_1obs": 0.02,
+      "change_5obs": 0.19,
+      "change_20obs": 0.18,
+      "source": "U.S. Department of the Treasury",
+      "source_symbol": "TC_10YEAR",
+      "source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_real_yield_curve",
+      "fetched_at_bjt": "2026-09-16T10:05:48+08:00",
+      "status": "fresh",
+      "data_layer": "official_close"
     },
     "hy_oas": {
       "name": "ICE BofA US High Yield Index Option-Adjusted Spread",
@@ -180,7 +188,8 @@
       "source_symbol": "BAMLH0A0HYM2",
       "source_url": "https://fred.stlouisfed.org/series/BAMLH0A0HYM2",
       "fetched_at_bjt": "2026-09-16T00:43:29+08:00",
-      "status": "fresh"
+      "status": "fresh",
+      "data_layer": "official_close"
     },
     "ig_oas": {
       "name": "ICE BofA US Corporate Index Option-Adjusted Spread",
@@ -194,7 +203,8 @@
       "source_symbol": "BAMLC0A0CM",
       "source_url": "https://fred.stlouisfed.org/series/BAMLC0A0CM",
       "fetched_at_bjt": "2026-09-16T00:43:29+08:00",
-      "status": "fresh"
+      "status": "fresh",
+      "data_layer": "official_close"
     },
     "baa10y_proxy": {
       "name": "Moody's Seasoned Baa Corporate Bond Yield Relative to 10-Year Treasury",
@@ -208,14 +218,17 @@
       "source_symbol": "BAA10Y",
       "source_url": "https://fred.stlouisfed.org/series/BAA10Y",
       "fetched_at_bjt": "2026-09-16T00:43:30+08:00",
-      "status": "fresh"
+      "status": "fresh",
+      "data_layer": "official_close"
     }
   },
   "errors": {},
   "notes": {
-    "market_close_policy": "Yahoo current-session daily bars are excluded until 17:00 America/New_York; stored market observations are completed sessions only.",
-    "hy_ig_history": "ICE BofA FRED series may be license-limited to recent history; BAA10Y is stored as a long-history credit-stress proxy for later backtests.",
-    "qqq_rsp": "Derived daily from QQQ close divided by RSP close; higher values indicate stronger mega-cap/tech concentration relative to equal-weight S&P 500.",
-    "treasury_yields": "DGS10 and DGS30 are Federal Reserve Board H.15 Treasury constant-maturity yields via FRED. The direct 30-year constant-maturity series was discontinued after 2002-02-18 and reintroduced 2006-02-09. During that interval, the U.S. Treasury published a daily factor applied to the 20-year constant-maturity rate to estimate a 30-year nominal rate; FRED historical DGS30 includes those official estimates."
+    "market_close_policy": "Yahoo current-session daily bars are excluded until 17:00 America/New_York; stored Yahoo histories are completed sessions only.",
+    "treasury_nominal": "dgs10/dgs30 CSV history is rebuilt from the U.S. Treasury Daily Treasury Par Yield Curve. Latest dashboard values may be overlaid by Yahoo ^TNX/^TYX intraday quotes; close_* fields preserve the official Treasury daily close.",
+    "treasury_real": "dfii10 CSV history is rebuilt from the U.S. Treasury Daily Treasury Par Real Yield Curve (10-year field TC_10YEAR). No intraday proxy is substituted.",
+    "vix": "VIX history and current quote use Yahoo Finance ^VIX. Cboe historical CSV is no longer used by this module.",
+    "hy_ig_history": "ICE BofA/FRED credit-spread series remain unchanged.",
+    "qqq_rsp": "Derived daily from QQQ close divided by RSP close; higher values indicate stronger mega-cap/tech concentration relative to equal-weight S&P 500."
   }
 }
