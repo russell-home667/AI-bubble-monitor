@@ -1,5 +1,5 @@
 {
-  "generated_at_sgt": "2026-09-16T18:18:17+08:00",
+  "generated_at_sgt": "2026-09-16T20:48:11+08:00",
   "timezone": "Asia/Singapore",
   "model": "deepseek-flash",
   "model_display": "DeepSeek V4.1 Flash",
@@ -34,34 +34,74 @@
     "Macro / Regulation"
   ],
   "stats": {
-    "stored_stories": 55,
-    "important_7d": 34,
+    "stored_stories": 59,
+    "important_7d": 37,
     "critical_7d": 6,
-    "discovered_candidates": 61,
-    "reused_history_candidates": 45,
-    "ai_candidates": 16,
-    "exact_cache_hits": 44,
+    "discovered_candidates": 58,
+    "reused_history_candidates": 49,
+    "ai_candidates": 9,
+    "exact_cache_hits": 48,
     "story_source_reuse": 0,
-    "category_locked_candidates": 4,
-    "category_ai_judgment_candidates": 12,
+    "category_locked_candidates": 2,
+    "category_ai_judgment_candidates": 7,
     "deepseek_batches": 1,
     "deepseek_chunks": 1,
-    "deepseek_empty_responses": 1,
-    "deepseek_fallback_successes": 1,
+    "deepseek_empty_responses": 0,
+    "deepseek_fallback_successes": 0,
     "deepseek_failed_chunks": 0,
     "analysis_degraded": false,
     "category_lock_conflicts": 0
   },
   "candidate_cache": [
     {
+      "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxNMUVqc2RKdUVuWnhpZnBTQUljVkRzY3N1SHplTTVSOUxpWGdPQU9YdVlvR0dkQmF2WFVNWmZWR3VrLUZsTERnUjU5QWZmWHZkYXFVYnMyVXd5NGVSVjBvRFVRcGpoenRLbkNiSWtZVHFjMUNCZGc2TGVsZ3daNEN3THQzajcteEZHUVM1ZW1nN2NTWmVaZExUWHVWcU1oenpTVVlyQzVRdG5XQnM4YndJbUlZZ1p0Zk8ySTVKU3U1RjRyS0U0TmdaUGpXRGZwTE9JRXliSE9B?oc=5",
+      "title": "SV Angel's Jay Carney on AI regulation: Important to restore trust between the public and industry - CNBC",
+      "description": "SV Angel's Jay Carney on AI regulation: Important to restore trust between the public and industry CNBC",
+      "domain": "cnbc.com",
+      "published_at": "2026-09-16T20:18+08:00",
+      "query_category": "Macro / Regulation",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPX2Jhc1BMWUFKQ2xRanNYaFFFSEtiQTdBYWVYYlM3OVZkNlZZZlhFTVV6VDBXd0N3SUFQZmktZ09uVHRNeEZrNWsyRkxHUkVpU0xIcmlOS0NNMlFLVVBDTFp0MkNJVGhWcldYQ3VlZmd0ekV6RElVVk5XOHc5QnBMTA?oc=5",
+      "title": "Fed Rates, Memory Chip Stocks, AI | September 16 Barron’s Daily - Barron's",
+      "description": "Fed Rates, Memory Chip Stocks, AI | September 16 Barron’s Daily Barron's",
+      "domain": "barrons.com",
+      "published_at": "2026-09-16T19:43+08:00",
+      "query_category": "Macro / Regulation",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOUU83R000cFJVdHQ2ZzlkQm1GUERhcGZWV3Z4b0lxblhGNjNTTUpGVEYzM0tpUmpHOEJCWFNEOUNqVHoxd0gzZkFGQk9SV2h0aFFrRVFiWTNqbFdWZVd4bHd0SjdVUWdaT0VZUk9qcXhIVHhpdWhmVEJRZ1FnWlZVWFFfN1dvSmpzV1l4QVlMMlQ5WWZ3Mkp3VGFlNllWbDh2X1FJSFFkc24?oc=5",
+      "title": "Morning Call Sheet: Rates, oil and AI put markets under pressure - CNBC",
+      "description": "Morning Call Sheet: Rates, oil and AI put markets under pressure CNBC",
+      "domain": "cnbc.com",
+      "published_at": "2026-09-16T19:42+08:00",
+      "query_category": "Macro / Regulation",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOa3R3TGtfM3NvM3Y1Q3Q3VmVOMFU5RnRtcU9xYl9lczdkTTdubEhUVHk0akNqcHZucHV6QzljRGEwRU0yS2JKNkt2Mzg5d0R2b0NjeEF5SlZZWTh6NF9JdXdkdlBpcEFIN0Y5eURGWmROSWN2aFc5czl1OERSaE5rMVJEclNVeVVLX2w1RnppUXNTNUZPMkx0RTJWYTVzMkZoVVhEbDdTNnhGdUhNODVYRW9CVFpYZw?oc=5",
+      "title": "AI Debt Boom Heads From Wall Street to Europe Despite Tech Angst - Bloomberg",
+      "description": "AI Debt Boom Heads From Wall Street to Europe Despite Tech Angst Bloomberg",
+      "domain": "bloomberg.com",
+      "published_at": "2026-09-16T19:09+08:00",
+      "query_category": "AI Credit / Debt",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
+    },
+    {
       "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNZVR5MTdHQXRPQzVYY0k4OU9VYjNvLVVZMC14bmhiLXVDLW5qemJGUFJsWW1PdGNJbjlSQnV6VmxUVFUtdVhzR0JoeEIyUXVSLXhqWGhKNE9YRXA1QmhtRmdhTzMxWTBpQlFGUmhIRzNxRlMyZExyOU1SZ3o2R3JNZHpwaUpNUVdNOWpTNml0Y2xEdHBNTTI0c3VZcWk0Z0M5aWNtc2hVajFjVU9FMVRuSjhQR2pYYmxtdVNN?oc=5",
-      "title": "What’s Inside the Bond Market’s ‘Toxic Stew’ - Bloomberg.com",
-      "description": "What’s Inside the Bond Market’s ‘Toxic Stew’ Bloomberg.com",
+      "title": "What’s Inside the Bond Market’s ‘Toxic Stew’ - Bloomberg",
+      "description": "What’s Inside the Bond Market’s ‘Toxic Stew’ Bloomberg",
       "domain": "bloomberg.com",
       "published_at": "2026-09-16T18:00+08:00",
       "query_category": "AI Credit / Debt",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPeGtTemxlTUZvUl8tTWZvTDgzMjdlSERCQk0wbTJIUWVsSlNRWmVrV1pMQXpFSkJFb0plZjRoaDBGeUNXbm8tcUloNVcyZngwQ3JSZG1MOTdDaWFhRjdndDdkWnQydFU1S1NoTE43SHh4QmN0MHNJY3FDVzNqZEN4Zk1SWlpLTEtOcS1MOTRUSVA?oc=5",
@@ -71,7 +111,7 @@
       "published_at": "2026-09-16T17:28+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQSHV2NWRtX01PRllFVjhDeGRPS0NSNkpQWDhVRXh5Xzl4MDVOS2dEVDJCM1hnbDVPY29kb0JHemViVmVUaHo1MHRxNFhqU3R3bDFHUG5fendocU5KNmpOMExrT0VvRFgyYWVnSVV5UmJheUt4dHZJU3JsSGRPRkViQ0hFVkVZR3BUZkF0eklZTHIxSlgxcy1OeFdCYkZkbkxUZ05xdXh3?oc=5",
@@ -81,7 +121,7 @@
       "published_at": "2026-09-16T16:58+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPUTB1eUt0VThoUllsTWV2UzVJQXc0TEpiNHFVamRyRGNFQnRpcnFSdHV0N1BySFF5dkVoUXdVQ0U5TzZUay1ZNjNVSjFKSEZleFlCOVFxZDZWTV9iNzB0NHFkWTNoUW1zeG9xdk1ra2VQeVZuNnpyRjNsWkZxbDB0dNIBhgFBVV95cUxQbDNiMmt6clJmRjRtMkQ1UzNwVFU5NWF6ckJHYnp3a2tManJOUHZ6RlVJMlJpYXpXbktQNkQzQ0R2NHBKTGdNcmxwa1lWZEVHVVYtdXlYeldHR1NuS1d2WTZ2NmVRSmhwaWtKdi1tN0x4UzJNaWs1Sm9hSUYtMkdsckFmeWpaUQ?oc=5",
@@ -91,7 +131,7 @@
       "published_at": "2026-09-16T13:51+08:00",
       "query_category": "AI Credit / Debt",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPNmFlZmtNSTRuRmx3c2RUbVhzaHVZUWMxVy05Zk9YcXRoUnFKSENrWUVPS1Y3WWt3UkhSa3VsZXkzNy1kNk1GWkMwbTliQ2lTa2pHZWdkS3JJeUItZHVyUWxqN2t1aGJLYVdKWFZSR3dOQmo4WXN4WUF0Nk5zQjZIWURxd2o?oc=5",
@@ -101,7 +141,37 @@
       "published_at": "2026-09-16T13:30+08:00",
       "query_category": "AI Credit / Debt",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
+    },
+    {
+      "url": "https://www.nytimes.com/2026/09/16/business/dealbook/bessent-warsh-bond-investors.html",
+      "title": "Bessent and Warsh Take On the Bond Bears",
+      "description": "The Treasury secretary and the Federal Reserve chairman face similar tests: calming investors’ growing worries about inflation and deficits.",
+      "domain": "nytimes.com",
+      "published_at": "2026-09-16T13:14+08:00",
+      "query_category": "AI Credit / Debt",
+      "discovery_source": "Bing News RSS",
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
+    },
+    {
+      "url": "https://www.reuters.com/world/asia-pacific/sk-hynix-talks-with-intel-about-deal-make-memory-chips-us-first-time-sources-say-2026-09-16/",
+      "title": "SK Hynix in talks with Intel about deal to make memory chips in US for the first time, sources say",
+      "description": "South Korea's SK Hynix is in talks with Intel about a deal that ​would see it manufacture memory chips on U.S. soil for the first time, three people familiar with the discussions said.",
+      "domain": "reuters.com",
+      "published_at": "2026-09-16T13:09+08:00",
+      "query_category": "Semiconductor / GPU Demand",
+      "discovery_source": "Bing News RSS",
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
+    },
+    {
+      "url": "https://www.cnbc.com/2026/09/16/wednesday-biggest-analyst-calls-like-nvidia.html",
+      "title": "Here are Wednesday's biggest analyst calls: Nvidia, SpaceX, Tesla, Apple, Chevron, Cava, Micron & more",
+      "description": "Morgan Stanley reiterates Microsoft as overweight Morgan Stanley said it sees a compelling risk/reward. \"Microsoft increased its quarterly dividend by 7 cents or 8% to $0.98 per share. $3.92 ...",
+      "domain": "cnbc.com",
+      "published_at": "2026-09-16T13:06+08:00",
+      "query_category": "Semiconductor / GPU Demand",
+      "discovery_source": "Bing News RSS",
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQYjV5VWtDWkRfOXhoRV9IX3ktTl80WGZGR2w5enR5QmZUS0tYLU5qM0VkLTZ0MUtBNC1tWktUXzFOTl9hQVVtaVk5SE15VFVIdnc4ZlhVTTU4bGtiUGVLMlVyU0NSTFZ0a3YtM1NLRGJ6QUhfVXhaUmNub200SGs1VFpvOFo0Y2lNS2c?oc=5",
@@ -111,37 +181,27 @@
       "published_at": "2026-09-16T12:01+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
-      "url": "https://www.reuters.com/business/metas-zuckerberg-says-ai-labs-have-enough-incentive-build-safely-2026-09-16/",
-      "title": "Meta's Zuckerberg says AI labs have enough incentive to build safely",
-      "description": "Meta ​Platforms CEO Mark Zuckerberg said on Tuesday that competition and liability give AI companies enough reason to act individually ‌on safety, appearing to break from calls by leaders of top AI ...",
-      "domain": "reuters.com",
-      "published_at": "2026-09-16T11:07+08:00",
-      "query_category": "Macro / Regulation",
-      "discovery_source": "Bing News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
-    },
-    {
-      "url": "https://www.bloomberg.com/opinion/articles/2026-09-16/the-us-can-slow-down-ai-and-stay-ahead-of-china",
-      "title": "The US Can Slow Down AI and Stay Ahead of China",
-      "description": "When Chinese leader Xi Jinping visits Washington next week, artificial intelligence will be near the top of the agenda. The dialogue that the US and China began earlier this year has gained urgency as ...",
-      "domain": "bloomberg.com",
-      "published_at": "2026-09-16T10:30+08:00",
-      "query_category": "Macro / Regulation",
-      "discovery_source": "Bing News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
-    },
-    {
-      "url": "https://apnews.com/article/ai-environmental-impact-data-centers-trump-228d625ab7c62cd583bc67d65074f7d4",
-      "title": "Americans are increasingly concerned about the environmental impact of AI, new poll finds",
-      "description": "Like Tapia, Americans have grown more concerned about the environmental impacts of artificial intelligence over the last year, according to a new poll from The Associated Press-NORC Center for Public ...",
+      "url": "https://apnews.com/newsletter/morning-wire/september-16-2026",
+      "title": "AP-NORC poll shows AI data center worries, House votes again to end the Iran war, EU chief proposes Canada as an associate member",
+      "description": "Enjoying Morning Wire online? Get tomorrow’s edition of AP’s free flagship newsletter delivered straight to your inbox before you start the day. Subscribe here.",
       "domain": "apnews.com",
-      "published_at": "2026-09-16T10:06+08:00",
+      "published_at": "2026-09-16T11:29+08:00",
       "query_category": "Data Center / Power",
       "discovery_source": "Bing News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQUXpkV0dHb2JQWkgtUHFvUXBEU3ZVejJfSS1UeFVkYjRob1YzUGtBUVc2Y3dvRl83eU1nSHI0emU0c25lMzF0LUpXSTllVFJ4RlljaG9KX2lqTlppZ2VUM2Qyd3QtS3NaaWdRT3BFNVBQbktpbjRtUnlfWUhnazRMSGs5RzB2REhEVXA4YVFfRzBMY1Y3N0tRZVp5aUd5eG9XVHZSZUN4S0hER2pxRlE?oc=5",
+      "title": "Meta's Zuckerberg says AI labs have enough incentive to build safely - Reuters",
+      "description": "Meta's Zuckerberg says AI labs have enough incentive to build safely Reuters",
+      "domain": "reuters.com",
+      "published_at": "2026-09-16T10:25+08:00",
+      "query_category": "Macro / Regulation",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://www.nytimes.com/2026/09/16/upshot/poll-ai-midterms-voters.html",
@@ -151,27 +211,7 @@
       "published_at": "2026-09-16T10:04+08:00",
       "query_category": "Data Center / Power",
       "discovery_source": "Bing News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
-    },
-    {
-      "url": "https://www.nytimes.com/2026/09/16/science/ai-recursive-self-improvement.html",
-      "title": "The Liftoff Scenario That Terrifies A.I. Doomsayers",
-      "description": "Recursive self-improvement” is the idea that artificial intelligence could learn to build and train itself, creating exponential new progress — and risk.",
-      "domain": "nytimes.com",
-      "published_at": "2026-09-16T10:02+08:00",
-      "query_category": "AI Credit / Debt",
-      "discovery_source": "Bing News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
-    },
-    {
-      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOeDNxSXBBRlR1elJkWkRRc0NuRm1kMzJqeVNNWHJGbThRaXgzR0VUOXE3UjFRYVpubzJ6ZEVCZXVjLVJiUGNuYzhtUnZid2l4UmNwY0pCMnBMTDZzdjV4MXViRlJ6emszRDJJbTNNeEh1MmhhcDZrY05VaDZwb21yLW5pbVdxWURtcDhYZlBGLWVwYlpDSkF4Q09OMzUzX2pkVmt5akhQMjZCUFdvaGFwQg?oc=5",
-      "title": "OpenAI Weighing Funding Round at Over $1.2 Trillion Valuation - Bloomberg.com",
-      "description": "OpenAI Weighing Funding Round at Over $1.2 Trillion Valuation Bloomberg.com",
-      "domain": "bloomberg.com",
-      "published_at": "2026-09-16T09:08+08:00",
-      "query_category": "AI Valuation / Funding",
-      "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOTW5yQnNCZkM1c1JRdjA5eFNnTnV4d0dfa2xPcWNrcGFwZ3Z0eTR1UUlWRFhtMlBKU0JfNVdnU1ZzV25Ea282aXhfZ3BkLXVnZ1pHbTIxQkI1enlyMmh6RldUNllKUkhGNUtDZVJMU3JFaVQzaGtVN29zQWZMOTMwYXc1bjFsNnJ5YVVadGtmN29RTENOSDdOcWREY3V3eTUxS1dIOEEtdXJjdw?oc=5",
@@ -181,7 +221,7 @@
       "published_at": "2026-09-16T08:20+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQRXNEN016amcxdlpNNG9zNWJGQWl0VWVzeGg4UmV6NFlNSms3ak1yUWxfaG5rZk00OTUyZ1V1dzVXUzh5MXZzdnoxMTJvWXVWNDJ2SGU3UnM0REdEVU1iaEdDaHdMQ2VNbTJiSGgzMGNWTjllbG1JdVk4ZF8wS1lqSGxPRmNwSVdyc2c2WXR5OU9nTVBxMFNkb0ZUS0pwbDBRSEE?oc=5",
@@ -191,17 +231,17 @@
       "published_at": "2026-09-16T08:00+08:00",
       "query_category": "AI Revenue / Monetization",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
-      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNbDA0aE1CRFdVREptN2piVTJaY1hMWmZoNnFUTDNQZlhNeEVkcTM3WlkzMEJnRW1tazhYcDFUUTdIWGpxYnRVa1VTNEJXMFNuLVJwRkhQdkRhRUxxNi1iSU14VmFVNnBydDBSX2R6Sm9wU3hsWTFIWlhfN3dtS1VKMQ?oc=5",
-      "title": "Urgent calls from OpenAI, Anthropic for an AI slowdown fall on deaf ears with Trump, Xi ahead of next week’s meeting - Fortune",
-      "description": "Urgent calls from OpenAI, Anthropic for an AI slowdown fall on deaf ears with Trump, Xi ahead of next week’s meeting Fortune",
-      "domain": "fortune.com",
-      "published_at": "2026-09-16T05:59+08:00",
-      "query_category": "Macro / Regulation",
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOeDNxSXBBRlR1elJkWkRRc0NuRm1kMzJqeVNNWHJGbThRaXgzR0VUOXE3UjFRYVpubzJ6ZEVCZXVjLVJiUGNuYzhtUnZid2l4UmNwY0pCMnBMTDZzdjV4MXViRlJ6emszRDJJbTNNeEh1MmhhcDZrY05VaDZwb21yLW5pbVdxWURtcDhYZlBGLWVwYlpDSkF4Q09OMzUzX2pkVmt5akhQMjZCUFdvaGFwQg?oc=5",
+      "title": "OpenAI Weighing Funding Round at Over $1.2 Trillion Valuation - Bloomberg",
+      "description": "OpenAI Weighing Funding Round at Over $1.2 Trillion Valuation Bloomberg",
+      "domain": "bloomberg.com",
+      "published_at": "2026-09-16T06:31+08:00",
+      "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE0xQnpHcVo5enB6a2xxQXBTSFZ1eWotYXMydjdrSE85cmg1RnR2bVppV2pVUTc4Q0tCa2Y4NERWZ1hodW5yUUI2aHZSZlgxd25mX3JPMnpDUlpSXzdubzZLVDE1NVVlNXhBLWN3Z2RVeXg?oc=5",
@@ -211,7 +251,7 @@
       "published_at": "2026-09-16T05:54+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQSUhjREhxYkhIVTU2WXZVNHplQ09DM2Vlbzg4VXF0OHpjcFFSY2lPSHRqNDRxd0pwUkZHYTZyakNMem9QdThDdkNET0RsU2JobmVPWFN2cHM3QmlJdk56UE9iMF81bXE1aTJVbG95UUg3MDhDalBXZUh2RU9GSi05dUN1X295YU9zSDB2SzlhS2hVYzJDWmFzNHpKLTFIbW9Wa0dmS3M0Q0FvR28?oc=5",
@@ -221,7 +261,7 @@
       "published_at": "2026-09-16T05:47+08:00",
       "query_category": "Data Center / Power",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOcW93ckZBY1Y1bHJDS243bGlJbXlENGFaTmQzS08zTWxtQmEwYjlFRkhuQk9WZ1plVjNac2JRSjY4Zk1uLUdlT2p2VHh4WWxfanFHaDNWa3NRWUktMEhsZ0trcWcyTWNMb0RmN05aT2pJV2I1S25nejFtOXNvRjhTVjU4VTFrcTctSzNqWHFCOXpkSmtGNnhadU1EVEdSd19kUllsWA?oc=5",
@@ -231,7 +271,7 @@
       "published_at": "2026-09-16T05:44+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTFA5UzhqazRYeWFsTDhPSXdRWUUxMVNXbGNIQy1jUFI1R0h6dFhSWGtWRm9iU2N6QWppUnpvZE8tNzdmSFdUV0t5RUhqcDFONjd0alR0Q25xSkk2MXAxZjZhRjNuMUg0b2g5U0RTZ0RvUURqd3ZVU0ppeUpvNA?oc=5",
@@ -241,17 +281,17 @@
       "published_at": "2026-09-16T05:40+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOeElUdVpkaUcwUjdEd3ZxS002YWx0S3FpcG9iZ3dUcnBtTE1SOEt2N25CcVZQSmhVLTZaMWY4dF9nRGpmNC1YRE5PY2kwNzVQRy1RbGxzbVg4SVpjWVdXNklldkNPblRGNkdlUVgtLXNmdGhaSURYX18xNHY3YllUV0pSbTRDU1Q0NTRZbDhvbUVEdUVubzZ2NGdLTGg?oc=5",
-      "title": "Forgent Stock Soars as Earnings Show AI Data Centers Are Still In Demand - barrons.com",
-      "description": "Forgent Stock Soars as Earnings Show AI Data Centers Are Still In Demand barrons.com",
+      "title": "Forgent Stock Soars as Earnings Show AI Data Centers Are Still In Demand - Barron's",
+      "description": "Forgent Stock Soars as Earnings Show AI Data Centers Are Still In Demand Barron's",
       "domain": "barrons.com",
       "published_at": "2026-09-16T05:10+08:00",
       "query_category": "Data Center / Power",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxPblh4em00c2c4Q3k4a3NPQUNNQllvbUhsZ2FRdTRjeTd6YTdHMjFuTUpnbklsWHVJXzNNd0Nva3ZqMmxVejdhU3pGMTJBOEdJdkdxdnB5NlViZVpBZk1YcERsdnBDcFpuWnZSejFhdXMwVlE4WXMxTVJ6NEw1bU9YMTFUQ045SDVORVVJbEczZzZEUWsydHBDbzRYVGZmWllSa3hBenk0NzZsVUc1QnhPZ2V2VXpucEhXSXpsRF9fbnJwOUNrTldXelNKUHBDdmdYSHlVQTFNcVFnMkprY3pvWA?oc=5",
@@ -261,17 +301,17 @@
       "published_at": "2026-09-16T05:09+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
-      "url": "https://www.ft.com/content/37d65049-fd13-4e5b-8dbb-fee57af5b316?syn-25a6b1a6=1",
-      "title": "Transcript: FT Weekend Fest — Is the AI boom a bubble?",
-      "description": "Tim Bradshaw Hello, I’m Tim Bradshaw, the FT’s global tech correspondent. Tech Tonic will be back soon with brand-new episodes. But in the meantime here’s a highlight from the recent FT Weekend ...",
+      "url": "https://www.ft.com/content/ef511d46-a689-4868-9654-15b96a71586d?syn-25a6b1a6=1",
+      "title": "Nuclear fusion’s moment of truth",
+      "description": "Pacific Fusion, a start-up founded and backed by elite scientists and tech entrepreneurs, is building a nuclear fusion test site in Albuquerque that it hopes will be a crucial step towards generating ...",
       "domain": "ft.com",
       "published_at": "2026-09-16T05:00+08:00",
       "query_category": "AI CAPEX",
       "discovery_source": "Bing News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1oRFFsUUQ5YkZTeVJCWTNfUzVzTWRKcGx6MlprWUk0dUV6R2JvZHZDNlRxbHBNQ2hvSHliUU9JNzd2Rmo2b3hHekJyVXpzQ2M2cVlIZm9pTFRVODItVlR2dno0NUVsdzllRHAxNlctby1GbXhKbnZHeEwwdWJuZw?oc=5",
@@ -281,7 +321,7 @@
       "published_at": "2026-09-16T04:15+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNcmdWaGowZ1VTYV9oY2tTVGs3NGdId3ZjR29ZcHZ0bnhDYWFld29NWUZ0WmdZaWtMX2pPUUdQdUpScjMxYkNNaHBYclp4ZzdjcWhGTjVhX3F3MUVGd29XUzZKWkZOakNSVENqcDZUMUFia1RyVzRqS241OXVvc1NsRjItbHRydFBKWEE?oc=5",
@@ -291,7 +331,7 @@
       "published_at": "2026-09-16T04:10+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNNnNsRGxHeU9DS2taUXhjcmxfZWFMMllzUzJFTU9lMExQSE9QOGQ1UnNVNm1JM0toT3htcGVIdDJSUW5TaDRpYlhzR0hlTTg4djkyXzFEdU91S2VQNWJTWFA5UFV0b3NRc2VnMm44azg0RnJJSzhQSUdUY1dmWDJjYjJDbmIzdmPSAYwBQVVfeXFMTm5YQ0VnTHFCdDR0alBBTVRLSTN3Tjd1dk9hd2ZzTTB2b1pGN29aUmFlMVNFX3hBMmtLNkxzQ3ZwaEVrYUxTMGNnZ2lVeVBnQk9ENWhjaTNyVHdwaHBVdmJaTzJGaW1rdElMMktYY3JEeDg5VWVyQm5xOEFzU203akJFX0VtNWN4T0pFdHU?oc=5",
@@ -301,7 +341,7 @@
       "published_at": "2026-09-16T04:05+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPTC1ZdFk5RUxQRGVrZk1JZzdOUTExZ1p6Sl9xal9XbTFOaWE2cTBDMzR6RmRVMjB0V2VVVk9VRUg3VEx4UzhzSnJyU2M5THhaMFdMak4zU3VOcXRIVGZoR1BETGpjQ1FnNmhtNzl5N0VEb1Z6VHRIZEtWUURiMFB6ZnFLSDRlNl92?oc=5",
@@ -311,17 +351,7 @@
       "published_at": "2026-09-16T04:00+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
-    },
-    {
-      "url": "https://www.wsj.com/tech/ai/openai-considers-pre-ipo-funding-round-at-more-than-1-2-trillion-valuation-54555295",
-      "title": "OpenAI Considers Pre-IPO Funding Round at More Than $1.2 Trillion Valuation",
-      "description": "The ChatGPT maker has had preliminary investor discussions about a new raise. It is likely to go public next year.",
-      "domain": "wsj.com",
-      "published_at": "2026-09-16T03:35+08:00",
-      "query_category": "AI Valuation / Funding",
-      "discovery_source": "Bing News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQMTA2ZURVeElEZXBSMFZuVG5YTEhPQVlRY0diaUJhejNIcXJ1UERoRGtrbVlCdGlFUVVqME0zaE15TmFqUjFvQzM2V05BYmtsYzVZMzJCckxOcHlBS0tJZUx5TkJWRnBCZzBwTmpVTmdENkFuYWVKUkJiZTBnY0VBeFFwR1Vtekl4RUUtOXZZRGVyMUNiUGtyelNPX09XTnB4aVNFYkpsTThHdw?oc=5",
@@ -331,7 +361,7 @@
       "published_at": "2026-09-16T03:11+08:00",
       "query_category": "AI Revenue / Monetization",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOdEhaRW4xd1l5SUZvTm9yS2cwZkR1eG9KYWhSV29KRzBFZ0pJa2FhSTJjMHBVdjZQaW9zWjJ3dFNWZ0x2SVF1MTZrODhIZHZ1MlFabVlkTExKZmVYRGV2Z3pYSTV1S1dQZkhMVVNRRTZFUVo5TkcwMl9ZTkR0eExTT1d3SkZONzZ3a0xvcFBocVhZUWI1V2F6QW9OSWVsalcyT0EzZUE3OFc?oc=5",
@@ -341,27 +371,17 @@
       "published_at": "2026-09-16T03:08+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOektmNGd3OWxESExNa3dYRDkwdGdqOWNKN2lBRjNOZDlKR3VLbHI3WUlYSFl3VENSMGNGMHg5SGhHQXdOTC0tUl9KU1lDNWhlZFF6bTV2ZExJUklYVlZieGN2eXBNMmp1ZUR2aDdLcDFMNnlfblBBaGt6SkJUZ1JiVmpyZ3ZKWV9iZFpiUm1tRzJhTVBqMWZSWlZrcTFuejBwZDVuaDBXRGt3ZTA0M19KZzdmMEU?oc=5",
-      "title": "Anthropic’s Tough Balancing Act Between AI Doom Talk and IPO - Bloomberg.com",
-      "description": "Anthropic’s Tough Balancing Act Between AI Doom Talk and IPO Bloomberg.com",
+      "title": "Anthropic’s Tough Balancing Act Between AI Doom Talk and IPO - Bloomberg",
+      "description": "Anthropic’s Tough Balancing Act Between AI Doom Talk and IPO Bloomberg",
       "domain": "bloomberg.com",
       "published_at": "2026-09-16T03:03+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
-    },
-    {
-      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBVX3pnQ1lXY2F2Y3MtZVNTUlZsb2hYeWQxaF9tSTB6aHZRUlR5azdFRkhLOV9EZDZWaHpGUWpqalo2SXVCb1pRQWgyVVNmamsweDJMUzBDeGtUWHBGZ1dRR3p4NHQwNG1CcG51ZWVBM252azBjMTNn0gF8QVVfeXFMUE0zU1ZReFVzWHBKMzliU2ZWbjRMaENCTUwzS3I0TlVwV1Q2dFRkQTNDbU5xelV1MVBWWjZ1NmFJTmNtZEVoc3pXYWRmTXpqUkVoUnlTTHpBbUlOb29aQmExb3NyeTQ2d05ta2VCb1dSaWZLclQ5OUhLSktrbA?oc=5",
-      "title": "OpenAI, Google, Anthropic discussing collaboration on AI safety issues - CNBC",
-      "description": "OpenAI, Google, Anthropic discussing collaboration on AI safety issues CNBC",
-      "domain": "cnbc.com",
-      "published_at": "2026-09-16T02:31+08:00",
-      "query_category": "Macro / Regulation",
-      "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPV0dxb01UQjhPVEM1cXAxZ0pZVFRGUlRjRWZhc3cxeDd6WmY2OXNCVkkzNF9kY2QxekpmeTg3QzNoSFVnV01EVWRTUlNodDgyb25aRDl3dE5WZ2J1UHJmLUFtdkJJNzZsajZyTUFrZElKeHJHeWVuLUE3Q0FFWUV1bXNULUtjRVFTWmhjRXg1RlQtdEpNNXc?oc=5",
@@ -371,7 +391,7 @@
       "published_at": "2026-09-16T01:05+08:00",
       "query_category": "AI Revenue / Monetization",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOd3FpVERha3hBZnV4MDNqYU5iOVhUUnFwemhmU1h3YUV2dnZFcWF3TEdEd2pHblJiVW1KTUJmMVJXazRoZzFmdmxCSGRlXzVwdG5rdTM3MGM4aEtsRXlCbHdhMVk2OHZsZXFSdHpxNkU0Y3Y4bXVVR2U2dENnZ0xPSVZuSTlwclg5OEsxZ3lqYnNmSGlmeHhtdF9sZk1IVFVsMVFfQg?oc=5",
@@ -381,27 +401,17 @@
       "published_at": "2026-09-16T01:00+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOM0gwNHZJLUJhUzYyYmFRbWZxNmQyZ3pSXzRidzdneHFOdF9GUDZzYjItQ3R2YW9YTlFodkZhVTJxTlhQSkZ6bUlTX21BRGVPQlVLT0pmV3N1VmhTQlVUVjJlc0lfbldSN1FFSkh3ZXR5c2dxVW0tdmthaHhHU2RZc1dJR1F3MFdzUnlENXotNEEzOV9MTWphUTI1azVqeEJwTU1DTlZlNktxQVJTWm9YV2FFdGpRMU9ybnR6VWxrUQ?oc=5",
-      "title": "OpenAI Eyes Canada for Data Centers, Praises Carney’s Plan - Bloomberg.com",
-      "description": "OpenAI Eyes Canada for Data Centers, Praises Carney’s Plan Bloomberg.com",
+      "title": "OpenAI Eyes Canada for Data Centers, Praises Carney’s Plan - Bloomberg",
+      "description": "OpenAI Eyes Canada for Data Centers, Praises Carney’s Plan Bloomberg",
       "domain": "bloomberg.com",
       "published_at": "2026-09-16T00:58+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
-    },
-    {
-      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9qdVo5azRkcHMwNURCS1FFajEteTV6VHdqTGVYczZIYzNleFJ6ZWZXb3lwQWZoRHZMWS1EdmJZcXFrbDIwZTg1UkNEWWxoaUNacEh3NDdhT2N3M3RtbnpNcngtOGRaaFBNaThmSEhKa295MUxNQUYyQnliZEjSAYIBQVVfeXFMUFZZQUEwYTU0QWpEblllVWwwRmFqSG5YdGNlTnZxYk5WbkNkc2lCWUJDeHRvcWdKaWpUVUFDZjA5RFZhakpWaUVuNVVjcFlULVJzOTRWbmFLY2hvSUtSck5GaG9UNTRRVmlpa1AzdFBjOUJaQmRXV3JRamRZOWd2b0hTUQ?oc=5",
-      "title": "AI skeptics from Bernie Sanders to Steve Bannon urge action, as Congress, Trump idle - CNBC",
-      "description": "AI skeptics from Bernie Sanders to Steve Bannon urge action, as Congress, Trump idle CNBC",
-      "domain": "cnbc.com",
-      "published_at": "2026-09-16T00:16+08:00",
-      "query_category": "Macro / Regulation",
-      "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE0zdmNuTnE1MUVGMnhqTlQxSXE4aUhFdi13cDBGeUdSV0NNZU9TQ3RuY0ducElIcDB6OV9pTXhNQlhwWldWM1hzX05iOXQ3YnM3UGc4S2s0amlfOTJyU0c4LVhSNA?oc=5",
@@ -411,17 +421,7 @@
       "published_at": "2026-09-15T23:51+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
-    },
-    {
-      "url": "https://www.reuters.com/legal/transactional/openai-mulls-funding-round-12-trillion-valuation-ahead-ipo-ft-reports-2026-09-15/",
-      "title": "OpenAI mulls funding round at $1.2 trillion valuation ahead of IPO, FT reports",
-      "description": "OpenAI has recently held discussions with large investors about a fresh capital raise ​that would increase the ChatGPT maker's valuation to ‌about $1.2 trillion before it goes public, the Financial ...",
-      "domain": "reuters.com",
-      "published_at": "2026-09-15T23:41+08:00",
-      "query_category": "AI Valuation / Funding",
-      "discovery_source": "Bing News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQMFZfY0lzMjNZc05fRGhjcXQ1bXZPRFhGa0JXbWRYaGJ3SnN2Q1VxLXJuT25IeWRIX3lVX1hRcVBsdHBzWFE5OXBDbFFKWWpOZXozbzhqekhiSnE1TmtxWHhBUEV0QTRQSk50Z1dZeTlkcmlFb0UyOFdlODVlN2VjN1B5aW5zTlU?oc=5",
@@ -431,17 +431,17 @@
       "published_at": "2026-09-15T23:25+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNakpoelgxRW5SaXNwZlhCM0h4Yk9CT3ZIY2hkRklzWDFEZjE5MUpVSkZaNjNFQ0R5VTNrRU1MQUNISmJHTE0tTzFaYkRCV2h3TWVCZGdjd1V0Q3ZLWmhtaXg2MUQwNUt3aTYxaWpETU4zdEoxejFLZndIaU81UGIzVEpoUzNRNkJIWTlyRk92OUlITWYwWjlGc3VjcWxvSV8yUWExWW0xc1Q0YW9hTzhOLUN3?oc=5",
-      "title": "Attorney General Blanche Opposes AI ‘Regulation by Prosecution’ - Bloomberg.com",
-      "description": "Attorney General Blanche Opposes AI ‘Regulation by Prosecution’ Bloomberg.com",
+      "title": "Attorney General Blanche Opposes AI ‘Regulation by Prosecution’ - Bloomberg",
+      "description": "Attorney General Blanche Opposes AI ‘Regulation by Prosecution’ Bloomberg",
       "domain": "bloomberg.com",
       "published_at": "2026-09-15T23:17+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQRW1ON2duQ1MzekVpRGVudVNwQjdXaERxcXVRTHZRa3AwZ1NVd0xhSmRmcHRqZkhCZVJ2Q3JISmNEbzhKNng2QUY5YXF5R2dmVTl6NGJJMlJPZUp5QUxNMVBLdDlXdjBZZGpKZ1M4STBsZ2FlcjRoQjFLY2lNcExzWFd3QklfZEpEV3NKakxvcTlpUDA3QmQ0?oc=5",
@@ -451,7 +451,7 @@
       "published_at": "2026-09-15T23:15+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9keDdSVmlFNGR6UkprRmZ3U2tLQk5zWXJBcnY1aGVVY0xPdmRxX2lLREtoSy1DU1JUOFlTcG5McldLUGt6RGZIckNRaU94Q1NVVGdUZ19NOVdfNjZqSldyV19CZml0SFA4OGZqNkQwTllPUdIBd0FVX3lxTE9lOFBWNUxHYU8yNlRQcHAxalc0Z3lMSDdxb00zOE04ZkNOWFYwaW1nVE9STmNUU0d6ZHFxME1HTUJ5WG56OVdpMG53T1ZCYnJYS0ZqSEU2SFBfZXpJZTZ4anJvNHpYSEVqLVlPaEtnV28xWHQ5ZEtV?oc=5",
@@ -461,17 +461,7 @@
       "published_at": "2026-09-15T23:02+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
-    },
-    {
-      "url": "https://www.wsj.com/business/media/inside-openais-ad-rush-41c92de2",
-      "title": "Inside OpenAI’s Ad Rush",
-      "description": "The artificial-intelligence company is adding tools and features to woo both top brands and smaller advertisers, with mixed results.",
-      "domain": "wsj.com",
-      "published_at": "2026-09-15T23:00+08:00",
-      "query_category": "AI Revenue / Monetization",
-      "discovery_source": "Bing News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQMjk1X0RPQVJ6YXU1a08yWGRzMEdHUjVmU3lkbjcySmZibDZ4M2dXQTVodzNrbl9jRUNaZmpHSFJqdlFRaVI5NlZFR0Zab0prdzM3NW9QVm9UM2FTSzgtZGNaTTdydTlBcUFyUHczYTlDcGZZNC15emRpN1hRQl9Dc1pxQTlVS015dldSMHJOc0dMQ2pXV0swadIBngFBVV95cUxQdGRnU0tuRTZhTUt1MVBOMUY0Z3RJWGU2WWJIcDFsT09KNzF4WHBkV1JIaXhfZk0zSUZaRmRrbE9xb1luWDYyYm0xOFFXNjMtQ3BtRUc0TkxTd2FiaUhFS3kzRHlLdWhBaTAxbXNaeTdRakp5dTZmTVFFcFkyOVNyNk9HNXA4aHRDOG5EX1BpaEdFSnkzRmZHdzZUczNwUQ?oc=5",
@@ -481,7 +471,7 @@
       "published_at": "2026-09-15T23:00+08:00",
       "query_category": "AI Revenue / Monetization",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxORTlaeHpnSkMzSU5ieGJqNEpUTFdaYU8yTzc2OExDcElaWFVFclZyNkVNcThWaFRiM29ZNGhaY3dpWS1RbVh0NUhZczdVLUhLVFNjN3RCRFhZMlVmeU5ibVhCXy14VnItdkpzVHNJZXlxWmhxbzRLX3BjOTFzcE9yRVFteHcwS0Jaa19QaTVPdnh5WDFLcXdvTXBrNldnNVJDd0RvN1NRYllyRWM?oc=5",
@@ -491,17 +481,17 @@
       "published_at": "2026-09-15T22:59+08:00",
       "query_category": "AI Credit / Debt",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOSjZ5a1pZZ1U5MjZ1eEEyTVE5aW1nX3dYWHN6alZyM09WZWtQTGNRRFdzZ19Xb3dhekl1YWFfUHJzMi1JY3lvZUlfM2Z6YXdRQ09vUGRLa1hlRVA2Y0dWWVlkVElwSHRUMzV2bUV5SHB3WDd0TW9nTURHNjN1RHItVFdiRkFlUWxjam1kc2dKTzB4R3hHN3hoNkwyM2p5dTBSNnZLT25jYmFhMFVjQkNobW01RQ?oc=5",
-      "title": "Carlyle’s Thomas Says AI Financing Echoes Pre-Crisis Mortgages - Bloomberg.com",
-      "description": "Carlyle’s Thomas Says AI Financing Echoes Pre-Crisis Mortgages Bloomberg.com",
+      "title": "Carlyle’s Thomas Says AI Financing Echoes Pre-Crisis Mortgages - Bloomberg",
+      "description": "Carlyle’s Thomas Says AI Financing Echoes Pre-Crisis Mortgages Bloomberg",
       "domain": "bloomberg.com",
       "published_at": "2026-09-15T22:21+08:00",
       "query_category": "AI Credit / Debt",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOc3RkVFpncU9YNnlaektBXzNSOWt1cFl1Rlpxa1JqU3o2ZHJUelY4WVo1aXZydEttbUN1UlhMV2JRVlBtQ2tManlWMGJJVnlOV0oyV1Q2U0tXMnpiUmEwakxqUzFaOGF3ZnhoaFlqMGg1RGJXYVFIcGxweVhUSkpzTkgzOFo?oc=5",
@@ -511,7 +501,7 @@
       "published_at": "2026-09-15T21:16+08:00",
       "query_category": "Layoffs / Project Cancellation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://www.nytimes.com/2026/09/15/nyregion/data-center-diesel-fuel-spill-new-jersey.html",
@@ -521,17 +511,7 @@
       "published_at": "2026-09-15T20:55+08:00",
       "query_category": "Data Center / Power",
       "discovery_source": "Bing News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
-    },
-    {
-      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPTHBPSlpxZXJuN19EUGJqd3RUYmNETUt0ekdFZHpuVUFaVDc4a3AtVG02MmRDTXctTTJmeDNzLUFyZ3RCM0RsMFQ1aGhjTFNVQ2ZxZk5nN2xTd191SDNtOEg4SUE2cHlWOWxsYWVqbGoxMDRVemVlbkEwR2xvVU45NtIBhgFBVV95cUxQZFdrRTdwMWtqV1YxTFUtMWIza1A3NDZ6WkV5NmNFWkZKWk9kWWI5blhVamc4RE1QdEszZ0dRd25hd29Wb2pkZnRjVGdOYzh3bDNlcmwxcVMtRFZSU1E1c2VqaEc1b1VZelFzdFo5S2RLOEdUTjRrRTJJR2toWVBaVVhvYzNXZw?oc=5",
-      "title": "Trump admin. says private sector can solve AI threats as critics balk - CNBC",
-      "description": "Trump admin. says private sector can solve AI threats as critics balk CNBC",
-      "domain": "cnbc.com",
-      "published_at": "2026-09-15T20:46+08:00",
-      "query_category": "Macro / Regulation",
-      "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE52TkhYUFNHRXc4cEFtc1NHeFNMV3NDaWoxTFhSaWdqQXFsNk9tZFBjU3NPbndPZnJfX2lNdldSUHlvSzRUV2J3djQzOENoUGwwbGZDS3NOQVNDamhMVl9oVjc2YUp4TDl5WkdLZkEzamp2Qms?oc=5",
@@ -541,7 +521,7 @@
       "published_at": "2026-09-15T20:19+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNX3pZRml4TGIxQ2pRYVM1WTV3SUFNSTlBTlY4bkNtS3l0cW5abWwtQkxSV2szVEdmTVRrWmk0NDlVOW9NNW5rd2tEaUtGRGdQdkNId3RrME1udWV0V0FvMi1GcUJpeFhWVEcwQ3hMc3BFQWJLcV90dUl1Z2tJa2xwcm5TcjZCMWZxRTRpN0pqb2NueE9tb19EOEFONnV0QXpjSDc4RDVRYU5nQWY3WXFLRjZWRHk0Zw?oc=5",
@@ -551,7 +531,7 @@
       "published_at": "2026-09-15T20:00+08:00",
       "query_category": "Semiconductor / GPU Demand",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9OUV9xUkVlRkNWc1lCR1NFZzl4clQ3bVBVUXhRb0IwWHhqYzM0bndSbGozd1VyOHhFTXcyOGRuUTgxWDB4b3lJVVQ3LXdQNjg0eVNpMnY4bHFqN2dsSjJram1ZQUtlWGJCVFBhVmx4QnFxNmhCekpKZNIBfkFVX3lxTE8talgzVG0xRVdXdzE2UGdSRGk1X1FOcFFlZlBCZ2tWdWlGYnBiYzBfb1hISERsTUltUUVlR25oTGFyV1lkcXJCenJ4Y0otMVlhWEZpUHlWeDVZU1ZidDlkb3AyVmdNb0FfbkpiS25fcWZXdWhrOUJzSjdZSFBtQQ?oc=5",
@@ -561,17 +541,17 @@
       "published_at": "2026-09-15T20:00+08:00",
       "query_category": "Data Center / Power",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOc280Tm81MnZOTTZ3TWh2Q05XdHZNRE12dGc3Q2RtSVFoODNfOWRoNkliX1BfZndvajlJQlMxMjlMVDhDTEc4TkdObFdnQzVaTDlXa3NVcFlZX0UyMFU1eEUxeUZJblVFTk50Y0FadllEQlZYMTFXYS1jcTd6NU5XVg?oc=5",
-      "title": "Stocks Selloff, AI Fears Bond Yields, Crypto Vote | September 15 Barron’s Daily - barrons.com",
-      "description": "Stocks Selloff, AI Fears Bond Yields, Crypto Vote | September 15 Barron’s Daily barrons.com",
+      "title": "Stocks Selloff, AI Fears Bond Yields, Crypto Vote | September 15 Barron’s Daily - Barron's",
+      "description": "Stocks Selloff, AI Fears Bond Yields, Crypto Vote | September 15 Barron’s Daily Barron's",
       "domain": "barrons.com",
       "published_at": "2026-09-15T19:39+08:00",
       "query_category": "AI Credit / Debt",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOOE1WNDBnc3RjZV9vZmtqSGZHQkZUd2RqdU9tdWJKMDIyMk1uVXJFWXhqOXVuVHE0X1VBNEhPczZRcTk2cFNfamoyOWhqTFpqcVNtRlpDS2oyLWlkMVVmV0U5NTM1WEtwMllrWlpqNy03LWxpeW5fS0dkaEdSc3dETUgxZ19WZVMtQzFfNXpjamxTcUg2aE1BYUZZa2NJeW40a2RxZk1uRjBjUFU?oc=5",
@@ -581,7 +561,7 @@
       "published_at": "2026-09-15T18:59+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOZ2hSb2V1UmhRTkFQRTJYNm9HMXdhd29yM3lXeDdsQ3F0dXpudzA2VTFVNXdKS2JQemFnSFhSRUJZVDNQV051aTQzNkNFaU83TEZwZm16Nkp0U0Zoa281eVBtQXpFUlJZbVhIRnpWTDhUOFk5UHpoMzBOUHdmVy1BbXZULW9Edm5ieWZkNVltWTJkRnJzODB4MWhn?oc=5",
@@ -591,7 +571,7 @@
       "published_at": "2026-09-15T18:33+08:00",
       "query_category": "AI Credit / Debt",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxObVZMNDRvQUNiZWhQc25DZVdkaVlEMHd3MkxvbGtYRWllQnpZby1hNXlwS0ptNE9XdGQzX2FHUHhuR3JDcjM0YVlaRGFrY1Z1SWZuR0FScHphNUtHSS1PYVFZN3JpNXlXbVFXMnJrNm1NM1VZR1pMUVpfdGx6b2pJNURULS1hUdIBiwFBVV95cUxQSkhJSS0yVVdKOWkxSGVKLWx1T3c3VkpPdFNaLUZpQWV6RUZBcGc5X1Ryck43dHFQVlV6eTUybDFia3dLLWdtUGdlMGNxa01lZzN4azF2eWVOdmZKQW9aaXRUMF9YTFYxT3FlN05UTDFiTmNpLWo2ODJJUmd3MS1oM04zaEpJLWMzMkNv?oc=5",
@@ -601,37 +581,37 @@
       "published_at": "2026-09-15T18:00+08:00",
       "query_category": "AI Credit / Debt",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNckVKWktKbHNxUnBHa0RINVdzWkVnLUo4SUt2cVRzNjBORTNlVVJENlEyMGVaT05WMUNmOWlfS21mOU9adlIxeHB2Z2F1LWdlb0V2aEZQZFRpX1dNWmN4MVd0Rm01M0JHcDJoZ1hCbk1fSW92YTZyZnFLRWd1RmtmUlRwbnpUUE5XNzd3cThVdjhHZ2RvTEZsaGNkVmRPMmZYSk1DMGFWR0toMFR5ZDlBRnNXV2c?oc=5",
-      "title": "Anthropic's $2 Trillion IPO Is Still On. And So Is the AI Race - Bloomberg.com",
-      "description": "Anthropic's $2 Trillion IPO Is Still On. And So Is the AI Race Bloomberg.com",
+      "title": "Anthropic's $2 Trillion IPO Is Still On. And So Is the AI Race - Bloomberg",
+      "description": "Anthropic's $2 Trillion IPO Is Still On. And So Is the AI Race Bloomberg",
       "domain": "bloomberg.com",
       "published_at": "2026-09-15T17:14+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOM0R4VVRXcmM3cjdpLU03aDBaVHlwRmFFUHNscjhMV0Q5LUxUWldOakpjN3liVFhMSUlQVkpHODJOUDNUcFMxQUdjbGgxSjl0WC1OdTV5Rml1VXhSYjVvZlZ0bXVDM1hKUjBQNFhRZ3lJN1l2SDZOWUhZWGNuNzg5RXNKVFVxaGoxM0VWdnFtUENKbVBteXZ5cXNxLXVrMzN0LUFJQUNzOENYemVHOEp4VQ?oc=5",
-      "title": "AI Firm Seeks to Raise $100 Million to Cut Bankers’ Grunt Work - Bloomberg.com",
-      "description": "AI Firm Seeks to Raise $100 Million to Cut Bankers’ Grunt Work Bloomberg.com",
+      "title": "AI Firm Seeks to Raise $100 Million to Cut Bankers’ Grunt Work - Bloomberg",
+      "description": "AI Firm Seeks to Raise $100 Million to Cut Bankers’ Grunt Work Bloomberg",
       "domain": "bloomberg.com",
       "published_at": "2026-09-15T16:53+08:00",
       "query_category": "Layoffs / Project Cancellation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxORlloWG55VWV2R2JTX0VLM2lud3NfbW1NRHNuMVNZN3RQSmVmSXNuTW1DbHpqOW4tbjhoUDVtLVMtemFyMUNHNWM4SEVfa0dlNGpWakZUSGVxMGVvUTIwbnNNRkM4ZVpHQllUS29oTDFGajBVaXhYa3RnTk1OU1NYUk8wWGdJREtHZHdKd0VaODVXVFBX?oc=5",
-      "title": "Anthropic’s Moral Conflict Is Playing Out in Real Time - wsj.com",
-      "description": "Anthropic’s Moral Conflict Is Playing Out in Real Time wsj.com",
+      "title": "Anthropic’s Moral Conflict Is Playing Out in Real Time - WSJ",
+      "description": "Anthropic’s Moral Conflict Is Playing Out in Real Time WSJ",
       "domain": "wsj.com",
       "published_at": "2026-09-15T16:34+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQWlJmZ295LW9UZlRIYW5PQTVBQXd6b19UR29sWC1XY1FYNHhoTzVrX0dHclpYVjFQNHpmbjJ0SjJZUEw0VVlsc3BHY3dxZVlpYS1mcG1McGpwYllSOTVjTF96S05xM1hFVkhKNjBKNXJ3SGxDQUwyZC1id1QxSmplb2VBbnQxV3VGSGtBVW9nMzlacEV0UFdCWDR6cFVmTjQ?oc=5",
@@ -641,7 +621,7 @@
       "published_at": "2026-09-15T15:31+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOS0RfZnBKT2ZkQjJKWk1kRWZCRXpEc2hmTGZOVWdJWmhsOGlKVDM3Xy0zcEJ1ZUN4UlM0T0V4ZlhXTVhybVBLOUNjQmtzeE0zNkFRLXBGdDF3MlhlX1I1S3dmZVl6WkMxclB5R0JmLWJtbkhPT29WRm4ySHBkdHMyNEFiWjhWbEk1b0JF?oc=5",
@@ -651,7 +631,127 @@
       "published_at": "2026-09-15T15:30+08:00",
       "query_category": "Layoffs / Project Cancellation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
+    },
+    {
+      "url": "https://www.reuters.com/business/metas-zuckerberg-says-ai-labs-have-enough-incentive-build-safely-2026-09-16/",
+      "title": "Meta's Zuckerberg says AI labs have enough incentive to build safely",
+      "description": "Meta ​Platforms CEO Mark Zuckerberg said on Tuesday that competition and liability give AI companies enough reason to act individually ‌on safety, appearing to break from calls by leaders of top AI ...",
+      "domain": "reuters.com",
+      "published_at": "2026-09-16T11:07+08:00",
+      "query_category": "Macro / Regulation",
+      "discovery_source": "Bing News RSS",
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
+    },
+    {
+      "url": "https://www.bloomberg.com/opinion/articles/2026-09-16/the-us-can-slow-down-ai-and-stay-ahead-of-china",
+      "title": "The US Can Slow Down AI and Stay Ahead of China",
+      "description": "When Chinese leader Xi Jinping visits Washington next week, artificial intelligence will be near the top of the agenda. The dialogue that the US and China began earlier this year has gained urgency as ...",
+      "domain": "bloomberg.com",
+      "published_at": "2026-09-16T10:30+08:00",
+      "query_category": "Macro / Regulation",
+      "discovery_source": "Bing News RSS",
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
+    },
+    {
+      "url": "https://apnews.com/article/ai-environmental-impact-data-centers-trump-228d625ab7c62cd583bc67d65074f7d4",
+      "title": "Americans are increasingly concerned about the environmental impact of AI, new poll finds",
+      "description": "Like Tapia, Americans have grown more concerned about the environmental impacts of artificial intelligence over the last year, according to a new poll from The Associated Press-NORC Center for Public ...",
+      "domain": "apnews.com",
+      "published_at": "2026-09-16T10:06+08:00",
+      "query_category": "Data Center / Power",
+      "discovery_source": "Bing News RSS",
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
+    },
+    {
+      "url": "https://www.nytimes.com/2026/09/16/science/ai-recursive-self-improvement.html",
+      "title": "The Liftoff Scenario That Terrifies A.I. Doomsayers",
+      "description": "Recursive self-improvement” is the idea that artificial intelligence could learn to build and train itself, creating exponential new progress — and risk.",
+      "domain": "nytimes.com",
+      "published_at": "2026-09-16T10:02+08:00",
+      "query_category": "AI Credit / Debt",
+      "discovery_source": "Bing News RSS",
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNbDA0aE1CRFdVREptN2piVTJaY1hMWmZoNnFUTDNQZlhNeEVkcTM3WlkzMEJnRW1tazhYcDFUUTdIWGpxYnRVa1VTNEJXMFNuLVJwRkhQdkRhRUxxNi1iSU14VmFVNnBydDBSX2R6Sm9wU3hsWTFIWlhfN3dtS1VKMQ?oc=5",
+      "title": "Urgent calls from OpenAI, Anthropic for an AI slowdown fall on deaf ears with Trump, Xi ahead of next week’s meeting - Fortune",
+      "description": "Urgent calls from OpenAI, Anthropic for an AI slowdown fall on deaf ears with Trump, Xi ahead of next week’s meeting Fortune",
+      "domain": "fortune.com",
+      "published_at": "2026-09-16T05:59+08:00",
+      "query_category": "Macro / Regulation",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
+    },
+    {
+      "url": "https://www.ft.com/content/37d65049-fd13-4e5b-8dbb-fee57af5b316?syn-25a6b1a6=1",
+      "title": "Transcript: FT Weekend Fest — Is the AI boom a bubble?",
+      "description": "Tim Bradshaw Hello, I’m Tim Bradshaw, the FT’s global tech correspondent. Tech Tonic will be back soon with brand-new episodes. But in the meantime here’s a highlight from the recent FT Weekend ...",
+      "domain": "ft.com",
+      "published_at": "2026-09-16T05:00+08:00",
+      "query_category": "AI CAPEX",
+      "discovery_source": "Bing News RSS",
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
+    },
+    {
+      "url": "https://www.wsj.com/tech/ai/openai-considers-pre-ipo-funding-round-at-more-than-1-2-trillion-valuation-54555295",
+      "title": "OpenAI Considers Pre-IPO Funding Round at More Than $1.2 Trillion Valuation",
+      "description": "The ChatGPT maker has had preliminary investor discussions about a new raise. It is likely to go public next year.",
+      "domain": "wsj.com",
+      "published_at": "2026-09-16T03:35+08:00",
+      "query_category": "AI Valuation / Funding",
+      "discovery_source": "Bing News RSS",
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBVX3pnQ1lXY2F2Y3MtZVNTUlZsb2hYeWQxaF9tSTB6aHZRUlR5azdFRkhLOV9EZDZWaHpGUWpqalo2SXVCb1pRQWgyVVNmamsweDJMUzBDeGtUWHBGZ1dRR3p4NHQwNG1CcG51ZWVBM252azBjMTNn0gF8QVVfeXFMUE0zU1ZReFVzWHBKMzliU2ZWbjRMaENCTUwzS3I0TlVwV1Q2dFRkQTNDbU5xelV1MVBWWjZ1NmFJTmNtZEVoc3pXYWRmTXpqUkVoUnlTTHpBbUlOb29aQmExb3NyeTQ2d05ta2VCb1dSaWZLclQ5OUhLSktrbA?oc=5",
+      "title": "OpenAI, Google, Anthropic discussing collaboration on AI safety issues - CNBC",
+      "description": "OpenAI, Google, Anthropic discussing collaboration on AI safety issues CNBC",
+      "domain": "cnbc.com",
+      "published_at": "2026-09-16T02:31+08:00",
+      "query_category": "Macro / Regulation",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9qdVo5azRkcHMwNURCS1FFajEteTV6VHdqTGVYczZIYzNleFJ6ZWZXb3lwQWZoRHZMWS1EdmJZcXFrbDIwZTg1UkNEWWxoaUNacEh3NDdhT2N3M3RtbnpNcngtOGRaaFBNaThmSEhKa295MUxNQUYyQnliZEjSAYIBQVVfeXFMUFZZQUEwYTU0QWpEblllVWwwRmFqSG5YdGNlTnZxYk5WbkNkc2lCWUJDeHRvcWdKaWpUVUFDZjA5RFZhakpWaUVuNVVjcFlULVJzOTRWbmFLY2hvSUtSck5GaG9UNTRRVmlpa1AzdFBjOUJaQmRXV3JRamRZOWd2b0hTUQ?oc=5",
+      "title": "AI skeptics from Bernie Sanders to Steve Bannon urge action, as Congress, Trump idle - CNBC",
+      "description": "AI skeptics from Bernie Sanders to Steve Bannon urge action, as Congress, Trump idle CNBC",
+      "domain": "cnbc.com",
+      "published_at": "2026-09-16T00:16+08:00",
+      "query_category": "Macro / Regulation",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
+    },
+    {
+      "url": "https://www.reuters.com/legal/transactional/openai-mulls-funding-round-12-trillion-valuation-ahead-ipo-ft-reports-2026-09-15/",
+      "title": "OpenAI mulls funding round at $1.2 trillion valuation ahead of IPO, FT reports",
+      "description": "OpenAI has recently held discussions with large investors about a fresh capital raise ​that would increase the ChatGPT maker's valuation to ‌about $1.2 trillion before it goes public, the Financial ...",
+      "domain": "reuters.com",
+      "published_at": "2026-09-15T23:41+08:00",
+      "query_category": "AI Valuation / Funding",
+      "discovery_source": "Bing News RSS",
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
+    },
+    {
+      "url": "https://www.wsj.com/business/media/inside-openais-ad-rush-41c92de2",
+      "title": "Inside OpenAI’s Ad Rush",
+      "description": "The artificial-intelligence company is adding tools and features to woo both top brands and smaller advertisers, with mixed results.",
+      "domain": "wsj.com",
+      "published_at": "2026-09-15T23:00+08:00",
+      "query_category": "AI Revenue / Monetization",
+      "discovery_source": "Bing News RSS",
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPTHBPSlpxZXJuN19EUGJqd3RUYmNETUt0ekdFZHpuVUFaVDc4a3AtVG02MmRDTXctTTJmeDNzLUFyZ3RCM0RsMFQ1aGhjTFNVQ2ZxZk5nN2xTd191SDNtOEg4SUE2cHlWOWxsYWVqbGoxMDRVemVlbkEwR2xvVU45NtIBhgFBVV95cUxQZFdrRTdwMWtqV1YxTFUtMWIza1A3NDZ6WkV5NmNFWkZKWk9kWWI5blhVamc4RE1QdEszZ0dRd25hd29Wb2pkZnRjVGdOYzh3bDNlcmwxcVMtRFZSU1E1c2VqaEc1b1VZelFzdFo5S2RLOEdUTjRrRTJJR2toWVBaVVhvYzNXZw?oc=5",
+      "title": "Trump admin. says private sector can solve AI threats as critics balk - CNBC",
+      "description": "Trump admin. says private sector can solve AI threats as critics balk CNBC",
+      "domain": "cnbc.com",
+      "published_at": "2026-09-15T20:46+08:00",
+      "query_category": "Macro / Regulation",
+      "discovery_source": "Google News RSS",
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://www.nytimes.com/2026/09/15/business/economy/scott-bessent-congress.html",
@@ -661,7 +761,7 @@
       "published_at": "2026-09-15T14:48+08:00",
       "query_category": "Layoffs / Project Cancellation",
       "discovery_source": "Bing News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE44RHpQWkxyODlqZFVxWEs5TjRrN2ZWMktZUGRyWERQMURrUEZSWk53QXRpRURxcmJtMVJvcmIzWTY5Unk3VVBlRThad2J0YVhJcFRkSVdOUlNvU3Jvbzh1anRPTGU3SGZnUXZOOE5GcWtQOXpPMldaR1hCTdIBgAFBVV95cUxNZ1VaYzZvQzNWOHQwX3Vfc1BraXpSRU91R2E5ZWVoSUhaZjNZQ1BfT1hUaFU5aEI5cF95UHE1V3VWX1ExcGpQR2NXc2JsSUJzWGFGRjU3TC1waW1hM0FmbTNRS2c2UlZVcWk3bmxudUNBbXBVYWJDVHRLRm9meG1zQg?oc=5",
@@ -671,7 +771,7 @@
       "published_at": "2026-09-16T06:13+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNc2duRmFITkhXUGVBRGdXU2FzSWEyTkttMzgtVldzZGxnUWZQaVQ3LUk3Z0dRWmZzaUJ6dU9oMmZuaF80MWIyMUJ6ejE5VE0zSExBTGNCbnFnRExLVzJucHBuTEZzY2dEdHVfak9XSDF1NG8tU3ZmakVLU3BpQ3J1LVZLNWs?oc=5",
@@ -681,7 +781,7 @@
       "published_at": "2026-09-16T05:54+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPRjhtdU1rR0ZPZzBMOGZwZUpnYk8tWWtnVk0tV2VsRF9abV9pR2RicmJGbmtld045bkdwZVpSbzNKVDlLQ3ltamh0amZ0SnpQVGwwYnNvSS14SEZKRlNPb05Tdkxxc3k3b3h1N1RhVTJDbmtLNDBFd2VMSlEzQWN5UzUwajJFQQ?oc=5",
@@ -691,7 +791,7 @@
       "published_at": "2026-09-16T05:46+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNTXpZbUJLc0pOZGRUSTM0RkkzT1BKRDhHNHZ6SVlmZXFuYWxVSDlaV05hb0ZuRXNmVjJQT29sWkU5cnR2NzBOdWtIWTRiZ0hxeUtuSTVkX1ZZbl9wTjJSNWcyZUtrbFRyMnlMcEw2Rnc1eEZtWEtOaHZuVUtlNVRhS2NyRWFBTFZvdlJIeE5wUVE5R2VjM2UzVlpfNHFzTkZVQmZiLTRMQ2pVdEdzRjNibElYa0dNYkd1VmtNMnBUMjJvT3dveU9QN19R?oc=5",
@@ -701,7 +801,7 @@
       "published_at": "2026-09-16T03:14+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNVE9oWGhwMVRwX1ZwRmF6dGI3MTdCX254LU1GeTlFaE9IUkRlNTRIZXJuOEd5cjlYRlpZc2M5UlprZHIyLWZvdGV1YUkzQkJWQ2F6WF9zT3dBQWdrLUM2QXZ0R0RpV05aVmRiY3hyRTBQR01LM3liVzBYdWptRzZobEMxTEE3elZEOUpaaVBjbEd6dzFjYlZUS0tBUTJBOW05c0FXSkZwU3pRa2lKU2M1YXRuUjhGUGRFakpLNVltYVMyaXJja2pNbm5mWUR5VElyeTBsag?oc=5",
@@ -711,7 +811,7 @@
       "published_at": "2026-09-16T01:54+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://www.nytimes.com/2026/09/16/business/dealbook/openai-new-funding-round.html",
@@ -721,7 +821,7 @@
       "published_at": "2026-09-16T01:00+08:00",
       "query_category": "AI Revenue / Monetization",
       "discovery_source": "Bing News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://www.reuters.com/world/asia-pacific/anthropic-signs-first-australia-data-centre-agreement-2026-09-16/",
@@ -731,7 +831,7 @@
       "published_at": "2026-09-16T01:00+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Bing News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://www.reuters.com/world/americas/eu-head-call-european-solidarity-top-challenges-closer-canada-ties-2026-09-16/",
@@ -741,7 +841,7 @@
       "published_at": "2026-09-16T01:00+08:00",
       "query_category": "Layoffs / Project Cancellation",
       "discovery_source": "Bing News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQMjk1X0RPQVJ6YXU1a08yWGRzMEdHUjVmU3lkbjcySmZibDZ4M2dXQTVodzNrbl9jRUNaZmpHSFJqdlFRaVI5NlZFR0Zab0prdzM3NW9QVm9UM2FTSzgtZGNaTTdydTlBcUFyUHczYTlDcGZZNC15emRpN1hRQl9Dc1pxQTlVS015dldSMHJOc0dMQ2pXV0swaQ?oc=5",
@@ -751,7 +851,7 @@
       "published_at": "2026-09-15T23:00+08:00",
       "query_category": "AI Revenue / Monetization",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNUFZLOHBYN3gweW0zWS1sRXJqX1RhS1dZYWYyeFIyWF9SclJoa2QwZDNQMGgzb2EwUlliRGU3WVQzanpzNC00bE5TekJsNHBSa1JTVW9VN0xqNnB1Z0FxdnZrZXlmaEhOeVVqcng0RHpOSTBsZlk2dUdXaEM2eVdxdnFZNE9UVVE0c3NyMlY3SjRSQ1AzRE4wblpMTHZjOHNBOE53NnhkU0pIUmJ3cVVmVDh4bUNMeEx6Rk9ZdVVoSEpsR2VqY0E?oc=5",
@@ -761,7 +861,7 @@
       "published_at": "2026-09-15T20:37+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://www.cnbc.com/2026/09/15/open-ai-sarah-friar-safety.html",
@@ -771,7 +871,7 @@
       "published_at": "2026-09-15T20:25+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Bing News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://www.nytimes.com/2026/09/15/us/politics/ai-polls-midterms.html",
@@ -781,7 +881,7 @@
       "published_at": "2026-09-15T17:47+08:00",
       "query_category": "Data Center / Power",
       "discovery_source": "Bing News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPMkZXSlFZSW80WGpMZkktNHlRcXR4YkJMR0NaSDhfaXNFZGhxaWJ4N3hOYTlTUzFCaUZFb043enNMUDJlQjJsTVdHRHRVYXZCckgwamN0OXVNMy0taVZKcFNKNEhjV0NXMGlPTWFHbjRDa2lsbVJSa0FDVkVtaUNhdnlMMFFCdw?oc=5",
@@ -791,7 +891,7 @@
       "published_at": "2026-09-15T17:03+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://www.nytimes.com/2026/09/15/us/politics/congress-ai-regulation-bills.html",
@@ -801,7 +901,7 @@
       "published_at": "2026-09-15T15:49+08:00",
       "query_category": "AI Credit / Debt",
       "discovery_source": "Bing News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNZGw0ZmlkVXZvbHRFVV8xTF9mYW1aTjVFVmZqWEJ5Q00zODllSU5mX1RUdFdZQkJHN09CVER5c2s1Q0I0dzRrdHVpWURLVk5QVkkxQ05MYUhmSWlTWEpSbS1yUTZpMWljWVVLZDBGMV83b1NEYTQ3NUZ1NWFabXZNRWJfbEZQVEluc2xlaVJ4cGpoZVhsUm5pSTZHSG1TbkdHM193VkJ4X2RLTEFvTll3?oc=5",
@@ -811,7 +911,7 @@
       "published_at": "2026-09-15T08:00+08:00",
       "query_category": "AI Credit / Debt",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPc0ktVC1EQkZnQ0QxcFlvM0lQdDRfT0hFUldiU1JvbHVOcmw2XzgxNjY2d0NoZ1dmenRZbDJ4N2themVnUEZRZngwQ1YzT003dWk3RmdtWjgxZkRQV191S0o3aVJvbjNwM3Y0OFVPanFpelYzYVBESVFLRFpscF9fZk1RVEhqSUctSkktLTd3MG90bjJGOUZKcjMxZWxjMTNTVzI4a0JnRWkyX1RtVEltOUZrY3lISXZkS1o5cTR1TkpHZWdXRVFrYw?oc=5",
@@ -821,7 +921,7 @@
       "published_at": "2026-09-15T08:00+08:00",
       "query_category": "AI Credit / Debt",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://www.reuters.com/world/china/global-markets-wrapup-1-2026-09-16/",
@@ -831,7 +931,7 @@
       "published_at": "2026-09-16T01:00+08:00",
       "query_category": "AI Credit / Debt",
       "discovery_source": "Bing News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQTGQzdThjZDBCbkNRUnpRZ01IOUg2b3VhRThlR1VZNGhSODNXTjUzcnd2RGhfWVJESTVoNmdmUlcwTFA5emZWMGphQ0ZJSVFXWnhzbllaZUZTaFl2aWhpdFFhUlNBTXJyY05tMnVuMDQteV9nMVJwX3RFQ3pVNGJKMUlhUDZ3bnRYbHgwY01faktwcDVSVHhzUU55eWJSSFJ5b09qS3owbDJPd9IBrwFBVV95cUxNRG9mZHpfNm5fMURCR2xWaExISVF2cFQ1X2NvNUhNTVE3RWZaV182X21rZVU3bVpVN1UtSzNkZXN5Y1daUktlV0l0UTd0aU9aMWVtZWt4cjNoblE3cmp1MDJfOE43alBXckg4UTh6NTBUNG14c2xmX3A5LVJkMkI4VnZlcEtBOUhfM2djX2lsTFlYclUtb3pmX0swQVRQQlJua0Y3UG9uakZFaDN1eXB3?oc=5",
@@ -841,7 +941,7 @@
       "published_at": "2026-09-15T19:00+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPYkZfeC15UnBRMUtVY2MtZU1tLVJFZTRIUjdFQ204MExiNnV6bi1OZHVSbllWU3Q2enZLSDVOUlljNWNoeHpFNk9hRVZJWjhvVUNlcWpzVGFoMGo0TG92bVhGX1hQOC1KN3EydGlWYlRLSzZYVE1jUEpFdTNBWmxkUGpxQUVPdUpkdTRiMEh3?oc=5",
@@ -851,7 +951,7 @@
       "published_at": "2026-09-15T17:02+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://www.wsj.com/tech/ai/ai-coding-startup-factory-more-than-triples-valuation-to-5-billion-871da697",
@@ -861,7 +961,7 @@
       "published_at": "2026-09-15T17:00+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Bing News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOamtMaEl3OW04aFdDZXY3Q0tDMnRWWHNna3h1ak5HTi1INUZIX0h6R1g1Z0JKOC1NSkR1R3VCVUFzTktFR0g0T2V4QzNRQkgtRlZ4YUltRGc0eGdITDhCY3N4M1VaRU5Nd2w1TWJXMnNSNTZPRHBkTUwwM0lUZkhmU1VzNnhtUXl2TTlPcGJ3c2NabEhmTDA3RGNaMGtKTmQzZG1hdm1sbzBDRHlmYXNZZ9IBtgFBVV95cUxQRk56b2o1TFpzTnZKNGpOVm5QeUxNZzk4SC11d1FGUnNNX1ltU0lTaGdYQjB4Qjl5aExrTjVJQ0xpWlVVQ2tqdGE4UU1tajBRZWM5NWVMVXJvcU1zZFFGX254NzV3V3RSLUVUR0E0VVc5REZxM01WbE9IZi1FWkNiaW5VbGJXbmtsdXQyS3Z4d0FNd2VlSDdJRlZDRDJZQnp1dmhyc2hQVDBBMENxaUlYc05IcHhfQQ?oc=5",
@@ -871,7 +971,7 @@
       "published_at": "2026-09-15T06:43+08:00",
       "query_category": "AI Revenue / Monetization",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://www.reuters.com/legal/transactional/investors-nervous-about-ai-spending-slowdown-after-industry-warnings-2026-09-15/",
@@ -881,7 +981,7 @@
       "published_at": "2026-09-15T06:03+08:00",
       "query_category": "AI CAPEX",
       "discovery_source": "Bing News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQWFI4ek1QLUpJaVNKWHpXT2JpRE9jamxzR2ZtRXFsbWQwaENObGwyUHB4aUw0cERCNHR6ZVlvcFRpanlhM19lemZYZW1zYnNxTXBPVXBKTDI0dy1QYk8wOFNJSGM3UEhPRnlaQnJoU3hEbE1WUkV4WExxRWdtNWc0cldzSmU1MjlTWmRzemVrTjBwbFFvc3FTRTZHdThOVmswWV9rRHk3a2gtR1NlMzdURVNsQkZUMWxUQWRvUFQxdw?oc=5",
@@ -891,7 +991,7 @@
       "published_at": "2026-09-15T05:18+08:00",
       "query_category": "AI Credit / Debt",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://apnews.com/article/federal-reserve-kevin-warsh-interest-rates-ffd60cca8bb045bb9b1c389f5f1b73af",
@@ -901,7 +1001,7 @@
       "published_at": "2026-09-15T05:04+08:00",
       "query_category": "Layoffs / Project Cancellation",
       "discovery_source": "Bing News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://apnews.com/article/bill-gates-foundation-ai-united-nations-26ce25f9be20574a4fa04a5f983521ae",
@@ -911,7 +1011,7 @@
       "published_at": "2026-09-15T05:01+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Bing News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://apnews.com/article/ai-regulation-trump-congress-tech-politics-d2d1bac8e8666c681937665596a4f603",
@@ -921,7 +1021,7 @@
       "published_at": "2026-09-15T05:01+08:00",
       "query_category": "Layoffs / Project Cancellation",
       "discovery_source": "Bing News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNNXFPME5ES0Q0aXZ2bmczekhkNi1XR0QtMkZsU2l2b3FheXFxcVB3amEyZDNhT05UeVd3NnBpaDhKMjN1M0NFZVhRUFVBaEpEM2g1WGpxVjYxZm1KM2JOcVIyZTRLMkdqS014dW9UNXRvZUE0MUdYQ2liOTZpZkk1WnVsbnNWaHNES0cwSFBNMmpfdHpGa0w1MW5CVFVZMENjZ1dBQ0ZlVy1VZTVzVkZFZGRCMG1aelcwT1E?oc=5",
@@ -931,7 +1031,7 @@
       "published_at": "2026-09-15T05:00+08:00",
       "query_category": "Semiconductor / GPU Demand",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOX0cwcEttNTNmMUxxVmlnU2JvdUNYUzhlX3l1RlNSSks0TWJCOTZUa1lhdF9jaGZtN2liczJMSEVKbVdtMEhEQTd4OUYwR2dmMDhiTThFcll6UzlsUXFFQXY4ZkZIalZwb2JzOGx3ZlVFMFNIbTRrUDFmOHNoUDBvREFnR3ZLZ1V3ZmJRaWVHMW9qMWU4Umhmem5B?oc=5",
@@ -941,7 +1041,7 @@
       "published_at": "2026-09-15T02:41+08:00",
       "query_category": "Layoffs / Project Cancellation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPdmFIWG1qMktWVG9la3hFdFBRZG1nc1RXV3p6bFZuWUYwTl9nSEUwUTMwTDB5UnRFeGV4MlJ3alp2WG9OdU1KR3V3ekJhWmh4enRZcjVGWkdzN28zSG5UU09wbWtFSGxmZ1RsaHU3blZsMXVqTlQ5SVBHcjNETGRHVmh3NU1VbVpKNzF0bTVrRC1iUkx4WkliZTdQVnM2SmdlQVdLc3J1aGl6Ym1aUkV6TllNaWdZRE1RLWFUZG1yRlpSQzI5emk5VGRSbXRfZXJOZUHSAdcBQVVfeXFMUDZlMzhnZDVDcVNjSE1oV2toUlh3SGRYWEtnYm5KSEJHMk1KOEhDSWFLSW13cWp6d0hBcEZDMlB0azFKSkk0cFNVTm1idjVpRzNUMXpqS2w4ZTA0aXNmdjN1aXZoSHhPUnVxbVZZYlZGTnZLOEhRQzJybjV4aHlDMlRMNndGUUxhdWhXZ19tcGhvaXFqVmlkWElRRHpQR3hvV2l3Z0xnV2JDRnBVRGNLRUd0bXpfMmJaN3dVbUlzU3JIVVhlVEpxNHpOaUVnY0lQSE5JTEU0V00?oc=5",
@@ -951,7 +1051,7 @@
       "published_at": "2026-09-15T02:01+08:00",
       "query_category": "AI Credit / Debt",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOako0N2w1bExjVVA0azZSLUI0QXdveUdDUWFnM0RKeVJVTEN4TlFlX0t5UHR6Z1FROWp2LVJUSjY4anRUakt0OTBUWkdFdjNKLTFDNmhPZ0RVY3BZSEZzLVFFUjZVdmtLSHk1bVZQRm1ObVJ6SGVSWGpJbXBBdS1EQ3lSMk4xNzNfVTJQT2NYaW1aUkV5c1plNDJNRXk2S3ZPMzA5Yw?oc=5",
@@ -961,7 +1061,7 @@
       "published_at": "2026-09-15T01:13+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNeHh5QVYwWDZ2bUR1V20yb0ZhQ1lzdjVST1hheU9DODdUNjRWN2Y4aUt1NG0zMElMSnRfYjJ5Yi1ncnMyRUlWTWhIUnNHYlZHel9LMXYxcWE2MEp0UTYtR0U4SWhkTHM3ZjQ2ODcwUUg1Vk9zNGtWZzNmVEh6QU9mNUZTU244MTRDaG1ETUh6bDRtWl9WczJTZm9iYmZuWkpESW5PWUhRSGg0WU53NEp0OXgyS2U?oc=5",
@@ -971,7 +1071,7 @@
       "published_at": "2026-09-15T00:03+08:00",
       "query_category": "Layoffs / Project Cancellation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPeHdfc3I3SlJyd1JBdUZLcWxVSE5TeHRHUlotMVNZSFlhU3RxRTJtZGIxUExBRXdhRXBQbHBFbm9TcVZMNTJvSnZ6OVcxTjdyazFhTWg3WVhQbVdLd0xFY0JWbkk2aUZsdVFrZHgwTk51RkM3TlUzMnhRQTMwWEgwLWo0RTFuM1dMX3kzQ2NkS0hnNzJfRUxsd0dn?oc=5",
@@ -981,7 +1081,7 @@
       "published_at": "2026-09-14T23:49+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQMEJidFNRQ1I5MGgydDNteUNFSGpyc0R6WEZ5RGRnQ3JBLXZfdVdnUHVpZVJxaG8zMFlIMDNucm5UM3huWVNYa1FZNmtGZk03VEY2aHJFSHBvU0ZVN1JydTVmTko0UHNJc0Z3N0d2UTU3aW5VWUtma3hiNDR3X2FybnJpTW5iMS1VYUU1ZmhLdkY4ZzlCYzVrZW1TbUR5R0VjTmdTWjdTd3UzUVh2Q2NuTC1ObEt1QU0?oc=5",
@@ -991,7 +1091,7 @@
       "published_at": "2026-09-14T23:25+08:00",
       "query_category": "Layoffs / Project Cancellation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPZ0pGV3pUaHlLVDgzbXlIWS1fSjZWNVlfOGlNc3dDSVh5WnpRXzhSYU9wTENCZ05JNHBqVHRMYXEtdnNXYmZNdmVPYUtPSU9Tanl2Rkp1V3BRUU5ZQ1A2RzNtdjhpTFJzbEp6VjBUV1VPNHJDdDF0RkktcGpBNjlwYkVYT2NtZDZuNzBMTjlTT1dUZ1Y5dlhlNjZLZnFRWllTUWFXUngwN29CNzctWWdpaFgwZFc1Vm5rZXozM0VaeTk3ZE5JLVE?oc=5",
@@ -1001,7 +1101,7 @@
       "published_at": "2026-09-14T22:18+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQM01tVUxzRUtNUHM5YmNCSmlMcVZ0VmJrQU5nWmsySTJXZFNnWEhZajZxTmFOLW8ybTd0Z0lxVEZQSlJLVjV1djJROUFleXBmeHRLeDlpTkowNkZTbDZrSGJPVXBRZ2k1MUJZYlR4VThnSUhTNkl6eWhlTTBZS012UnV0a3kyaVlU0gGOAUFVX3lxTE54dzQxUXo4aFdlV2NKVnY1aHczRlZOTDRnaWVxTHFRUEhqUXhCS25Nd2hYYlY4bFh2WFlaTGRJbVdLTzNGajl5Y2FNSWVUSnBrbzJobTllT1M2Z1VxUTFweFZjVmNaNU9pMnRVZ3lsMkNiWmgwUHpYby1mNEI5TlNEdDliRUc0VUgxQnM4aWc?oc=5",
@@ -1011,7 +1111,7 @@
       "published_at": "2026-09-14T22:09+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQNFpLRTJmTmFjMDRqWUlrNVhmeHlWR0dGdjI5VmpBMDh3eHRjLXBVVVp4aFNEdGs5WTZzTzRsTFNlQ1lqaDRpRkI3Y1pyTTlUX011Z0MzeHZZc3g0M2JvLWNoZnhZV1pEOC1SeklWbU5rQTVrU0FSMHhBTjdRc3NiaGlLeEo?oc=5",
@@ -1021,7 +1121,7 @@
       "published_at": "2026-09-14T20:40+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQUTExdWhzRjRoWXQwOVNQVTlEV3h1d1A5OVZ1X2I3R3pqNXNLbUhHVUw1c0l5UmM3U29XX0VFYlV6cGlhQ1N2SUlwTGU4cnVKSjV2NGppNEJxbU1tck8yeXdfUEhzdWJrdlpZQ3d1YmdQZW5odmN1Z0NDOURua3pLWTFidkJ1TEU?oc=5",
@@ -1031,7 +1131,7 @@
       "published_at": "2026-09-14T20:01+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOVzR4bWl2NTBLNXZTT1JUZkZrZ2gzeGhfdWNfYW5UU3VfTGVQUnhXQS1wVEJQWDVYcmo2VW1jU00ydTMyd2NaSEdiNkJMZUxockxBWDVrbW41VlJPTkNDUzhKYUlZeHd0eThhNmtsTFRIQWl2b05xd2pzUGRBUDNxdTFIbEZzS1RvV1JHYlVmMzJaaGM?oc=5",
@@ -1041,7 +1141,7 @@
       "published_at": "2026-09-14T19:54+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPRWFqQXlMTHZpSkhROE1iQTNDUEtibHVrRFNpRmdjNF9GMU91WFpWZWo0YU9fNEU0c3pvUnFsNnYxQWVvX285dFVEa2x4RUtySFNsR2dHaDJoTkJja2hWMW5kLUlxYl9sWWpBbUxTbzltTllJY1ZvSzBxOWEyRkp3czZpRGFjWVpKSjVtbFdHdk83ekpHN1drMzJFU1E3UXFwNjhlc05abWtzZ9IBrwFBVV95cUxQR3Q5czJ0UGpqdXhDbHVhYnR5S1dMdWszUGVZRkFjSkN1cmhwNlMtSmZNWHp1UEQ4Y09uYWtrV3dIbVdLTmdUUy01dHo5SWZoTG8zUW9lcXlGZ0NGYjR1MWZSVU1aOV9UQXEzWUswb3N4ejA0MjJkQUNIcHNBcm9McjlrRTZBMlJpSHRvWVZDZ3g1aHVSUmhGV1hyWXZGd1RpVTN3TkdFSWl4cVlUSHg4?oc=5",
@@ -1051,7 +1151,7 @@
       "published_at": "2026-09-14T12:01+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPLVlMNmltZWw5djlZQTVhUnRmNlVTMDYyaFMydVBSRm5HQ2oxQnB6ZUM5aFVXSy0tMnNxNy1WUzMwaHZ5UEZVcnVzclV5YnBQRWlwajlGUGxueVlWb1pWSmpyNTZKQW5pSWUtQXhyY0tCV080c3F0SDg2UnBNa2lFZWNJdw?oc=5",
@@ -1061,7 +1161,7 @@
       "published_at": "2026-09-14T09:54+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNTEMxeXVSa29wMkM4aVJMNWFSd3NTMUtXU1czYjVreEx0eGJyOXc3VGE0X1hlWVpPS2FzZ3huZWY1eHprdzI0Ykw4Y210WEk0SUNxdGRzZ043N1hYWTZ3c0Z1VWVKSGUtcjU0OElobHZjMEM3QlBYSVpQTWF2UFR2Q3JKd19vR1V0WGo3Yl9LSHR5NHNSSGo2Z1pRNkN2WURQVWpfLTBBc2ZTeFBGTWV1TE1Jcw?oc=5",
@@ -1071,7 +1171,7 @@
       "published_at": "2026-09-14T09:42+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOXzFkaEptQk9Gc2REWUZ3MHpYU1ZjbFpqSVp2cFV6b21TMU9pSUNnRWlqajdrYnAwN2FZTzRvNzJvUVlSTkYzcWxDMFlVZ1Ftb2V6OVhURC1haHFyS0NLcnRZUHhpSFRCb3VuQUt4SFFGTHJnVEg4eW0wSHgxcVlmR0JoRQ?oc=5",
@@ -1081,7 +1181,7 @@
       "published_at": "2026-09-14T07:11+08:00",
       "query_category": "AI Credit / Debt",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPeEJ6YVJJNkh0djM5TC1ZNW9wSkJoeU1nMDA1dmpxeW5XdjR1cmVlZzUzeEJLbHFfQm9KMFNhbkY2S2N1bHV1V2xncGtBMERtRzItTlFqUEFBVHZ0LUJwSDY2eTA5c21rS3hEdzBlWVZNMHgyalBTbnZ3MjgtbEozU00yUnY?oc=5",
@@ -1091,7 +1191,7 @@
       "published_at": "2026-09-14T06:29+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQOElEaDhNQW5QWVJ5Q0RMQ1M3S3B6OERSdkdoWDE2RGdXVk9XZF9ZOFE0NlY2N05BMzFZZFRBcHlKUkFMTGt2M1B4ODNDMmhtQTFKY0xodVJuRWhMMWYwMlpBZGNzTVZBTUFLMHRMUENiWEJfalVvbWhQOGtLOEdyQW9CZ1dqX1BQakdZbkh6M1RkYWxwMHRn?oc=5",
@@ -1101,7 +1201,7 @@
       "published_at": "2026-09-14T06:02+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPRFRjOUtJenNsVEpVTEQ3X0NWb1YxY2RFOE02OEdTc0VrUDQ1R3RfWG9QZENQa2pRYkRhektKVHBHRENSWjBxbXBWdnI2anJIczlDMUw4NVpVQ05UY2JfV0ZITlVIdnJmSElFSzNnMG5xRlNnZmhSZTRNOE56ZXZScVpIMzBZMmtXVHVoZHVpT1lxTkp5ZlYzdnQ5T3NPVjlKSTdPWmFyUElMSW9wa2JlSS1vOEdvNG9VWFRMTzFpdGNLdDdETm44?oc=5",
@@ -1111,7 +1211,7 @@
       "published_at": "2026-09-14T04:25+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOdHpaNVFIZFhSb2ZUSG52aTFGdi1ZdHNmaDBzZEMyMkVxRXlNMHR2VWllZmdCREFWOEFSQzZfMHBlTjRCVkY0MTkzZjBqOGhiZERCT3ducXdXY1VhWFduZ3MtQ0NoNTlHYjBlS0prMkNmOWtQQkJId3RGSmRZaEE2alYxay1KaDAyaE14R1ZqTVdJamxneU8zSFJyeG9CQzNZQzU2SktkQVNjR25aMkw0Mlg5blQ1QQ?oc=5",
@@ -1121,7 +1221,7 @@
       "published_at": "2026-09-14T03:07+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE43ZFdOcUNiZmFDbmRDV3RyN3ZxekV1S3BONUxRZ0twQWlCcFFublhOanpUS3VUaHNiZFBBQ2FiN08wZGxKMW5KTHB3SV9Nc0lYcjhMQTdZZjdkMUtZbzU5dG9aX0t6SWJTUGhLVkJjeGprc2NkbUVtS1RHUk_SAYIBQVVfeXFMTjRGRTZPVklWdGtRb1N3NF8yZlBfTmxSNjZnRHp1WE5ybzZlZXJMZWdNT3JmbGJnTjlQR1JFbEhkQUxzZkdfNGZNeVJkYklSdDd4NGVRdkRBdmZrRi1CS1F5Z2sxZmpFYTlSb0o1WlBiTWI1Z3djM1dUeVFjRlJETjR6Zw?oc=5",
@@ -1131,7 +1231,7 @@
       "published_at": "2026-09-14T00:56+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPcDg3dC1KTGZCUzVUbnNPOGpvSUZHdUhZTlI0eEJjYmdFUE1ZT3RaV29jd3ZJamtjakVRTnNKbE0zcVFETmtSaC1RRXZHTS1GNG56UV8tYkJkbnJpVEVwSzM4MnhpZ3o2bkhkM3Y0aWVNcW1QT0dJVlZoTUlzc0JfaWhvS2phRVE3dVYyYnpzSmJ3UzhZRWVVb0FSblpxUDA?oc=5",
@@ -1141,7 +1241,7 @@
       "published_at": "2026-09-14T00:23+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE4wV0pYQmdFdDdtdzZyUExENUJfM18tUEJud2Y2aUpNeG9SV2loa3FwMFFQWEhoTktGQnBkQWwxY1gtU0UyYWFYX24wNVMwZnlJbHIzRkFGbDBONlFvdlNJUHhrY01VdU5MSndvUUdkdmdMODF2UEdENG1n?oc=5",
@@ -1151,7 +1251,7 @@
       "published_at": "2026-09-13T23:54+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9Ebm16S0djWjFGYTEyTkZEdFdFR3FjdjRMdE5DeVE1QllJOG1UNmE5bDNTSEVqdkVRcGdSckN1N0xyWVh2aEc1bm5FNHpvNFlIYnJQaEI4eFR4TnNnM0hKRkhaOUNCLXVjTGJUZlN0YmpHZmJTdkNwamNDTkLSAYIBQVVfeXFMTmJXdGZqZG1xWURORnhQc0FLRjN4VGxQSG4yTkhxRzNjWWFtZzNQamFPZ3Z1TS1pVm13bzdHaWU0d0FER1BQUnlHUnk4U00zbmU0aGdfd3YwMzBaaWpvNlBvRjA2NFVIWWY3ZGduU1U2SkdSQWMyUlRiM2UxdkpHVElpZw?oc=5",
@@ -1161,7 +1261,7 @@
       "published_at": "2026-09-13T23:46+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPc3NTenhlaVBsazZZaUR4TlFZSzl0VzY4aXZqa3BrZHRoQ3N6a3JpR3BpQW5Nc3kzUk5hV1Eydk10SlVLUDRvMDMxRHQ2TlBUVlUxUmp0ZGZzbzlySEIzZ2tWcG1JTzZrMHVLLWdqb2E5ei14d0MzY1FlQmxWSHYzWGF2bkFrRjRkX0ZPUV9LMA?oc=5",
@@ -1171,7 +1271,7 @@
       "published_at": "2026-09-13T23:39+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNSkNHUFFrUlZCVWVKZ2dpVVkxSzBmcy16aFFHVTJDV25PZ0YzMjBLVlFQZ0pJcU5EVWJlUW13azNiV1BwOENLcTFVOFpZYVVlT0haaXI2ZkFaOUZxTGp2eE1kaGZCb2pXV1dBQy1XcjQ2NmNXMFA3Nnk5ZnA3MU5wWGZCV0ktTWZad2o0LVBmeW1BclBndWRfWEJScFduQklEZUFEX0NteFBhNDYxRG5keUdiUml3dVYz?oc=5",
@@ -1181,7 +1281,7 @@
       "published_at": "2026-09-13T13:44+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPbmduYjZNYlh4TmVDd3dMTzZmU21ud1Q5WVVaYXBOM2hUQ201U2tjeDhoWHd6ZjhlQzdtUWxiNmFibkRpc2VlcmxjbWMzTWljZ0ZZSkF6VHFPWnJVUFQwc2g4RDNtb1FCWjN1R3BBcFRzUHkyTXJiRXZpa0NxV29IWFc1LV9lUXh0bXc3TWNrSHZhT0lPTVU2dEswYWhSVUw2SzFkRkVmSHU0S3c?oc=5",
@@ -1191,7 +1291,7 @@
       "published_at": "2026-09-13T12:38+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNMm5STnhuRG5MT1ZWUjlzeWNqVEFGTjVxaVdkX2hzdjF5VElRajFKd3B2NlkwcWxNSFgwOVczb1l1N284MVlhNTRtMFN4T1dyY1NNVmdFeDBRQVdGWmZmRjdYM0NuTTN5SXhvbi1UaE55TDhCUmdINEZ6c2VobFZQX3ptWm9sTkE3UjB0bDZzNkxlLUxzZHE3N25R?oc=5",
@@ -1201,7 +1301,7 @@
       "published_at": "2026-09-13T02:04+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQTm04ZFVKR3oyYTZEX2MycTc3MVFjejV3cVd3ekJtUWN4ZWJIRVFLYVVic1lvVUt3aGItR3JnMjRFVHQ1TDBqTmZsMnJwMjdBdDVpM0lTUDRMSUxKNmQ5ZnNYZ0JUX25YUTJfc2tqcWpnQTM1ay0yYnF1d2g2S2otVkFqaUR5aDdVOEtJcnRKeENHZ1BOcUpiUU1zRQ?oc=5",
@@ -1211,7 +1311,7 @@
       "published_at": "2026-09-13T00:38+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQbWdEQ1p3VzJkd2E3ZmYwWmRkRWlwWEhFSm1PTjQ3Y1N1bGNPd1lXcjZncEhPVVNrd3dFT3oxd1FVbzVMZmZTVEJVZGJ6MHNxTUd0eVI5MkpuY191WG9CaUozc3AzWkhPQUlzUDh0dXFqQzlNd09CR0NrQ01NaVBERHhCUE9vcmR1UmlfMFVXdmFlcDNocnJkMkJOa0pWQ0p0SVhia1QwS3A4LVZjYXdfLWhiRTHSAboBQVVfeXFMUE44bkREVTl5S1B2R2RMNUlMSlZlT1N0RU5yeTJLaDhFd0dWZ2wwRmdaVUpWRGpYbTBtVVlITnRNLTJRcW43RlhKQzZFVTluc2E2dVhuSzNOWWtoVzFwRDFDX0wxVWszTDk5NkcxQjNaN3JCWGlpUnhTdGM4dzliVHFQam1IV2x6dW1jMkh4SkFNWjVRbzlSQVpaZEFvbE9QZHNiSWJMS3l4aDVMLVFRdk9FbGYxLXBZdjNB?oc=5",
@@ -1221,7 +1321,7 @@
       "published_at": "2026-09-13T00:22+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9laGIxcTRhWEtfQUFPb0hIUmgzeXMyYXVhTF80YzVUaTV5dExyODhETXJpdC1fdVpqRkVZYTk3ZDRsbTZrdmFCdXRKZWpBMGJzSnZNTTJfaWpPMFFzZmU4ZldSS01ydEw5QnVrWG9TTzFZM1ZabTJjZDI3X0M?oc=5",
@@ -1231,7 +1331,7 @@
       "published_at": "2026-09-12T21:46+08:00",
       "query_category": "Layoffs / Project Cancellation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPejh5Z2pxSV9CczNGcjF1V3V2N1ZvWE4tdUhmUTJtam1IbTZZbTBFUURqYjNYczFKQ1dXV3RpOFJ3MnhqdWdndXBtU3h1Ry1jb25fVUJlWjFOZ0FiNnAyb2J4SUhHX1YyY2JKdm0tNDF4SWtkN1Y1SFRod1Y1MnlvVEVqRGFkNnM?oc=5",
@@ -1241,7 +1341,7 @@
       "published_at": "2026-09-12T13:00+08:00",
       "query_category": "AI Credit / Debt",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQdDBsRHFoaDBPR1JoeTZ4cmZ4a2U1dnhTWGpyd1BlTUJmLXZuZGZDbG9BNVpmMW9RZE9LR0RBVWpCdVRnZ3NYQUkwTjlFTnBENDU2QkR3dUhIM0ZlSldKOXVMSmhNYXQ2Z1hBN2NjRUM1UzBDd1RsRDhqcGFiNkgxOVRoaF9oTmlaamZPR3FmWjdmY3ZSak1uMVN4bmJ6Z05mVy01bzM4VXZlUzBabmNLYg?oc=5",
@@ -1251,7 +1351,7 @@
       "published_at": "2026-09-12T07:35+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNTGZaVVZMNnl5WVlrdVF0UVk3bVZHNExhTXJWemUwOHhPVUE3a0EyOHRYSTFiV3FvSEVxLTRpZHozUVIzZE9KekJOdHBfemlMUmtCaWt0bGlCX2tkWEpxb3JYWHM0VmVjQTllUU9PODZYQzNtaUd4TE5mbmtGNnJCbEdRampsUlpxdkMzMUZJR05LYV8yQUVhblB4cmZ1SVU5THRJc1pvOG12cnJWQlE?oc=5",
@@ -1261,7 +1361,7 @@
       "published_at": "2026-09-12T04:15+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNZjd5bE8wcUZHZlhfS0lwZmxpX2xTTXBOMkJoVVItRmNjNGRsNjFJQVNXOERhYUljdFBscjBKekNlNXlmNmktZUpNNW1CbXQ5ODlxZWYyZUJScmI3cllZM2o0bUl0YW9FM3Z3TUI0Q1hDbVhMdkxHWi0yNTBFekhRYlc2NjhBeW43cktndU1fQUltQS1nclZVbQ?oc=5",
@@ -1271,7 +1371,7 @@
       "published_at": "2026-09-12T03:35+08:00",
       "query_category": "AI Revenue / Monetization",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNNHFCRWNlOGV6b2dNSUlNbUU0OFFWcWlncFZLY0hjZnRtTW5nQng3dm85djRHNDRaS3BZX280T1F6OEw2d1VqVThnUk16WnF2a3FMQWNJTXA5S3V1V25fcGtKU0FtalpTUGkxa1UwMW9jZG1OQkJsSEV5dFd4el9hTXlRenU?oc=5",
@@ -1281,7 +1381,7 @@
       "published_at": "2026-09-12T01:15+08:00",
       "query_category": "Layoffs / Project Cancellation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQdGd0VG54MXV1a2FoakVMYVFNUXVONnNFOXRRYkVRSlVoOXJvT0NUTGdEMjgzczd6eC1sdW5HWHA1cHVpN00tMGppaDRFZHZleHdjaGtRVFU5M3hvUUZkSTJqNmRjd0EyTmJCNTJmUGJJa1lSdmtjbWpxNTlzYldpV2xqTVZ0b2RKZVlNNUFxWThlZHRI0gGaAUFVX3lxTE9OVlEtTk9ieG5NY2Y2Tl8ydlcyY1Z1d2RHclRQRXBkbnNGWXg2TmRHSVlhY05JOHRMZHY2N1VtaUZOMkN5Y0dPSWJpX28tX1FLVC0zemNLTGZodnF4MTdQVjE5aUtxaG1WOFhkMkFuQ0RZdUlYdG5WbjFpX0Y2Slhwczc3ZE9lQTZ2VF9KUVBuajV2RnNSdWpJUHc?oc=5",
@@ -1291,7 +1391,7 @@
       "published_at": "2026-09-11T21:31+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNOTl2cnpoSl9lYlB5ZmdKSy1ZZXNrcm4yamEtelY1bDYtemhkaTFyWno0RU1zTEEwRFNxeFBtbE9tZnZrVXliUTJveGIxamFYbmlMMl9BTEtGZlExMnVZU1JkQmRLTWl3WVRUVndraUxxNlEyM1RZN1B0VXpDQzU4X2ZYQU9sakZ2OUNxdVZQOW9vVVUwYzRHZDM1OXF3TnZjMzdyUXJCcWdBNWt5TGVnVg?oc=5",
@@ -1301,7 +1401,7 @@
       "published_at": "2026-09-11T21:00+08:00",
       "query_category": "AI Credit / Debt",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE03bWRldmRDa3pmTDdxb0k3UUFKbXNNcnJGQVBCNkN5SVRwdnBnQTgxa3dxU2RERmxGbVJtRi16Y0wtZTZ3dWtvcXJPbTlwOG9COGpOcGhPMkFzZ1U1aEE1Q2Q0RkFuc01CeXhHdzc2WWhtSVNRYTNvRFZB0gF_QVVfeXFMTWpqdW9VSEdvOHFvMFl4Qm91UlFPVlRBaVhTOU52MVBDTmRkRGxqclFEVmdaeklvLXc2U21jNmlGMDlUSzBwZVd2d0YtTXBsb0h3cFVaNDhXYTJOUW9WSG9xd0dVdTdPVnVIamRxZzhETnFsTXV5MWpHZDJ1d184OA?oc=5",
@@ -1311,7 +1411,7 @@
       "published_at": "2026-09-11T19:22+08:00",
       "query_category": "AI Credit / Debt",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOaXdNOTVXY3kwZHluN2wtdk16OHYyYjR6aWxCZ3RFaDNveWtIMTZ3dzFwZExPZmpOX1YxbTJMdmdEeVZabF9NTjV3ei1KSWJXR2NKR2lnbWZjczZyQlBEU0x6c0dnWFplWFVteEJoQ0JTMGpFdnZqd2hXR2JpSF9ILU9WM2tGUTAtQWxuQnl4LXhZQWRnZXNEdFZlUFBDbXhxLTJVUVoyRkwtQm1KS3R5M05uaktvT0dWVzhV?oc=5",
@@ -1321,7 +1421,7 @@
       "published_at": "2026-09-11T17:49+08:00",
       "query_category": "Data Center / Power",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNTlVNVmVmRkpaMmdEZ2dFdTB6Q0JsUUM1YVpCTC1DcHBVVE45b1otS1djRWJHSFlFX0N2bVAzVkRaaTdpVVpmVFU4UEdQc0NYSVllZ0lxcGliaWpBbmVaZFZGMHRWLVlkYWVSWDVzZ3BaVWtCdXE0b1hBMF8yVWJZWA?oc=5",
@@ -1331,7 +1431,7 @@
       "published_at": "2026-09-11T17:02+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQMk5MZDBuUUItQ1c2dnBiWWJudnJhczJ4MUh1azQxTjBBNmhCZHJsWVNEcWFRLUtJX1p6WXFaLVFrZ0tPeHNWWEhYYXZYd3BwNU1XZ2lvSEgxOUdHLW1mZ1dJdkZFYUg5bjZIVm9SbWNHdmw2MjBnenIzekF3UkJJdG5DTnVjc1ZXazR6M3UwZzA0X3c4by1uSUE2Z0o2U2hwTTJRdURmQTRFTzBQSDZWeDUzSENMYjdMYzJ6VUx3?oc=5",
@@ -1341,7 +1441,7 @@
       "published_at": "2026-09-11T16:27+08:00",
       "query_category": "Semiconductor / GPU Demand",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPc1JXS3NuMXZ5dmJzcWZFa1Z0WEhZOUFndVhaNHo5U2ZDVGlVdDZtQ1QySEkzRGVfa3FfU19OM1R6dU1JUGJfbGFNemswcThQUmg1MEZDT0owSHBMellHYndGa0dueHZIR3p4NHlvYV9FVUZzcEk3MXp2c0hsQ19pNl83QTg?oc=5",
@@ -1351,7 +1451,7 @@
       "published_at": "2026-09-11T12:09+08:00",
       "query_category": "AI Credit / Debt",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPRXJMZWdoQWFkTHJITkVsNjYwWkFGZWk4OVlpdS1tTDNyMnNQd0Zicmx0UktIZDFxS0xwOFBlSkxOakxPZ2RjRy13UzduVWdhcUN3WVNXWWpjVEJXRFNpOFlVLUFHMEtxV0I3cWMwZWY1REVYTkhFNGZJZDJmTzRDSU9hQ3hmbGtNNzc3dFlPSzRwVjFlYnh3RDFLbW9UNUxMYWMwb2RTbldvZ3dWZHladi1TYkpnY0hZN1lN?oc=5",
@@ -1361,7 +1461,7 @@
       "published_at": "2026-09-11T11:03+08:00",
       "query_category": "Data Center / Power",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQemo3R0FQcmVIT3NkY3piQzNHd3JaSTM5TUhESmw0a18wVVBBb0p4Mi1mV1NSdndpeHhIT2ZQV0w3XzVRaWQ0RFJYTHI3ckhtVVNtWGwxcGJFb2w3UnMzVnMweV84MEN3SkV6cUppLUFYQTJqbW1ZS3Z0NmFpYlZJTm5BQzlGMlhFLUw3T3hOcEdxdTY2aWdqcDNKS29Pd3c?oc=5",
@@ -1371,7 +1471,7 @@
       "published_at": "2026-09-11T08:00+08:00",
       "query_category": "AI CAPEX",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNQm56T2dLMnFMeVp3a0tJY2s1eVdLalpSQ2c4bXBGQ2dOclF3a0dCVjhDYldvcEJMbEQ5TUQ5RXJuZXllZ1FvR3phRVlGNHhBazR0LXlaTy1DQmdXUENkQ1hLcWZrZlh0Ni0zdVVhSEhNdGxSckNpbHpiMi1GbUM0aUhSOFluSkZ0aG9WVG9DZ0pzQm13d2ZjRG9hZEZrdFRYUTU3bHoyWmhVYjNXUFN4TGtZRGdXbmM?oc=5",
@@ -1381,7 +1481,7 @@
       "published_at": "2026-09-11T06:52+08:00",
       "query_category": "AI Credit / Debt",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNTHBHOWMxWUFLYUt0NHZRR1c4V1RvckEzcFBfZHlhUG5POTFyeklqXzB3SW5CMVlMaUhCTGZjLXZOeno0RFduTXlkbUgwT1V2WmU0T2FPU25MM0YxRmdCdEl6V2w4SDI1a0xLOEFDTmdieWxrOTAtWlM5YWdVek9qcjdleGhFNGNCYUd4LU10YTJyY1g4Mm42Z0EtdjN6VkFiVFRDRklsU29WbG8tdTFWc3M4VnZCM2hjVzFnRUxBNjVtNWM?oc=5",
@@ -1391,7 +1491,7 @@
       "published_at": "2026-09-11T06:24+08:00",
       "query_category": "Data Center / Power",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNR0MzWHlsQmg2a0g0RGE1UUp0OTVjUkpsTG8wVHUya2V0clh0RERnRWFaVi1udEVPSzZJMGVaeE5iT2xZbXJoM0thVDV2UEZxNGRWWmRWcC1ZRTBzZk0yMU16cEpqWXZ5Z3hfTGxQdHR3dmNRd3VFU0htQWdoaWxTZGtIdE5HZmlTNDJCMEZFNWRCN1c3MGdhV1JxVUFEY0VXaF9kUUFMTQ?oc=5",
@@ -1401,7 +1501,7 @@
       "published_at": "2026-09-11T05:51+08:00",
       "query_category": "Semiconductor / GPU Demand",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOWU1OdlM4b0w3OWIxeFNFNEVhTnE4c0RpXzVzNk5wWTVGYXFPMXU4VUpVeEVoaWJyTDFRdkkwYXBUNnpwV2ZNZEZ1M2pkUV9nTnZTS28zaWZadlF2MHlwYXdNWHhEekFiRENSeDFQYXhGbk1XMEM2Sm5tNDNyejRFRk5KaF9uUXY0SkZQQkxlMk5lQ0R0aDFxbmJRbkF3cGJWTTJub2Fkc0U0dVBJZ2tXdlVpdXo?oc=5",
@@ -1411,7 +1511,7 @@
       "published_at": "2026-09-11T05:38+08:00",
       "query_category": "AI Credit / Debt",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPQlg3UkdZdk5WOTFROEhsZU0wVjJUVHNLUlpTbmRTcjV4SEJ0UmN4SktqYUtqakZBQ3pxU053bzFIeXlHUlJZOFlaUzl4ZFF1NmtZSTliUjJhWV9jTjJ2Q0FoXzFKQzJzeUNfbEtqQTYxaWUtRlVBeHc1S0VNRVN4S0J0MXJQOTNoeHNKLUlYUm5JREV3SHM0?oc=5",
@@ -1421,7 +1521,7 @@
       "published_at": "2026-09-11T04:59+08:00",
       "query_category": "AI Revenue / Monetization",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPdDl6dy1QRDVJNEJhTGVsZEgyY2kxMWQ0Ty1IOWo3S1VSa3dhTFdxZFdZUTZSdnNSam8xNXpoVFlKYmZHS2FXTkRhRElwdWVFcGhBQk5LMUMzWEQ3aUxmblFSTUxjQlZaZjRJVUgwYkJyYUxTSWdsMTVFRjVLNXJMN3JXRE5QdXc?oc=5",
@@ -1431,7 +1531,7 @@
       "published_at": "2026-09-11T03:54+08:00",
       "query_category": "AI Credit / Debt",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOSldUSEZwamtyN2hWd3dvU2RoWXpwWG1jWW9IRmFWM2Y0MlFSWG9qekUyN0NiWFdGT0F1RFZoNVZVbXQyOW5hbjFTNHpNYlkzLVNrelJGbG9kQjJhcVJTX3A3OFJDb01FQkFoaUE0TS1wdkNQdDR1ZWpQOEpJWVR0RUVnT1otQUg1R1JVTVlteGRJbl94OWNSLWtlQlo?oc=5",
@@ -1441,7 +1541,7 @@
       "published_at": "2026-09-11T03:13+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNS3BpVTdBYWozS0QzbFdJakhBcUltUHd6T3RDQ0ZJZ3VYZjFNejEwWlR6MUlLdklGdlMycXpQbkhGcHBXRVFiVDhSQ3J1dWdJT0RxT3AzdXhnRFlWcEJUdzA1Vzdmb3cwbGQ0eWR6aWVUWTNuYlc3Y3BuUzRiRHVwOEdrN0dkUnIzQW9tYQ?oc=5",
@@ -1451,7 +1551,7 @@
       "published_at": "2026-09-11T00:21+08:00",
       "query_category": "Data Center / Power",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPUDhMUUhDeWhhQ0lZSWh1T0ZhYy1YWTFIWXozdlJ0UlRydU0ycVNIdzk5TnhVSzlVZmtNSUVrV1M5OWROTURhNm9ZdlExN1hVSk9QTDAxQl9rV1l2R0xuTEFCazlXbEIxNGlLQkQwV1U4MUY0UTFQekY5c2dFWllsTlUtRHc?oc=5",
@@ -1461,7 +1561,7 @@
       "published_at": "2026-09-11T00:04+08:00",
       "query_category": "AI Credit / Debt",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQWmR2LWtCZEZ3VmZvekplYVJINjA0dmk0Si1ORi1qTWM4WDhCUVJkNlVYZkJ5MW0zeDNlRWNCcnQweU9qRG5tTGxoQm4yeHY4Qm5fMnJFTmx5M2NhZ3cyYnB1WGViU0o0MWFraWw1X1NpYzJIdEVpT1hvUXNwV0FtV1A2eS1KX2pSSkoyTE5WajFLN2NzcDRicHJkbTFfZms?oc=5",
@@ -1471,7 +1571,7 @@
       "published_at": "2026-09-10T22:40+08:00",
       "query_category": "Semiconductor / GPU Demand",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE1WNlR3Xy0yVTE3YUNxeW9FRGFnME56emVBalV4SUREQnI4Nmx3WmhwZHVUZ0ltSDRycldFdVJlM1VzNkhwN3lSMkdvTi1OVzFFZHNVMXNpaHJaR3I1UTNPYXU0WHNub2VxRnVv?oc=5",
@@ -1481,7 +1581,7 @@
       "published_at": "2026-09-10T22:34+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQZGx3NG5aQWxfS2lsaHZGVTlSdXlycUJjM2Jrc1VKZ1BHMGJPbEFxUktDR3RBWGdGSms2MXp2X3VaOGRRNjJrXzRCS0lmQmJSZFJZdUc2M0U2TEtGVFhmdmVXUTFESEpyZklnQTRhbmlTX0F3RjFjRWNKVXVULWVFWmRDeDBNNkVfaGxlc0Zyd3lScnFaeldLOTlqMGhNRUJyU2xmaV9YWQ?oc=5",
@@ -1491,7 +1591,7 @@
       "published_at": "2026-09-10T21:21+08:00",
       "query_category": "Data Center / Power",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9Hd1c0Ym54ZVdQTmRKSHZjbnVuOFRvVjh4aUxJVTJqRHpRRjZWemlDYnVuZUZhQUVMZW9heHkyUjhZQ282ZVpuczQyM1M1ZElJaUNpdjg5TGd4Vm9TNlQwNlNKbHB4RXdEWDBkR3JEWdIBdEFVX3lxTE9BbFlMMEtIYWsxakliVUgtbWFHb1ZkaHdPYTZqSE9ucFc0SzhVSTV4SjJsQzRzdTdrTTBUR005RzJLeFpFcExIaW9OU2NDVnk0NXNNRENGNEtnSndybGdmVlF0R0NwY2Y1TU9HLS1SQkVQQmVk?oc=5",
@@ -1501,7 +1601,7 @@
       "published_at": "2026-09-10T21:01+08:00",
       "query_category": "AI Revenue / Monetization",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOdm5mVDc0SEY4NTZnQTZsSXFsRmJIRm03VVFjR2dKWFVqTWJRdUdjZWNvWmIyeFFlUC1tZkdSLUdGenZtcWNZeFBHR0ZjdTJsanhZNldKakVvRjVid0JTTnR5RGpOdTVVRDkwbzFkc0I5TEZKLVlxRUN6Zldpbk5GOUM4eV9zLTBRV2FmeGNsYWg4MnM1S3ZuZlZtTE5ZaHZNR00ycmVMRWtOMmFhZ0RTenJxUQ?oc=5",
@@ -1511,7 +1611,7 @@
       "published_at": "2026-09-10T20:24+08:00",
       "query_category": "AI Credit / Debt",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOY2tINE40YUE5SWdyVnltX3kzTkhPN2V0RDh1cjZKNURBeHRVdXMxMU5SWUpsYV9oZUVTVHdVTlJ3Umxrd3gxdXB4ck1sOUFMZHNZWHJkV0ZWcVBlbnVHbUszMnA3ajRBUTg4TUVVS3doNTZNMWJJbWZaVWsxbVEzSkREdnAzUQ?oc=5",
@@ -1521,7 +1621,7 @@
       "published_at": "2026-09-10T20:22+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNeGJydjRSLXNUYlJuVWxDaFA5cFUxNW9TMDBTM2hiQ1BlOURvako3dUhqNzhvS1N6SXp6Z2VfT2xVdWozN0RYcHdJeEZvQkliamxTTUZOUnVSNHB2bm44NldKNEFtNG9pczdxaDYwTWlzelhMa0tMbUd2UjJObzlWSjlPczBlRzZiU3F4dXJPUm05UURrcUhHWGRKY2pDNXM4WUxkTlZ1QVpRVmlWRG1oTzRPc2JZYUhhM1RWSXdPdXZuUQ?oc=5",
@@ -1531,7 +1631,7 @@
       "published_at": "2026-09-10T20:05+08:00",
       "query_category": "AI Credit / Debt",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNcDUzRnJ3dHpQaFN0aF9CVHRZbTExQ1h4UHg2OEFaQmxHeHZsdUwtN2piZzdPdk5oYUticEdmSEIyS0RYUlpKYUpRX3ptWFp6WGFNbGp2QXlVNjRIVFdvanlTWXdubklpcXZzUHNWQWxURlBrU3hpcTU0dVJ2M1NEUEpRU3FhUzhHa25XRklRbUo2LUVoVWlsV3dVcVY5SENFc29hd3JXRUZQZG1FbHEw?oc=5",
@@ -1541,7 +1641,7 @@
       "published_at": "2026-09-10T19:33+08:00",
       "query_category": "AI Credit / Debt",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOZmtEXzVYTG9YMUdiR0YxRDFfUlFucHJMSFpPRUdlVEVqd29TTGZ2OEJ2NjNWV1k2UTZEd2RwSFlYMnoyeXN4TzFoamk5b1ZiRkY4RVVtRV9hSmp1aVIwUkI2OGIzckNzOTVPSDNrbG5XLWM4bU4yZlpGOFlZNnAyczdLSGE0VVJTQktz0gGQAUFVX3lxTE01eW9yU0xQdzc3YkxMVmpaY0RKVjRvcWs1SVZEbkw4OVFoeGdTeGg0N0hybl9IU3Nna2dkWmNZaTd6V2swUldYdXVUeUFNTnQ5VnpDUkFrYWkxZ3J6YTR1d0Jtem44dzBZbmQ4cHlnRTMxZW9ScGpnRm4wR2pKRFB5eGFLYUc0cWh0ZkxReHp1RQ?oc=5",
@@ -1551,7 +1651,7 @@
       "published_at": "2026-09-10T18:12+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQM1BGN3ZBNTNDNW5DeGNuUmhNSnM3M1JfZ1NGaWF1ZFpvNHg3THdibUkzRkNrSkMwX2g2bDRzaUdmcklQNW9tNDZNTWREV2M0c0I1bXlFejQwZkFhTzRybzFjd1UzWS1BbFFyeWoxbzlWMXpyQTN3MF9ydzZxQ0ktYjhLY1dPRlM1alU1UUdGd0psUFBPOE5KU0VNSTdzNWs4RWFRYlpVaHJMd0Nt?oc=5",
@@ -1561,7 +1661,7 @@
       "published_at": "2026-09-10T17:44+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQWXRfamJETmNWUTMzNDNJeUU5RFZjN1pwN0NkVW02MHZ2RzJKeTB2RXJ2ZDIwWE1YRG5YSlNqSlZoWkgyYndZWDJVM1BmRmVxb3k3SDFRcmZwZXp4OEtZN21kMmtmSVBoX2JlbG90TXBjcWY2cGRHbW1YTlgzWkM4VlNYRWU3eThHOHIybEMtRGV6UU4wSjVoNWNyLUFIM1I1MUhqcWN4QllzQXJVdkZNZXlUY3ZyWVluWmVsWjJVUlZJTXM4M0NTMFU1NWY?oc=5",
@@ -1571,7 +1671,7 @@
       "published_at": "2026-09-10T17:19+08:00",
       "query_category": "Semiconductor / GPU Demand",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOMWp5NmlTNEIxeThhRTdwR0VjTy1RYkFpUjh4LS05Y3l1UVhHa0tUOWhGM0s4emNhc20wR213OEZYY0JNTlhFY1lqRDRPMHlWdFF0Nm01UWt4YUpkR2ZvYnRVVXRNS19BSkt0dVdGc0hpZDFMWDQwLVU4elp1WGdlano1VFdQOTEyazN2UzJ1STBhcFBUd1JjQS1mSzdJdmhSYjVVOTI1TVdDb1ZnVXJwbQ?oc=5",
@@ -1581,7 +1681,7 @@
       "published_at": "2026-09-10T17:14+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPUHJuN3VLbFEyOVRPTTE0dmlyNW5fRmNPb1FwMUlISVh2V09NYURFMHB4blh4bWtpTnU5djZjQUUtR1M0ZHBGSkkwQVVxYjk4VkJtbnFZbWhNQ0F2TlRmYkRaSXByOVB6RmY0bGJ3V200SmRlS3lkUGVVTU1lRy1fQkVmaFk1ODkwVGZSdmg4QlYzbWpRQUJ1ZThTVzRCcVdwd2R6cW5iVU1pTkwyOE9kSA?oc=5",
@@ -1591,7 +1691,7 @@
       "published_at": "2026-09-10T17:03+08:00",
       "query_category": "Semiconductor / GPU Demand",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOdHhQeVBvckRTZ05yV0QtbjlqbnNORU1NbEJVemdhRnA4ZW1mdEE5cl9uUl95MFdmREFDcTlTbTBaYU52b2ZrQzg3RnNpVWwtRHFTLTVTTThvQjhBaWppazNKOElicFFsN0dxTFZQWS1saHYzWXU0cUhzNVYyWjRvcDRuNFZhVGFvbnZJRk1qOWtLVm8yY0JtM3hiMA?oc=5",
@@ -1601,7 +1701,7 @@
       "published_at": "2026-09-10T15:00+08:00",
       "query_category": "AI CAPEX",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPYl9WbFZJWVZKbXo0TnhxTjVzWGxBRk54QTA0VW8wZm9CZFhZMDZNdWdsT2R6dGpkMVNVUkpsNmJfREgyOG82UllIclZRNjZTTUR6RExJbWFoSVg1QzVyWDF0eW1TeWN6LVBrNGttZGtWd3ljdHZqNjhkUnpaSE5vMmxrZWUyWlhYdWFjMTN6ZW5sUFlsVjV2Zl9jM0JwS0VwMnRZcFZWX3pQMGs?oc=5",
@@ -1611,7 +1711,7 @@
       "published_at": "2026-09-10T13:35+08:00",
       "query_category": "Semiconductor / GPU Demand",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9ycjd0eDNoeHBMd2Y4OE5TT2JvVUlNbVlhREFBc19jRTU3b0lrRTkxU1JrSmdmZ1AwcGFsWUlvZXBfT3FVS093cWxNZDA0WlRmb3haODhHVHREaDlyV3RYWVNjdEtYWTMtdGxwUEhPb3kzd9IBd0FVX3lxTE51eV9XN2ZtTHdhbUJaX1dtaTFWT0k5THItMFBIb3RRN3ZZT2dlamlnLXRaMkROcHFCQjBTWkcyQ3BlTWc1bmRsMUpsTnRwU2VKUWRxSW5lQ3FiTV9MRzVKX1QwUi1LYThTaEhpdUs0dTcyd0hER2Jn?oc=5",
@@ -1621,7 +1721,7 @@
       "published_at": "2026-09-10T13:33+08:00",
       "query_category": "Semiconductor / GPU Demand",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPd2dkbUp0Zi13THRQMU1kMXNIZVktQVN5NVR2cEszemg1RWM1cURfcDBCRGhLMGJfc3NTaW12anhJeGVDb1FfTC1SaHUzcnVUTzBnVmJseHBuUngteFBFLUZQT2FkMzBaTEEzclA0WFJGT0FmZ1htaFFSX1YwNnVTNk1yT0dnNVhzUm9Vbms0U0N0ck5UNVpyUlNZZ2JaQ3NDZ0hHUEw1VE5BMjZ0dGFIX2plWTRqRHRDeG5yQTFnY3pHZlFhcG9Ndw?oc=5",
@@ -1631,7 +1731,7 @@
       "published_at": "2026-09-10T08:09+08:00",
       "query_category": "Semiconductor / GPU Demand",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNX2tuLTd0emY0Z0tKZzRpNWMxdnBBNktXVVdKSFRjLUVwQUVaQURvWUNmY0lPWm1JUERSbXFTUXBOaUdjSHR0YlVLQ3ZaSFBnRTV2VlhEM2VYTHpFYkVwTnd1bXl6aFhralJKN1RWamZWMnRMeWp5U3dDRERPVXBHN195MU5IaWk4d01JbzNhSkhrdnRYbC1lOHpPQnNJamdNam9MU2pFM01hVHRYUlRIZTdVMHFqb3BVRWxjSFBzZzZEcTJKaEpLZA?oc=5",
@@ -1641,7 +1741,7 @@
       "published_at": "2026-09-10T08:05+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQb2trVEdpZFZBc3NXNXdyOUFZYXU4ekpNSHNiWHUyY0xyeXAtTEFKbmRlRVBJMWVyTkZVdFBXQV8zR05XMlJsZk94M0dOOGVQWTVqUnhBYlBYWkN1RDhwUUtrUFJSTDkycTlFbVdDc2t3M2N1MTJEaENrN2huV0tlaDV4QmN1bGkxZ3RJQ1dRck83Z2tTS214RnFKUDlXS3FoRXZPQw?oc=5",
@@ -1651,7 +1751,7 @@
       "published_at": "2026-09-10T08:01+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE16Nk92bjU2QkFrUWR3enpvc2JRd2RDR2JMRDJpb0RvbFdpOEVDTEtfbVBvbm5NTllaOUNmR1ZDTmtoYXFLalVMSlBtZEpqckZaaTJfMw?oc=5",
@@ -1661,7 +1761,7 @@
       "published_at": "2026-09-10T07:56+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxPbUZRVHhudU1zcDhNQmhkRHpFNk9SOUJlN2EzZHlwZEZPdVFIcVJpU0pieUhsVGFNRUFNTWxidHRFeEJhR3ViMThRNWRHeFZncmp0dTZTazBYcXJLaXJTY0k4VmFCRW5KU0loMlJuWWhSdnhSdzFyTVNndlk2NFNRam9Pdk40U19KUnZaamZzcHYwamFLb2JkQ1hTNHJOc0Uxb1ZMbzJ1Xy1yM0p3NER2bFJuVlZESXZMNVBDRzhzVkRpREtfX1JzWGFMRkVIY2doVDY0dG50WERMdWZmcmtNbWFSYXE5ZmdZbU1sQ2RkWWNQSGc?oc=5",
@@ -1671,7 +1771,7 @@
       "published_at": "2026-09-10T07:20+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPRFVqSF9UMzZ2akpONjZtWXU3SG9zdHRoQl9CSVU2WUkxaVNiVWhmQzdSTHREZmVCVFIyZTUyRzZ5aHJRZ3VHZUhOcnhFNkhyMmVYMlkyRUo4TDNhN1U2aVFlbzNvaEd0bXVpLTBuR0dhQTNES2tyeVFTQ21nUnJuaThjYTZwVnNfamR1cmJBZEE1bVF2U2dyNA?oc=5",
@@ -1681,7 +1781,7 @@
       "published_at": "2026-09-10T05:43+08:00",
       "query_category": "Data Center / Power",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5QXzc1aGxiTS1XLV9ldDBxbzdtWm1SSHQzcVpfeXpWbFdxZ191dHMwdDRkYWFpXzdRYm9LQjk2V1p6U2JqNzdDRFZkbXZxdEtrRjd0T1Qxb2RNWDVxVGplcDN2NFBHblZXai1UOTM3TQ?oc=5",
@@ -1691,7 +1791,7 @@
       "published_at": "2026-09-10T04:22+08:00",
       "query_category": "AI Revenue / Monetization",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPRG1Kd1pMbklLVGdUdmJnTkxrZl9lMnlwVzVPLWx1bHJNTElmQW14M2haNlFWaklkd2VPbUFNd040cVlHS3ZrVHVlam9kVzVnR3ZmeS1sMlhqTTFZRG1BM1g1TmdZNXc4ZGNhVTlyMW0zb1h0cEFzRkpUdFpDOXlMQ2U4MWNKR29hUXBoaVVGelFvNVo4T2E5R0dybnd3cVN1N1NEckd5aEhBSms5YWd0cFNHRkRfdFBGREE?oc=5",
@@ -1701,7 +1801,7 @@
       "published_at": "2026-09-10T04:12+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOc29UbEJhZWNRQU54VDlKbE05X1BiT2lxcUM0aFowZ25tZE51SnpycF9GTGhkbHA4V251MHBJSXlVbnE0ckZRdWoyUUhXeWo4X3ItLWJLVTRHNDJnOGtITndqZmtSR194QkdzcWRXS1gwa2JaX2FDRE1NWlBWSGQ1RTNCOTZ0RlRONGRXcTIzcUVDem9OTnpqRXduZ2haOExuSGNpc1otSFpaWFVFbW83UDdiTFBrZw?oc=5",
@@ -1711,7 +1811,7 @@
       "published_at": "2026-09-10T03:35+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNdlB6ckhOUjNOZ3VfSVNXTVBvQWlkLTRiWUwxLU1KZG9fT0t3QVI5U043NS1pdGp6UHpCM0hjTHFzZm5OelhkWVdZbkY3RnBBbEdCVnFTXzhJNl8yTW4tOHo5UzU3SEU5VW0xNFZnQkhCNjJzWVVWTmZEQUhsUVNYalpYNnpIZUo1S0UxNEF0MHFtalVablBwWFF1ZDE5V25OSDIzd2tadlZqdU9xdDFQc1YwR1FxNW91aDJKeHNaeF9iQQ?oc=5",
@@ -1721,7 +1821,7 @@
       "published_at": "2026-09-10T03:33+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQdWNrUjZIQ0hJTWpBaUpXcGxGb3QxSkJVSjd3eEkyODFmSVljSmRLQml3U3BMaWk5bmttQ2xfQ1A4ajNjeFRuNGlzcUR0RUd3X2s3dnVaeUdPdDhBaGZmODhfWFlpR2lGTUhyNlhiQk9OZnRkY1ZMbVNjclRNSE9XWHUzc0E4aXhvalBtcGZlbHB4MWY2ZWxIbTdEeG1wOXMxb0gyZkp0OXRSU2RBSEdwVzlhYw?oc=5",
@@ -1731,7 +1831,7 @@
       "published_at": "2026-09-10T03:23+08:00",
       "query_category": "AI Credit / Debt",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNTnB0VndnOFIycENhaVBEcEpwLTRMdkRvMjhjbjNzX3Q5REFTVDVfM3dxWElsOXNXeXc1RGRIZFlBczdPRnFHT0RtZm9WQkU2VnVCcS1jXzJ4d0JsUVJQSTZ1a0E3NVJKYkltdkRnNTh0NDhIaTB4TkV5eVE5dDNTWUNUaDBFZlBManN1eDNLQkxpR0tkN2hkRUZ2UmhjQ3BQWTRtb282SEZPUUxLd3RTblh5bVRsZw?oc=5",
@@ -1741,7 +1841,7 @@
       "published_at": "2026-09-10T02:11+08:00",
       "query_category": "Data Center / Power",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNM3FoYV9rTnlleVNaMVFXd2tacXNIdzc0MUthMFhpX2F3WXlLd2FHVFlzbjlQZ2VkTllRcFBkOU9ZUk9UaXhSeTBuQUh5ZnE3Ty1HNU1uMEVCT04xYjZJSVRZQ2J2MC1DMU50aVhYYWZVb1Uwc2l0eW5VX1NWSUttN0k1UW94bVhITmFNOFF6NUM3V1E?oc=5",
@@ -1751,7 +1851,7 @@
       "published_at": "2026-09-10T01:34+08:00",
       "query_category": "AI Revenue / Monetization",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOQkNXOVd1RnJGS09XOUY5M1FVNHk2ZUdOUTRtWlFOYXNoSzFBR1RKS01HVGYySlZSb2xfeUppdFJLTTgxNXEtS3IxR1dDV0YtZWhOWUtCQy1XS3VvYW51MXZQRk8td0ZXakpzVzRrQWg1UkJST2g1cnZyRTk1X0lIUjJzR09ZZDhwbFM1NQ?oc=5",
@@ -1761,7 +1861,7 @@
       "published_at": "2026-09-10T01:14+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNdGJVR1dKNWhQNGZ4Uzg1d0hEZkMzSWNpa1g0UUw3ZkpCbEdTWXVYQjVPMnZGSGdMXzhpVWlQSmZtZWVIWHJyQUtLU29PQVNwbS1IME9EUEk3WnhhWG9sV0R2MjllcURJajMzZnFOQUtmejV3ZEtzR3VIZEZuSm5YOGw2Zm9nZndBVHRqeHVqR0tBTVlycTFJckVoUS0tMzU0VzVjMkFtMHd5dGlYN2VmX05Paw?oc=5",
@@ -1771,7 +1871,7 @@
       "published_at": "2026-09-10T00:42+08:00",
       "query_category": "AI Credit / Debt",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOVWpXNzRLdWRISWlLckd4QkZoUWJXdXZ2WFMwM0ItRkZTaTBWbGR0Sy1BU2VFcmlwcGZhczJ6U3dxcFdpZFQ5bzVfVmYwbjFIWjFIUlV6VlhtQU9PcnVoOWw0T3duZlNBbGpEakZZcklMdDQ5U2g2VURXcGFNVXVMOUNIOUt2UTdYOGRxNXp4a1lxVTF3c1ZING1iRDBYQlNpNmh6RXZ1bzdQV0pZMmRFRzBjZmM4NXdxQkZNdnIybjRYQ19v?oc=5",
@@ -1781,7 +1881,7 @@
       "published_at": "2026-09-09T22:42+08:00",
       "query_category": "Data Center / Power",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQREhwVXAwSTZnRkR2SXlxWXZ0Z1NkQnJHNmVPeTZab0ZqdkVwM2I4T3poZ0hFRU8wSy1RdDZvU2xTbEVnczRYTFdYOU90VGhNSXBfTEFzLXVXZ2FaekdxODVQSmdQaFJ0WFVybGpUQ3pMTThEZzdYZ0JRWWZ2RzZCbllESHBRMmRSbFNmMU5mLUhCWXFTSVNQdzFlZHRUQzA?oc=5",
@@ -1791,7 +1891,7 @@
       "published_at": "2026-09-09T22:35+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE1VTTZSeEh0NU5UNXE5RElRbUlyZ3pMTW44Z3JuUmxzajM0dzNYMDNSQW5aWEE3UFBjTVg0Z2JFZDlLOG16VmVWRi1ocTUxbEdYYWdXU2FGSVBkOXlPblVYTlJlUVdrUl9zU1c3a0ZZeS14aENGUG9ZbU13c9IBgAFBVV95cUxOSTJWLVdCcjlFdHBzNGdwcF9lNXFFM3RSMFZCa0hCbFc0WTFXeHJORkttTUJndWxVSFgyZnh0QzN1b3BCcFR6VzQtNHhqaUdiRWpZYVJmUk13dTdiU2hnQkNXUXkwV250Ni11OTR1ZExJQU9vM2tqT3FjMEFyeFF0TQ?oc=5",
@@ -1801,7 +1901,7 @@
       "published_at": "2026-09-09T20:26+08:00",
       "query_category": "Data Center / Power",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOWUZ0dVVSMlFqYzd0aVZXY3ZjejBvb1pYYzRVeV9DT2Q2RlBtbHFiY1hsR2NmdF9wbFltamlEMGdhTVpVckVUUW5TaWNmQWtsdFVLQWhPMGdzWnZ4N3lOWFEwX0J1WjRNeDBOYlBMeHkzY2Rna2QtUjc5bXg2V1ozS3NGcTdUMFdB?oc=5",
@@ -1811,7 +1911,7 @@
       "published_at": "2026-09-09T20:20+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPUnRWOHhfSHVOanRzam11TkE1MkFfZWhyLTBaOERZYmZjNFlNOHR0S1B4NnVPMnpVWjB1UkpXQldDWUE1VUU1aUwxWFNpMERibV9GQk9vZW52UHMwdVdKMDl1QzlQdDRIcmdxUm9WcXJCZ3RDSHQtY3pwd2pXR2tlejQxUzRMTll6X2FoRk02MG82TjF5cHo4bGpmNFNDMmI4RlFjV1RiTjdhci1MR2JoOUliTV8?oc=5",
@@ -1821,7 +1921,7 @@
       "published_at": "2026-09-09T19:13+08:00",
       "query_category": "Data Center / Power",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNSVlBVDVfVTQ3WGd1MlRsZ2NaZjB4V2pxUnQtM3hmS1RXZ3loTmw3NGdFdzI4R2JRM2xodnFickRXb00xbTBya0tKVnpCQmUyQTIzejh0RmNBZG5QQVRJTGNJbHRGeWt2OG1wLTBXbTlpT2MzUzBidGkyR2NEY2xIUlYzajFfaXPSAYwBQVVfeXFMTndMOWU2SmdmUGZ4UjNzU1g3WXlSTmZKZmdrakhYZlkyZDRFZzdnTHd5YzN6STNWVnlRTWxLcEhjZUlNUXl1WVhrQ1lpc3lTLVhWRHVtVHVsWll6SE41aER6ZnpHR1dONjhUbkJwanRVeFVyLUV5ZlY5eHNYYThqX24wLS15bHJnNUFpbEw?oc=5",
@@ -1831,7 +1931,7 @@
       "published_at": "2026-09-09T15:24+08:00",
       "query_category": "Data Center / Power",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOWHFqVUxBYVJnaWdudjhTVVZoakRwSUZqbHVKcWFxNlNRT2JNTDdwQk0tT3ppYmxNczFwWXluNDhoVHh4UUR1TlZHSlpWaGpBdDZwMTZsdldCMXVkd0t3eXJWVEl4RmpUVGJ4aHBrT1RpZEt2Umw3dDBXTVQ5VDM2a3c0a1l6QlZVRmxuUzZqLUtaVlVNYUYxanAyZDVlVVpIdUFXbzFuYXhScmNleE9R?oc=5",
@@ -1841,7 +1941,7 @@
       "published_at": "2026-09-09T15:12+08:00",
       "query_category": "Data Center / Power",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-16T18:18:17+08:00"
+      "last_seen_at": "2026-09-16T20:48:11+08:00"
     }
   ],
   "stories": [
@@ -2063,6 +2163,28 @@
           "domain": "cnbc.com",
           "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9ycjd0eDNoeHBMd2Y4OE5TT2JvVUlNbVlhREFBc19jRTU3b0lrRTkxU1JrSmdmZ1AwcGFsWUlvZXBfT3FVS093cWxNZDA0WlRmb3haODhHVHREaDlyV3RYWVNjdEtYWTMtdGxwUEhPb3kzd9IBd0FVX3lxTE51eV9XN2ZtTHdhbUJaX1dtaTFWT0k5THItMFBIb3RRN3ZZT2dlamlnLXRaMkROcHFCQjBTWkcyQ3BlTWc1bmRsMUpsTnRwU2VKUWRxSW5lQ3FiTV9MRzVKX1QwUi1LYThTaEhpdUs0dTcyd0hER2Jn?oc=5",
           "published_at": "2026-09-10T13:33+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false
+    },
+    {
+      "id": "5cbe56564c6802",
+      "headline": "AI Debt Boom Heads From Wall Street to Europe Despite Tech Angst",
+      "summary_zh": "彭博报道，尽管市场对科技与AI估值存在担忧，AI相关债务融资热潮正从华尔街蔓延至欧洲，欧洲投资者与发行方加速参与AI基础设施相关的债券与贷款融资。",
+      "category": "AI Credit / Debt",
+      "importance_score": 78,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 55,
+      "reason_zh": "AI资本开支越来越依赖债务融资，且融资渠道向欧洲扩散，意味着杠杆与信用风险在全球范围内累积。一旦AI回报不及预期，债务偿付压力将放大回撤风险，是AI泡沫形成与破裂链条中的关键信用环节。",
+      "companies": [],
+      "published_at": "2026-09-16T19:09+08:00",
+      "sources": [
+        {
+          "name": "Bloomberg",
+          "domain": "bloomberg.com",
+          "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOa3R3TGtfM3NvM3Y1Q3Q3VmVOMFU5RnRtcU9xYl9lczdkTTdubEhUVHk0akNqcHZucHV6QzljRGEwRU0yS2JKNkt2Mzg5d0R2b0NjeEF5SlZZWTh6NF9JdXdkdlBpcEFIN0Y5eURGWmROSWN2aFc5czl1OERSaE5rMVJEclNVeVVLX2w1RnppUXNTNUZPMkx0RTJWYTVzMkZoVVhEbDdTNnhGdUhNODVYRW9CVFpYZw?oc=5",
+          "published_at": "2026-09-16T19:09+08:00",
           "discovered_via": "Google News RSS"
         }
       ],
@@ -2340,6 +2462,31 @@
       "critical": false
     },
     {
+      "id": "fb1fac7e3dd826",
+      "headline": "SK Hynix in talks with Intel about deal to make memory chips in US for the first time",
+      "summary_zh": "路透援引知情人士称，SK海力士正与英特尔洽谈在美国本土生产存储芯片，这将是其首次在美国制造存储芯片，交易尚在讨论阶段。",
+      "category": "Semiconductor / GPU Demand",
+      "importance_score": 70,
+      "bubble_direction": "risk_down",
+      "bubble_risk_score": -20,
+      "reason_zh": "存储（尤其HBM）是AI算力的核心瓶颈之一，在美国本土扩产有助于缓解供应紧张、降低地缘与断供风险，属于对AI产业链的实质性基本面支撑，边际上削弱泡沫担忧。",
+      "companies": [
+        "SK Hynix",
+        "Intel"
+      ],
+      "published_at": "2026-09-16T13:09+08:00",
+      "sources": [
+        {
+          "name": "Reuters",
+          "domain": "reuters.com",
+          "url": "https://www.reuters.com/world/asia-pacific/sk-hynix-talks-with-intel-about-deal-make-memory-chips-us-first-time-sources-say-2026-09-16/",
+          "published_at": "2026-09-16T13:09+08:00",
+          "discovered_via": "Bing News RSS"
+        }
+      ],
+      "critical": false
+    },
+    {
       "id": "045433217f1a1d",
       "headline": "US Power Use to Beat Record Highs in 2026 and 2027 as AI Use Surges, EIA Says",
       "summary_zh": "美国能源信息署（EIA）预计，受AI数据中心用电激增推动，美国电力需求将在2026年和2027年连续刷新历史高位。",
@@ -2457,6 +2604,28 @@
           "domain": "reuters.com",
           "url": "https://www.reuters.com/business/goldman-sachs-now-expects-fed-hike-rates-september-2026-09-14/",
           "published_at": "2026-09-14T01:00+08:00"
+        }
+      ],
+      "critical": false
+    },
+    {
+      "id": "9d240d69a66d80",
+      "headline": "AP-NORC poll shows AI data center worries",
+      "summary_zh": "美联社-NORC民调显示，美国公众对AI数据中心带来的电力消耗、土地占用与社区影响存在明显担忧，数据中心选址与运营面临更大的社会与地方政治阻力。",
+      "category": "Data Center / Power",
+      "importance_score": 62,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 22,
+      "reason_zh": "公众对数据中心的抵触可能演变为地方审批延迟、电价与并网成本上升，直接冲击AI算力扩张的进度与成本假设，增加了AI资本开支回报的不确定性，属于泡沫风险的边际上行因素。",
+      "companies": [],
+      "published_at": "2026-09-16T11:29+08:00",
+      "sources": [
+        {
+          "name": "Associated Press",
+          "domain": "apnews.com",
+          "url": "https://apnews.com/newsletter/morning-wire/september-16-2026",
+          "published_at": "2026-09-16T11:29+08:00",
+          "discovered_via": "Bing News RSS"
         }
       ],
       "critical": false
@@ -3072,6 +3241,30 @@
           "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQSUhjREhxYkhIVTU2WXZVNHplQ09DM2Vlbzg4VXF0OHpjcFFSY2lPSHRqNDRxd0pwUkZHYTZyakNMem9QdThDdkNET0RsU2JobmVPWFN2cHM3QmlJdk56UE9iMF81bXE1aTJVbG95UUg3MDhDalBXZUh2RU9GSi05dUN1X295YU9zSDB2SzlhS2hVYzJDWmFzNHpKLTFIbW9Wa0dmS3M0Q0FvR28?oc=5",
           "published_at": "2026-09-16T05:47+08:00",
           "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false
+    },
+    {
+      "id": "afb721322f2609",
+      "headline": "Nuclear fusion’s moment of truth",
+      "summary_zh": "金融时报报道，由顶尖科学家与科技企业家创立并投资的初创公司Pacific Fusion正在新墨西哥州阿尔伯克基建设核聚变试验场，希望向发电迈出关键一步。",
+      "category": "AI CAPEX",
+      "importance_score": 55,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 12,
+      "reason_zh": "AI数据中心对电力的巨大需求正把资本引向核聚变等长周期、高不确定性的前沿能源项目，反映AI资本开支外溢至尚未验证的技术叙事，带有主题炒作与远期兑现风险，小幅推升泡沫风险。",
+      "companies": [
+        "Pacific Fusion"
+      ],
+      "published_at": "2026-09-16T05:00+08:00",
+      "sources": [
+        {
+          "name": "Financial Times",
+          "domain": "ft.com",
+          "url": "https://www.ft.com/content/ef511d46-a689-4868-9654-15b96a71586d?syn-25a6b1a6=1",
+          "published_at": "2026-09-16T05:00+08:00",
+          "discovered_via": "Bing News RSS"
         }
       ],
       "critical": false
