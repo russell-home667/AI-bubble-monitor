@@ -1,0 +1,61 @@
+name: One-off fix Market Quotes polling metadata
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/oneoff-fix-market-polling.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Normalize polling metadata to 10 minutes
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          js = Path('assets/chart-time-slider.js')
+          text = js.read_text(encoding='utf-8')
+          old = 'Yahoo Finance · 5m polling'
+          new = 'Yahoo Finance · 10m polling'
+          if old not in text and new not in text:
+              raise SystemExit('Expected Market Quotes polling label not found')
+          text = text.replace(old, new)
+          js.write_text(text, encoding='utf-8')
+
+          p = Path('data/ai_bubble/market_liquidity/market_quotes.json')
+          data = json.loads(p.read_text(encoding='utf-8'))
+          data['poll_frequency'] = '10 minutes'
+          for quote in (data.get('quotes') or {}).values():
+              if isinstance(quote, dict):
+                  quote['poll_frequency'] = '10 minutes'
+          p.write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          PY
+
+          node --check assets/chart-time-slider.js
+
+      - name: Commit fix
+        shell: bash
+        run: |
+          if git diff --quiet -- assets/chart-time-slider.js data/ai_bubble/market_liquidity/market_quotes.json; then
+            echo 'No changes needed.'
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/chart-time-slider.js data/ai_bubble/market_liquidity/market_quotes.json
+          git commit -m "fix: align Market Quotes polling metadata to 10 minutes"
+          git pull --rebase origin main
+          git push origin HEAD:main
