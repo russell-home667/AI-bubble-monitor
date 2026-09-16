@@ -19073,5 +19073,5 @@
   "quote_timezone": "Asia/Shanghai (Beijing Time)",
   "history_scope": "Maximum daily history available from Yahoo Finance BZ=F, seeded from the aviation dashboard archive",
   "seed_source": "russell-home667/aviation-leasing-dashboard data/market_data.json",
-  "updated_at_bjt": "2026-09-16T22:03:49+08:00"
+  "updated_at_bjt": "2026-09-16T22:11:28+08:00"
 }
