@@ -33,22 +33,51 @@ jobs:
           ref: main
           fetch-depth: 0
 
-      - name: Harden dashboard frontend
+      - name: Repair and validate frontend
         shell: bash
         run: |
           python - <<'PY'
-          import base64
-          exec(base64.b64decode('CmZyb20gcGF0aGxpYiBpbXBvcnQgUGF0aAoKIyBLZWVwIENTViBmYWlsdXJlcyBpc29sYXRlZCBzbyBvbmUgdW5hdmFpbGFibGUgc2VyaWVzIGNhbm5vdCBibGFuayB0aGUgd2hvbGUgZGFzaGJvYXJkLgpwID0gUGF0aCgnaW5kZXguaHRtbCcpCnRleHQgPSBwLnJlYWRfdGV4dChlbmNvZGluZz0ndXRmLTgnKQptYXJrZXIgPSAnLyogUkVTSUxJRU5UX0NTVl9MT0FERVIgKi8nCmlmIG1hcmtlciBub3QgaW4gdGV4dDoKICAgIHNpZ25hdHVyZSA9ICdhc3luYyBmdW5jdGlvbiBsb2FkKCl7dHJ5e2NvbnN0IFt0b3AsZGVyaXZlZCxtYXJrZXQsaHlwZXIsY29tcHV0ZSxncHUsbmR4LHNveCxu.dmRhLHZpeCxkZmlpMTAsZGdzMTAsZGdzMzAsaHksaDUsdHNtYyxncHVkLHNjb3JlSGlzdG9yeV09YXdhaXQgUHJvbWlzZS5hbGwoWycKICAgIHN0YXJ0ID0gdGV4dC5maW5kKHNpZ25hdHVyZSkKICAgIGVuZCA9IHRleHQuZmluZCgnYmluZFJhbmdlcygpO2xvYWQoOycsIHN0YXJ0KQogICAgaWYgc3RhcnQgPCAwIG9yIGVuZCA8IDA6CiAgICAgICAgcmFpc2UgU3lzdGVtRXhpdCgnQ291bGQgbm90IGxvY2F0ZSBkYXNoYm9hcmQgbG9hZCgpIGJsb2NrOyByZWZ1c2luZyBhbiB1bnNhZmUgcGF0Y2guJykKICAgIGJsb2NrID0gdGV4dFtzdGFydDplbmRdCiAgICBibG9jayA9IGJsb2NrLnJlcGxhY2UoCiAgICAgICAgJ2FzeW5jIGZ1bmN0aW9uIGxvYWQoKXt0cnl7JywKICAgICAgICAiYXN5bmMgZnVuY3Rpb24gbG9hZCgpe3RyeXsvKiBSRVNJTElFTlRfQ1NWX0xPQURFUiAqL2NvbnN0IHNhZmVDU1Y9YXN5bmMgcGF0aD0+e3RyeXtyZXR1cm4gYXdhaXQgZmV0Y2hDU1YocGF0aCl9Y2F0Y2goZSl7Y29uc29sZS53YXJuKCdPcHRpb25hbCBDU1YgbG9hZCBmYWlsZWQnLHBhdGgsZSk7cmV0dXJuW119fTsiLAogICAgICAgIDEsCiAgICApCiAgICBibG9jayA9IGJsb2NrLnJlcGxhY2UoJ2ZldGNoQ1NWKEJBU0UrJywgJ3NhZmVDU1YoQkFTRSsnKQogICAgdGV4dCA9IHRleHRbOnN0YXJ0XSArIGJsb2NrICsgdGV4dFtlbmQ6XQogICAgcC53cml0ZV90ZXh0KHRleHQsIGVuY29kaW5nPSd1dGYtOCcpCgojIExp cXVpZGl0eSBoZWFkbGluZSB0aWxlczogaW50cmFkYXkgMTBZLzMwWS9WSVg7IG9mZmljaWFsIGxhdGVzdCBmb3Igc2xvd2VyIHNlcmllcy4KcCA9IFBhdGgoJ2Fzc2V0cy9jaGFydC10aW1lLXNsaWRlci5qcycpCnRleHQgPSBwLnJlYWRfdGV4dChlbmNvZGluZz0ndXRmLTgnKQptYXJrZXIgPSAnLy8gTElWRV9MSVFVSURJVFlfVElMRVNfVjInCmlmIG1hcmtlciBub3QgaW4gdGV4dDoKICAgIHN0YXJ0ID0gdGV4dC5maW5kKCcgIGZ1bmN0aW9uIHNldExpcXVpZGl0eVF1b3RlKCcpCiAgICBlbmQgPSB0ZXh0LmZpbmQoJyAgZnVuY3Rpb24gc3luY0xpcXVpZGl0eVNvdXJjZXMoKScsIHN0YXJ0KQogICAgaWYgc3RhcnQgPCAwIG9yIGVuZCA8IDA6CiAgICAgICAgcmFpc2UgU3lzdGVtRXhpdCgnQ291bGQgbm90IGxvY2F0ZSBsaXF1aWRpdHkgcXVvdGUgZnVuY3Rpb25zOyByZWZ1c2luZyBhbiB1bnNhZmUgcGF0Y2guJykKCiAgICByZXBsYWNlbWVudCA9IHIiIiIgIC8vIExJVkVfTElRVUlESVRZX1RJTEVTX1YyCiAgZnVuY3Rpb24gc3VtbWFyeUludHJhZGF5UXVvdGUoa2V5KSB7CiAgICBjb25zdCB4ID0gbWFya2V0U3VtbWFyeVBheWxvYWQ/LmluZGljYXRvcnM/LltrZXldOwogICAgaWYgKCF4Py5saXZlX3F1b3RlX3RpbWVzdGFtcCB8fCAhTnVtYmVyLmlzRmluaXRlKE51bWJlcih4Py52YWx1ZSkpKSByZXR1cm4gbnVsbDsKICAgIHJldHVybiB7CiAgICAgIHByaWNlOk51bWJlcih4LnZhbHVlKSwKICAgICAgdGltZXN0YW1wOngubGl2ZV9xdW90ZV90aW1lc3RhbXAsCiAgICAgIHNvdXJjZTp4LmxpdmVfcXVvdGVfc291cmNlIHx8ICdZYWhvbyBGaW5hbmNlJywKICAgICAgcXVvdGVfc3RhdHVzOngubGl2ZV9xdW90ZV9zdGF0dXMgfHwgbnVsbAogICAgfTsKICB9CgogIGZ1bmN0aW9uIHNldExpcXVpZGl0eVF1b3RlKGlkLCBwYXlsb2FkLCBkZWNpbWFscywgbW9kZT0nZGFpbHknKSB7CiAgICBjb25zdCB2YWx1ZUVsID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoYCR7aWR9VmFsdWVgKTsKICAgIGNvbnN0IGRhdGVFbCA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKG Ake2lkfURhdGVgKTsKICAgIGlmICghcGF5bG9hZCkgewogICAgICBpZiAodmFsdWVFbCkgdmFsdWVFbC50ZXh0Q29udGVudCA9ICfigJQnOwogICAgICBpZiAoZGF0ZUVsKSBkYXRlRWwudGV4dENvbnRlbnQgPSAnTGF0ZXN0IMOkwrcg4oCUIjsKICAgICAgcmV0dXJuOwogICAgfQoKICAgIGNvbnN0IHJhd1ZhbHVlID0gbW9kZSA9PT0gJ2ludHJhZGF5JwogICAgICA/IE51bWJlcihwYXlsb2FkPy5wcmljZSA/PyBwYXlsb2FkPy52YWx1ZSkKICAgICAgOiBOdW1iZXIocGF5bG9hZD8udmFsdWUgPz8gcGF5bG9hZD8uX192YWx1ZSk7CiAgICBpZiAodmFsdWVFbCkgdmFsdWVFbC50ZXh0Q29udGVudCA9IE51bWJlci5pc0Zpbml0ZShyYXdWYWx1ZSkgPyByYXdWYWx1ZS50b0ZpeGVkKGRlY2ltYWxzKSA6ICfigJQnOwoKICAgIGlmICghZGF0ZUVsKSByZXR1cm47CiAgICBpZiAobW9kZSA9PT0gJ2ludHJhZGF5JykgewogICAgICBjb25zdCBzdGFtcCA9IGZvcm1hdEJlaWppbmdUaW1lc3RhbXAocGF5bG9hZD8udGltZXN0YW1wIHx8IHBheWxvYWQ/LmxpdmVfcXVvdGVfdGltZXN0YW1wKTsKICAgICAgY29uc3Qgc291cmNlID0gcGF5bG9hZD8uc291cmNlIHx8IHBheWxvYWQ/LmxpdmVfcXVvdGVfc291cmNlIHx8ICdZYWhvbyBGaW5hbmNlJzsKICAgICAgY29uc3Qgc3RhdHVzID0gcGF5bG9hZD8ucXVvdGVfc3RhdHVzIHx8IHBheWxvYWQ/LmxpdmVfcXVvdGVfc3RhdHVzIHx8ICcnOwogICAgICBkYXRlRWwudGV4dENvbnRlbnQgPSBgSW50cmFkYXkgwrsgJHtzdGFtcCB8fCAn4oCUJ30gwrcgJHt z b3VyY2V9JHtzdGF0dXMgPyAnIMK3ICcrc3RhdHVzIDogJyd9YDsKICAgIH0gZWxzZSB7CiAgICAgIGNvbnN0IG9icyA9IHBheWxvYWQ/Lm9ic2VydmF0aW9uX2RhdGUgfHwgcGF5bG9hZD8uZGF0ZSB8fCAn4oCUJzsKICAgICAgZGF0ZUVsLnRleHRDb250ZW50ID0gYExhdGVzdCBvZmZpY2lhbCDDtyAke29ic31gOwogICAgfQogIH0KCiAgZnVuY3Rpb24gc3luY0xpcXVpZGl0eVF1b3RlcygpIHsKICAgIGVuc3VyZUxpcXVpZGl0eVF1b3RlTGF5b3V0KCk7CiAgICBpZiAodHlwZW9mIHN0YXRlID09PSAndW5kZWZpbmVkJyB8fCAhc3RhdGU/LnJhdykgcmV0dXJuOwoKICAgIGNvbnN0IGxpdmUgPSBtYXJrZXRRdW90ZVBheWxvYWQ/LnF1b3RlcyB8fCB7fTsKICAgIGNvbnN0IHN1bW1hcnkgPSBtYXJrZXRTdW1tYXJ5UGF5bG9hZD8uaW5kaWNhdG9ycyB8fCB7fTsKCiAgICBjb25zdCBxMTAgPSBsaXZlLmRnczEwIHx8IHN1bW1hcnlJbnRyYWRheVF1b3RlKCdkZ3MxMCcpOwogICAgY29uc3QgcTMwID0gbGl2ZS5kZ3MzMCB8fCBzdW1tYXJ5SW50cmFkYXlRdW90ZSgnZGdzMzAnKTsKICAgIGNvbnN0IHFWaXggPSBsaXZlLnZpeCB8fCBzdW1tYXJ5SW50cmFkYXlRdW90ZSgndml4Jyk7CgogICAgc2V0TGlxdWlkaXR5UXVvdGUoJ2xpcTEweScsIHExMCB8fCBsYXRlc3RGaW5pdGVSb3coc3RhdGUucmF3LmRnczEwLCd2YWx1ZScpLCBxMTAgPyAzIDogMiwgcTEwID8gJ2ludHJhZGF5JyA6ICdkYWlseScpOwogICAgc2V0TGlxdWlkaXR5UXVvdGUoJ2xpcTMweScsIHEzMCB8fCBsYXRlc3RGaW5pdGVSb3coc3RhdGUucmF3LmRnczMwLCd2YWx1ZScpLCBxMzAgPyAzIDogMiwgcTMwID8gJ2ludHJhZGF5JyA6ICdkYWlseScpOwogICAgc2V0TGlxdWlkaXR5UXVvdGUoJ2xpcVJlYWwxMCcsIHN1bW1hcnkuZGZpaTEwIHx8IGxhdGVzdEZpbml0ZVJvdyhzdGF0ZS5yYXcuZGZpaTEwLCd2YWx1ZScpLCAyLCAnZGFpbHknKTsKICAgIHNldExpcXVpZGl0eVF1b3RlKCdsaXFIeScsIHN1bW1hcnkuaHlfb2FzIHx8IGxhdGVzdEZpbml0ZVJvdyhzdGF0ZS5yYXcuaHksJ3ZhbHVlJyksIDIsICdkYWlseScpOwogICAgc2V0TGlxdWlkaXR5UXVvdGUoJ2xpcVZpeCcsIHFWaXggfHwgbGF0ZXN0RmluaXRlUm93KHN0YXRlLnJhdy52aXgsJ2Nsb3NlJyksIDIsIHFWaXggPyAnaW50cmFkYXknIDogJ2RhaWx5Jyk7CiAgICBzZXRMaXF1aWRpdHlRdW90ZSgnbGlxTmZjaScsIGxhdGVzdEZpbml0ZVJvdyhzdGF0ZS5yYXcubmZjaSwndmFsdWUnKSwgMywgJ2RhaWx5Jyk7CiAgfQoKIiIiCiAgICB0ZXh0ID0gdGV4dFs6c3RhcnRdICsgcmVwbGFjZW1lbnQgKyB0ZXh0W2VuZDpdCgogICAgb2xkID0gIiIiICAgICAgaWYgKHF1b3RlUmVzcG9uc2Uub2spIG1hcmtldFF1b3RlUGF5bG9hZCA9IGF3YWl0IHF1b3RlUmVzcG9uc2UuanNvbigpOwogICAgICBpZiAoc3VtbWFyeVJlc3BvbnNlLm9rKSBtYXJrZXRTdW1tYXJ5UGF5bG9hZCA9IGF3YWl0IHN1bW1hcnlSZXNwb25zZS5qc29uKCk7CiAgICAgIHN5bmNNYXJrZXRRdW90ZXMoKTsKICAgIH0gY2F0Y2ggKGUpIHsKICAgICAgY29uc29sZS53YXJuKCdNYXJrZXQgbGF0ZXN0IHF1b3RlIGxvYWQgZmFpbGVkJyxlKTsKICAgICAgc3luY01hcmtldFF1b3RlcygpOwoiIiIKICAgIG5ldyA9ICIiIiAgICAgIGlmIChxdW90ZVJlc3BvbnNlLm9rKSBtYXJrZXRRdW90ZVBheWxvYWQgPSBhd2FpdCBxdW90ZVJlc3BvbnNlLmpzb24oKTsKICAgICAgaWYgKHN1bW1hcnlSZXNwb25zZS5vaykgbWFya2V0U3VtbWFyeVBheWxvYWQgPSBhd2FpdCBzdW1tYXJ5UmVzcG9uc2UuanNvbigpOwogICAgICBzeW5jTWFya2V0UXVvdGVzKCk7CiAgICAgIHN5bmNMaXF1aWRpdHlRdW90ZXMoKTsKICAgIH0gY2F0Y2ggKGUpIHsKICAgICAgY29uc29sZS53YXJuKCdNYXJrZXQgbGF0ZXN0IHF1b3RlIGxvYWQgZmFpbGVkJyxlKTsKICAgICAgc3luY01hcmtldFF1b3RlcygpOwogICAgICBzeW5jTGlxdWlkaXR5UXVvdGVzKCk7CiIiIgogICAgaWYgb2xkIG5vdCBpbiB0ZXh0OgogICAgICAgIHJhaXNlIFN5c3RlbUV4aXQoJ0NvdWxkIG5vdCBsb2NhdGUgbWFya2V0IHF1b3RlIHJlZnJlc2ggYmxvY2s7IHJlZnVzaW5nIGFuIHVuc2FmZSBwYXRjaC4nKQogICAgdGV4dCA9IHRleHQucmVwbGFjZShvbGQsIG5ldywgMSkKCiAgICBvbGRfbmZjaSA9ICIiIiAgICAgIGlmICh0eXBlb2Ygc3RhdGUgIT09ICd1bmRlZmluZWQnICYmIHN0YXRlPy5yYXcpIHN0YXRlLnJhdy5uZmNpID0gcm93czsKICAgICAgcmVmcmVzaExpcXVpZGl0eUFmdGVyTmZjaSgpOwoiIiIKICAgIG5ld19uZmNpID0gIiIiICAgICAgbGV0IHdhaXRDb3VudCA9IDA7CiAgICAgIHdoaWxlICgodHlwZW9mIHN0YXRlID09PSAndW5kZWZpbmVkJyB8fCAhc3RhdGU/LnJhdykgJiYgd2FpdENvdW50IDwgNDApIHsKICAgICAgICBhd2FpdCBuZXcgUHJvbWlzZShyZXNvbHZlID0+IHNldFRpbWVvdXQocmVzb2x2ZSw1MCkpOwogICAgICAgIHdhaXRDb3VudCArPSAxOwogICAgICB9CiAgICAgIGlmICh0eXBlb2Ygc3RhdGUgIT09ICd1bmRlZmluZWQnICYmIHN0YXRlPy5yYXcpIHN0YXRlLnJhdy5uZmNpID0gcm93czsKICAgICAgcmVmcmVzaExpcXVpZGl0eUFmdGVyTmZjaSgpOwoiIiIKICAgIGlmIG9sZF9uZmNpIGluIHRleHQ6CiAgICAgICAgdGV4dCA9IHRleHQucmVwbGFjZShvbGRfbmZjaSwgbmV3X25mY2ksIDEpCgogICAgcC53cml0ZV90ZXh0KHRleHQsIGVuY29kaW5nPSd1dGYtOCcpCg==').decode('utf-8'))
+          from pathlib import Path
+          import re
+
+          p = Path('assets/chart-time-slider.js')
+          text = p.read_text(encoding='utf-8')
+          marker = '// LIVE_LIQUIDITY_TILES_V2'
+          start = text.find(marker)
+          end = text.find('  function syncLiquiditySources()', start)
+          if start >= 0 and end > start:
+              block = text[start:end]
+              block = re.sub(
+                  r"if \(dateEl\) dateEl\.textContent = .*?;\n      return;",
+                  "if (dateEl) dateEl.textContent = 'Latest: --';\n      return;",
+                  block,
+                  count=1,
+              )
+              block = re.sub(
+                  r"dateEl\.textContent = `Intraday .*?`;",
+                  "dateEl.textContent = `Intraday | ${stamp || '--'} | ${source}${status ? ' | '+status : ''}`;",
+                  block,
+                  count=1,
+              )
+              block = re.sub(
+                  r"dateEl\.textContent = `Latest official .*?`;",
+                  "dateEl.textContent = `Latest official | ${obs}`;",
+                  block,
+                  count=1,
+              )
+              text = text[:start] + block + text[end:]
+              p.write_text(text, encoding='utf-8')
           PY
+          node --check assets/chart-time-slider.js
 
       - name: Persist frontend fixes
         shell: bash
         run: |
-          if ! git diff --quiet -- index.html assets/chart-time-slider.js; then
+          if ! git diff --quiet -- assets/chart-time-slider.js; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add index.html assets/chart-time-slider.js
-            git commit -m "fix: use intraday quotes in liquidity headline tiles"
+            git add assets/chart-time-slider.js
+            git commit -m "fix: repair live liquidity tile labels"
             git pull --rebase origin main
             git push origin HEAD:main
           fi
