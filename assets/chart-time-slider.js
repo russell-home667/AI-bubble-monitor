@@ -299,9 +299,10 @@
         #liquidityLatestGrid .liq-value-row{display:flex;align-items:baseline;gap:6px;margin-top:7px;min-width:0;}
         #liquidityLatestGrid .liq-value{color:#f0f8ff;font-size:31px;line-height:1;font-weight:720;letter-spacing:.2px;}
         #liquidityLatestGrid .liq-unit{color:#718aa1;font-size:10px;font-weight:600;}
-        #liquidityLatestGrid .liq-change-stack{display:flex;flex-direction:column;gap:3px;margin-left:7px;align-self:center;font-size:9px;line-height:1.15;font-weight:700;white-space:nowrap;}
+        #liquidityLatestGrid .liq-change-stack{display:flex;flex-direction:row;gap:16px;align-items:center;flex-wrap:wrap;margin-top:10px;font-size:10px;line-height:1.2;font-weight:700;white-space:nowrap;}
         #liquidityLatestGrid .liq-change-item{color:#86a0b6;}
-        #liquidityLatestGrid .liq-date{margin-top:7px;color:#5f7b92;font-size:9px;line-height:1.35;}
+        #liquidityLatestGrid .liq-date{margin-top:9px;color:#66839a;font-size:9px;line-height:1.35;}
+        #liquidityLatestGrid .liq-source{margin-top:3px;color:#4f6b81;font-size:8.5px;line-height:1.35;}
         @media(max-width:980px){.liquidity-card-enhanced .range{flex-wrap:wrap;}#liquidityLatestGrid{grid-template-columns:repeat(2,minmax(0,1fr));}#liquidityLatestGrid .liq-quote{border-right:1px solid rgba(89,151,190,.12);border-bottom:1px solid rgba(89,151,190,.12);}#liquidityLatestGrid .liq-quote:nth-child(2n){border-right:0;}#liquidityLatestGrid .liq-quote:nth-child(n+5){border-bottom:0;}}
         @media(max-width:620px){#liquidityLatestGrid{grid-template-columns:1fr;}#liquidityLatestGrid .liq-quote{border-right:0!important;border-bottom:1px solid rgba(89,151,190,.12)!important;}#liquidityLatestGrid .liq-quote:last-child{border-bottom:0!important;}#liquidityLatestGrid .liq-value{font-size:28px;}}
       `;
@@ -331,12 +332,37 @@
     };
   }
 
+  function compactLiquiditySource(source, mode='daily') {
+    const s = String(source || '').trim();
+    if (/investing/i.test(s)) return 'Investing.com';
+    if (/yahoo/i.test(s)) return 'Yahoo Finance';
+    if (/federal reserve|fred|h\.15/i.test(s)) return 'Federal Reserve / FRED';
+    if (s) return s.replace(/\s+(US\s+)?(10Y|30Y).*$/i,'').trim() || s;
+    return mode === 'intraday' ? 'Market data feed' : 'Federal Reserve / FRED';
+  }
+
+  function ensureLiquiditySourceLine(id) {
+    let el = document.getElementById(`${id}Source`);
+    if (el) return el;
+    const dateEl = document.getElementById(`${id}Date`);
+    const quote = dateEl?.closest('.liq-quote');
+    if (!quote) return null;
+    el = document.createElement('div');
+    el.id = `${id}Source`;
+    el.className = 'liq-source';
+    dateEl.after(el);
+    return el;
+  }
+
   function setLiquidityQuote(id, payload, decimals, mode='daily') {
     const valueEl = document.getElementById(`${id}Value`);
     const dateEl = document.getElementById(`${id}Date`);
+    const treasury = id === 'liq10y' || id === 'liq30y';
+    const sourceEl = treasury ? ensureLiquiditySourceLine(id) : null;
     if (!payload) {
       if (valueEl) valueEl.textContent = '—';
-      if (dateEl) dateEl.textContent = 'Latest: --';
+      if (dateEl) dateEl.textContent = treasury ? 'Latest available · —' : 'Latest: --';
+      if (sourceEl) sourceEl.textContent = 'Source · —';
       return;
     }
 
@@ -349,11 +375,22 @@
     if (mode === 'intraday') {
       const stamp = formatBeijingTimestamp(payload?.timestamp || payload?.live_quote_timestamp);
       const source = payload?.source || payload?.live_quote_source || 'Yahoo Finance';
-      const status = payload?.quote_status || payload?.live_quote_status || '';
-      dateEl.textContent = `Intraday | ${stamp || '--'} | ${source}${status ? ' | '+status : ''}`;
+      if (treasury) {
+        dateEl.textContent = `Latest available · ${stamp || '—'}`;
+        if (sourceEl) sourceEl.textContent = `Source · ${compactLiquiditySource(source, mode)}`;
+      } else {
+        const status = payload?.quote_status || payload?.live_quote_status || '';
+        dateEl.textContent = `Intraday | ${stamp || '--'} | ${source}${status ? ' | '+status : ''}`;
+      }
     } else {
       const obs = payload?.observation_date || payload?.date || '—';
-      dateEl.textContent = `Latest official | ${obs}`;
+      if (treasury) {
+        dateEl.textContent = `Latest available · ${obs}`;
+        const source = payload?.source || payload?.live_quote_source || 'Federal Reserve / FRED';
+        if (sourceEl) sourceEl.textContent = `Source · ${compactLiquiditySource(source, mode)}`;
+      } else {
+        dateEl.textContent = `Latest official | ${obs}`;
+      }
     }
   }
 
@@ -372,15 +409,19 @@
 
   function ensureTreasuryChangeStack(id) {
     let el = document.getElementById(`${id}Change`);
-    if (el) return el;
     const valueEl = document.getElementById(`${id}Value`);
     const row = valueEl?.closest('.liq-value-row');
-    if (!row) return null;
-    el = document.createElement('span');
-    el.id = `${id}Change`;
-    el.className = 'liq-change-stack';
-    el.innerHTML = '<span class="liq-change-item">1D —</span><span class="liq-change-item">1M —</span>';
-    row.appendChild(el);
+    const quote = valueEl?.closest('.liq-quote');
+    const dateEl = document.getElementById(`${id}Date`);
+    if (!row || !quote) return null;
+    if (!el) {
+      el = document.createElement('div');
+      el.id = `${id}Change`;
+      el.className = 'liq-change-stack';
+      el.innerHTML = '<span class="liq-change-item">1D —</span><span class="liq-change-item">1M —</span>';
+    }
+    if (dateEl) quote.insertBefore(el, dateEl);
+    else row.after(el);
     return el;
   }
 
