@@ -13,8 +13,8 @@
     yahooRSP: {label:'Yahoo Finance · RSP', url:'https://finance.yahoo.com/quote/RSP/'},
     yahooBrent: {label:'Yahoo Finance · BZ=F', url:'https://finance.yahoo.com/quote/BZ=F/'},
     yahooVIX: {label:'Yahoo Finance · ^VIX', url:'https://finance.yahoo.com/quote/%5EVIX/'},
-    yahooTNX: {label:'Yahoo Finance · ^TNX', url:'https://finance.yahoo.com/quote/%5ETNX/'},
-    yahooTYX: {label:'Yahoo Finance · ^TYX', url:'https://finance.yahoo.com/quote/%5ETYX/'},
+    yahooTNX: {label:'Investing.com · US 10Y live', url:'https://www.investing.com/rates-bonds/u.s.-10-year-bond-yield'},
+    yahooTYX: {label:'Investing.com · US 30Y live', url:'https://www.investing.com/rates-bonds/u.s.-30-year-bond-yield'},
     xausGold: {label:'XAUS Gold Data API · XAU/USD Spot', url:'https://xaus.com/'},
     goldApiGold: {label:'gold-api.com · XAU/USD Spot', url:'https://api.gold-api.com/price/XAU'},
 
@@ -101,10 +101,10 @@
       const detail=card.querySelector('.metric-detail');
       if(!detail) return;
       if(name.includes('us 10y treasury')){
-        detail.textContent=detail.textContent.replace(/^Fed H\.15\s*·\s*/,'U.S. Treasury close / Yahoo ^TNX live · ');
+        detail.textContent=detail.textContent.replace(/^Fed H\.15\s*·\s*/,'U.S. Treasury close / Investing.com live · ');
         card.dataset.rateSourceSynced='1';
       } else if(name.includes('us 30y treasury')){
-        detail.textContent=detail.textContent.replace(/^Fed H\.15\s*·\s*/,'U.S. Treasury close / Yahoo ^TYX live · ');
+        detail.textContent=detail.textContent.replace(/^Fed H\.15\s*·\s*/,'U.S. Treasury close / Investing.com live · ');
         card.dataset.rateSourceSynced='1';
       } else if(name.includes('10y real yield')){
         if(!detail.textContent.startsWith('U.S. Treasury Real Yield Curve')){
