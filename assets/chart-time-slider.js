@@ -485,12 +485,6 @@
       return originalSetOption(next,...args);
     };
     patched.add(chart);
-    if (TIME_CHART_IDS.has(chartId)) {
-      let initial = {grid:{bottom:57}};
-      if (chartId === 'marketChart') initial = tuneMarketOption(initial);
-      if (chartId === 'liquidityChart') initial = tuneLiquidityOption(initial);
-      originalSetOption({...initial,dataZoom:aviationDataZoom(chartId)},false);
-    }
   }
 
   function refreshLiquidityAfterNfci() {
