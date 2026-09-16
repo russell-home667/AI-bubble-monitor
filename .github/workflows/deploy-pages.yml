@@ -185,6 +185,18 @@ jobs:
               "      if (chartId === 'liquidityChart') initial = tuneLiquidityOption(initial);",
               "      originalSetOption({...initial,dataZoom:aviationDataZoom(chartId)},false);",
               "    }",
+              "  }",
+          ])
+          if old_patch in text:
+              text = text.replace(old_patch, new_patch, 1)
+          elif "let next = applyLegendSeriesFocus(option);" not in text:
+              raise SystemExit('patchChart() shape changed; legend-focus patch not applied')
+
+          # Safety hotfix: never retrofit emphasis by calling setOption with a
+          # synthetic/incomplete series array on an already-rendered chart.
+          # That can corrupt ECharts axis/series models and trigger internal
+          # errors such as getAxesOnZeroOf is not a function.
+          unsafe_current_focus = "\n".join([
               "    const current = chart.getOption?.();",
               "    if (Array.isArray(current?.series) && current.series.length) {",
               "      originalSetOption({series:current.series.map(series => ({",
@@ -193,12 +205,8 @@ jobs:
               "        emphasis:{focus:'series'}",
               "      }))},false);",
               "    }",
-              "  }",
           ])
-          if old_patch in text:
-              text = text.replace(old_patch, new_patch, 1)
-          elif "let next = applyLegendSeriesFocus(option);" not in text:
-              raise SystemExit('patchChart() shape changed; legend-focus patch not applied')
+          text = text.replace(unsafe_current_focus + "\n", "", 1)
 
           old_scan = "\n".join([
               "  function scan() {",
@@ -257,7 +265,7 @@ jobs:
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add assets/chart-time-slider.js
-            git commit -m "feat: focus chart series on legend hover"
+            git commit -m "fix: stabilize ECharts legend focus"
             git pull --rebase origin main
             git push origin HEAD:main
           fi
