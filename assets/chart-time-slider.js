@@ -453,6 +453,18 @@
     return out;
   }
 
+  function applyLegendSeriesFocus(option) {
+    if (!option || typeof option !== 'object') return option;
+    const out = {...option};
+    if (Array.isArray(out.series)) {
+      out.series = out.series.map(series => {
+        if (!series || typeof series !== 'object') return series;
+        return {...series,emphasis:{...(series.emphasis||{}),focus:'series'}};
+      });
+    }
+    return out;
+  }
+
   function withAviationZoom(option, chartId) {
     if (!option || typeof option !== 'object') return option;
     let out = {...option};
@@ -467,12 +479,26 @@
   function patchChart(chart, chartId) {
     if (!chart || patched.has(chart)) return;
     const originalSetOption = chart.setOption.bind(chart);
-    chart.setOption = function(option,...args){ return originalSetOption(withAviationZoom(option,chartId),...args); };
+    chart.setOption = function(option,...args){
+      let next = applyLegendSeriesFocus(option);
+      if (TIME_CHART_IDS.has(chartId)) next = withAviationZoom(next,chartId);
+      return originalSetOption(next,...args);
+    };
     patched.add(chart);
-    let initial = {grid:{bottom:57}};
-    if (chartId === 'marketChart') initial = tuneMarketOption(initial);
-    if (chartId === 'liquidityChart') initial = tuneLiquidityOption(initial);
-    originalSetOption({...initial,dataZoom:aviationDataZoom(chartId)},false);
+    if (TIME_CHART_IDS.has(chartId)) {
+      let initial = {grid:{bottom:57}};
+      if (chartId === 'marketChart') initial = tuneMarketOption(initial);
+      if (chartId === 'liquidityChart') initial = tuneLiquidityOption(initial);
+      originalSetOption({...initial,dataZoom:aviationDataZoom(chartId)},false);
+    }
+    const current = chart.getOption?.();
+    if (Array.isArray(current?.series) && current.series.length) {
+      originalSetOption({series:current.series.map(series => ({
+        ...(series?.id != null ? {id:series.id} : {}),
+        ...(series?.name != null ? {name:series.name} : {}),
+        emphasis:{focus:'series'}
+      }))},false);
+    }
   }
 
   function refreshLiquidityAfterNfci() {
@@ -534,10 +560,19 @@
     }
   }
 
+  if (!window.__aiBubbleLegendFocusInitPatched) {
+    const originalEchartsInit = echarts.init.bind(echarts);
+    echarts.init = function(dom,...args) {
+      const chart = originalEchartsInit(dom,...args);
+      patchChart(chart,dom?.id||'');
+      return chart;
+    };
+    window.__aiBubbleLegendFocusInitPatched = true;
+  }
+
   function scan() {
-    TIME_CHART_IDS.forEach(id => {
-      const dom=document.getElementById(id); if (!dom) return;
-      const chart=echarts.getInstanceByDom(dom); if (chart) patchChart(chart,id);
+    document.querySelectorAll('[_echarts_instance_]').forEach(dom => {
+      const chart=echarts.getInstanceByDom(dom); if (chart) patchChart(chart,dom.id||'');
     });
     syncCommodityQuotes();
     syncMarketQuotes();
