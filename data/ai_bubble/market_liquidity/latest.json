@@ -2,7 +2,7 @@
   "module": "AI Bubble Monitor - Market & Liquidity",
   "step": 5,
   "timezone": "Asia/Shanghai",
-  "generated_at_bjt": "2026-09-16T18:03:13+08:00",
+  "generated_at_bjt": "2026-09-16T18:20:32+08:00",
   "indicators": {
     "ndx": {
       "name": "Nasdaq-100",
@@ -117,7 +117,7 @@
     "dgs10": {
       "name": "10-Year Treasury Par Yield Curve Rate",
       "observation_date": "2026-09-15",
-      "value": 4.998,
+      "value": 4.996,
       "unit": "%",
       "change_1obs": 0.03,
       "change_5obs": 0.2,
@@ -132,17 +132,17 @@
       "close_observation_date": "2026-09-15",
       "close_source": "U.S. Department of the Treasury",
       "close_source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve",
-      "live_quote_timestamp": "2026-09-16T18:03:13+08:00",
+      "live_quote_timestamp": "2026-09-16T18:20:30+08:00",
       "live_quote_source": "Investing.com US 10Y Bond Yield",
       "live_quote_status": "INVESTING_REALTIME",
       "live_change_1d_pct": null,
       "display_layer": "live_quote",
-      "live_quote_source_url": "https://www.investing.com/rates-bonds/u.s.-10-year-bond-yield-streaming-chart"
+      "live_quote_source_url": "https://www.investing.com/rates-bonds/u.s.-10-year-bond-yield-opinion"
     },
     "dgs30": {
       "name": "30-Year Treasury Par Yield Curve Rate",
       "observation_date": "2026-09-15",
-      "value": 5.365,
+      "value": 5.372,
       "unit": "%",
       "change_1obs": 0.02,
       "change_5obs": 0.11,
@@ -157,12 +157,12 @@
       "close_observation_date": "2026-09-15",
       "close_source": "U.S. Department of the Treasury",
       "close_source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve",
-      "live_quote_timestamp": "2026-09-16T18:03:13+08:00",
+      "live_quote_timestamp": "2026-09-16T18:20:32+08:00",
       "live_quote_source": "Investing.com US 30Y Bond Yield",
       "live_quote_status": "INVESTING_REALTIME",
-      "live_change_1d_pct": 0.0373,
+      "live_change_1d_pct": null,
       "display_layer": "live_quote",
-      "live_quote_source_url": "https://www.investing.com/rates-bonds/u.s.-30-year-bond-yield"
+      "live_quote_source_url": "https://www.investing.com/rates-bonds/u.s.-30-year-bond-yield-streaming-chart"
     },
     "dfii10": {
       "name": "10-Year Treasury Par Real Yield Curve Rate",
