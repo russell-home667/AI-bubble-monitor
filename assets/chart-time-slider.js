@@ -491,14 +491,6 @@
       if (chartId === 'liquidityChart') initial = tuneLiquidityOption(initial);
       originalSetOption({...initial,dataZoom:aviationDataZoom(chartId)},false);
     }
-    const current = chart.getOption?.();
-    if (Array.isArray(current?.series) && current.series.length) {
-      originalSetOption({series:current.series.map(series => ({
-        ...(series?.id != null ? {id:series.id} : {}),
-        ...(series?.name != null ? {name:series.name} : {}),
-        emphasis:{focus:'series'}
-      }))},false);
-    }
   }
 
   function refreshLiquidityAfterNfci() {
