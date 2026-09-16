@@ -63,5 +63,4 @@ jobs:
           git add data/ai_bubble/hyperscalers/
           if git diff --cached --quiet; then exit 0; fi
           git commit -m 'data: refresh AI hyperscaler financials'
-          git pull --rebase origin main
-          git push origin HEAD:main
+          bash scripts/git_commit_push_retry.sh
