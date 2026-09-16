@@ -57,6 +57,7 @@ VIX = {
 }
 
 TREASURY_XML_URL = "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/pages/xml"
+TREASURY_YEAR_CACHE: dict[tuple[str, int], list[dict]] = {}
 TREASURY = {
     "dgs10": {
         "name": "10-Year Treasury Par Yield Curve Rate",
@@ -257,6 +258,9 @@ def _properties_rows(xml_text: str) -> list[dict]:
 
 
 def fetch_treasury_year(data_key: str, year: int) -> list[dict]:
+    cache_key = (data_key, year)
+    if cache_key in TREASURY_YEAR_CACHE:
+        return TREASURY_YEAR_CACHE[cache_key]
     r = request_with_retry(
         TREASURY_XML_URL,
         params={"data": data_key, "field_tdr_date_value": str(year)},
@@ -265,6 +269,7 @@ def fetch_treasury_year(data_key: str, year: int) -> list[dict]:
     rows = _properties_rows(r.text)
     if not rows:
         raise RuntimeError(f"Treasury returned no rows for {data_key} {year}")
+    TREASURY_YEAR_CACHE[cache_key] = rows
     return rows
 
 
