@@ -331,7 +331,7 @@
     const dateEl = document.getElementById(`${id}Date`);
     if (!payload) {
       if (valueEl) valueEl.textContent = '—';
-      if (dateEl) dateEl.textContent = 'Latest ä· —";
+      if (dateEl) dateEl.textContent = 'Latest: --';
       return;
     }
 
@@ -345,10 +345,10 @@
       const stamp = formatBeijingTimestamp(payload?.timestamp || payload?.live_quote_timestamp);
       const source = payload?.source || payload?.live_quote_source || 'Yahoo Finance';
       const status = payload?.quote_status || payload?.live_quote_status || '';
-      dateEl.textContent = `Intraday » ${stamp || '—'} · ${source}${status ? ' · '+status : ''}`;
+      dateEl.textContent = `Intraday | ${stamp || '--'} | ${source}${status ? ' | '+status : ''}`;
     } else {
       const obs = payload?.observation_date || payload?.date || '—';
-      dateEl.textContent = `Latest official ÷ ${obs}`;
+      dateEl.textContent = `Latest official | ${obs}`;
     }
   }
 
