@@ -2,7 +2,7 @@
   "module": "AI Bubble Monitor - Market & Liquidity",
   "step": 5,
   "timezone": "Asia/Shanghai",
-  "generated_at_bjt": "2026-09-16T09:14:50+08:00",
+  "generated_at_bjt": "2026-09-16T09:35:38+08:00",
   "indicators": {
     "ndx": {
       "name": "Nasdaq-100",
@@ -83,7 +83,7 @@
     "vix": {
       "name": "Cboe VIX",
       "observation_date": "2026-09-15",
-      "value": 17.2,
+      "value": 17.200001,
       "unit": "index",
       "change_1d_pct": 0.5848,
       "change_5d_pct": 9.4148,
@@ -97,7 +97,16 @@
       "source_symbol": "VIX",
       "source_url": "https://www.cboe.com/tradable_products/vix/vix_historical_data/",
       "fetched_at_bjt": "2026-09-16T09:14:50+08:00",
-      "status": "fresh"
+      "status": "fresh",
+      "close_value": 17.2,
+      "close_observation_date": "2026-09-15",
+      "close_source": "Cboe Global Markets",
+      "close_source_url": "https://www.cboe.com/tradable_products/vix/vix_historical_data/",
+      "live_quote_timestamp": "2026-09-16T04:15:00+08:00",
+      "live_quote_source": "Yahoo Finance ^VIX",
+      "live_quote_status": "DELAYED",
+      "live_change_1d_pct": 0.5848,
+      "display_layer": "live_quote"
     },
     "dfii10": {
       "name": "10-Year Treasury Inflation-Indexed Security, Constant Maturity",
@@ -116,7 +125,7 @@
     "dgs10": {
       "name": "10-Year Treasury Constant Maturity Rate",
       "observation_date": "2026-09-14",
-      "value": 4.97,
+      "value": 4.996,
       "unit": "%",
       "change_1obs": 0.01,
       "change_5obs": 0.19,
@@ -125,12 +134,21 @@
       "source_symbol": "DGS10",
       "source_url": "https://fred.stlouisfed.org/series/DGS10",
       "fetched_at_bjt": "2026-09-16T08:09:08+08:00",
-      "status": "fresh"
+      "status": "fresh",
+      "close_value": 4.97,
+      "close_observation_date": "2026-09-14",
+      "close_source": "Federal Reserve Board H.15 / FRED",
+      "close_source_url": "https://fred.stlouisfed.org/series/DGS10",
+      "live_quote_timestamp": "2026-09-16T02:59:00+08:00",
+      "live_quote_source": "Yahoo Finance ^TNX",
+      "live_quote_status": "DELAYED",
+      "live_change_1d_pct": 0.7055,
+      "display_layer": "live_quote"
     },
     "dgs30": {
       "name": "30-Year Treasury Constant Maturity Rate",
       "observation_date": "2026-09-14",
-      "value": 5.34,
+      "value": 5.364,
       "unit": "%",
       "change_1obs": -0.01,
       "change_5obs": 0.1,
@@ -139,7 +157,16 @@
       "source_symbol": "DGS30",
       "source_url": "https://fred.stlouisfed.org/series/DGS30",
       "fetched_at_bjt": "2026-09-16T08:09:08+08:00",
-      "status": "fresh"
+      "status": "fresh",
+      "close_value": 5.34,
+      "close_observation_date": "2026-09-14",
+      "close_source": "Federal Reserve Board H.15 / FRED",
+      "close_source_url": "https://fred.stlouisfed.org/series/DGS30",
+      "live_quote_timestamp": "2026-09-16T02:59:00+08:00",
+      "live_quote_source": "Yahoo Finance ^TYX",
+      "live_quote_status": "DELAYED",
+      "live_change_1d_pct": 0.6568,
+      "display_layer": "live_quote"
     },
     "hy_oas": {
       "name": "ICE BofA US High Yield Index Option-Adjusted Spread",

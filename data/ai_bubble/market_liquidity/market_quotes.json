@@ -1,9 +1,9 @@
 {
-  "generated_at_bjt": "2026-09-16T04:07:28+08:00",
+  "generated_at_bjt": "2026-09-16T09:35:38+08:00",
   "timezone": "Asia/Shanghai",
   "source": "Yahoo Finance 1-minute chart bars",
   "poll_frequency": "5 minutes during U.S. regular trading hours",
-  "note": "Latest-value tiles use these quotes. Historical normalized charts remain completed-session only. Yahoo Finance quotes may be delayed.",
+  "note": "VIX/10Y/30Y latest-value tiles use Yahoo intraday quotes when available; Treasury CSV histories remain official U.S. Treasury closes.",
   "quotes": {
     "ndx": {
       "price": 28937.837891,
@@ -43,6 +43,45 @@
       "symbol": "NVDA",
       "name": "NVIDIA",
       "unit": "USD"
+    },
+    "vix": {
+      "price": 17.200001,
+      "previous_close": 17.1,
+      "change_1d_pct": 0.5848,
+      "timestamp": "2026-09-16T04:15:00+08:00",
+      "bar_interval": "1m",
+      "poll_frequency": "5 minutes",
+      "source": "Yahoo Finance ^VIX",
+      "quote_status": "DELAYED",
+      "symbol": "^VIX",
+      "name": "Cboe Volatility Index",
+      "unit": "index"
+    },
+    "dgs10": {
+      "price": 4.996,
+      "previous_close": 4.961,
+      "change_1d_pct": 0.7055,
+      "timestamp": "2026-09-16T02:59:00+08:00",
+      "bar_interval": "1m",
+      "poll_frequency": "5 minutes",
+      "source": "Yahoo Finance ^TNX",
+      "quote_status": "DELAYED",
+      "symbol": "^TNX",
+      "name": "10-Year Treasury Yield",
+      "unit": "%"
+    },
+    "dgs30": {
+      "price": 5.364,
+      "previous_close": 5.329,
+      "change_1d_pct": 0.6568,
+      "timestamp": "2026-09-16T02:59:00+08:00",
+      "bar_interval": "1m",
+      "poll_frequency": "5 minutes",
+      "source": "Yahoo Finance ^TYX",
+      "quote_status": "DELAYED",
+      "symbol": "^TYX",
+      "name": "30-Year Treasury Yield",
+      "unit": "%"
     }
   },
   "errors": {}
