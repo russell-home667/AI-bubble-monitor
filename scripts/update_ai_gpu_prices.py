@@ -286,9 +286,12 @@ def main() -> None:
     composite = build_composite(daily)
 
     latest_gpus: dict[str, Any] = {}
+    active_series: set[str] = set()
     for gpu in GPUS:
-        g = daily[daily["gpu"] == gpu].sort_values("date_bjt")
         snap = snapshots[snapshots["gpu"] == gpu].sort_values("snapshot_bjt").iloc[-1]
+        source_series = str(snap["source_series"])
+        active_series.add(source_series)
+        g = daily[(daily["gpu"] == gpu) & (daily["source_series"] == source_series)].sort_values("date_bjt")
         if g.empty:
             continue
         r = g.iloc[-1]
@@ -296,7 +299,7 @@ def main() -> None:
             "variant": GPUS[gpu]["variant"],
             "date_bjt": r["date_bjt"].strftime("%Y-%m-%d"),
             "daily_price_usd_per_gpu_hr": float(r["daily_price_usd_per_gpu_hr"]),
-            "source_series": r["source_series"],
+            "source_series": source_series,
             "index": None if pd.isna(r["index"]) else float(r["index"]),
             "change_7d_pct": None if pd.isna(r["change_7d_pct"]) else float(r["change_7d_pct"]),
             "change_30d_pct": None if pd.isna(r["change_30d_pct"]) else float(r["change_30d_pct"]),
@@ -308,23 +311,49 @@ def main() -> None:
             "source": snap["source"],
         }
 
+    statuses = {k: v.get("status") for k, v in latest_gpus.items()}
+    all_live = len(statuses) == len(GPUS) and all(v == "LIVE_MARKET" for v in statuses.values())
+    any_stale = any(v == "STALE_ANCHOR" for v in statuses.values())
+    scoring_eligible = bool(all_live and active_series == {"vast_verified_ondemand_median"})
+    if scoring_eligible:
+        quality_level = "live_market"
+        quality_reason = "All tracked GPUs use verified live Vast.ai marketplace medians."
+    elif any_stale:
+        quality_level = "stale"
+        quality_reason = "At least one GPU is using an emergency static anchor; GPU prices are display-only and excluded from scoring."
+    else:
+        quality_level = "reference"
+        quality_reason = "GPU prices are Runpod public reference prices rather than live marketplace medians; display-only and excluded from scoring."
+
     latest_comp = None
-    if not composite.empty:
-        cr = composite.sort_values("date_bjt").iloc[-1]
-        latest_comp = {
-            "date_bjt": cr["date_bjt"].strftime("%Y-%m-%d"),
-            "source_series": cr["source_series"],
-            "composite_index": float(cr["composite_index"]),
-            "change_7d_pct": None if pd.isna(cr["change_7d_pct"]) else float(cr["change_7d_pct"]),
-            "change_30d_pct": None if pd.isna(cr["change_30d_pct"]) else float(cr["change_30d_pct"]),
-            "change_90d_pct": None if pd.isna(cr["change_90d_pct"]) else float(cr["change_90d_pct"]),
-        }
+    if not composite.empty and len(active_series) == 1:
+        active = next(iter(active_series))
+        c = composite[composite["source_series"] == active].sort_values("date_bjt")
+        if not c.empty:
+            cr = c.iloc[-1]
+            latest_comp = {
+                "date_bjt": cr["date_bjt"].strftime("%Y-%m-%d"),
+                "source_series": cr["source_series"],
+                "composite_index": float(cr["composite_index"]),
+                "change_7d_pct": None if pd.isna(cr["change_7d_pct"]) else float(cr["change_7d_pct"]),
+                "change_30d_pct": None if pd.isna(cr["change_30d_pct"]) else float(cr["change_30d_pct"]),
+                "change_90d_pct": None if pd.isna(cr["change_90d_pct"]) else float(cr["change_90d_pct"]),
+                "scoring_eligible": scoring_eligible,
+            }
 
     latest = {
         "module": "AI Bubble Monitor - GPU Rental Price Index",
         "step": 8,
         "timezone": "Asia/Shanghai",
         "generated_at_bjt": snapshot,
+        "scoring_eligible": scoring_eligible,
+        "data_quality": {
+            "level": quality_level,
+            "scoring_eligible": scoring_eligible,
+            "reason": quality_reason,
+            "active_source_series": sorted(active_series),
+            "gpu_statuses": statuses,
+        },
         "methodology": {
             "primary": "Median $/GPU/hour across verified, rentable, on-demand Vast.ai offers; machine price divided by GPU count.",
             "fallback": "Runpod Community Cloud published price when VAST_API_KEY is unavailable or Vast fetch fails.",

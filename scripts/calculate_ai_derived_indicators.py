@@ -134,8 +134,13 @@ def main():
         (scale(nv["dso_days"], 35, 80, invert=True), 0.15),
     ])
 
-    # 6) Compute Demand Score. GPU component is included only when a same-source 30D history exists.
-    gpu30 = gpu.get("composite", {}).get("change_30d_pct")
+    # 6) Compute Demand Score. GPU contributes only when the current GPU
+    # module explicitly certifies live-market scoring eligibility and has a
+    # same-source 30D history. Reference/stale fallback values remain visible
+    # on the dashboard but never enter the score.
+    gpu_comp = gpu.get("composite") or {}
+    gpu_scoring_eligible = bool(gpu.get("scoring_eligible")) and bool(gpu_comp.get("scoring_eligible"))
+    gpu30 = gpu_comp.get("change_30d_pct") if gpu_scoring_eligible else None
     compute_demand, coverage_weight = weighted([
         (scale(nv["data_center_yoy_pct"], 0, 150), 0.40),
         (scale(ts["rolling_3m_yoy_pct"], -20, 60), 0.30),
@@ -192,7 +197,9 @@ def main():
                 "strength_label": strength_label(compute_demand),
                 "coverage_pct": round(coverage_pct,0),
                 "gpu_30d_component_available": gpu30 is not None,
-                "note": "GPU weight is automatically excluded and remaining weights renormalized until 30 days of same-source GPU history exist.",
+                "gpu_scoring_eligible": gpu_scoring_eligible,
+                "gpu_data_quality": (gpu.get("data_quality") or {}).get("level"),
+                "note": "GPU weight is included only for live-market, scoring-eligible data with 30 days of same-source history; reference/stale fallback values are excluded and remaining weights renormalized.",
             },
         },
         "source_generated_at": {
