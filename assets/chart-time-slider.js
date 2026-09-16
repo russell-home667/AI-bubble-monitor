@@ -251,9 +251,11 @@
       if (quoteResponse.ok) marketQuotePayload = await quoteResponse.json();
       if (summaryResponse.ok) marketSummaryPayload = await summaryResponse.json();
       syncMarketQuotes();
+      syncLiquidityQuotes();
     } catch (e) {
       console.warn('Market latest quote load failed',e);
       syncMarketQuotes();
+      syncLiquidityQuotes();
     }
   }
 
@@ -312,27 +314,61 @@
     return grid;
   }
 
-  function setLiquidityQuote(id, row, decimals) {
+  // LIVE_LIQUIDITY_TILES_V2
+  function summaryIntradayQuote(key) {
+    const x = marketSummaryPayload?.indicators?.[key];
+    if (!x?.live_quote_timestamp || !Number.isFinite(Number(x?.value))) return null;
+    return {
+      price:Number(x.value),
+      timestamp:x.live_quote_timestamp,
+      source:x.live_quote_source || 'Yahoo Finance',
+      quote_status:x.live_quote_status || null
+    };
+  }
+
+  function setLiquidityQuote(id, payload, decimals, mode='daily') {
     const valueEl = document.getElementById(`${id}Value`);
     const dateEl = document.getElementById(`${id}Date`);
-    if (!row) {
+    if (!payload) {
       if (valueEl) valueEl.textContent = '—';
-      if (dateEl) dateEl.textContent = 'Latest · —';
+      if (dateEl) dateEl.textContent = 'Latest ä· —";
       return;
     }
-    if (valueEl) valueEl.textContent = Number(row.__value).toFixed(decimals);
-    if (dateEl) dateEl.textContent = `Latest · ${row.date || row.observation_date || '—'}`;
+
+    const rawValue = mode === 'intraday'
+      ? Number(payload?.price ?? payload?.value)
+      : Number(payload?.value ?? payload?.__value);
+    if (valueEl) valueEl.textContent = Number.isFinite(rawValue) ? rawValue.toFixed(decimals) : '—';
+
+    if (!dateEl) return;
+    if (mode === 'intraday') {
+      const stamp = formatBeijingTimestamp(payload?.timestamp || payload?.live_quote_timestamp);
+      const source = payload?.source || payload?.live_quote_source || 'Yahoo Finance';
+      const status = payload?.quote_status || payload?.live_quote_status || '';
+      dateEl.textContent = `Intraday » ${stamp || '—'} · ${source}${status ? ' · '+status : ''}`;
+    } else {
+      const obs = payload?.observation_date || payload?.date || '—';
+      dateEl.textContent = `Latest official ÷ ${obs}`;
+    }
   }
 
   function syncLiquidityQuotes() {
     ensureLiquidityQuoteLayout();
     if (typeof state === 'undefined' || !state?.raw) return;
-    setLiquidityQuote('liq10y', latestFiniteRow(state.raw.dgs10,'value'), 2);
-    setLiquidityQuote('liq30y', latestFiniteRow(state.raw.dgs30,'value'), 2);
-    setLiquidityQuote('liqReal10', latestFiniteRow(state.raw.dfii10,'value'), 2);
-    setLiquidityQuote('liqHy', latestFiniteRow(state.raw.hy,'value'), 2);
-    setLiquidityQuote('liqVix', latestFiniteRow(state.raw.vix,'close'), 2);
-    setLiquidityQuote('liqNfci', latestFiniteRow(state.raw.nfci,'value'), 3);
+
+    const live = marketQuotePayload?.quotes || {};
+    const summary = marketSummaryPayload?.indicators || {};
+
+    const q10 = live.dgs10 || summaryIntradayQuote('dgs10');
+    const q30 = live.dgs30 || summaryIntradayQuote('dgs30');
+    const qVix = live.vix || summaryIntradayQuote('vix');
+
+    setLiquidityQuote('liq10y', q10 || latestFiniteRow(state.raw.dgs10,'value'), q10 ? 3 : 2, q10 ? 'intraday' : 'daily');
+    setLiquidityQuote('liq30y', q30 || latestFiniteRow(state.raw.dgs30,'value'), q30 ? 3 : 2, q30 ? 'intraday' : 'daily');
+    setLiquidityQuote('liqReal10', summary.dfii10 || latestFiniteRow(state.raw.dfii10,'value'), 2, 'daily');
+    setLiquidityQuote('liqHy', summary.hy_oas || latestFiniteRow(state.raw.hy,'value'), 2, 'daily');
+    setLiquidityQuote('liqVix', qVix || latestFiniteRow(state.raw.vix,'close'), 2, qVix ? 'intraday' : 'daily');
+    setLiquidityQuote('liqNfci', latestFiniteRow(state.raw.nfci,'value'), 3, 'daily');
   }
 
   function syncLiquiditySources() {
@@ -459,6 +495,11 @@
       if (!window.Papa) throw new Error('PapaParse unavailable');
       const rows = Papa.parse(text,{header:true,dynamicTyping:true,skipEmptyLines:true}).data.filter(r=>r?.date && Number.isFinite(Number(r.value)));
       if (!rows.length) throw new Error('NFCI dataset empty');
+      let waitCount = 0;
+      while ((typeof state === 'undefined' || !state?.raw) && waitCount < 40) {
+        await new Promise(resolve => setTimeout(resolve,50));
+        waitCount += 1;
+      }
       if (typeof state !== 'undefined' && state?.raw) state.raw.nfci = rows;
       refreshLiquidityAfterNfci();
     } catch (e) {
