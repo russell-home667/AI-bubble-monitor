@@ -148,7 +148,7 @@
       const style = document.createElement('style');
       style.id = 'market-latest-style';
       style.textContent = `
-        .market-card-enhanced{align-self:start!important;}
+        .market-card-enhanced{align-self:stretch!important;}
         .market-card-enhanced .chart-head{align-items:flex-start;gap:14px;}
         .market-card-enhanced .chart-title{line-height:1.35;}
         .market-card-enhanced .chart-sub{max-width:560px;line-height:1.4;}
