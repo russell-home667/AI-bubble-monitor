@@ -1,0 +1,51 @@
+name: Patch Macro Commodity Change Baselines
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/patch_macro_change_baselines.py'
+      - '.github/workflows/patch-macro-change-baselines.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: patch-macro-change-baselines
+  cancel-in-progress: true
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Apply fixes
+        run: python scripts/patch_macro_change_baselines.py
+
+      - name: Validate syntax
+        run: |
+          python -m py_compile scripts/update_ai_brent_quote.py scripts/update_ai_gold.py
+          node --check assets/chart-time-slider.js
+          grep -q "quote.previous_close??last.value" index.html
+          grep -q "quote.previous_close ?? last?.value" assets/chart-time-slider.js
+          grep -q "fetch_investing_previous_close" scripts/update_ai_gold.py
+
+      - name: Commit fixes
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html assets/chart-time-slider.js scripts/update_ai_brent_quote.py scripts/update_ai_gold.py .github/workflows/update-ai-brent-quote.yml .github/workflows/update-ai-gold.yml
+          if git diff --cached --quiet; then
+            echo 'No changes to commit'
+            exit 0
+          fi
+          git commit -m 'fix: use true prior close for macro commodity changes'
+          git pull --rebase origin main
+          git push origin HEAD:main
