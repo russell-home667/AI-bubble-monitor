@@ -41,6 +41,27 @@ jobs:
       - name: Refresh latest market quotes
         run: python scripts/update_ai_market_quotes.py
 
+      - name: Sync Treasury source labels
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('assets/source-links.js')
+          s=p.read_text(encoding='utf-8')
+          replacements={
+            "yahooTNX: {label:'Yahoo Finance · ^TNX', url:'https://finance.yahoo.com/quote/%5ETNX/'},":
+              "yahooTNX: {label:'Investing.com · US 10Y live', url:'https://www.investing.com/rates-bonds/u.s.-10-year-bond-yield'},",
+            "yahooTYX: {label:'Yahoo Finance · ^TYX', url:'https://finance.yahoo.com/quote/%5ETYX/'},":
+              "yahooTYX: {label:'Investing.com · US 30Y live', url:'https://www.investing.com/rates-bonds/u.s.-30-year-bond-yield'},",
+            "U.S. Treasury close / Yahoo ^TNX live · ":
+              "U.S. Treasury close / Investing.com live · ",
+            "U.S. Treasury close / Yahoo ^TYX live · ":
+              "U.S. Treasury close / Investing.com live · ",
+          }
+          for old,new in replacements.items():
+              s=s.replace(old,new)
+          p.write_text(s,encoding='utf-8')
+          PY
+
       - name: Validate quote payload
         run: |
           python - <<'PY'
@@ -76,13 +97,13 @@ jobs:
       - name: Commit refreshed quotes
         run: |
           set -euo pipefail
-          if git diff --quiet -- data/ai_bubble/market_liquidity/market_quotes.json data/ai_bubble/market_liquidity/latest.json; then
+          if git diff --quiet -- data/ai_bubble/market_liquidity/market_quotes.json data/ai_bubble/market_liquidity/latest.json assets/source-links.js; then
             echo 'Quotes checked; no externally visible changes'
             exit 0
           fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add data/ai_bubble/market_liquidity/market_quotes.json data/ai_bubble/market_liquidity/latest.json
+          git add data/ai_bubble/market_liquidity/market_quotes.json data/ai_bubble/market_liquidity/latest.json assets/source-links.js
           git commit -m 'data: refresh live rates and market quotes'
           git pull --rebase origin main
           git push origin HEAD:main
