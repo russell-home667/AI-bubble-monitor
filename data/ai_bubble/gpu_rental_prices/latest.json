@@ -2,7 +2,7 @@
   "module": "AI Bubble Monitor - GPU Rental Price Index",
   "step": 8,
   "timezone": "Asia/Shanghai",
-  "generated_at_bjt": "2026-09-17T00:00:36+08:00",
+  "generated_at_bjt": "2026-09-17T02:16:08+08:00",
   "scoring_eligible": false,
   "data_quality": {
     "level": "reference",
@@ -42,7 +42,7 @@
       "change_30d_pct": null,
       "change_90d_pct": null,
       "runpod_reference_usd_per_gpu_hr": 2.69,
-      "latest_snapshot_bjt": "2026-09-17T00:00:36+08:00",
+      "latest_snapshot_bjt": "2026-09-17T02:16:08+08:00",
       "offers_count": null,
       "status": "REFERENCE_FALLBACK",
       "source": "Runpod Community Cloud public pricing"
@@ -57,7 +57,7 @@
       "change_30d_pct": null,
       "change_90d_pct": null,
       "runpod_reference_usd_per_gpu_hr": 3.59,
-      "latest_snapshot_bjt": "2026-09-17T00:00:36+08:00",
+      "latest_snapshot_bjt": "2026-09-17T02:16:08+08:00",
       "offers_count": null,
       "status": "REFERENCE_FALLBACK",
       "source": "Runpod Community Cloud public pricing"
@@ -72,7 +72,7 @@
       "change_30d_pct": null,
       "change_90d_pct": null,
       "runpod_reference_usd_per_gpu_hr": 5.98,
-      "latest_snapshot_bjt": "2026-09-17T00:00:36+08:00",
+      "latest_snapshot_bjt": "2026-09-17T02:16:08+08:00",
       "offers_count": null,
       "status": "REFERENCE_FALLBACK",
       "source": "Runpod Community Cloud public pricing"
