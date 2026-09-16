@@ -72,6 +72,56 @@ jobs:
               '.market-card-enhanced{align-self:start!important;}',
               '.market-card-enhanced{align-self:stretch!important;}'
           )
+
+          eq_marker = '  function equalizeMarketLiquidityCards() {'
+          if eq_marker not in text:
+              insert_at = text.find('  function scan() {')
+              if insert_at < 0:
+                  raise SystemExit('scan() insertion point not found')
+              helper = '''  function equalizeMarketLiquidityCards() {
+    const left = document.getElementById('marketChart')?.closest('.chart-card');
+    const right = document.getElementById('liquidityChart')?.closest('.chart-card');
+    if (!left || !right || left.parentElement !== right.parentElement) return;
+    const row = left.parentElement;
+    row.style.alignItems = 'stretch';
+    if (window.innerWidth <= 760) {
+      left.style.height = '';
+      right.style.height = '';
+      return;
+    }
+    left.style.height = 'auto';
+    right.style.height = 'auto';
+    const target = Math.ceil(Math.max(
+      left.getBoundingClientRect().height,
+      right.getBoundingClientRect().height
+    ));
+    if (target > 0) {
+      left.style.height = `${target}px`;
+      right.style.height = `${target}px`;
+    }
+  }
+
+'''
+              text = text[:insert_at] + helper + text[insert_at:]
+
+          scan_needle = '''    syncLiquidityQuotes();
+    syncLiquiditySources();
+  }
+
+  scan();'''
+          scan_replacement = '''    syncLiquidityQuotes();
+    syncLiquiditySources();
+    requestAnimationFrame(equalizeMarketLiquidityCards);
+  }
+
+  window.addEventListener('resize', () => requestAnimationFrame(equalizeMarketLiquidityCards));
+
+  scan();'''
+          if 'window.addEventListener(\'resize\', () => requestAnimationFrame(equalizeMarketLiquidityCards));' not in text:
+              if scan_needle not in text:
+                  raise SystemExit('scan() call site not found')
+              text = text.replace(scan_needle, scan_replacement, 1)
+
           p.write_text(text, encoding='utf-8')
           PY
           node --check assets/chart-time-slider.js
@@ -83,7 +133,7 @@ jobs:
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add assets/chart-time-slider.js
-            git commit -m "fix: align market and liquidity card heights"
+            git commit -m "fix: force equal market and liquidity card heights"
             git pull --rebase origin main
             git push origin HEAD:main
           fi
