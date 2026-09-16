@@ -52,7 +52,7 @@
     const st = document.createElement('style');
     st.id = 'aiNewsStyles';
     st.textContent = `
-      .news-shell{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+      .news-shell{display:block}
       .news-panel{padding:0;overflow:hidden}
       .news-panel-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;padding:16px 17px 12px;border-bottom:1px solid rgba(29,49,73,.62)}
       .news-panel-title{font-size:14px;font-weight:760}
@@ -64,6 +64,7 @@
       .news-item:last-child{border-bottom:0}
       .news-topline{display:flex;gap:7px;align-items:center;flex-wrap:wrap;margin-bottom:7px}
       .news-rank{font-size:10px;color:#5e7591;min-width:20px}
+      .news-critical{font-size:10px;font-weight:800;color:#ff9caf;background:rgba(255,93,115,.11);border:1px solid rgba(255,93,115,.30);border-radius:999px;padding:3px 7px}
       .news-cat{font-size:10px;font-weight:700;color:#b8d9ff;background:rgba(90,168,255,.10);border:1px solid rgba(90,168,255,.23);border-radius:999px;padding:3px 7px}
       .news-importance{font-size:10px;color:#9fb1c8}
       .news-risk{font-size:10px;font-weight:700;border-radius:999px;padding:3px 7px}
@@ -80,7 +81,6 @@
       .news-sources a{color:#769fca}
       .news-sources a:hover{color:#b9dcff}
       .news-empty{padding:22px 16px;color:#7288a2;font-size:12px}
-      @media(max-width:980px){.news-shell{grid-template-columns:1fr}}
       @media(max-width:760px){.news-panel-head{padding-left:14px;padding-right:14px}.news-item{padding-left:14px;padding-right:14px}.news-time{margin-left:0;width:100%}}
     `;
     document.head.appendChild(st);
@@ -98,15 +98,8 @@
         <div class="news-shell">
           <div class="card news-panel">
             <div class="news-panel-head">
-              <div><div class="news-panel-title">Critical AI Bubble News</div><div class="news-panel-sub">高重要度或高泡沫风险影响事件 · 最多10条</div></div>
-              <a class="news-more" href="news.html?view=critical#critical-all">More →</a>
-            </div>
-            <div class="news-list" id="criticalNewsList"><div class="news-empty">Loading news…</div></div>
-          </div>
-          <div class="card news-panel">
-            <div class="news-panel-head">
-              <div><div class="news-panel-title">AI Bubble News Feed</div><div class="news-panel-sub">过去7天重要新闻 · 按重要性排序 · 最多10条</div></div>
-              <a class="news-more" href="news.html?view=feed#feed-all">More →</a>
+              <div><div class="news-panel-title">AI Bubble News Feed</div><div class="news-panel-sub">过去7天重要新闻 · Critical 事件标记 · 按重要性排序 · 最多10条</div></div>
+              <a class="news-more" href="news.html">More →</a>
             </div>
             <div class="news-list" id="importantNewsList"><div class="news-empty">Loading news…</div></div>
           </div>
@@ -127,6 +120,7 @@
       <article class="news-item">
         <div class="news-topline">
           <span class="news-rank">#${rank}</span>
+          ${s.critical ? '<span class="news-critical">CRITICAL</span>' : ''}
           <span class="news-cat">${esc(CATEGORY_SHORT[s.category] || s.category || 'AI News')}</span>
           <span class="news-importance">Importance ${Number(s.importance_score || 0)}</span>
           <span class="news-risk ${dm.cls}">${esc(dm.text)}</span>
@@ -159,22 +153,18 @@
         (Number(b.importance_score || 0) - Number(a.importance_score || 0)) ||
         String(b.published_at || '').localeCompare(String(a.published_at || ''));
 
-      const critical = stories.filter(x => x.critical).sort(sortFn);
       const feed = stories.filter(x => Number(x.importance_score || 0) >= IMPORTANT_MIN).sort(sortFn);
-      renderList('criticalNewsList', critical);
       renderList('importantNewsList', feed);
 
       const meta = document.getElementById('aiNewsMeta');
       if (meta) {
-        const mode = data.scan_mode === 'deep' ? '08:50 deep scan' : 'intraday incremental';
+        const mode = data.scan_mode === 'deep' ? 'deep scan' : 'intraday incremental';
         meta.textContent = `DeepSeek V4.1 Flash · ${mode} · ${fmtTime(data.generated_at_sgt)} · trusted news / official sources`;
       }
     } catch (err) {
       console.warn('AI news load failed', err);
-      ['criticalNewsList','importantNewsList'].forEach(id => {
-        const el = document.getElementById(id);
-        if (el) el.innerHTML = '<div class="news-empty">News data is not available yet. The scheduled pipeline will populate this module.</div>';
-      });
+      const el = document.getElementById('importantNewsList');
+      if (el) el.innerHTML = '<div class="news-empty">News data is not available yet. The scheduled pipeline will populate this module.</div>';
     }
   }
 
