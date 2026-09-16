@@ -68,5 +68,4 @@ jobs:
           git add data/ai_bubble/derived_indicators/
           if git diff --cached --quiet; then exit 0; fi
           git commit -m 'data: refresh AI derived indicators'
-          git pull --rebase origin main
-          git push origin HEAD:main
+          bash scripts/git_commit_push_retry.sh
