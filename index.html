@@ -19,12 +19,12 @@ function commodityCutoff(rows,range){
 }
 function renderBrentStandalone(){
   if(!brentPayload||!brentPayload.data?.length)return;
-  const rows=brentPayload.data,last=rows[rows.length-1],prev=rows[rows.length-2];
+  const rows=brentPayload.data,last=rows[rows.length-1];
   const quote=brentPayload.latest_quote||{},display=Number(quote.price??last.value);
   document.getElementById('brentValue').textContent=display.toFixed(2);
   document.getElementById('brentDate').textContent=quote.timestamp?quote.timestamp.replace('T',' ').slice(0,19)+' BJT':last.date;
   document.getElementById('brentStatus').textContent=quote.quote_status||brentPayload.status||'LIVE';
-  const base=Number(prev?.value??last.value),chg=base?((display/base)-1)*100:0;
+  const base=Number(quote.previous_close??last.value),chg=base?((display/base)-1)*100:0;
   const el=document.getElementById('brentChange');el.textContent=(chg>=0?'+':'')+chg.toFixed(2)+'% vs prior completed daily close';el.style.color=chg>0?'var(--green)':chg<0?'var(--red)':'var(--muted)';
 
   const br=commodityCutoff(rows,brentRange);

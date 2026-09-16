@@ -99,7 +99,7 @@
     const dateEl = document.getElementById('goldBigDate');
     if (dateEl && goldTime) dateEl.textContent = `Latest quote · ${goldTime}`;
     const changeEl = document.getElementById('goldBigChange');
-    const base = Number(last?.value);
+    const base = Number(quote.previous_close ?? last?.value);
     if (changeEl && Number.isFinite(price) && Number.isFinite(base) && base !== 0) {
       const change = (price / base - 1) * 100;
       changeEl.textContent = `${change >= 0 ? '+' : ''}${change.toFixed(2)}% vs prior completed daily close`;

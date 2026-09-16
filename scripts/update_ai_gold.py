@@ -3,11 +3,18 @@ import argparse
 import csv
 import io
 import json
+import html as html_lib
+import re
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
 import requests
+
+try:
+    from curl_cffi import requests as curl_requests
+except Exception:
+    curl_requests = None
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "data" / "ai_bubble" / "macro" / "gold_xauusd.json"
@@ -20,6 +27,19 @@ GOLDPRICE_BARS_BASE = "https://api.goldprice.dev/v1/bars"
 GOLDPRICE_DOCS = "https://goldprice.dev/docs/historical"
 XAUS_SPOT_URL = "https://xaus.com/api/v1/spot?compact=1"
 GOLD_API_SPOT_URL = "https://api.gold-api.com/price/XAU"
+INVESTING_GOLD_URLS = [
+    "https://www.investing.com/currencies/xau-usd",
+    "https://www.investing.com/currencies/xau-usd-candlestick",
+    "https://www.investing.com/currencies/xau-usd-historical-data",
+]
+NY_TZ = ZoneInfo("America/New_York")
+BROWSER_HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+    "Accept-Language": "en-US,en;q=0.9",
+    "Cache-Control": "no-cache",
+    "Pragma": "no-cache",
+}
 
 # Public mirror maintained from the World Bank Commodity Markets (Pink Sheet).
 WORLD_BANK_GOLD_CSV = "https://raw.githubusercontent.com/datasets/gold-prices/main/data/monthly.csv"
@@ -209,6 +229,89 @@ def fetch_daily_history():
     raise RuntimeError("No reliable XAU/USD daily history source available: " + " | ".join(errors))
 
 
+def browser_get(url: str, timeout: int = 25):
+    errors = []
+    if curl_requests is not None:
+        try:
+            r = curl_requests.get(url, headers=BROWSER_HEADERS, timeout=timeout, impersonate="chrome", allow_redirects=True)
+            if r.status_code == 200 and len(r.text) > 1000:
+                return r.text, "curl_cffi/chrome"
+            errors.append(f"curl_cffi HTTP {r.status_code} len={len(r.text)}")
+        except Exception as exc:
+            errors.append(f"curl_cffi {exc}")
+    try:
+        r = requests.get(url, headers=BROWSER_HEADERS, timeout=timeout, allow_redirects=True)
+        if r.status_code == 200 and len(r.text) > 1000:
+            return r.text, "requests"
+        errors.append(f"requests HTTP {r.status_code} len={len(r.text)}")
+    except Exception as exc:
+        errors.append(f"requests {exc}")
+    raise RuntimeError("; ".join(errors))
+
+
+def expected_previous_gold_session_date():
+    d = datetime.now(NY_TZ).date() - timedelta(days=1)
+    while d.weekday() >= 5:
+        d -= timedelta(days=1)
+    return d
+
+
+def fetch_investing_previous_close(live_price: float | None = None):
+    errors = []
+    for url in INVESTING_GOLD_URLS:
+        try:
+            raw, transport = browser_get(url)
+            plain = html_lib.unescape(re.sub(r"<[^>]+>", " ", raw))
+            plain = re.sub(r"\s+", " ", plain).strip()
+            if "XAU/USD" not in plain and "Gold Spot US Dollar" not in plain:
+                raise RuntimeError("unexpected Investing.com instrument page")
+            m = re.search(r"Prev\.\s*Close\s+([0-9][0-9,]*(?:\.[0-9]+)?)", plain, flags=re.I)
+            if not m:
+                raise RuntimeError("Prev. Close not found")
+            previous_close = float(m.group(1).replace(",", ""))
+            if not 100.0 < previous_close < 20000.0:
+                raise RuntimeError(f"implausible previous close {previous_close}")
+            if live_price and abs(float(live_price) / previous_close - 1.0) > 0.15:
+                raise RuntimeError(f"previous close/live quote divergence exceeds 15% ({previous_close} vs {live_price})")
+            return {
+                "previous_close": round(previous_close, 2),
+                "previous_close_source": "Investing.com XAU/USD Prev. Close",
+                "previous_close_url": url,
+                "previous_close_transport": transport,
+                "previous_close_observation_date": expected_previous_gold_session_date().isoformat(),
+            }
+        except Exception as exc:
+            errors.append(f"{url}: {exc}")
+    raise RuntimeError(" | ".join(errors))
+
+
+def fresh_history_previous_close(rows):
+    session_date = datetime.now(NY_TZ).date()
+    candidates = []
+    for row in rows:
+        if row.get("frequency") != "daily" or row.get("value") is None or not row.get("date"):
+            continue
+        try:
+            d = datetime.fromisoformat(str(row["date"])[:10]).date()
+            value = float(row["value"])
+        except Exception:
+            continue
+        if d < session_date and 100.0 < value < 20000.0:
+            candidates.append((d, value, row.get("source") or "stored daily history"))
+    if not candidates:
+        return None
+    d, value, source = max(candidates, key=lambda x: x[0])
+    if (session_date - d).days > 4:
+        return None
+    return {
+        "previous_close": round(value, 2),
+        "previous_close_source": source,
+        "previous_close_url": None,
+        "previous_close_transport": "stored_history",
+        "previous_close_observation_date": d.isoformat(),
+    }
+
+
 def fetch_live_quote():
     errors = []
     # Primary real-time quote remains XAUS; daily history no longer depends on XAUS.
@@ -326,6 +429,27 @@ def main():
     if not merged:
         raise RuntimeError("No XAU/USD history available")
 
+    previous_close_warning = None
+    previous_close_info = None
+    try:
+        previous_close_info = fetch_investing_previous_close(float(quote.get("price")))
+    except Exception as exc:
+        previous_close_warning = str(exc)
+        previous_close_info = fresh_history_previous_close(merged)
+        if previous_close_info is None:
+            print(f"Previous-close warning: {exc}; no sufficiently fresh completed daily close available")
+        else:
+            print(f"Previous-close warning: {exc}; using fresh stored daily close {previous_close_info['previous_close_observation_date']}")
+
+    if previous_close_info:
+        quote.update(previous_close_info)
+        previous_close = float(previous_close_info["previous_close"])
+        live_price = float(quote["price"])
+        quote["change_vs_previous_close_pct"] = round((live_price / previous_close - 1.0) * 100.0, 4)
+    else:
+        quote["previous_close"] = None
+        quote["change_vs_previous_close_pct"] = None
+
     coverage_has_world_bank = merged[0]["date"] <= "1990-01-01"
     combined_source = "World Bank Pink Sheet + Yahoo Finance XAUUSD=X" if coverage_has_world_bank else "Yahoo Finance XAUUSD=X"
 
@@ -385,6 +509,7 @@ def main():
         },
         "history_fetch_warning": history_error,
         "world_bank_fetch_warning": world_bank_error,
+        "previous_close_fetch_warning": previous_close_warning,
         "latest_quote": {
             **quote,
             "retrieved_at_bjt": now_bjt.isoformat(timespec="seconds"),

@@ -32,6 +32,7 @@ result = (payload.get("chart", {}).get("result") or [None])[0]
 if not result:
     raise RuntimeError("Yahoo Finance returned no BZ=F chart result.")
 
+meta = result.get("meta") or {}
 timestamps = result.get("timestamp") or []
 quotes = ((result.get("indicators") or {}).get("quote") or [{}])[0]
 closes = quotes.get("close") or []
@@ -45,12 +46,23 @@ for ts, close in zip(timestamps, closes):
 if latest_timestamp is None or latest_price is None:
     raise RuntimeError("Yahoo Finance returned no valid 1-minute BZ=F bars.")
 
+previous_close_raw = meta.get("chartPreviousClose")
+if previous_close_raw in (None, 0):
+    previous_close_raw = meta.get("previousClose")
+previous_close = float(previous_close_raw) if previous_close_raw not in (None, 0) else None
+if previous_close is not None and not 1.0 < previous_close < 1000.0:
+    previous_close = None
+change_vs_previous_close_pct = (((latest_price / previous_close) - 1.0) * 100.0 if previous_close else None)
+
 bjt = ZoneInfo("Asia/Shanghai")
 quote_iso = datetime.fromtimestamp(latest_timestamp, tz=bjt).isoformat(timespec="seconds")
 brent = json.loads(DATA_FILE.read_text(encoding="utf-8"))
 old_quote = brent.get("latest_quote") or {}
 new_quote = {
     "price": latest_price,
+    "previous_close": round(previous_close, 4) if previous_close is not None else None,
+    "change_vs_previous_close_pct": round(change_vs_previous_close_pct, 4) if change_vs_previous_close_pct is not None else None,
+    "previous_close_source": "Yahoo Finance BZ=F chart meta" if previous_close is not None else None,
     "timestamp": quote_iso,
     "bar_interval": "1m",
     "poll_frequency": "5 minutes",
