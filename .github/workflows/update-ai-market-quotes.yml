@@ -8,11 +8,7 @@ on:
       - 'scripts/update_ai_market_quotes.py'
       - '.github/workflows/update-ai-market-quotes.yml'
   schedule:
-    - cron: '30-59/5 9 * * 1-5'
-      timezone: 'America/New_York'
-    - cron: '*/5 10-15 * * 1-5'
-      timezone: 'America/New_York'
-    - cron: '0 16 * * 1-5'
+    - cron: '*/10 * * * 0-5'
       timezone: 'America/New_York'
 
 permissions:
@@ -25,7 +21,7 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 10
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -37,6 +33,11 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Install quote dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install 'requests>=2.32' 'beautifulsoup4>=4.12' 'curl_cffi>=0.13'
+
       - name: Refresh latest market quotes
         run: python scripts/update_ai_market_quotes.py
 
@@ -45,14 +46,26 @@ jobs:
           python - <<'PY'
           import json
           from pathlib import Path
+
           p=Path('data/ai_bubble/market_liquidity/market_quotes.json')
           d=json.loads(p.read_text(encoding='utf-8'))
           q=d.get('quotes') or {}
           required=('ndx','sox','nvda','vix','dgs10','dgs30')
           missing=[k for k in required if k not in q or q[k].get('price') is None]
           if missing:
-              raise SystemExit(f'Missing Yahoo quote(s): {missing}')
-          print({k:(q[k].get('symbol'),q[k].get('price'),q[k].get('timestamp')) for k in required})
+              raise SystemExit(f'Missing quote(s): {missing}')
+
+          allowed=('Investing.com','TradingView','Trading Economics')
+          for k in ('dgs10','dgs30'):
+              row=q[k]
+              price=float(row['price'])
+              if not 0.01 < price < 20:
+                  raise SystemExit(f'{k} implausible yield: {price}')
+              source=str(row.get('source') or '')
+              if row.get('quote_status') != 'STALE_STORED_QUOTE' and not any(x in source for x in allowed):
+                  raise SystemExit(f'{k} unexpected source: {source}')
+              print(k, price, row.get('quote_status'), source, row.get('timestamp'))
+
           latest=json.loads(Path('data/ai_bubble/market_liquidity/latest.json').read_text(encoding='utf-8'))
           indicators=latest.get('indicators') or {}
           for k in ('vix','dgs10','dgs30'):
@@ -64,12 +77,12 @@ jobs:
         run: |
           set -euo pipefail
           if git diff --quiet -- data/ai_bubble/market_liquidity/market_quotes.json data/ai_bubble/market_liquidity/latest.json; then
-            echo 'No new quote bars to commit'
+            echo 'Quotes checked; no externally visible changes'
             exit 0
           fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add data/ai_bubble/market_liquidity/market_quotes.json data/ai_bubble/market_liquidity/latest.json
-          git commit -m 'data: update Yahoo market rates and VIX quotes'
+          git commit -m 'data: refresh live rates and market quotes'
           git pull --rebase origin main
           git push origin HEAD:main
