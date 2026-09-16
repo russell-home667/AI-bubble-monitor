@@ -2,7 +2,7 @@
   "module": "AI Bubble Monitor - Market & Liquidity",
   "step": 5,
   "timezone": "Asia/Shanghai",
-  "generated_at_bjt": "2026-09-16T18:55:28+08:00",
+  "generated_at_bjt": "2026-09-16T19:02:40+08:00",
   "indicators": {
     "ndx": {
       "name": "Nasdaq-100",
@@ -132,7 +132,7 @@
       "close_observation_date": "2026-09-15",
       "close_source": "U.S. Department of the Treasury",
       "close_source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve",
-      "live_quote_timestamp": "2026-09-16T18:55:27+08:00",
+      "live_quote_timestamp": "2026-09-16T19:02:38+08:00",
       "live_quote_source": "Investing.com US 10Y Bond Yield",
       "live_quote_status": "INVESTING_REALTIME",
       "live_change_1d_pct": -0.1201,
@@ -142,7 +142,7 @@
     "dgs30": {
       "name": "30-Year Treasury Par Yield Curve Rate",
       "observation_date": "2026-09-15",
-      "value": 5.355,
+      "value": 5.353,
       "unit": "%",
       "change_1obs": 0.02,
       "change_5obs": 0.11,
@@ -157,12 +157,12 @@
       "close_observation_date": "2026-09-15",
       "close_source": "U.S. Department of the Treasury",
       "close_source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve",
-      "live_quote_timestamp": "2026-09-16T18:55:28+08:00",
-      "live_quote_source": "Investing.com US 30Y Bond Yield",
-      "live_quote_status": "INVESTING_REALTIME",
-      "live_change_1d_pct": -0.1492,
+      "live_quote_timestamp": "2026-09-16T19:02:40+08:00",
+      "live_quote_source": "TradingView TVC:US30Y",
+      "live_quote_status": "TRADINGVIEW_FALLBACK",
+      "live_change_1d_pct": -0.298,
       "display_layer": "live_quote",
-      "live_quote_source_url": "https://www.investing.com/rates-bonds/u.s.-30-year-bond-yield"
+      "live_quote_source_url": "https://www.tradingview.com/symbols/TVC-US30Y/"
     },
     "dfii10": {
       "name": "10-Year Treasury Par Real Yield Curve Rate",
