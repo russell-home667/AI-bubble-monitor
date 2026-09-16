@@ -60,7 +60,21 @@ jobs:
           for name in ['H100','H200','B200']:
               if name not in g or not g[name].get('daily_price_usd_per_gpu_hr'):
                   raise SystemExit(f'Missing GPU price: {name}')
-          print({k:v.get('daily_price_usd_per_gpu_hr') for k,v in g.items()})
+              status=g[name].get('status')
+              if status not in {'LIVE_MARKET','REFERENCE_FALLBACK','STALE_ANCHOR'}:
+                  raise SystemExit(f'Unexpected GPU status for {name}: {status}')
+
+          quality=d.get('data_quality') or {}
+          if quality.get('level') not in {'live_market','reference','stale'}:
+              raise SystemExit(f"Missing/invalid data_quality.level: {quality}")
+          if bool(d.get('scoring_eligible')) != bool(quality.get('scoring_eligible')):
+              raise SystemExit('scoring_eligible mismatch between root and data_quality')
+          if d.get('scoring_eligible'):
+              bad=[k for k,v in g.items() if v.get('status')!='LIVE_MARKET']
+              if bad: raise SystemExit(f'Scoring marked eligible with non-live GPUs: {bad}')
+          else:
+              print('GPU module is reference/degraded and will be excluded from composite scoring')
+          print({k:(v.get('daily_price_usd_per_gpu_hr'),v.get('status')) for k,v in g.items()})
           PY
       - name: Commit refreshed data
         run: |
