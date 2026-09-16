@@ -72,7 +72,7 @@ jobs:
           assert isinstance(quote.get('change_vs_previous_close_pct'), (int, float))
           assert quote.get('timestamp')
           assert d.get('updated_at_bjt')
-          print('rows', len(rows), 'coverage', rows[0]['date'], 'to', rows[-1]['date'], 'latest', quote['price'], 'prev', quote['previous_close'], 'change%', quote['change_vs_previous_close_pct'], 'status', d.get('status'), 'daily_source', d.get('daily_source'))
+          print('rows', len(rows), 'coverage', rows[0]['date'], 'to', rows[-1]['date'], 'latest', quote['price'], 'prev', quote['previous_close'], 'change%', quote['change_vs_previous_close_pct'], 'prev_source', quote['previous_close_source'], 'prev_date', quote.get('previous_close_observation_date'), 'status', d.get('status'), 'daily_source', d.get('daily_source'))
           PY
 
       - name: Commit data
@@ -86,4 +86,4 @@ jobs:
           git pull --rebase origin main
           git push origin HEAD:main
 
-# explicit refresh trigger: 2026-09-16 prior-close fix
+# explicit refresh trigger: 2026-09-16 XAUS prior-close fallback validation
