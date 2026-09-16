@@ -1,5 +1,5 @@
 {
-  "generated_at_bjt": "2026-09-17T00:20:06+08:00",
+  "generated_at_bjt": "2026-09-17T00:31:45+08:00",
   "timezone": "Asia/Shanghai",
   "source": "Mixed intraday sources",
   "poll_frequency": "10 minutes",
@@ -11,10 +11,10 @@
   "note": "US 10Y/30Y headline values use Investing.com public real-time bond-yield pages first, then TradingView and Trading Economics fallbacks. Treasury historical CSVs remain official U.S. Treasury daily closes.",
   "quotes": {
     "ndx": {
-      "price": 29182.621094,
+      "price": 29174.367188,
       "previous_close": 28937.838,
-      "change_1d_pct": 0.8459,
-      "timestamp": "2026-09-17T00:19:00+08:00",
+      "change_1d_pct": 0.8174,
+      "timestamp": "2026-09-17T00:31:40+08:00",
       "bar_interval": "1m",
       "poll_frequency": "10 minutes",
       "source": "Yahoo Finance ^NDX",
@@ -23,13 +23,13 @@
       "symbol": "^NDX",
       "name": "Nasdaq-100",
       "unit": "index",
-      "last_checked_bjt": "2026-09-17T00:20:02+08:00"
+      "last_checked_bjt": "2026-09-17T00:31:41+08:00"
     },
     "sox": {
-      "price": 11379.085938,
+      "price": 11371.558594,
       "previous_close": 11175.547,
-      "change_1d_pct": 1.8213,
-      "timestamp": "2026-09-17T00:19:59+08:00",
+      "change_1d_pct": 1.7539,
+      "timestamp": "2026-09-17T00:31:38+08:00",
       "bar_interval": "1m",
       "poll_frequency": "10 minutes",
       "source": "Yahoo Finance ^SOX",
@@ -38,13 +38,13 @@
       "symbol": "^SOX",
       "name": "PHLX Semiconductor Index",
       "unit": "index",
-      "last_checked_bjt": "2026-09-17T00:20:02+08:00"
+      "last_checked_bjt": "2026-09-17T00:31:41+08:00"
     },
     "nvda": {
-      "price": 215.759995,
+      "price": 215.869995,
       "previous_close": 212.17,
-      "change_1d_pct": 1.692,
-      "timestamp": "2026-09-17T00:20:01+08:00",
+      "change_1d_pct": 1.7439,
+      "timestamp": "2026-09-17T00:31:40+08:00",
       "bar_interval": "1m",
       "poll_frequency": "10 minutes",
       "source": "Yahoo Finance NVDA",
@@ -53,7 +53,7 @@
       "symbol": "NVDA",
       "name": "NVIDIA",
       "unit": "USD",
-      "last_checked_bjt": "2026-09-17T00:20:02+08:00"
+      "last_checked_bjt": "2026-09-17T00:31:41+08:00"
     },
     "vix": {
       "price": 16.790001,
@@ -68,18 +68,18 @@
       "symbol": "^VIX",
       "name": "Cboe Volatility Index",
       "unit": "index",
-      "last_checked_bjt": "2026-09-17T00:20:02+08:00"
+      "last_checked_bjt": "2026-09-17T00:31:41+08:00"
     },
     "dgs10": {
-      "price": 4.963,
+      "price": 4.962,
       "previous_close": null,
       "change_1d_pct": null,
-      "timestamp": "2026-09-17T00:20:05+08:00",
-      "source_market_time_text": "12:19:59",
+      "timestamp": "2026-09-17T00:31:43+08:00",
+      "source_market_time_text": "12:31:38",
       "bar_interval": "live quote",
       "poll_frequency": "10 minutes",
       "source": "Investing.com US 10Y Bond Yield",
-      "source_url": "https://www.investing.com/rates-bonds/u.s.-10-year-bond-yield-streaming-chart",
+      "source_url": "https://www.investing.com/rates-bonds/u.s.-10-year-bond-yield-opinion",
       "quote_status": "INVESTING_REALTIME",
       "source_state": "Real-time Data",
       "transport": "curl_cffi/chrome",
@@ -88,18 +88,18 @@
       "symbol": "TVC:US10Y",
       "name": "10-Year Treasury Yield",
       "unit": "%",
-      "last_checked_bjt": "2026-09-17T00:20:05+08:00"
+      "last_checked_bjt": "2026-09-17T00:31:43+08:00"
     },
     "dgs30": {
-      "price": 5.345,
+      "price": 5.344,
       "previous_close": null,
       "change_1d_pct": null,
-      "timestamp": "2026-09-17T00:20:06+08:00",
-      "source_market_time_text": "12:19:56",
+      "timestamp": "2026-09-17T00:31:45+08:00",
+      "source_market_time_text": "12:29:46",
       "bar_interval": "live quote",
       "poll_frequency": "10 minutes",
       "source": "Investing.com US 30Y Bond Yield",
-      "source_url": "https://www.investing.com/rates-bonds/u.s.-30-year-bond-yield-opinion",
+      "source_url": "https://www.investing.com/rates-bonds/u.s.-30-year-bond-yield-historical-data",
       "quote_status": "INVESTING_REALTIME",
       "source_state": "Real-time Data",
       "transport": "curl_cffi/chrome",
@@ -108,7 +108,7 @@
       "symbol": "TVC:US30Y",
       "name": "30-Year Treasury Yield",
       "unit": "%",
-      "last_checked_bjt": "2026-09-17T00:20:06+08:00"
+      "last_checked_bjt": "2026-09-17T00:31:45+08:00"
     }
   },
   "errors": {}
