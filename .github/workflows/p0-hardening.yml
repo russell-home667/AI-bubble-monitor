@@ -1,0 +1,241 @@
+name: One-off P0 dashboard hardening
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/p0-hardening.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: p0-dashboard-hardening
+  cancel-in-progress: false
+
+jobs:
+  harden:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout latest main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Apply P0 hardening
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          # P0-1: make homepage data loading failure-isolated. Every JSON/CSV and
+          # every renderer becomes independent, so one bad module cannot abort load().
+          index = Path('index.html')
+          text = index.read_text(encoding='utf-8')
+          pattern = re.compile(
+              r"async function load\(\)\{try\{/\* RESILIENT_CSV_LOADER \*/.*?\}\}\n"
+              r"bindRanges\(\);load\(\);",
+              re.S,
+          )
+          replacement = r'''async function load(){
+            const moduleErrors=[];
+            const markError=(label,e)=>{console.warn(`[dashboard] ${label} unavailable`,e);moduleErrors.push(label)};
+            const safeJSON=async(path,label)=>{try{const data=await fetchJSON(path);if(!data||typeof data!=='object')throw new Error('invalid JSON payload');return data}catch(e){markError(label,e);return null}};
+            const safeCSV=async(path,label)=>{try{return await fetchCSV(path)}catch(e){markError(label,e);return[]}};
+            const safeRender=(label,fn)=>{try{fn()}catch(e){markError(label,e)}};
+
+            const [top,derived,market,hyper,compute,gpu,marketQuotes,ndx,sox,nvda,vix,dfii10,dgs10,dgs30,hy,h5,tsmc,gpud,scoreHistory]=await Promise.all([
+              safeJSON(BASE+'top_scores/latest.json','Top Scores'),
+              safeJSON(BASE+'derived_indicators/latest.json','Derived Indicators'),
+              safeJSON(BASE+'market_liquidity/latest.json','Market & Liquidity'),
+              safeJSON(BASE+'hyperscalers/latest.json','Hyperscaler Fundamentals'),
+              safeJSON(BASE+'compute_fundamentals/latest.json','Compute Fundamentals'),
+              safeJSON(BASE+'gpu_rental_prices/latest.json','GPU Rental Prices'),
+              safeJSON(BASE+'market_liquidity/market_quotes.json','Live Market Quotes'),
+              safeCSV(BASE+'market_liquidity/ndx.csv','NDX history'),
+              safeCSV(BASE+'market_liquidity/sox.csv','SOX history'),
+              safeCSV(BASE+'market_liquidity/nvda.csv','NVDA history'),
+              safeCSV(BASE+'market_liquidity/vix.csv','VIX history'),
+              safeCSV(BASE+'market_liquidity/dfii10.csv','10Y real-yield history'),
+              safeCSV(BASE+'market_liquidity/dgs10.csv','10Y Treasury history'),
+              safeCSV(BASE+'market_liquidity/dgs30.csv','30Y Treasury history'),
+              safeCSV(BASE+'market_liquidity/hy_oas.csv','HY OAS history'),
+              safeCSV(BASE+'hyperscalers/h5_quarterly.csv','Hyperscaler history'),
+              safeCSV(BASE+'compute_fundamentals/tsmc_monthly.csv','TSMC history'),
+              safeCSV(BASE+'gpu_rental_prices/daily.csv','GPU price history'),
+              safeCSV(BASE+'top_scores/history.csv','Score history')
+            ]);
+
+            state.raw={ndx,sox,nvda,vix,dfii10,dgs10,dgs30,hy,h5,tsmc,gpu:gpud,scoreHistory};
+
+            // Keep official/daily market_liquidity/latest.json immutable from the
+            // quote pipeline. Overlay the live quote file only in browser memory.
+            let displayMarket=market;
+            if(market&&marketQuotes?.quotes){
+              try{
+                displayMarket={...market,indicators:{...(market.indicators||{})}};
+                ['vix','dgs10','dgs30'].forEach(key=>{
+                  const current=displayMarket.indicators?.[key];
+                  const quote=marketQuotes.quotes?.[key];
+                  if(current&&Number.isFinite(Number(quote?.price))){
+                    displayMarket.indicators[key]={...current,value:Number(quote.price),live_quote_timestamp:quote.timestamp||null,live_quote_source:quote.source||null,live_quote_status:quote.quote_status||null,display_layer:'live_quote'};
+                  }
+                });
+              }catch(e){console.warn('[dashboard] live market overlay failed; using official summary',e);displayMarket=market}
+            }
+
+            if(top)safeRender('Top Scores render',()=>renderTop(top));
+            if(derived)safeRender('Derived Indicators render',()=>renderGaps(derived));
+            if(displayMarket)safeRender('Market & Liquidity render',()=>renderMarketCards(displayMarket));
+            if(hyper)safeRender('Hyperscaler Fundamentals render',()=>renderHyper(hyper));
+            if(derived&&compute)safeRender('Compute Fundamentals render',()=>renderCompute(derived,compute));
+            if(gpu)safeRender('GPU Rental Prices render',()=>renderGpu(gpu));
+
+            safeRender('Market chart',renderMarketChart);
+            safeRender('Liquidity chart',renderLiquidityChart);
+            safeRender('CapEx / FCF chart',renderCapexChart);
+            if(derived)safeRender('Cloud chart',()=>renderCloudChart(derived));
+            safeRender('TSMC chart',renderTsmcChart);
+            safeRender('GPU chart',renderGpuChart);
+            safeRender('Score history chart',renderScoreHistory);
+
+            const errors=[...new Set(moduleErrors)];
+            const box=document.getElementById('errorBox');
+            if(box){
+              if(errors.length){box.style.display='block';box.textContent='部分模块暂不可用：'+errors.join('、')+'。其余模块继续正常显示。';}
+              else{box.style.display='none';box.textContent='';}
+            }
+            document.getElementById('app')?.classList.remove('loading');
+          }
+          bindRanges();load();'''
+          text2, count = pattern.subn(replacement, text, count=1)
+          if count != 1:
+              raise SystemExit(f'index load() replacement count={count}; refusing unsafe patch')
+          index.write_text(text2, encoding='utf-8')
+
+          # P0-2: make market_quotes.json the sole persisted output of the live quote
+          # pipeline. Official market_liquidity/latest.json gets one writer only.
+          script = Path('scripts/update_ai_market_quotes.py')
+          s = script.read_text(encoding='utf-8')
+          s = s.replace('LATEST = DIR / "latest.json"\n', '')
+          s, n = re.subn(
+              r'\n\ndef sync_latest_quotes\(quotes: dict\) -> bool:.*?\n\ndef main\(\) -> int:',
+              '\n\ndef main() -> int:',
+              s,
+              count=1,
+              flags=re.S,
+          )
+          if n != 1:
+              raise SystemExit(f'sync_latest_quotes removal count={n}')
+          old = '''    latest_changed = sync_latest_quotes(new_quotes)\n    if not quote_changed and not latest_changed:\n        print("Quotes checked; no externally visible changes")\n'''
+          new = '''    if not quote_changed:\n        print("Quotes checked; no externally visible changes")\n'''
+          if old not in s:
+              raise SystemExit('market quote main() overlay call not found')
+          s = s.replace(old, new, 1)
+          if 'LATEST' in s or 'sync_latest_quotes' in s:
+              raise SystemExit('market quote script still references shared latest.json overlay')
+          script.write_text(s, encoding='utf-8')
+
+          qwf = Path('.github/workflows/update-ai-market-quotes.yml')
+          q = qwf.read_text(encoding='utf-8')
+          validation_block = '''\n          latest=json.loads(Path('data/ai_bubble/market_liquidity/latest.json').read_text(encoding='utf-8'))\n          indicators=latest.get('indicators') or {}\n          for k in ('vix','dgs10','dgs30'):\n              if k in indicators and indicators[k].get('display_layer') != 'live_quote':\n                  raise SystemExit(f'{k} was not overlaid into latest.json')\n'''
+          if validation_block not in q:
+              raise SystemExit('market quote workflow shared-latest validation block not found')
+          q = q.replace(validation_block, '\n', 1)
+          q = q.replace(
+              'data/ai_bubble/market_liquidity/market_quotes.json data/ai_bubble/market_liquidity/latest.json assets/source-links.js',
+              'data/ai_bubble/market_liquidity/market_quotes.json assets/source-links.js'
+          )
+          if 'market_liquidity/latest.json' in q:
+              raise SystemExit('market quote workflow still mutates/validates latest.json')
+          qwf.write_text(q, encoding='utf-8')
+
+          # P0-3: harden every scheduled AI data publisher against simultaneous main
+          # pushes. Different-file races are rebased/retried; real conflicts fail safe.
+          patched=[]
+          raw_pair = re.compile(
+              r'(?m)^(?P<i>\s*)git pull --rebase origin main\s*\n(?P=i)git push origin HEAD:main\s*$'
+          )
+          for wf in sorted(Path('.github/workflows').glob('update-ai-*.yml')):
+              body = wf.read_text(encoding='utf-8')
+              body2, hits = raw_pair.subn(lambda m: m.group('i')+'bash scripts/git_commit_push_retry.sh', body)
+              if hits:
+                  wf.write_text(body2, encoding='utf-8')
+                  patched.append((str(wf), hits))
+          if len(patched) < 8:
+              raise SystemExit(f'Only patched {len(patched)} publisher workflows; expected >=8: {patched}')
+          print('publisher workflows hardened:', patched)
+
+          # Brent daily + intraday quote both own brent.json, so they must never run
+          # concurrently. Use the same non-cancelling concurrency group.
+          for name in ('update-ai-brent-daily.yml','update-ai-brent-quote.yml'):
+              p=Path('.github/workflows')/name
+              body=p.read_text(encoding='utf-8')
+              body=re.sub(r'group: ai-brent-(?:daily|quote)', 'group: ai-brent-data', body, count=1)
+              if 'group: ai-brent-data' not in body or 'cancel-in-progress: false' not in body:
+                  raise SystemExit(f'Brent serialization failed for {name}')
+              p.write_text(body, encoding='utf-8')
+
+          # Final static invariants.
+          assert 'const safeJSON=async' in index.read_text(encoding='utf-8')
+          assert "market_liquidity/market_quotes.json','Live Market Quotes'" in index.read_text(encoding='utf-8')
+          assert 'market_liquidity/latest.json' not in qwf.read_text(encoding='utf-8')
+          assert 'sync_latest_quotes' not in script.read_text(encoding='utf-8')
+          PY
+
+      - name: Validate patched code
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m py_compile scripts/update_ai_market_quotes.py
+          bash -n scripts/git_commit_push_retry.sh
+          node --check assets/chart-time-slider.js
+
+          # Parse every inline JavaScript block in index.html independently.
+          python - <<'PY'
+          import re, subprocess, tempfile
+          from pathlib import Path
+          html=Path('index.html').read_text(encoding='utf-8')
+          blocks=re.findall(r'<script(?![^>]*\bsrc=)[^>]*>(.*?)</script>', html, flags=re.I|re.S)
+          checked=0
+          for i,code in enumerate(blocks):
+              if not code.strip():
+                  continue
+              p=Path(tempfile.gettempdir())/f'ai-bubble-inline-{i}.js'
+              p.write_text(code,encoding='utf-8')
+              subprocess.run(['node','--check',str(p)],check=True)
+              checked+=1
+          if checked < 2:
+              raise SystemExit(f'Unexpected inline script count: {checked}')
+          print('validated inline JS blocks:',checked)
+          PY
+
+          python - <<'PY'
+          from pathlib import Path
+          offenders=[]
+          for p in Path('.github/workflows').glob('update-ai-*.yml'):
+              s=p.read_text(encoding='utf-8')
+              if 'git pull --rebase origin main' in s and 'git push origin HEAD:main' in s:
+                  offenders.append(str(p))
+          if offenders:
+              raise SystemExit('Unhardened publisher workflows: '+', '.join(offenders))
+          print('all scheduled AI publisher workflows use retry helper')
+          PY
+
+      - name: Commit P0 hardening
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html scripts/update_ai_market_quotes.py scripts/git_commit_push_retry.sh .github/workflows/update-ai-*.yml
+          if git diff --cached --quiet; then
+            echo 'No P0 changes needed'
+            exit 0
+          fi
+          git commit -m 'fix: isolate dashboard failures and harden data publishing'
+          bash scripts/git_commit_push_retry.sh
