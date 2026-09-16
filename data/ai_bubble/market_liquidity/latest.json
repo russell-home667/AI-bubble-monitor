@@ -2,7 +2,7 @@
   "module": "AI Bubble Monitor - Market & Liquidity",
   "step": 5,
   "timezone": "Asia/Shanghai",
-  "generated_at_bjt": "2026-09-16T20:02:28+08:00",
+  "generated_at_bjt": "2026-09-16T20:25:52+08:00",
   "indicators": {
     "ndx": {
       "name": "Nasdaq-100",
@@ -87,7 +87,7 @@
     "vix": {
       "name": "Cboe Volatility Index",
       "observation_date": "2026-09-15",
-      "value": 16.799999,
+      "value": 16.74,
       "unit": "index",
       "change_1d_pct": 0.5848,
       "change_5d_pct": 9.4148,
@@ -107,17 +107,17 @@
       "close_observation_date": "2026-09-15",
       "close_source": "Yahoo Finance",
       "close_source_url": "https://finance.yahoo.com/quote/%5EVIX/history/",
-      "live_quote_timestamp": "2026-09-16T19:47:16+08:00",
+      "live_quote_timestamp": "2026-09-16T20:10:46+08:00",
       "live_quote_source": "Yahoo Finance ^VIX",
       "live_quote_status": "DELAYED",
-      "live_change_1d_pct": -2.3256,
+      "live_change_1d_pct": -2.6744,
       "display_layer": "live_quote",
       "live_quote_source_url": "https://finance.yahoo.com/quote/%5EVIX/"
     },
     "dgs10": {
       "name": "10-Year Treasury Par Yield Curve Rate",
       "observation_date": "2026-09-15",
-      "value": 4.969,
+      "value": 4.981,
       "unit": "%",
       "change_1obs": 0.03,
       "change_5obs": 0.2,
@@ -132,10 +132,10 @@
       "close_observation_date": "2026-09-15",
       "close_source": "U.S. Department of the Treasury",
       "close_source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve",
-      "live_quote_timestamp": "2026-09-16T20:02:28+08:00",
+      "live_quote_timestamp": "2026-09-16T20:25:52+08:00",
       "live_quote_source": "Investing.com US 10Y Bond Yield",
       "live_quote_status": "INVESTING_REALTIME",
-      "live_change_1d_pct": -0.5404,
+      "live_change_1d_pct": -0.3002,
       "display_layer": "live_quote",
       "live_quote_source_url": "https://www.investing.com/rates-bonds/u.s.-10-year-bond-yield"
     },
