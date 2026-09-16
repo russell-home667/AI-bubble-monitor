@@ -85,3 +85,5 @@ jobs:
           git commit -m 'data: update XAU/USD gold'
           git pull --rebase origin main
           git push origin HEAD:main
+
+# explicit refresh trigger: 2026-09-16 prior-close fix
