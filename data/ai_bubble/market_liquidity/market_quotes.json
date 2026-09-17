@@ -1,5 +1,5 @@
 {
-  "generated_at_bjt": "2026-09-17T19:30:32+08:00",
+  "generated_at_bjt": "2026-09-17T19:45:44+08:00",
   "timezone": "Asia/Shanghai",
   "source": "Mixed intraday sources",
   "poll_frequency": "10 minutes",
@@ -23,7 +23,7 @@
       "symbol": "^NDX",
       "name": "Nasdaq-100",
       "unit": "index",
-      "last_checked_bjt": "2026-09-17T19:30:30+08:00"
+      "last_checked_bjt": "2026-09-17T19:45:41+08:00"
     },
     "sox": {
       "price": 11246.107422,
@@ -38,7 +38,7 @@
       "symbol": "^SOX",
       "name": "PHLX Semiconductor Index",
       "unit": "index",
-      "last_checked_bjt": "2026-09-17T19:30:30+08:00"
+      "last_checked_bjt": "2026-09-17T19:45:42+08:00"
     },
     "nvda": {
       "price": 213.899994,
@@ -53,13 +53,13 @@
       "symbol": "NVDA",
       "name": "NVIDIA",
       "unit": "USD",
-      "last_checked_bjt": "2026-09-17T19:30:30+08:00"
+      "last_checked_bjt": "2026-09-17T19:45:42+08:00"
     },
     "vix": {
-      "price": 15.92,
+      "price": 15.94,
       "previous_close": 17.2,
-      "change_1d_pct": -7.4419,
-      "timestamp": "2026-09-17T19:15:16+08:00",
+      "change_1d_pct": -7.3256,
+      "timestamp": "2026-09-17T19:30:31+08:00",
       "bar_interval": "1m",
       "poll_frequency": "10 minutes",
       "source": "Yahoo Finance ^VIX",
@@ -68,14 +68,14 @@
       "symbol": "^VIX",
       "name": "Cboe Volatility Index",
       "unit": "index",
-      "last_checked_bjt": "2026-09-17T19:30:31+08:00"
+      "last_checked_bjt": "2026-09-17T19:45:42+08:00"
     },
     "dgs10": {
       "price": 4.973,
       "previous_close": 5.004,
       "change_1d_pct": -0.6195,
-      "timestamp": "2026-09-17T19:30:31+08:00",
-      "source_market_time_text": "07:30:25",
+      "timestamp": "2026-09-17T19:45:43+08:00",
+      "source_market_time_text": "07:40:00",
       "bar_interval": "live quote",
       "poll_frequency": "10 minutes",
       "source": "Investing.com US 10Y Bond Yield",
@@ -88,18 +88,18 @@
       "symbol": "TVC:US10Y",
       "name": "10-Year Treasury Yield",
       "unit": "%",
-      "last_checked_bjt": "2026-09-17T19:30:31+08:00"
+      "last_checked_bjt": "2026-09-17T19:45:43+08:00"
     },
     "dgs30": {
-      "price": 5.318,
-      "previous_close": 5.348,
-      "change_1d_pct": -0.561,
-      "timestamp": "2026-09-17T19:30:32+08:00",
-      "source_market_time_text": "07:29:41",
+      "price": 5.32,
+      "previous_close": null,
+      "change_1d_pct": null,
+      "timestamp": "2026-09-17T19:45:44+08:00",
+      "source_market_time_text": "07:39:45",
       "bar_interval": "live quote",
       "poll_frequency": "10 minutes",
       "source": "Investing.com US 30Y Bond Yield",
-      "source_url": "https://www.investing.com/rates-bonds/u.s.-30-year-bond-yield",
+      "source_url": "https://www.investing.com/rates-bonds/u.s.-30-year-bond-yield-opinion",
       "quote_status": "INVESTING_REALTIME",
       "source_state": "Real-time Data",
       "transport": "curl_cffi/chrome",
@@ -108,7 +108,7 @@
       "symbol": "TVC:US30Y",
       "name": "30-Year Treasury Yield",
       "unit": "%",
-      "last_checked_bjt": "2026-09-17T19:30:32+08:00"
+      "last_checked_bjt": "2026-09-17T19:45:44+08:00"
     }
   },
   "errors": {}
