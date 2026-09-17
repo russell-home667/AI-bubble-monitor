@@ -103,13 +103,9 @@ def _same_event(core, selection, a, b):
     shared_tags = tags_a & tags_b
     shared_entities = _entities(a) & _entities(b)
 
-    # Strong semantic evidence: same deterministic event family plus a shared
-    # named entity, or sufficiently similar headlines.
     if shared_tags and (shared_entities or title_sim >= 0.62):
         return True
 
-    # Conservative fallback for the same public category. This catches the same
-    # event reported with slightly different wording without merging unrelated news.
     if a.get("query_category") == b.get("query_category") and title_sim >= 0.80:
         return True
 
@@ -163,8 +159,6 @@ def _dedupe_candidates(core, expanded, selection, rows):
         _merge_candidate_metadata(match, row, expanded)
         merged += 1
 
-    # Reassign stable per-run candidate ids after merging so the model never sees
-    # duplicate or missing candidate ids.
     for idx, row in enumerate(kept, start=1):
         row["id"] = f"c{idx:03d}"
 
@@ -197,11 +191,10 @@ def _safe_history_cache(core, existing, cache):
         if state in ANALYZED_STATES:
             safe.append(row)
         elif url and url in story_urls:
-            # Legacy rows predate analysis_state. A source URL already attached to a
-            # persisted story is objective evidence that it was analyzed/reused.
             clone = dict(row)
             clone["analysis_state"] = "analyzed_story"
             safe.append(clone)
+            CACHE_STATE_BY_URL[url] = "analyzed_story"
             promoted_legacy += 1
         else:
             unsafe += 1
@@ -342,10 +335,7 @@ def install(core, expanded, selection):
         return ai_cands, stories, stats
 
     def updated_cache(old_cache, cands):
-        rows = prior_updated_cache(old_cache, cands)
-        # Do not mark analysis state here: at this point the model has not completed.
-        # The save wrapper below marks state only after the final payload exists.
-        return rows
+        return prior_updated_cache(old_cache, cands)
 
     def save(mode, stories, cache, run_stats):
         prior_save(mode, stories, cache, run_stats)
@@ -363,8 +353,6 @@ def install(core, expanded, selection):
                 if url and url in story_urls:
                     row["analysis_state"] = "analyzed_story"
                 elif url and url in AI_SENT_URLS and not degraded:
-                    # The candidate reached the model successfully but was not kept
-                    # as an importance>=50 story. Reusing this rejection saves cost.
                     row["analysis_state"] = "analyzed_rejected"
                 elif previous in ANALYZED_STATES:
                     row["analysis_state"] = previous
