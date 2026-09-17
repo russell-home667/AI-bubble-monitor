@@ -1,98 +1,147 @@
 (() => {
   'use strict';
 
-  const NFCI_URL = 'data/ai_bubble/market_liquidity/nfci.csv';
-  let cachedRows = null;
-  let loadError = null;
+  if (window.__nfciCardFixLoaded) return;
+  window.__nfciCardFixLoaded = true;
 
-  function stateReady() {
-    try { return typeof state !== 'undefined' && !!state?.raw; }
-    catch (_) { return false; }
-  }
+  const CSV_URL = 'data/ai_bubble/market_liquidity/nfci.csv';
+  const SUMMARY_URL = 'data/ai_bubble/market_liquidity/latest.json';
+  const DOM_POLL_MS = 250;
+  const MAX_DOM_WAIT_MS = 60000;
+  const REFRESH_MS = 5 * 60 * 1000;
 
-  function latestFinite(rows) {
-    if (!Array.isArray(rows)) return null;
-    for (let i = rows.length - 1; i >= 0; i -= 1) {
-      const value = Number(rows[i]?.value);
-      if (rows[i]?.date && Number.isFinite(value)) return {...rows[i], value};
-    }
-    return null;
-  }
+  let rowsCache = [];
+  let pointCache = null;
+  const startedAt = Date.now();
 
   function parseCsv(text) {
-    if (window.Papa) {
-      return Papa.parse(text, {header:true, dynamicTyping:true, skipEmptyLines:true}).data
-        .filter(r => r?.date && Number.isFinite(Number(r.value)));
-    }
-    const lines = String(text || '').trim().split(/\r?\n/);
+    const lines = String(text || '').trim().split(/\r?\n/).filter(Boolean);
     if (lines.length < 2) return [];
-    const header = lines[0].split(',');
-    const dateIdx = header.indexOf('date');
-    const valueIdx = header.indexOf('value');
-    if (dateIdx < 0 || valueIdx < 0) return [];
-    return lines.slice(1).map(line => {
-      const cols = line.split(',');
-      return {date: cols[dateIdx], value: Number(cols[valueIdx])};
-    }).filter(r => r.date && Number.isFinite(r.value));
-  }
+    const header = lines[0].split(',').map(x => x.trim());
+    const dateIndex = header.indexOf('date');
+    const valueIndex = header.indexOf('value');
+    if (dateIndex < 0 || valueIndex < 0) return [];
 
-  async function fetchRows() {
-    const response = await fetch(`${NFCI_URL}?v=${Date.now()}`, {cache:'no-store'});
-    if (!response.ok) throw new Error(`NFCI HTTP ${response.status}`);
-    const rows = parseCsv(await response.text());
-    if (!rows.length) throw new Error('NFCI dataset empty');
+    const rows = [];
+    for (let i = 1; i < lines.length; i += 1) {
+      const cols = lines[i].split(',');
+      const date = String(cols[dateIndex] || '').trim();
+      const value = Number(cols[valueIndex]);
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(date) || !Number.isFinite(value)) continue;
+      rows.push({ date, value });
+    }
+    rows.sort((a, b) => a.date.localeCompare(b.date));
     return rows;
   }
 
-  function applyRows(rows) {
-    const latest = latestFinite(rows);
-    if (!latest) return false;
+  async function fetchData() {
+    const stamp = Date.now();
+    const results = await Promise.allSettled([
+      fetch(`${CSV_URL}?v=${stamp}`, { cache: 'no-store' }),
+      fetch(`${SUMMARY_URL}?v=${stamp}`, { cache: 'no-store' })
+    ]);
 
-    if (stateReady()) state.raw.nfci = rows;
+    let rows = [];
+    const csvResponse = results[0];
+    if (csvResponse.status === 'fulfilled' && csvResponse.value.ok) {
+      rows = parseCsv(await csvResponse.value.text());
+    }
 
+    let summaryPoint = null;
+    const summaryResponse = results[1];
+    if (summaryResponse.status === 'fulfilled' && summaryResponse.value.ok) {
+      try {
+        const payload = await summaryResponse.value.json();
+        const x = payload?.indicators?.nfci;
+        const value = Number(x?.value);
+        const date = String(x?.observation_date || '');
+        if (Number.isFinite(value) && /^\d{4}-\d{2}-\d{2}$/.test(date)) {
+          summaryPoint = { date, value };
+        }
+      } catch (_) {}
+    }
+
+    const csvPoint = rows.length ? rows[rows.length - 1] : null;
+    const point = (!summaryPoint || (csvPoint && csvPoint.date > summaryPoint.date))
+      ? csvPoint
+      : summaryPoint;
+
+    if (!point) throw new Error('No valid NFCI observation available');
+    rowsCache = rows;
+    pointCache = point;
+    return { rows, point };
+  }
+
+  function paintTile(point) {
+    if (!point) return false;
     const valueEl = document.getElementById('liqNfciValue');
     const dateEl = document.getElementById('liqNfciDate');
-    if (valueEl) valueEl.textContent = Number(latest.value).toFixed(3);
-    if (dateEl) dateEl.textContent = `Latest official | ${latest.date}`;
+    if (!valueEl || !dateEl) return false;
 
+    valueEl.textContent = Number(point.value).toFixed(3);
+    dateEl.textContent = `Latest official | ${point.date}`;
+    valueEl.dataset.nfciReady = '1';
+    dateEl.dataset.nfciReady = '1';
+    return true;
+  }
+
+  function syncChartState(rows) {
+    if (!Array.isArray(rows) || !rows.length) return false;
     try {
-      if (stateReady() && typeof renderLiquidityChart === 'function') renderLiquidityChart();
+      if (typeof state === 'undefined' || !state?.raw) return false;
+      state.raw.nfci = rows;
+      if (typeof renderLiquidityChart === 'function') renderLiquidityChart();
+      return true;
     } catch (err) {
-      console.warn('NFCI chart refresh failed', err);
+      console.warn('NFCI state sync failed', err);
+      return false;
     }
-
-    return Boolean(stateReady() && valueEl && dateEl);
   }
 
-  async function start() {
+  function applyCached() {
+    const painted = paintTile(pointCache);
+    if (rowsCache.length) syncChartState(rowsCache);
+    return painted;
+  }
+
+  async function refresh() {
     try {
-      cachedRows = await fetchRows();
+      const { rows, point } = await fetchData();
+      paintTile(point);
+      syncChartState(rows);
     } catch (err) {
-      loadError = err;
-      console.warn('NFCI deterministic load failed', err);
+      console.warn('NFCI independent loader failed', err);
     }
-
-    let attempts = 0;
-    const maxAttempts = 160; // 40 seconds at 250ms; avoids the old ~2s race window.
-    const tick = () => {
-      attempts += 1;
-      if (cachedRows && applyRows(cachedRows)) return;
-
-      if (attempts >= maxAttempts) {
-        const valueEl = document.getElementById('liqNfciValue');
-        const dateEl = document.getElementById('liqNfciDate');
-        if (valueEl && !cachedRows) valueEl.textContent = '—';
-        if (dateEl && !cachedRows) dateEl.textContent = loadError ? 'Load unavailable' : 'Latest · —';
-        return;
-      }
-      setTimeout(tick, 250);
-    };
-    tick();
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', start, {once:true});
-  } else {
-    start();
+  function waitForTile() {
+    if (applyCached()) return;
+    if (Date.now() - startedAt < MAX_DOM_WAIT_MS) {
+      setTimeout(waitForTile, DOM_POLL_MS);
+    }
   }
+
+  function protectTile() {
+    if (!pointCache) return;
+    const valueEl = document.getElementById('liqNfciValue');
+    const dateEl = document.getElementById('liqNfciDate');
+    const expectedValue = Number(pointCache.value).toFixed(3);
+    const expectedDate = `Latest official | ${pointCache.date}`;
+    if (valueEl && valueEl.textContent !== expectedValue) valueEl.textContent = expectedValue;
+    if (dateEl && dateEl.textContent !== expectedDate) dateEl.textContent = expectedDate;
+  }
+
+  refresh().finally(waitForTile);
+
+  const observer = new MutationObserver(() => protectTile());
+  const startObserver = () => {
+    if (!document.body) return setTimeout(startObserver, DOM_POLL_MS);
+    observer.observe(document.body, { childList: true, subtree: true, characterData: true });
+  };
+  startObserver();
+
+  setInterval(() => {
+    protectTile();
+    refresh();
+  }, REFRESH_MS);
 })();
