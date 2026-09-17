@@ -425,37 +425,80 @@
     return el;
   }
 
-  function treasuryPercentChanges(key, live, summaryRow) {
-    const price = Number(live?.price ?? live?.value ?? summaryRow?.value);
-    if (!Number.isFinite(price) || price === 0) return {oneDay:null, oneMonth:null};
-    const rows = Array.isArray(state?.raw?.[key]) ? state.raw[key] : [];
+  function treasuryQuoteMarketDateMs(value) {
+  const d = new Date(value);
+  if (Number.isNaN(d.getTime())) return null;
+  const parts = new Intl.DateTimeFormat('en-CA', {
+    timeZone:'America/New_York', year:'numeric', month:'2-digit', day:'2-digit'
+  }).formatToParts(d);
+  const p = Object.fromEntries(parts.map(x => [x.type, x.value]));
+  return Date.parse(`${p.year}-${p.month}-${p.day}T00:00:00Z`);
+}
 
-    let prior = Number(summaryRow?.close_value);
-    if (!Number.isFinite(prior) || prior === 0) {
-      const last = latestFiniteRow(rows, 'value');
-      prior = Number(last?.__value);
-    }
-    const oneDay = Number.isFinite(prior) && prior !== 0 ? (price / prior - 1) * 100 : null;
-
-    const quoteMs = Date.parse(live?.timestamp || summaryRow?.live_quote_timestamp || '');
-    const referenceMs = Number.isFinite(quoteMs) ? quoteMs : Date.now();
-    const targetMs = referenceMs - 30 * 86400000;
-    const monthBase = latestOfficialBefore(rows, targetMs);
-    const oneMonth = monthBase && monthBase.value !== 0 ? (price / monthBase.value - 1) * 100 : null;
-    return {oneDay, oneMonth};
+function treasuryPriorClose(rows, live, summaryRow) {
+  const providerPreviousClose = Number(live?.previous_close);
+  if (Number.isFinite(providerPreviousClose) && providerPreviousClose !== 0) {
+    return {value:providerPreviousClose, source:'provider_previous_close'};
   }
 
-  function setTreasuryChangeBadges(id, key, live, summaryRow) {
-    const el = ensureTreasuryChangeStack(id);
-    if (!el) return;
-    const {oneDay, oneMonth} = treasuryPercentChanges(key, live, summaryRow);
-    const render = (label, value) => {
-      if (!Number.isFinite(value)) return `<span class="liq-change-item">${label} —</span>`;
-      const color = value > 0 ? 'var(--green)' : value < 0 ? 'var(--red)' : 'var(--muted)';
-      return `<span class="liq-change-item" style="color:${color}">${label} ${value >= 0 ? '+' : ''}${value.toFixed(2)}%</span>`;
-    };
-    el.innerHTML = render('1D', oneDay) + render('1M', oneMonth);
+  const quoteMarketDateMs = treasuryQuoteMarketDateMs(live?.timestamp || summaryRow?.live_quote_timestamp);
+  if (Number.isFinite(quoteMarketDateMs)) {
+    const priorOfficial = latestOfficialBefore(rows, quoteMarketDateMs - 1);
+    if (priorOfficial) return priorOfficial;
   }
+
+  const summaryClose = Number(summaryRow?.close_value);
+  if (Number.isFinite(summaryClose) && summaryClose !== 0) {
+    return {value:summaryClose, date:summaryRow?.close_observation_date || null, source:'official_summary_close'};
+  }
+  return latestFiniteRow(rows, 'value');
+}
+
+function calendarMonthTargetMs(referenceValue) {
+  const d = new Date(referenceValue);
+  if (Number.isNaN(d.getTime())) return null;
+  const parts = new Intl.DateTimeFormat('en-CA', {
+    timeZone:'America/New_York', year:'numeric', month:'2-digit', day:'2-digit'
+  }).formatToParts(d);
+  const p = Object.fromEntries(parts.map(x => [x.type, x.value]));
+  const year = Number(p.year), month = Number(p.month), day = Number(p.day);
+  const previousMonth = new Date(Date.UTC(year, month - 2, 1));
+  const py = previousMonth.getUTCFullYear();
+  const pm = previousMonth.getUTCMonth();
+  const lastDay = new Date(Date.UTC(py, pm + 1, 0)).getUTCDate();
+  return Date.UTC(py, pm, Math.min(day, lastDay));
+}
+
+function treasuryBasisPointChanges(key, live, summaryRow) {
+  const price = Number(live?.price ?? live?.value ?? summaryRow?.value);
+  if (!Number.isFinite(price)) return {oneDayBp:null, oneMonthBp:null};
+  const rows = Array.isArray(state?.raw?.[key]) ? state.raw[key] : [];
+
+  const prior = treasuryPriorClose(rows, live, summaryRow);
+  const oneDayBp = prior && Number.isFinite(Number(prior.value))
+    ? (price - Number(prior.value)) * 100
+    : null;
+
+  const referenceValue = live?.timestamp || summaryRow?.live_quote_timestamp || new Date().toISOString();
+  const targetMs = calendarMonthTargetMs(referenceValue);
+  const monthBase = Number.isFinite(targetMs) ? latestOfficialBefore(rows, targetMs) : null;
+  const oneMonthBp = monthBase && Number.isFinite(Number(monthBase.value))
+    ? (price - Number(monthBase.value)) * 100
+    : null;
+  return {oneDayBp, oneMonthBp};
+}
+
+function setTreasuryChangeBadges(id, key, live, summaryRow) {
+  const el = ensureTreasuryChangeStack(id);
+  if (!el) return;
+  const {oneDayBp, oneMonthBp} = treasuryBasisPointChanges(key, live, summaryRow);
+  const render = (label, value) => {
+    if (!Number.isFinite(value)) return `<span class="liq-change-item">${label} —</span>`;
+    const color = value > 0 ? 'var(--green)' : value < 0 ? 'var(--red)' : 'var(--muted)';
+    return `<span class="liq-change-item" style="color:${color}">${label} ${value >= 0 ? '+' : ''}${value.toFixed(1)} bp</span>`;
+  };
+  el.innerHTML = render('1D', oneDayBp) + render('1M', oneMonthBp);
+}
 
   function syncLiquidityQuotes() {
     ensureLiquidityQuoteLayout();
