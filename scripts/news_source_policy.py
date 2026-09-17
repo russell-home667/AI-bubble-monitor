@@ -113,6 +113,31 @@ def _source_obj(core, row):
     return core.source_from_candidate(row)
 
 
+def _clean_story(core, story):
+    free_sources = []
+    seen = set()
+    removed_paywall = 0
+    for source in story.get("sources") or []:
+        url = core.canon_url(source.get("url"))
+        if not is_display_eligible(core, source):
+            if is_paywall(core, source):
+                removed_paywall += 1
+            continue
+        if url and url in seen:
+            continue
+        if url:
+            seen.add(url)
+        free_sources.append(dict(source))
+
+    if not free_sources:
+        return None, removed_paywall
+
+    free_sources.sort(key=lambda src: display_rank(core, src), reverse=True)
+    out = dict(story)
+    out["sources"] = free_sources[:4]
+    return out, removed_paywall
+
+
 def install(core, selection, history):
     """Install free-source preference and paywall discovery-only enforcement."""
     # Expand trusted discovery pool with the user's preferred free media while
@@ -121,7 +146,7 @@ def install(core, selection, history):
     core.TRUST.update(DISCOVERY_ONLY_PAYWALL)
 
     # Python-side ranking: free professional media win limited model slots more
-    # often; paywall leads remain eligible but receive no source-quality bonus.
+    # often; paywall leads remain eligible but receive a negative source bonus.
     for domain, score in {
         "apnews.com": 10,
         "reuters.com": 10,
@@ -198,28 +223,12 @@ def install(core, selection, history):
         paywall_sources_removed = 0
 
         for story in stories:
-            free_sources = []
-            seen = set()
-            for source in story.get("sources") or []:
-                url = core.canon_url(source.get("url"))
-                if not is_display_eligible(core, source):
-                    if is_paywall(core, source):
-                        paywall_sources_removed += 1
-                    continue
-                if url and url in seen:
-                    continue
-                if url:
-                    seen.add(url)
-                free_sources.append(dict(source))
-
-            if not free_sources:
+            cleaned, removed = _clean_story(core, story)
+            paywall_sources_removed += removed
+            if cleaned is None:
                 paywall_only_dropped += 1
                 continue
-
-            free_sources.sort(key=lambda src: display_rank(core, src), reverse=True)
-            out = dict(story)
-            out["sources"] = free_sources[:4]
-            kept.append(out)
+            kept.append(cleaned)
 
         RUN_STATS["paywall_only_stories_dropped"] = paywall_only_dropped
         RUN_STATS["paywall_sources_removed_from_display"] = paywall_sources_removed
@@ -232,6 +241,29 @@ def install(core, selection, history):
         prior_save(mode, stories, cache, enriched)
         try:
             payload = core.json.loads(core.OUT.read_text(encoding="utf-8"))
+
+            # Integrity/history save wrappers can append corroborating sources after
+            # merge. Re-sanitize the final payload here so paywall publishers remain
+            # truly discovery-only and never reappear as dashboard links.
+            final_stories = []
+            removed_after_save = 0
+            dropped_after_save = 0
+            for story in payload.get("stories") or []:
+                cleaned, removed = _clean_story(core, story)
+                removed_after_save += removed
+                if cleaned is None:
+                    dropped_after_save += 1
+                    continue
+                final_stories.append(cleaned)
+            payload["stories"] = final_stories
+
+            stats = payload.setdefault("stats", {})
+            stats["paywall_sources_removed_after_save"] = removed_after_save
+            stats["paywall_only_stories_dropped_after_save"] = dropped_after_save
+            stats["stored_stories"] = len(final_stories)
+            stats["important_7d"] = sum(int(s.get("importance_score", 0)) >= 60 for s in final_stories)
+            stats["critical_7d"] = sum(bool(s.get("critical")) for s in final_stories)
+
             policy = payload.setdefault("policy", {})
             policy["free_source_first"] = True
             policy["paywall_publishers_discovery_only"] = sorted(DISCOVERY_ONLY_PAYWALL)
@@ -248,7 +280,7 @@ def install(core, selection, history):
                 encoding="utf-8",
             )
         except Exception as exc:
-            print("[news] warning: could not annotate source policy:", exc)
+            print("[news] warning: could not enforce/annotate source policy:", exc)
 
     core.collect = collect
     core.merge = merge
