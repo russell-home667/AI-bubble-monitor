@@ -16,6 +16,39 @@
     'Macro / Regulation': 'Macro / Regulation'
   };
 
+  function normalizeSingaporeLabels(root = document) {
+    const replacements = [
+      [/Timezone · Beijing UTC\+8/g, 'Timezone · Singapore UTC+8'],
+      [/Beijing Time \(UTC\+8\)/g, 'Singapore Time (UTC+8)'],
+      [/\bBJT\b/g, 'SGT']
+    ];
+    const apply = node => {
+      if (!node || node.nodeType !== Node.TEXT_NODE) return;
+      let next = node.nodeValue || '';
+      for (const [pattern, replacement] of replacements) next = next.replace(pattern, replacement);
+      if (next !== node.nodeValue) node.nodeValue = next;
+    };
+    if (root.nodeType === Node.TEXT_NODE) {
+      apply(root);
+      return;
+    }
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    while (walker.nextNode()) apply(walker.currentNode);
+  }
+
+  function watchSingaporeLabels() {
+    normalizeSingaporeLabels(document.body || document);
+    if (!document.body || document.body.dataset.sgtLabelObserver === '1') return;
+    document.body.dataset.sgtLabelObserver = '1';
+    const observer = new MutationObserver(mutations => {
+      for (const mutation of mutations) {
+        if (mutation.type === 'characterData') normalizeSingaporeLabels(mutation.target);
+        for (const node of mutation.addedNodes || []) normalizeSingaporeLabels(node);
+      }
+    });
+    observer.observe(document.body, {subtree:true, childList:true, characterData:true});
+  }
+
   function esc(v) {
     return String(v ?? '').replace(/[&<>"']/g, c => ({
       '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'
@@ -169,6 +202,7 @@
   }
 
   function mount() {
+    watchSingaporeLabels();
     if (document.getElementById('aiNewsSection')) return;
     injectStyles();
     const hero = document.querySelector('.hero');
