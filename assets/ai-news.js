@@ -4,6 +4,7 @@
   const DATA_URL = 'data/ai_bubble/news/latest.json';
   const IMPORTANT_MIN = 60;
   const HOME_LIMIT = 10;
+  const DISCOVERY_ONLY_PAYWALL = ['bloomberg.com','wsj.com','barrons.com','fortune.com','ft.com','economist.com','theinformation.com','nytimes.com'];
 
   const CATEGORY_SHORT = {
     'AI Revenue / Monetization': 'Revenue / Monetization',
@@ -60,6 +61,24 @@
       const u = new URL(url, location.href);
       return /^https?:$/.test(u.protocol) ? u.href : '#';
     } catch (_) { return '#'; }
+  }
+
+  function sourceDomain(source) {
+    const explicit = String(source?.domain || '').toLowerCase().replace(/^www\./,'');
+    if (explicit) return explicit;
+    try { return new URL(source?.url || '', location.href).hostname.toLowerCase().replace(/^www\./,''); }
+    catch (_) { return ''; }
+  }
+
+  function isPaywallSource(source) {
+    const domain = sourceDomain(source);
+    return DISCOVERY_ONLY_PAYWALL.some(root => domain === root || domain.endsWith('.' + root));
+  }
+
+  function normalizeDisplayStory(story) {
+    const sources = (Array.isArray(story?.sources) ? story.sources : []).filter(x => !isPaywallSource(x));
+    if (!sources.length) return null;
+    return {...story, sources};
   }
 
   function fmtTime(s) {
@@ -125,7 +144,7 @@
         <div class="section-head">
           <div>
             <div class="section-title">AI Bubble News Radar</div>
-            <div class="section-note" id="aiNewsMeta">DeepSeek V4.1 Flash · trusted news / official sources · 7-day window</div>
+            <div class="section-note" id="aiNewsMeta">DeepSeek V4.1 Flash · free trusted news / official sources · 7-day window</div>
           </div>
         </div>
         <div class="news-shell">
@@ -170,7 +189,7 @@
     const el = document.getElementById(id);
     if (!el) return;
     if (!stories.length) {
-      el.innerHTML = '<div class="news-empty">当前7天窗口内没有符合条件的事件。</div>';
+      el.innerHTML = '<div class="news-empty">当前7天窗口内没有符合条件且具有免费可信来源的事件。</div>';
       return;
     }
     el.innerHTML = stories.slice(0, HOME_LIMIT).map((s, i) => storyMarkup(s, i + 1)).join('');
@@ -181,7 +200,7 @@
       const r = await fetch(`${DATA_URL}?v=${Date.now()}`, {cache:'no-store'});
       if (!r.ok) throw new Error(`HTTP ${r.status}`);
       const data = await r.json();
-      const stories = Array.isArray(data.stories) ? data.stories : [];
+      const stories = (Array.isArray(data.stories) ? data.stories : []).map(normalizeDisplayStory).filter(Boolean);
       const sortFn = (a,b) =>
         (Number(b.importance_score || 0) - Number(a.importance_score || 0)) ||
         String(b.published_at || '').localeCompare(String(a.published_at || ''));
@@ -192,7 +211,7 @@
       const meta = document.getElementById('aiNewsMeta');
       if (meta) {
         const mode = data.scan_mode === 'deep' ? 'deep scan' : 'intraday incremental';
-        meta.textContent = `DeepSeek V4.1 Flash · ${mode} · ${fmtTime(data.generated_at_sgt)} · trusted news / official sources`;
+        meta.textContent = `DeepSeek V4.1 Flash · ${mode} · ${fmtTime(data.generated_at_sgt)} · free trusted news / official sources`;
       }
     } catch (err) {
       console.warn('AI news load failed', err);
