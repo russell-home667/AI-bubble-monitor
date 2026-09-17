@@ -1,5 +1,5 @@
 {
-  "generated_at_bjt": "2026-09-18T00:35:36+08:00",
+  "generated_at_bjt": "2026-09-18T00:46:15+08:00",
   "timezone": "Asia/Shanghai",
   "source": "Mixed intraday sources",
   "poll_frequency": "10 minutes",
@@ -11,10 +11,10 @@
   "note": "US 10Y/30Y headline values use Investing.com public real-time bond-yield pages first, then TradingView and Trading Economics fallbacks. Treasury historical CSVs remain official U.S. Treasury daily closes.",
   "quotes": {
     "ndx": {
-      "price": 29418.861328,
+      "price": 29441.162109,
       "previous_close": 28945.06,
-      "change_1d_pct": 1.6369,
-      "timestamp": "2026-09-18T00:35:31+08:00",
+      "change_1d_pct": 1.7139,
+      "timestamp": "2026-09-18T00:46:13+08:00",
       "bar_interval": "1m",
       "poll_frequency": "10 minutes",
       "source": "Yahoo Finance ^NDX",
@@ -23,13 +23,13 @@
       "symbol": "^NDX",
       "name": "Nasdaq-100",
       "unit": "index",
-      "last_checked_bjt": "2026-09-18T00:35:33+08:00"
+      "last_checked_bjt": "2026-09-18T00:46:14+08:00"
     },
     "sox": {
-      "price": 11581.216797,
+      "price": 11593.621094,
       "previous_close": 11246.107,
-      "change_1d_pct": 2.9798,
-      "timestamp": "2026-09-18T00:35:33+08:00",
+      "change_1d_pct": 3.0901,
+      "timestamp": "2026-09-18T00:46:12+08:00",
       "bar_interval": "1m",
       "poll_frequency": "10 minutes",
       "source": "Yahoo Finance ^SOX",
@@ -38,13 +38,13 @@
       "symbol": "^SOX",
       "name": "PHLX Semiconductor Index",
       "unit": "index",
-      "last_checked_bjt": "2026-09-18T00:35:34+08:00"
+      "last_checked_bjt": "2026-09-18T00:46:14+08:00"
     },
     "nvda": {
-      "price": 218.929901,
+      "price": 218.919998,
       "previous_close": 213.9,
-      "change_1d_pct": 2.3515,
-      "timestamp": "2026-09-18T00:35:32+08:00",
+      "change_1d_pct": 2.3469,
+      "timestamp": "2026-09-18T00:46:13+08:00",
       "bar_interval": "1m",
       "poll_frequency": "10 minutes",
       "source": "Yahoo Finance NVDA",
@@ -53,13 +53,13 @@
       "symbol": "NVDA",
       "name": "NVIDIA",
       "unit": "USD",
-      "last_checked_bjt": "2026-09-18T00:35:34+08:00"
+      "last_checked_bjt": "2026-09-18T00:46:14+08:00"
     },
     "vix": {
-      "price": 15.64,
+      "price": 15.6,
       "previous_close": 17.2,
-      "change_1d_pct": -9.0698,
-      "timestamp": "2026-09-18T00:20:31+08:00",
+      "change_1d_pct": -9.3023,
+      "timestamp": "2026-09-18T00:31:01+08:00",
       "bar_interval": "1m",
       "poll_frequency": "10 minutes",
       "source": "Yahoo Finance ^VIX",
@@ -68,7 +68,7 @@
       "symbol": "^VIX",
       "name": "Cboe Volatility Index",
       "unit": "index",
-      "last_checked_bjt": "2026-09-18T00:35:34+08:00"
+      "last_checked_bjt": "2026-09-18T00:46:14+08:00"
     },
     "dgs10": {
       "price": 4.946,
@@ -88,7 +88,7 @@
       "symbol": "TVC:US10Y",
       "name": "10-Year Treasury Yield",
       "unit": "%",
-      "last_checked_bjt": "2026-09-18T00:35:36+08:00"
+      "last_checked_bjt": "2026-09-18T00:46:15+08:00"
     },
     "dgs30": {
       "price": 5.296,
@@ -108,7 +108,7 @@
       "symbol": "TVC:US30Y",
       "name": "30-Year Treasury Yield",
       "unit": "%",
-      "last_checked_bjt": "2026-09-18T00:35:36+08:00"
+      "last_checked_bjt": "2026-09-18T00:46:15+08:00"
     }
   },
   "errors": {}
