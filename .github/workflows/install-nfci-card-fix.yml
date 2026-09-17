@@ -1,0 +1,50 @@
+name: Install NFCI Card Fix
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'assets/nfci-card-fix.js'
+      - 'scripts/install_nfci_card_fix.py'
+      - '.github/workflows/install-nfci-card-fix.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: install-nfci-card-fix
+  cancel-in-progress: true
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install NFCI repair into homepage
+        run: python scripts/install_nfci_card_fix.py
+
+      - name: Validate frontend JavaScript
+        run: |
+          node --check assets/nfci-card-fix.js
+          grep -q 'assets/nfci-card-fix.js?v=20260917b' index.html
+
+      - name: Commit homepage wiring
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'fix: wire NFCI tile repair into homepage'
+          bash scripts/git_commit_push_retry.sh
