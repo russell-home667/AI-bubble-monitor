@@ -1,5 +1,5 @@
 {
-  "generated_at_bjt": "2026-09-17T22:02:40+08:00",
+  "generated_at_bjt": "2026-09-17T22:21:48+08:00",
   "timezone": "Asia/Shanghai",
   "source": "Mixed intraday sources",
   "poll_frequency": "10 minutes",
@@ -11,10 +11,10 @@
   "note": "US 10Y/30Y headline values use Investing.com public real-time bond-yield pages first, then TradingView and Trading Economics fallbacks. Treasury historical CSVs remain official U.S. Treasury daily closes.",
   "quotes": {
     "ndx": {
-      "price": 29360.863281,
+      "price": 29398.964844,
       "previous_close": 28945.06,
-      "change_1d_pct": 1.4365,
-      "timestamp": "2026-09-17T22:02:35+08:00",
+      "change_1d_pct": 1.5682,
+      "timestamp": "2026-09-17T22:21:44+08:00",
       "bar_interval": "1m",
       "poll_frequency": "10 minutes",
       "source": "Yahoo Finance ^NDX",
@@ -23,13 +23,13 @@
       "symbol": "^NDX",
       "name": "Nasdaq-100",
       "unit": "index",
-      "last_checked_bjt": "2026-09-17T22:02:37+08:00"
+      "last_checked_bjt": "2026-09-17T22:21:47+08:00"
     },
     "sox": {
-      "price": 11587.054688,
+      "price": 11592.694336,
       "previous_close": 11246.107,
-      "change_1d_pct": 3.0317,
-      "timestamp": "2026-09-17T22:02:32+08:00",
+      "change_1d_pct": 3.0818,
+      "timestamp": "2026-09-17T22:21:44+08:00",
       "bar_interval": "1m",
       "poll_frequency": "10 minutes",
       "source": "Yahoo Finance ^SOX",
@@ -38,13 +38,13 @@
       "symbol": "^SOX",
       "name": "PHLX Semiconductor Index",
       "unit": "index",
-      "last_checked_bjt": "2026-09-17T22:02:37+08:00"
+      "last_checked_bjt": "2026-09-17T22:21:47+08:00"
     },
     "nvda": {
-      "price": 218.559998,
+      "price": 219.309998,
       "previous_close": 213.9,
-      "change_1d_pct": 2.1786,
-      "timestamp": "2026-09-17T22:02:36+08:00",
+      "change_1d_pct": 2.5292,
+      "timestamp": "2026-09-17T22:21:47+08:00",
       "bar_interval": "1m",
       "poll_frequency": "10 minutes",
       "source": "Yahoo Finance NVDA",
@@ -53,13 +53,13 @@
       "symbol": "NVDA",
       "name": "NVIDIA",
       "unit": "USD",
-      "last_checked_bjt": "2026-09-17T22:02:38+08:00"
+      "last_checked_bjt": "2026-09-17T22:21:47+08:00"
     },
     "vix": {
-      "price": 15.73,
+      "price": 15.92,
       "previous_close": 17.2,
-      "change_1d_pct": -8.5465,
-      "timestamp": "2026-09-17T21:47:31+08:00",
+      "change_1d_pct": -7.4419,
+      "timestamp": "2026-09-17T22:06:46+08:00",
       "bar_interval": "1m",
       "poll_frequency": "10 minutes",
       "source": "Yahoo Finance ^VIX",
@@ -68,18 +68,18 @@
       "symbol": "^VIX",
       "name": "Cboe Volatility Index",
       "unit": "index",
-      "last_checked_bjt": "2026-09-17T22:02:38+08:00"
+      "last_checked_bjt": "2026-09-17T22:21:47+08:00"
     },
     "dgs10": {
       "price": 4.946,
-      "previous_close": null,
-      "change_1d_pct": null,
-      "timestamp": "2026-09-17T22:02:39+08:00",
-      "source_market_time_text": "10:02:22",
+      "previous_close": 5.004,
+      "change_1d_pct": -1.1591,
+      "timestamp": "2026-09-17T22:21:48+08:00",
+      "source_market_time_text": "10:20:11",
       "bar_interval": "live quote",
       "poll_frequency": "10 minutes",
       "source": "Investing.com US 10Y Bond Yield",
-      "source_url": "https://www.investing.com/rates-bonds/u.s.-10-year-bond-yield-opinion",
+      "source_url": "https://www.investing.com/rates-bonds/u.s.-10-year-bond-yield",
       "quote_status": "INVESTING_REALTIME",
       "source_state": "Real-time Data",
       "transport": "curl_cffi/chrome",
@@ -88,7 +88,7 @@
       "symbol": "TVC:US10Y",
       "name": "10-Year Treasury Yield",
       "unit": "%",
-      "last_checked_bjt": "2026-09-17T22:02:39+08:00"
+      "last_checked_bjt": "2026-09-17T22:21:48+08:00"
     },
     "dgs30": {
       "price": 5.304,
@@ -108,7 +108,7 @@
       "symbol": "TVC:US30Y",
       "name": "30-Year Treasury Yield",
       "unit": "%",
-      "last_checked_bjt": "2026-09-17T22:02:40+08:00"
+      "last_checked_bjt": "2026-09-17T22:21:48+08:00"
     }
   },
   "errors": {}
