@@ -62,7 +62,7 @@ CATEGORY RULE:
 For every retained event, assess importance_score (0-100) for importance to AI bubble formation/unwind, bubble_risk_score (-100..100; positive means higher bubble/unwind risk, negative means stronger fundamental support/lower bubble risk), bubble_direction, concise Chinese summary_zh and reason_zh, and supported companies. Return only events with importance_score >= 50. Output valid JSON only."""
     prompt = f"""Allowed categories: {json.dumps(core.CATS, ensure_ascii=False)}
 Return exactly this JSON shape: {{"stories":[{{"headline":"...","summary_zh":"...","category":"one allowed category or the authoritative fixed_category","importance_score":80,"bubble_direction":"risk_up|risk_down|neutral","bubble_risk_score":40,"reason_zh":"...","companies":["..."],"candidate_ids":["c001","c002"]}}]}}.
-Choose candidate_ids only from the supplied data; the first ID should be the best primary source. Prefer direct publisher/official URLs over aggregator wrapper URLs when duplicates exist, and prefer Reuters/Bloomberg/FT/WSJ/AP/CNBC and official primary sources.
+Choose candidate_ids only from the supplied data. Prefer official/company primary sources first when directly relevant, then free professional sources such as AP, Reuters, CNBC, TechCrunch, Semafor, The Guardian, The Verge, Yahoo Finance, Investing.com, CNA and 财联社. Bloomberg, WSJ, Barron's, Fortune, FT, The Economist, The Information and New York Times are discovery leads only: do not put one of them first when a free corroborating candidate is available, and include the free corroborating candidate_id for the event whenever available. Prefer direct publisher URLs over aggregator wrappers.
 Candidates:
 {json.dumps(compact, ensure_ascii=False)}"""
     return system, prompt
