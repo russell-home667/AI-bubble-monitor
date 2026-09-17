@@ -7,6 +7,7 @@ on:
     paths:
       - 'scripts/update_ai_market_liquidity.py'
       - 'scripts/bootstrap_treasury_history.py'
+      - 'scripts/ensure_nfci_summary.py'
       - '.github/workflows/update-ai-market-liquidity.yml'
   schedule:
     - cron: '30 5 * * 2-6'
@@ -96,6 +97,7 @@ jobs:
           for group in ${{ steps.groups.outputs.groups }}; do
             python scripts/update_ai_market_liquidity.py --group "$group"
           done
+          python scripts/ensure_nfci_summary.py
       - name: Validate generated module
         run: |
           python - <<'PY'
@@ -106,9 +108,16 @@ jobs:
           base=Path('data/ai_bubble/market_liquidity')
           d=json.loads((base/'latest.json').read_text(encoding='utf-8'))
           i=d.get('indicators') or {}
-          for key in ('dgs10','dgs30','dfii10','vix'):
+          for key in ('dgs10','dgs30','dfii10','vix','nfci'):
               if key not in i:
                   raise SystemExit(f'Missing indicator {key}')
+
+          nfci=i['nfci']
+          if nfci.get('source_symbol') != 'NFCI':
+              raise SystemExit(f"Unexpected NFCI symbol: {nfci.get('source_symbol')}")
+          if nfci.get('value') is None or not nfci.get('observation_date'):
+              raise SystemExit(f'Invalid NFCI summary: {nfci}')
+          print('nfci', nfci['observation_date'], nfci['value'], nfci.get('source'))
 
           expected={
               'dgs10':('U.S. Department of the Treasury','BC_10YEAR','value'),
