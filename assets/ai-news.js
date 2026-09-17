@@ -50,9 +50,18 @@
     observer.observe(document.body, {subtree:true, childList:true, characterData:true});
   }
 
+  function loadNfciCardFix() {
+    if (document.getElementById('nfciCardFixScript')) return;
+    const script = document.createElement('script');
+    script.id = 'nfciCardFixScript';
+    script.src = `assets/nfci-card-fix.js?v=${Date.now()}`;
+    script.defer = true;
+    document.head.appendChild(script);
+  }
+
   function esc(v) {
     return String(v ?? '').replace(/[&<>"']/g, c => ({
-      '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'
+      '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#039;'
     })[c]);
   }
 
@@ -222,6 +231,7 @@
 
   function mount() {
     watchSingaporeLabels();
+    loadNfciCardFix();
     if (document.getElementById('aiNewsSection')) return;
     injectStyles();
     const hero = document.querySelector('.hero');
