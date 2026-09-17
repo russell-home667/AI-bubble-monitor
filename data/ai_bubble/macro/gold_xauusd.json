@@ -47,25 +47,25 @@
   },
   "history_fetch_warning": "No reliable XAU/USD daily history source available: Yahoo Finance: 404 Client Error: Not Found for url: https://query1.finance.yahoo.com/v8/finance/chart/XAUUSD%3DX?range=1y&interval=1d&events=history | goldprice.dev: 525 Server Error: <none> for url: https://api.goldprice.dev/v1/bars?symbol=XAU-USD-SPOT&interval=1d&from=2026-08-19&to=2026-09-17&limit=100",
   "world_bank_fetch_warning": null,
-  "previous_close_fetch_warning": "Investing.com: https://www.investing.com/currencies/xau-usd: curl_cffi HTTP 403 len=3; requests HTTP 403 len=3 | https://www.investing.com/currencies/xau-usd-candlestick: curl_cffi HTTP 403 len=3; requests HTTP 403 len=3 | https://www.investing.com/currencies/xau-usd-historical-data: Prev. Close not found",
+  "previous_close_fetch_warning": null,
   "latest_quote": {
-    "price": 4325.8,
-    "timestamp": "2026-09-17T11:40:04.767Z",
+    "price": 4355.0,
+    "timestamp": "2026-09-17T12:15:02.653Z",
     "quote_status": "XAUS_FRESH",
     "source": "XAUS Gold Data API",
     "source_state": {
       "status": "fresh",
-      "as_of": "2026-09-17T11:40:04.767Z",
+      "as_of": "2026-09-17T12:15:02.653Z",
       "source": "upstream",
       "age_seconds": 0
     },
-    "previous_close": 4387.5,
-    "previous_close_source": "XAUS Gold Data API daily history",
-    "previous_close_url": "https://xaus.com/api/v1/history",
-    "previous_close_transport": "requests_json",
+    "previous_close": 4264.26,
+    "previous_close_source": "Investing.com XAU/USD Prev. Close",
+    "previous_close_url": "https://www.investing.com/currencies/xau-usd",
+    "previous_close_transport": "curl_cffi/chrome",
     "previous_close_observation_date": "2026-09-16",
-    "change_vs_previous_close_pct": -1.4063,
-    "retrieved_at_bjt": "2026-09-17T19:40:19+08:00",
+    "change_vs_previous_close_pct": 2.1279,
+    "retrieved_at_bjt": "2026-09-17T20:15:04+08:00",
     "observation_date": "2026-09-16"
   },
   "data": [
@@ -12857,5 +12857,5 @@
       "low": 4235.2
     }
   ],
-  "updated_at_bjt": "2026-09-17T19:40:19+08:00"
+  "updated_at_bjt": "2026-09-17T20:15:04+08:00"
 }
