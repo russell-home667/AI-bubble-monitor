@@ -12,16 +12,14 @@ on:
           - auto
           - deep
           - incremental
+  # Automatic news scans (Asia/Singapore):
+  # 08:00 = deep scan; 12:30 and 19:00 = incremental scans.
   schedule:
     - cron: '0 8 * * *'
       timezone: 'Asia/Singapore'
-    - cron: '0 9 * * *'
+    - cron: '30 12 * * *'
       timezone: 'Asia/Singapore'
-    - cron: '0 10 * * *'
-      timezone: 'Asia/Singapore'
-    - cron: '0 11 * * *'
-      timezone: 'Asia/Singapore'
-    - cron: '0 12 * * *'
+    - cron: '0 19 * * *'
       timezone: 'Asia/Singapore'
 
 permissions:
