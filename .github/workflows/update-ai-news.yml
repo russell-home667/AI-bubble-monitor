@@ -73,7 +73,7 @@ jobs:
           NEWS_SCAN_MODE: ${{ steps.mode.outputs.mode }}
         run: |
           set -euo pipefail
-          python scripts/run_ai_news_resilient.py
+          python scripts/run_ai_news_expanded.py
 
       - name: Validate news payload
         run: |
