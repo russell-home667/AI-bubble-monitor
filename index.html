@@ -222,6 +222,29 @@ function renderMarketCards(m,quotes={}){
     const p=Object.fromEntries(parts.map(x=>[x.type,x.value]));
     return `${p.year}-${p.month}-${p.day} ${p.hour}:${p.minute}:${p.second} SGT`;
   };
+  const monthTargetDate=(value)=>{
+    const d=new Date(value);
+    if(Number.isNaN(d.getTime()))return null;
+    const parts=new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(d);
+    const p=Object.fromEntries(parts.map(x=>[x.type,x.value]));
+    const y=Number(p.year),m=Number(p.month),day=Number(p.day);
+    const prev=new Date(Date.UTC(y,m-2,1));
+    const py=prev.getUTCFullYear(),pm=prev.getUTCMonth();
+    const lastDay=new Date(Date.UTC(py,pm+1,0)).getUTCDate();
+    return `${py}-${String(pm+1).padStart(2,'0')}-${String(Math.min(day,lastDay)).padStart(2,'0')}`;
+  };
+  const latestRowOnOrBefore=(rows,target,key)=>{
+    if(!Array.isArray(rows)||!target)return null;
+    let chosen=null;
+    for(const row of rows){
+      const date=String(row?.date||'');
+      const value=Number(row?.[key]);
+      if(!date||!Number.isFinite(value))continue;
+      if(date<=target)chosen={date,value};
+      else break;
+    }
+    return chosen;
+  };
   const sourceRow=(label,url)=>`<div class="source-row market-card-source"><span class="source-prefix">Source:</span><a class="source-link" href="${url}" target="_blank" rel="noopener noreferrer">${label}<span class="source-arrow">↗</span></a></div>`;
   const freshness=(text)=>`<div class="market-card-freshness">${text}</div>`;
   const change=(label,value,unit='%',decimals=1)=>{
@@ -230,28 +253,26 @@ function renderMarketCards(m,quotes={}){
     const cls=n>0?'up':n<0?'down':'muted';
     return `<span class="market-card-change ${cls}">${label} ${n>=0?'+':''}${n.toFixed(decimals)}${unit}</span>`;
   };
-  const equityStats=(key)=>{
+  const equityStats=(key,valueKey='close')=>{
     const x=i[key]||{}, live=q[key]||{};
     const price=Number(live.price??x.value);
-    const official=Number(x.official_value??x.close_value??x.value);
     const oneDay=Number(live.change_1d_pct??x.live_change_1d_pct??x.change_1d_pct);
-    const old20=Number(x.change_20d_pct);
-    let oneMonth=old20;
-    if(Number.isFinite(price)&&Number.isFinite(official)&&official!==0&&Number.isFinite(old20)){
-      const base=official/(1+old20/100);
-      if(Number.isFinite(base)&&base!==0)oneMonth=(price/base-1)*100;
-    }
-    return {price,oneDay,oneMonth,timestamp:live.timestamp||x.live_quote_timestamp||x.observation_date};
+    const timestamp=live.timestamp||x.live_quote_timestamp||x.observation_date;
+    const target=monthTargetDate(timestamp);
+    const base=latestRowOnOrBefore(state?.raw?.[key]||[],target,valueKey);
+    const oneMonth=base&&Number.isFinite(price)&&base.value!==0?(price/base.value-1)*100:Number(x.change_20d_pct);
+    return {price,oneDay,oneMonth,timestamp};
   };
   const treasuryStats=(key)=>{
     const x=i[key]||{}, live=q[key]||{};
     const price=Number(live.price??x.value);
     const official=Number(x.official_value??x.close_value??x.value);
-    const intradayDelta=(Number.isFinite(price)&&Number.isFinite(official))?price-official:0;
-    const oneDay=Number.isFinite(price)&&Number.isFinite(official)?intradayDelta*100:Number(x.change_1obs)*100;
-    const obs20=Number(x.change_20obs);
-    const oneMonth=Number.isFinite(obs20)?(obs20+intradayDelta)*100:null;
-    return {price,oneDay,oneMonth,timestamp:live.timestamp||x.live_quote_timestamp||x.observation_date};
+    const oneDay=Number.isFinite(price)&&Number.isFinite(official)?(price-official)*100:Number(x.change_1obs)*100;
+    const timestamp=live.timestamp||x.live_quote_timestamp||x.observation_date;
+    const target=monthTargetDate(timestamp);
+    const base=latestRowOnOrBefore(state?.raw?.[key]||[],target,'value');
+    const oneMonth=base&&Number.isFinite(price)?(price-base.value)*100:Number(x.change_20obs)*100;
+    return {price,oneDay,oneMonth,timestamp};
   };
   const dailyStats=(key)=>{
     const x=i[key]||{};
