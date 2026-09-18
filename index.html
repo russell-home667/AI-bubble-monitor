@@ -142,7 +142,7 @@ window.addEventListener('load',loadBrentStandalone);
     <div class="grid4" id="marketCards"></div>
     <div class="split2" style="margin-top:12px">
       <div class="card chart-card"><div class="chart-head"><div><div class="chart-title">Market Trend · normalized</div><div class="chart-sub">NDX / SOX / NVDA / GOOGL / MSFT / AMZN · normalized to 100 at selected-range start</div></div><div class="range" data-chart="marketChart"><button data-range="1Y">1Y</button><button class="active" data-range="3Y">3Y</button><button data-range="5Y">5Y</button><button data-range="ALL">All</button></div></div><div id="marketChart" class="chart"></div></div>
-      <div class="card chart-card"><div class="chart-head"><div><div class="chart-title">Rates, Credit & Liquidity</div><div class="chart-sub">10Y & 30Y Treasury / 10Y Real Yield / HY OAS / VIX / NFCI long-history proxy / NFCI long-history proxy / NFCI long-history proxy / NFCI long-history proxy</div></div><div class="range" data-chart="liquidityChart"><button data-range="1Y">1Y</button><button class="active" data-range="3Y">3Y</button><button data-range="5Y">5Y</button><button data-range="ALL">All</button></div></div><div id="liquidityChart" class="chart"></div></div>
+      <div class="card chart-card"><div class="chart-head"><div><div class="chart-title">Rates, Credit & Liquidity</div><div class="chart-sub">10Y & 30Y Treasury / VIX / 10Y Real Yield / HY OAS / NFCI</div></div><div class="range" data-chart="liquidityChart"><button data-range="1Y">1Y</button><button class="active" data-range="3Y">3Y</button><button data-range="5Y">5Y</button><button data-range="ALL">All</button></div></div><div id="liquidityChart" class="chart"></div></div>
     </div>
   </section>
 
@@ -314,7 +314,7 @@ async function load(){
 }
 bindRanges();load();window.addEventListener('resize',()=>Object.values(state.charts).forEach(c=>c.resize()));
 </script>
-  <script src="assets/chart-time-slider.js?v=20260918-six-market-cards"></script>  <script src="assets/nfci-card-fix.js?v=20260917b"></script>  <script src="assets/source-links.js?v=20260918-six-market-sources"></script>  <script src="assets/ai-news.js"></script>
+  <script src="assets/chart-time-slider.js?v=20260918-balanced-market-liquidity-v1"></script>  <script src="assets/nfci-card-fix.js?v=20260917b"></script>  <script src="assets/source-links.js?v=20260918-six-market-sources"></script>  <script src="assets/ai-news.js"></script>
 
 <script>
 // LONG_HISTORY_LIQUIDITY_OVERLAY

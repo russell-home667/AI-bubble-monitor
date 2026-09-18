@@ -152,7 +152,7 @@
       style.id = 'market-latest-style';
       style.textContent = `
         .market-card-enhanced{align-self:stretch!important;}
-        .market-card-enhanced .chart-head{align-items:flex-start;gap:18px;padding:20px 22px 0;}
+        .market-card-enhanced .chart-head{align-items:flex-start;gap:18px;padding:20px 22px 0;min-height:118px;box-sizing:border-box;}
         .market-card-enhanced .chart-title{line-height:1.35;}
         .market-card-enhanced .chart-sub{max-width:620px;line-height:1.55;margin-top:8px;}
         .market-card-enhanced .range{flex-wrap:nowrap;flex-shrink:0;gap:7px;}
@@ -160,7 +160,7 @@
         .market-card-enhanced .source-row{font-size:9px;line-height:1.6;margin-top:7px;}
         .market-card-enhanced #marketChart{height:430px!important;margin-top:10px;}
         #marketLatestGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:20px 22px 16px;border:1px solid rgba(89,151,190,.15);border-radius:14px;overflow:hidden;background:rgba(3,14,25,.22);}
-        #marketLatestGrid .market-quote{min-width:0;padding:20px 22px 18px;border-right:1px solid rgba(89,151,190,.12);border-bottom:1px solid rgba(89,151,190,.12);}
+        #marketLatestGrid .market-quote{min-width:0;min-height:150px;box-sizing:border-box;padding:20px 22px 18px;border-right:1px solid rgba(89,151,190,.12);border-bottom:1px solid rgba(89,151,190,.12);display:flex;flex-direction:column;}
         #marketLatestGrid .market-quote:nth-child(3n){border-right:0;}
         #marketLatestGrid .market-quote:nth-last-child(-n+3){border-bottom:0;}
         #marketLatestGrid .market-label{color:#7893aa;font-size:10px;font-weight:700;letter-spacing:.55px;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
@@ -169,7 +169,7 @@
         #marketLatestGrid .market-unit{color:#718aa1;font-size:10px;font-weight:600;}
         #marketLatestGrid .market-change{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:11px;font-size:10px;font-weight:650;}
         #marketLatestGrid .market-range-change{color:#86a0b6;font-weight:600;}
-        #marketLatestGrid .market-date{margin-top:10px;color:#5f7b92;font-size:9px;line-height:1.5;white-space:normal;overflow:visible;text-overflow:clip;min-height:27px;}
+        #marketLatestGrid .market-date{margin-top:auto;padding-top:10px;color:#5f7b92;font-size:9px;line-height:1.5;white-space:normal;overflow:visible;text-overflow:clip;min-height:27px;}
         @media(max-width:980px){.market-card-enhanced .range{flex-wrap:wrap;}#marketLatestGrid{grid-template-columns:1fr;}#marketLatestGrid .market-quote{border-right:0;border-bottom:1px solid rgba(89,151,190,.12);}#marketLatestGrid .market-quote:last-child{border-bottom:0;}}
         @media(max-width:620px){.market-card-enhanced #marketChart{height:320px!important;}#marketLatestGrid .market-value{font-size:29px;}}
       `;
@@ -284,7 +284,7 @@
 
     const head = card.querySelector('.chart-head');
     const sub = head?.querySelector('.chart-sub');
-    if (sub) sub.textContent = '10Y & 30Y Treasury / 10Y Real Yield / HY OAS / VIX / NFCI';
+    if (sub) sub.textContent = '10Y & 30Y Treasury / VIX / 10Y Real Yield / HY OAS / NFCI';
 
     let grid = document.getElementById('liquidityLatestGrid');
     if (grid) return grid;
@@ -293,25 +293,28 @@
       const style = document.createElement('style');
       style.id = 'liquidity-latest-style';
       style.textContent = `
-        .liquidity-card-enhanced .chart-head{align-items:flex-start;gap:14px;}
+        .liquidity-card-enhanced{align-self:stretch!important;}
+        .liquidity-card-enhanced .chart-head{align-items:flex-start;gap:18px;padding:20px 22px 0;min-height:118px;box-sizing:border-box;}
         .liquidity-card-enhanced .chart-title{line-height:1.35;}
-        .liquidity-card-enhanced .chart-sub{max-width:520px;line-height:1.4;}
-        .liquidity-card-enhanced .range{flex-wrap:nowrap;flex-shrink:0;gap:4px;}
-        .liquidity-card-enhanced .range button{min-width:38px;}
-        .liquidity-card-enhanced .source-row{font-size:9px;line-height:1.45;margin-top:4px;}
-        #liquidityLatestGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:14px 16px 2px;border:1px solid rgba(89,151,190,.15);border-radius:12px;overflow:hidden;background:rgba(3,14,25,.22);}
-        #liquidityLatestGrid .liq-quote{min-width:0;padding:13px 14px 12px;border-right:1px solid rgba(89,151,190,.12);border-bottom:1px solid rgba(89,151,190,.12);}
-        #liquidityLatestGrid .liq-quote:nth-child(3n){border-right:0;}#liquidityLatestGrid .liq-quote:nth-child(n+4){border-bottom:0;}
+        .liquidity-card-enhanced .chart-sub{max-width:620px;line-height:1.55;margin-top:8px;}
+        .liquidity-card-enhanced .range{flex-wrap:nowrap;flex-shrink:0;gap:7px;}
+        .liquidity-card-enhanced .range button{min-width:44px;padding:7px 10px;}
+        .liquidity-card-enhanced .source-row{font-size:9px;line-height:1.6;margin-top:7px;}
+        .liquidity-card-enhanced #liquidityChart{height:430px!important;margin-top:10px;}
+        #liquidityLatestGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:20px 22px 16px;border:1px solid rgba(89,151,190,.15);border-radius:14px;overflow:hidden;background:rgba(3,14,25,.22);}
+        #liquidityLatestGrid .liq-quote{min-width:0;min-height:150px;box-sizing:border-box;padding:20px 22px 18px;border-right:1px solid rgba(89,151,190,.12);border-bottom:1px solid rgba(89,151,190,.12);display:flex;flex-direction:column;}
+        #liquidityLatestGrid .liq-quote:nth-child(3n){border-right:0;}
+        #liquidityLatestGrid .liq-quote:nth-last-child(-n+3){border-bottom:0;}
         #liquidityLatestGrid .liq-label{color:#7893aa;font-size:10px;font-weight:700;letter-spacing:.55px;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-        #liquidityLatestGrid .liq-value-row{display:flex;align-items:baseline;gap:6px;margin-top:7px;min-width:0;}
-        #liquidityLatestGrid .liq-value{color:#f0f8ff;font-size:31px;line-height:1;font-weight:720;letter-spacing:.2px;}
+        #liquidityLatestGrid .liq-value-row{display:flex;align-items:baseline;gap:10px;margin-top:11px;min-width:0;}
+        #liquidityLatestGrid .liq-value{color:#f0f8ff;font-size:34px;line-height:1;font-weight:720;letter-spacing:.2px;}
         #liquidityLatestGrid .liq-unit{color:#718aa1;font-size:10px;font-weight:600;}
-        #liquidityLatestGrid .liq-change-stack{display:flex;flex-direction:row;gap:16px;align-items:center;flex-wrap:wrap;margin-top:10px;font-size:10px;line-height:1.2;font-weight:700;white-space:nowrap;}
+        #liquidityLatestGrid .liq-change-stack{display:flex;flex-direction:row;gap:14px;align-items:center;flex-wrap:wrap;margin-top:11px;font-size:10px;line-height:1.2;font-weight:700;white-space:nowrap;}
         #liquidityLatestGrid .liq-change-item{color:#86a0b6;}
-        #liquidityLatestGrid .liq-date{margin-top:9px;color:#66839a;font-size:9px;line-height:1.35;}
-        #liquidityLatestGrid .liq-source{margin-top:3px;color:#4f6b81;font-size:8.5px;line-height:1.35;}
+        #liquidityLatestGrid .liq-date{margin-top:auto;padding-top:10px;color:#5f7b92;font-size:9px;line-height:1.5;min-height:14px;}
+        #liquidityLatestGrid .liq-source{margin-top:3px;color:#4f6b81;font-size:8.5px;line-height:1.35;min-height:12px;}
         @media(max-width:980px){.liquidity-card-enhanced .range{flex-wrap:wrap;}#liquidityLatestGrid{grid-template-columns:repeat(2,minmax(0,1fr));}#liquidityLatestGrid .liq-quote{border-right:1px solid rgba(89,151,190,.12);border-bottom:1px solid rgba(89,151,190,.12);}#liquidityLatestGrid .liq-quote:nth-child(2n){border-right:0;}#liquidityLatestGrid .liq-quote:nth-child(n+5){border-bottom:0;}}
-        @media(max-width:620px){#liquidityLatestGrid{grid-template-columns:1fr;}#liquidityLatestGrid .liq-quote{border-right:0!important;border-bottom:1px solid rgba(89,151,190,.12)!important;}#liquidityLatestGrid .liq-quote:last-child{border-bottom:0!important;}#liquidityLatestGrid .liq-value{font-size:28px;}}
+        @media(max-width:620px){.liquidity-card-enhanced #liquidityChart{height:320px!important;}#liquidityLatestGrid{grid-template-columns:1fr;}#liquidityLatestGrid .liq-quote{border-right:0!important;border-bottom:1px solid rgba(89,151,190,.12)!important;}#liquidityLatestGrid .liq-quote:last-child{border-bottom:0!important;}#liquidityLatestGrid .liq-value{font-size:29px;}}
       `;
       document.head.appendChild(style);
     }
@@ -320,8 +323,8 @@
     grid.id = 'liquidityLatestGrid';
     grid.innerHTML = [
       ['liq10y','US 10Y Treasury','%'],['liq30y','US 30Y Treasury','%'],
-      ['liqReal10','10Y Real Yield','%'],['liqHy','HY OAS','%'],
-      ['liqVix','VIX','index'],['liqNfci','NFCI','index']
+      ['liqVix','VIX','index'],['liqReal10','10Y Real Yield','%'],
+      ['liqHy','HY OAS','%'],['liqNfci','NFCI','index']
     ].map(([id,label,unit]) => `<div class="liq-quote"><div class="liq-label">${label}</div><div class="liq-value-row"><span class="liq-value" id="${id}Value">—</span><span class="liq-unit">${unit}</span></div><div class="liq-date" id="${id}Date">Latest · —</div></div>`).join('');
     if (head?.nextSibling) card.insertBefore(grid, head.nextSibling); else if (head) head.after(grid); else card.insertBefore(grid, chart);
     return grid;
@@ -600,12 +603,13 @@ function setTreasuryChangeBadges(id, key, live, summaryRow) {
       'VIX':{color:'#b78cff',width:2},'NFCI':{color:'#58c6e8',width:1.9,type:'dashed'}
     };
     if (Array.isArray(out.series)) {
+      const order = {'US 10Y Treasury':0,'US 30Y Treasury':1,'VIX':2,'10Y Real Yield':3,'HY OAS':4,'NFCI':5};
       out.series = out.series.map(series => {
         const s = styles[series?.name];
         const next = s ? {...series,lineStyle:{...(series.lineStyle||{}),color:s.color,width:s.width,...(s.type?{type:s.type}:{})},itemStyle:{...(series.itemStyle||{}),color:s.color}} : {...series};
         if (series?.name === 'NFCI') { next.yAxisIndex=2; next.connectNulls=true; next.showSymbol=false; }
         return next;
-      });
+      }).sort((a,b)=>(order[a?.name]??99)-(order[b?.name]??99));
     }
     return out;
   }
