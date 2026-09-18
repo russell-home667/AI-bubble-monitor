@@ -1,9 +1,33 @@
 {
-  "generated_at_sgt": "2026-09-18T12:39:19+08:00",
+  "generated_at_sgt": "2026-09-18T19:10:18+08:00",
   "timezone": "Asia/Singapore",
   "retention_days": 180,
   "display_policy": "All validated stories retained regardless of importance score; news.html may filter client-side.",
   "stories": [
+    {
+      "id": "37ecdd8a8b3815",
+      "headline": "BOJ raises interest rates to 31-year high of 1.25%",
+      "summary_zh": "日本央行加息至31年高位1.25%，以防范通胀超调风险，全球流动性边际收紧。",
+      "category": "Macro / Regulation",
+      "importance_score": 60,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 30,
+      "reason_zh": "日本加息可能推动全球套利交易平仓和流动性收紧，对高估值AI资产构成压力。",
+      "companies": [],
+      "published_at": "2026-09-18T09:40+08:00",
+      "sources": [
+        {
+          "name": "Reuters",
+          "domain": "reuters.com",
+          "url": "https://www.reuters.com/world/asia-pacific/view-investors-react-boj-raising-interest-rates-31-year-high-2026-09-18/",
+          "published_at": "2026-09-18T09:40+08:00",
+          "discovered_via": "Bing News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-18T19:10:18+08:00",
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
+    },
     {
       "id": "a095663d8f4656",
       "headline": "Nebius上调AI云服务价格，算力需求旺盛但考验客户成本承受力",
@@ -28,7 +52,34 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T12:39:19+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
+    },
+    {
+      "id": "a5168c4c6c7c93",
+      "headline": "OpenAI, Microsoft AI training quotes threaten copyright defense",
+      "summary_zh": "新闻机构称OpenAI和微软高管关于AI训练的言论威胁其版权抗辩，法律风险上升。",
+      "category": "Macro / Regulation",
+      "importance_score": 65,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 40,
+      "reason_zh": "版权诉讼若升级可能迫使AI公司支付授权费或改变训练方式，增加合规成本并打击AI商业模式。",
+      "companies": [
+        "OpenAI",
+        "Microsoft"
+      ],
+      "published_at": "2026-09-18T05:48+08:00",
+      "sources": [
+        {
+          "name": "Reuters",
+          "domain": "reuters.com",
+          "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxONHczYjIxX2dqTUpmMjBubHYzSTZCTVhBdmhHZDdOY1Zia05tQzhzY3hFc0pWR0czakY2c2ROUnlOZm1TbGNyTFk4UGc5REVTYzJmekFoRnFNS2lPeEhKVDctVkJXaHhldkZJanpqenFwZWtVT3JnQ0JYTmVja2ZKcS1EMTMwS0NpNzdVczhhRUVWLXF5aF9qRXBPVFJXSFljQWdwT0FWUjVBbDQ4YkVOdUNBS1ZtR0YzaXM2YnlYQ3VpQmt2YnVqNEEzejM3bjM0cDZj?oc=5",
+          "published_at": "2026-09-18T05:48+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-18T19:10:18+08:00",
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "fdcb9c67f08c78",
@@ -54,7 +105,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T12:39:19+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "793827b360847f",
@@ -78,7 +129,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T12:39:19+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "493ccb74c1dcc4",
@@ -102,7 +153,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "b4ccd541d71d62",
@@ -147,7 +198,40 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T12:39:19+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
+    },
+    {
+      "id": "61f911c0bbc673",
+      "headline": "Micron signals strong AI memory demand as stock soars on India facility",
+      "summary_zh": "美光因印度工厂押注AI内存需求而股价大涨，并向AI芯片投资者释放新的需求信号。",
+      "category": "Semiconductor / GPU Demand",
+      "importance_score": 75,
+      "bubble_direction": "risk_down",
+      "bubble_risk_score": -25,
+      "reason_zh": "AI内存需求强劲为AI硬件资本开支提供基本面支撑，短期降低泡沫破裂风险，但股价大涨也需警惕情绪过热。",
+      "companies": [
+        "Micron"
+      ],
+      "published_at": "2026-09-18T01:27+08:00",
+      "sources": [
+        {
+          "name": "Yahoo Finance",
+          "domain": "finance.yahoo.com",
+          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPVXl3YTQ4T0djVUx4T0tyVVU1NFJrc215OHl4dTBjRmU3WTVYdktIdFFtT1FXOG42cEpEWHNody1HcTB5SlJhbjVOVmRETXFOVkcwOFdvMm96ZXFhTlE1VkRUZ3NsODZqSng5b2MyNXVtOUpxQ3NrQTFPVUNJRkYzek9aaG1VYUdZa2JXUkdQT0UxUHRieVNMRzZCM081UQ?oc=5",
+          "published_at": "2026-09-18T01:27+08:00",
+          "discovered_via": "Google News RSS"
+        },
+        {
+          "name": "Yahoo Finance",
+          "domain": "finance.yahoo.com",
+          "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNeTdSNTZUWnNIWGxENmlkaHBoY2puM293TnZBUXpzNTJPWC1naUNPcjdTT0F1QWVoT3lOUkY5WUY1ZnlsemF0ZEJGOTVBdnVncVl6azR0Ynh5d2ZOMWlyUUdRRzJaejMwZVVwZjctOVMzU011Ty1neXJsMk15RG84N1IzU1Y5OWp6ZFk3LUhVSlB5NEZqb1lF?oc=5",
+          "published_at": "2026-09-17T23:23+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-18T19:10:18+08:00",
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "b08e26e13184ea",
@@ -176,7 +260,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "41eb4f0a4165fa",
@@ -202,7 +286,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T12:39:19+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "49f7450b131302",
@@ -226,7 +310,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "adad8fbc3f8c1e",
@@ -253,7 +337,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "430c2b56bdec60",
@@ -277,7 +361,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "43544699371521",
@@ -301,7 +385,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "26c4a3c6e785fb",
@@ -327,7 +411,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "61bb1affd28464",
@@ -354,7 +438,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "2c8ad184c87fc1",
@@ -399,7 +483,7 @@
       ],
       "critical": true,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "64e07b4f314111",
@@ -423,7 +507,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T12:39:19+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "b039f347d90d6a",
@@ -468,7 +552,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "bbfb1306236fa8",
@@ -492,7 +576,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "0d864005c1f908",
@@ -526,7 +610,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "e4213c8d883530",
@@ -552,7 +636,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "420e7e08a03b0d",
@@ -576,7 +660,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "59f72f2bf3defc",
@@ -602,7 +686,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "0eb3693240a682",
@@ -626,7 +710,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "4775f113c05269",
@@ -652,7 +736,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "e0a1e69ec1f008",
@@ -676,7 +760,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "76032cfcd3d52b",
@@ -700,7 +784,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "e516d5297f8856",
@@ -724,7 +808,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "42a7c7e8aae9d4",
@@ -750,7 +834,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "29ded4089a35d8",
@@ -781,7 +865,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "7e185aac1b6ae2",
@@ -807,7 +891,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "3568c3f1ccf5f2",
@@ -833,7 +917,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "5e429ee7c62d1e",
@@ -859,7 +943,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "1e3e3f07a6ba5c",
@@ -885,7 +969,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "09e9a1f0538156",
@@ -912,7 +996,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "8ecd0a573e553f",
@@ -940,7 +1024,7 @@
       ],
       "critical": true,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "5e7d73022197cd",
@@ -964,7 +1048,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "fb1fac7e3dd826",
@@ -991,7 +1075,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "9d240d69a66d80",
@@ -1015,7 +1099,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "a9c27027bff03e",
@@ -1039,7 +1123,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "f4fed546aebb0a",
@@ -1065,7 +1149,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "3bb82961b53086",
@@ -1106,7 +1190,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "ed3ed52293e47b",
@@ -1132,7 +1216,7 @@
       ],
       "critical": true,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "985efcf23f5ee5",
@@ -1156,7 +1240,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "59028aed55a8f0",
@@ -1187,7 +1271,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "60d7b42b6410f9",
@@ -1211,7 +1295,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "a819accb3955d4",
@@ -1237,7 +1321,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "444f78f9a2e510",
@@ -1261,7 +1345,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "f4afa59291b80d",
@@ -1287,7 +1371,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "e29001ad70e429",
@@ -1311,7 +1395,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "f050d58971fc5f",
@@ -1335,7 +1419,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "0e709d8030d7b7",
@@ -1361,7 +1445,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "5bcee8a686b87c",
@@ -1388,7 +1472,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "e6891db37afede",
@@ -1421,7 +1505,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "19828809babb0a",
@@ -1445,7 +1529,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "2af81964f9c665",
@@ -1472,7 +1556,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "e1938ea5d54aca",
@@ -1511,7 +1595,7 @@
       ],
       "critical": true,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "3376746c152e7b",
@@ -1538,7 +1622,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "0ed22b2f1e72d1",
@@ -1562,7 +1646,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "7b7787e8ac6b3f",
@@ -1588,7 +1672,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "14d39aca8f178d",
@@ -1621,7 +1705,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "fa5fa4d291505c",
@@ -1648,7 +1732,7 @@
       ],
       "critical": true,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "0cd3526de91434",
@@ -1674,7 +1758,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "581b301a9ee18f",
@@ -1698,7 +1782,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T12:39:19+08:00"
+      "last_seen_at": "2026-09-18T19:10:18+08:00"
     },
     {
       "id": "42ba59cbeccf68",
