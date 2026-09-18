@@ -159,7 +159,7 @@
         <div class="news-shell">
           <div class="card news-panel">
             <div class="news-panel-head">
-              <div><div class="news-panel-title">AI Bubble News Feed</div><div class="news-panel-sub">过去7天重要新闻 · Critical 事件标记 · 按重要性排序 · 最多10条</div></div>
+              <div><div class="news-panel-title">AI Bubble News Feed</div><div class="news-panel-sub">过去7天重要新闻 · Critical 事件标记 · 按发布时间倒序 · 最多10条</div></div>
               <a class="news-more" href="news.html">More →</a>
             </div>
             <div class="news-list" id="importantNewsList"><div class="news-empty">Loading news…</div></div>
@@ -210,9 +210,12 @@
       if (!r.ok) throw new Error(`HTTP ${r.status}`);
       const data = await r.json();
       const stories = (Array.isArray(data.stories) ? data.stories : []).map(normalizeDisplayStory).filter(Boolean);
-      const sortFn = (a,b) =>
-        (Number(b.importance_score || 0) - Number(a.importance_score || 0)) ||
-        String(b.published_at || '').localeCompare(String(a.published_at || ''));
+      const sortFn = (a,b) => {
+        const bt = new Date(b.published_at || 0).getTime();
+        const at = new Date(a.published_at || 0).getTime();
+        const timeDiff = (Number.isFinite(bt) ? bt : 0) - (Number.isFinite(at) ? at : 0);
+        return timeDiff || (Number(b.importance_score || 0) - Number(a.importance_score || 0));
+      };
 
       const feed = stories.filter(x => Number(x.importance_score || 0) >= IMPORTANT_MIN).sort(sortFn);
       renderList('importantNewsList', feed);
