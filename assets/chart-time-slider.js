@@ -510,6 +510,63 @@ function setTreasuryChangeBadges(id, key, live, summaryRow) {
   el.innerHTML = render('1D', oneDayBp) + render('1M', oneMonthBp);
 }
 
+function ensureLiquidityMetricChangeStack(id, labels) {
+  let el = document.getElementById(`${id}Change`);
+  const valueEl = document.getElementById(`${id}Value`);
+  const row = valueEl?.closest('.liq-value-row');
+  const quote = valueEl?.closest('.liq-quote');
+  const dateEl = document.getElementById(`${id}Date`);
+  if (!row || !quote) return null;
+  if (!el) {
+    el = document.createElement('div');
+    el.id = `${id}Change`;
+    el.className = 'liq-change-stack';
+    el.innerHTML = labels.map(label => `<span class="liq-change-item">${label} —</span>`).join('');
+  }
+  if (dateEl) quote.insertBefore(el, dateEl);
+  else row.after(el);
+  return el;
+}
+
+function liquidityChangeBadge(label, value, unit='%', decimals=1) {
+  if (!Number.isFinite(value)) return `<span class="liq-change-item">${label} —</span>`;
+  const color = value > 0 ? 'var(--green)' : value < 0 ? 'var(--red)' : 'var(--muted)';
+  return `<span class="liq-change-item" style="color:${color}">${label} ${value >= 0 ? '+' : ''}${value.toFixed(decimals)}${unit}</span>`;
+}
+
+function setVixChangeBadges(live, summaryRow) {
+  const el = ensureLiquidityMetricChangeStack('liqVix', ['1D','1M']);
+  if (!el) return;
+
+  const live1d = live?.change_1d_pct ?? live?.live_change_1d_pct;
+  const summary1d = summaryRow?.live_change_1d_pct ?? summaryRow?.change_1d_pct;
+  const oneDay = Number(live1d ?? summary1d);
+  const oneMonth = Number(summaryRow?.change_20d_pct);
+
+  el.innerHTML =
+    liquidityChangeBadge('1D', oneDay, '%', 2) +
+    liquidityChangeBadge('1M', oneMonth, '%', 1);
+}
+
+function setRealYieldChangeBadge(summaryRow) {
+  const el = ensureLiquidityMetricChangeStack('liqReal10', ['1D']);
+  if (!el) return;
+
+  let oneDayBp = null;
+  const summaryChange = Number(summaryRow?.change_1obs);
+  if (Number.isFinite(summaryChange)) {
+    oneDayBp = summaryChange * 100;
+  } else {
+    const rows = Array.isArray(state?.raw?.dfii10) ? state.raw.dfii10 : [];
+    const valid = rows.filter(row => Number.isFinite(Number(row?.value)));
+    if (valid.length >= 2) {
+      oneDayBp = (Number(valid[valid.length - 1].value) - Number(valid[valid.length - 2].value)) * 100;
+    }
+  }
+
+  el.innerHTML = liquidityChangeBadge('1D', oneDayBp, ' bp', 1);
+}
+
   function syncLiquidityQuotes() {
     ensureLiquidityQuoteLayout();
     if (typeof state === 'undefined' || !state?.raw) return;
@@ -526,8 +583,10 @@ function setTreasuryChangeBadges(id, key, live, summaryRow) {
     setTreasuryChangeBadges('liq10y', 'dgs10', q10, summary.dgs10);
     setTreasuryChangeBadges('liq30y', 'dgs30', q30, summary.dgs30);
     setLiquidityQuote('liqReal10', summary.dfii10 || latestFiniteRow(state.raw.dfii10,'value'), 2, 'daily');
+    setRealYieldChangeBadge(summary.dfii10);
     setLiquidityQuote('liqHy', summary.hy_oas || latestFiniteRow(state.raw.hy,'value'), 2, 'daily');
     setLiquidityQuote('liqVix', qVix || latestFiniteRow(state.raw.vix,'close'), 2, qVix ? 'intraday' : 'daily');
+    setVixChangeBadges(qVix, summary.vix);
     setLiquidityQuote('liqNfci', latestFiniteRow(state.raw.nfci,'value'), 3, 'daily');
   }
 
