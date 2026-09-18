@@ -147,7 +147,10 @@ jobs:
               'vix':{
                   'value_col':'close',
                   'current_pair':('Yahoo Finance','^VIX'),
-                  'allowed_pairs':{('Yahoo Finance','^VIX')},
+                  'allowed_pairs':{
+                      ('Yahoo Finance','^VIX'),
+                      ('Cboe Global Markets','VIX'),
+                  },
               },
           }
           for key,cfg in expected.items():
