@@ -71,7 +71,7 @@ jobs:
           p=Path('data/ai_bubble/market_liquidity/market_quotes.json')
           d=json.loads(p.read_text(encoding='utf-8'))
           q=d.get('quotes') or {}
-          required=('ndx','sox','nvda','vix','dgs10','dgs30')
+          required=('ndx','sox','nvda','googl','msft','amzn','vix','dgs10','dgs30')
           missing=[k for k in required if k not in q or q[k].get('price') is None]
           if missing:
               raise SystemExit(f'Missing quote(s): {missing}')

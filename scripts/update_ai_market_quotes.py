@@ -2,7 +2,7 @@
 """Refresh intraday quote overlays used by the AI Bubble Monitor.
 
 Policy:
-- NDX / SOX / NVDA / VIX: Yahoo Finance intraday bars (existing behavior).
+- NDX / SOX / NVDA / GOOGL / MSFT / AMZN / VIX: Yahoo Finance intraday bars.
 - US 10Y / 30Y headline yields: Investing.com public quote pages are primary.
 - Treasury fallbacks: TradingView public scanner, then Trading Economics public pages.
 - Official Treasury daily histories remain untouched in dgs10.csv / dgs30.csv.
@@ -40,6 +40,9 @@ YAHOO_SYMBOLS = {
     "ndx": {"symbol": "^NDX", "name": "Nasdaq-100", "unit": "index"},
     "sox": {"symbol": "^SOX", "name": "PHLX Semiconductor Index", "unit": "index"},
     "nvda": {"symbol": "NVDA", "name": "NVIDIA", "unit": "USD"},
+    "googl": {"symbol": "GOOGL", "name": "Alphabet", "unit": "USD"},
+    "msft": {"symbol": "MSFT", "name": "Microsoft", "unit": "USD"},
+    "amzn": {"symbol": "AMZN", "name": "Amazon", "unit": "USD"},
     "vix": {"symbol": "^VIX", "name": "Cboe Volatility Index", "unit": "index"},
 }
 

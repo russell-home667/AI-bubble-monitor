@@ -9,6 +9,9 @@
     yahooNDX: {label:'Yahoo Finance · NDX', url:'https://finance.yahoo.com/quote/%5ENDX/'},
     yahooSOX: {label:'Yahoo Finance · SOX', url:'https://finance.yahoo.com/quote/%5ESOX/'},
     yahooNVDA: {label:'Yahoo Finance · NVDA', url:'https://finance.yahoo.com/quote/NVDA/'},
+    yahooGOOGL: {label:'Yahoo Finance · GOOGL', url:'https://finance.yahoo.com/quote/GOOGL/'},
+    yahooMSFT: {label:'Yahoo Finance · MSFT', url:'https://finance.yahoo.com/quote/MSFT/'},
+    yahooAMZN: {label:'Yahoo Finance · AMZN', url:'https://finance.yahoo.com/quote/AMZN/'},
     yahooQQQ: {label:'Yahoo Finance · QQQ', url:'https://finance.yahoo.com/quote/QQQ/'},
     yahooRSP: {label:'Yahoo Finance · RSP', url:'https://finance.yahoo.com/quote/RSP/'},
     yahooBrent: {label:'Yahoo Finance · BZ=F', url:'https://finance.yahoo.com/quote/BZ=F/'},
@@ -57,7 +60,7 @@
   const H5_HISTORY = [S.yfMSFT,S.yfGOOGL,S.yfAMZN,S.amznQ226SEC,S.yfMETA,S.yfORCL];
   const H4_HISTORY = [S.yfMSFT,S.yfGOOGL,S.yfAMZN,S.amznQ226SEC,S.yfORCL];
   const CLOUD = [S.cloudMSFT,S.cloudAMZN,S.cloudGOOGL,S.cloudORCL];
-  const MARKET = [S.yahooNDX,S.yahooSOX,S.yahooNVDA];
+  const MARKET = [S.yahooNDX,S.yahooSOX,S.yahooNVDA,S.yahooGOOGL,S.yahooMSFT,S.yahooAMZN];
   const MARKET_HEAT = [S.yahooNDX,S.yahooSOX,S.yahooNVDA,S.yahooQQQ,S.yahooRSP];
   const LIQUIDITY = [S.treasuryReal,S.fredHY,S.yahooVIX];
   const RATES = [S.yahooTNX,S.treasuryNominal,S.yahooTYX,S.treasuryNominal,S.treasuryReal,S.fredHY,S.yahooVIX];

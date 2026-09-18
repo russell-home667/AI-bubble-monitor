@@ -139,7 +139,7 @@
 
     const head = card.querySelector('.chart-head');
     const sub = head?.querySelector('.chart-sub');
-    if (sub) sub.textContent = 'NDX / SOX / NVDA · normalized to 100 at selected-range start';
+    if (sub) sub.textContent = 'NDX / SOX / NVDA / GOOGL / MSFT / AMZN · normalized to 100 at selected-range start';
 
     let grid = document.getElementById('marketLatestGrid');
     if (grid) {
@@ -160,8 +160,9 @@
         .market-card-enhanced .source-row{font-size:9px;line-height:1.6;margin-top:7px;}
         .market-card-enhanced #marketChart{height:430px!important;margin-top:10px;}
         #marketLatestGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:20px 22px 16px;border:1px solid rgba(89,151,190,.15);border-radius:14px;overflow:hidden;background:rgba(3,14,25,.22);}
-        #marketLatestGrid .market-quote{min-width:0;padding:20px 22px 18px;border-right:1px solid rgba(89,151,190,.12);}
-        #marketLatestGrid .market-quote:last-child{border-right:0;}
+        #marketLatestGrid .market-quote{min-width:0;padding:20px 22px 18px;border-right:1px solid rgba(89,151,190,.12);border-bottom:1px solid rgba(89,151,190,.12);}
+        #marketLatestGrid .market-quote:nth-child(3n){border-right:0;}
+        #marketLatestGrid .market-quote:nth-last-child(-n+3){border-bottom:0;}
         #marketLatestGrid .market-label{color:#7893aa;font-size:10px;font-weight:700;letter-spacing:.55px;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
         #marketLatestGrid .market-value-row{display:flex;align-items:baseline;gap:10px;margin-top:11px;min-width:0;}
         #marketLatestGrid .market-value{color:#f0f8ff;font-size:34px;line-height:1;font-weight:720;letter-spacing:.2px;}
@@ -180,7 +181,10 @@
     grid.innerHTML = [
       ['marketNdx','NASDAQ-100','index'],
       ['marketSox','PHLX Semiconductor','index'],
-      ['marketNvda','NVIDIA','USD']
+      ['marketNvda','NVIDIA','USD'],
+      ['marketGoogl','Alphabet','USD'],
+      ['marketMsft','Microsoft','USD'],
+      ['marketAmzn','Amazon','USD']
     ].map(([id,label,unit]) => `<div class="market-quote"><div class="market-label">${label}</div><div class="market-value-row"><span class="market-value" id="${id}Value">—</span><span class="market-unit">${unit}</span></div><div class="market-change" id="${id}Change"><span>—</span></div><div class="market-date" id="${id}Date">Latest quote · loading…</div></div>`).join('');
     if (head?.nextSibling) card.insertBefore(grid, head.nextSibling); else if (head) head.after(grid); else card.insertBefore(grid, chart);
     bindMarketRangeSync(card);
@@ -242,6 +246,9 @@
     setMarketQuote('marketNdx', 'ndx', live.ndx, fallback.ndx, 2);
     setMarketQuote('marketSox', 'sox', live.sox, fallback.sox, 2);
     setMarketQuote('marketNvda', 'nvda', live.nvda, fallback.nvda, 2);
+    setMarketQuote('marketGoogl', 'googl', live.googl, fallback.googl, 2);
+    setMarketQuote('marketMsft', 'msft', live.msft, fallback.msft, 2);
+    setMarketQuote('marketAmzn', 'amzn', live.amzn, fallback.amzn, 2);
   }
 
   async function loadMarketQuoteData() {
