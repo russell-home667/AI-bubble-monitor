@@ -1,5 +1,5 @@
 {
-  "generated_at_bjt": "2026-09-18T19:01:47+08:00",
+  "generated_at_bjt": "2026-09-18T19:18:32+08:00",
   "timezone": "Asia/Shanghai",
   "source": "Mixed intraday sources",
   "poll_frequency": "10 minutes",
@@ -23,7 +23,7 @@
       "symbol": "^NDX",
       "name": "Nasdaq-100",
       "unit": "index",
-      "last_checked_bjt": "2026-09-18T19:01:44+08:00"
+      "last_checked_bjt": "2026-09-18T19:18:29+08:00"
     },
     "sox": {
       "price": 11599.492188,
@@ -38,7 +38,7 @@
       "symbol": "^SOX",
       "name": "PHLX Semiconductor Index",
       "unit": "index",
-      "last_checked_bjt": "2026-09-18T19:01:44+08:00"
+      "last_checked_bjt": "2026-09-18T19:18:29+08:00"
     },
     "nvda": {
       "price": 219.339996,
@@ -53,13 +53,13 @@
       "symbol": "NVDA",
       "name": "NVIDIA",
       "unit": "USD",
-      "last_checked_bjt": "2026-09-18T19:01:44+08:00"
+      "last_checked_bjt": "2026-09-18T19:18:29+08:00"
     },
     "vix": {
-      "price": 15.29,
-      "previous_close": 15.44,
-      "change_1d_pct": -0.9715,
-      "timestamp": "2026-09-18T18:46:31+08:00",
+      "price": 15.3,
+      "previous_close": 17.71,
+      "change_1d_pct": -13.6081,
+      "timestamp": "2026-09-18T19:03:16+08:00",
       "bar_interval": "1m",
       "poll_frequency": "10 minutes",
       "source": "Yahoo Finance ^VIX",
@@ -68,18 +68,18 @@
       "symbol": "^VIX",
       "name": "Cboe Volatility Index",
       "unit": "index",
-      "last_checked_bjt": "2026-09-18T19:01:45+08:00"
+      "last_checked_bjt": "2026-09-18T19:18:30+08:00"
     },
     "dgs10": {
-      "price": 4.956,
-      "previous_close": 4.947,
-      "change_1d_pct": 0.1819,
-      "timestamp": "2026-09-18T19:01:45+08:00",
-      "source_market_time_text": "06:58:03",
+      "price": 4.964,
+      "previous_close": null,
+      "change_1d_pct": null,
+      "timestamp": "2026-09-18T19:18:31+08:00",
+      "source_market_time_text": "07:18:06",
       "bar_interval": "live quote",
       "poll_frequency": "10 minutes",
       "source": "Investing.com US 10Y Bond Yield",
-      "source_url": "https://www.investing.com/rates-bonds/u.s.-10-year-bond-yield",
+      "source_url": "https://www.investing.com/rates-bonds/u.s.-10-year-bond-yield-opinion",
       "quote_status": "INVESTING_REALTIME",
       "source_state": "Real-time Data",
       "transport": "curl_cffi/chrome",
@@ -88,26 +88,27 @@
       "symbol": "TVC:US10Y",
       "name": "10-Year Treasury Yield",
       "unit": "%",
-      "last_checked_bjt": "2026-09-18T19:01:45+08:00"
+      "last_checked_bjt": "2026-09-18T19:18:31+08:00"
     },
     "dgs30": {
-      "price": 5.288,
+      "price": 5.289,
       "previous_close": null,
-      "change_1d_pct": -0.0378,
-      "timestamp": "2026-09-18T19:01:47+08:00",
-      "bar_interval": "live scanner quote",
+      "change_1d_pct": null,
+      "timestamp": "2026-09-18T19:18:32+08:00",
+      "source_market_time_text": "07:09:57",
+      "bar_interval": "live quote",
       "poll_frequency": "10 minutes",
-      "source": "TradingView TVC:US30Y",
-      "source_url": "https://www.tradingview.com/symbols/TVC-US30Y/",
-      "quote_status": "TRADINGVIEW_FALLBACK",
-      "source_state": "streaming",
-      "provider_rank": 2,
-      "provider": "TradingView",
-      "fallback_reason": "Investing.com: https://www.investing.com/rates-bonds/u.s.-30-year-bond-yield: curl_cffi HTTP 403 len=3; requests HTTP 403 len=3 | https://www.investing.com/rates-bonds/u.s.-30-year-bond-yield-opinion: curl_cffi HTTP 403 len=3; requests HTTP 403 len=3 | https://www.investing.com/rates-bonds/u.s.-30-year-bond-yield-historical-data: curl_cffi HTTP 403 len=3; requests HTTP 403 len=3 | https://www.investing.com/rates-bonds/u.s.-30-year-bond-yield-streaming-chart: curl_cffi HTTP 403 len=3; requests HTTP 403 len=3",
+      "source": "Investing.com US 30Y Bond Yield",
+      "source_url": "https://www.investing.com/rates-bonds/u.s.-30-year-bond-yield-opinion",
+      "quote_status": "INVESTING_REALTIME",
+      "source_state": "Real-time Data",
+      "transport": "curl_cffi/chrome",
+      "provider_rank": 1,
+      "provider": "Investing.com",
       "symbol": "TVC:US30Y",
       "name": "30-Year Treasury Yield",
       "unit": "%",
-      "last_checked_bjt": "2026-09-18T19:01:47+08:00"
+      "last_checked_bjt": "2026-09-18T19:18:32+08:00"
     },
     "googl": {
       "price": 347.329987,
@@ -122,7 +123,7 @@
       "symbol": "GOOGL",
       "name": "Alphabet",
       "unit": "USD",
-      "last_checked_bjt": "2026-09-18T19:01:44+08:00"
+      "last_checked_bjt": "2026-09-18T19:18:29+08:00"
     },
     "msft": {
       "price": 497.75,
@@ -137,7 +138,7 @@
       "symbol": "MSFT",
       "name": "Microsoft",
       "unit": "USD",
-      "last_checked_bjt": "2026-09-18T19:01:44+08:00"
+      "last_checked_bjt": "2026-09-18T19:18:29+08:00"
     },
     "amzn": {
       "price": 251.190002,
@@ -152,12 +153,8 @@
       "symbol": "AMZN",
       "name": "Amazon",
       "unit": "USD",
-      "last_checked_bjt": "2026-09-18T19:01:45+08:00"
+      "last_checked_bjt": "2026-09-18T19:18:30+08:00"
     }
   },
-  "errors": {
-    "dgs30": [
-      "Investing.com: https://www.investing.com/rates-bonds/u.s.-30-year-bond-yield: curl_cffi HTTP 403 len=3; requests HTTP 403 len=3 | https://www.investing.com/rates-bonds/u.s.-30-year-bond-yield-opinion: curl_cffi HTTP 403 len=3; requests HTTP 403 len=3 | https://www.investing.com/rates-bonds/u.s.-30-year-bond-yield-historical-data: curl_cffi HTTP 403 len=3; requests HTTP 403 len=3 | https://www.investing.com/rates-bonds/u.s.-30-year-bond-yield-streaming-chart: curl_cffi HTTP 403 len=3; requests HTTP 403 len=3"
-    ]
-  }
+  "errors": {}
 }
