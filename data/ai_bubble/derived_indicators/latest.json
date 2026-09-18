@@ -2,7 +2,7 @@
   "module": "AI Bubble Monitor - Derived Indicators",
   "step": 9,
   "timezone": "Asia/Shanghai",
-  "generated_at_bjt": "2026-09-18T14:53:59+08:00",
+  "generated_at_bjt": "2026-09-18T15:30:13+08:00",
   "methodology_version": "heuristic_v1_pre_backtest",
   "calibration_note": "Thresholds are provisional heuristics. Step 12 will backtest/calibrate them against historical stress periods.",
   "latest_complete_quarter": "2026Q2",
@@ -85,8 +85,8 @@
       "strength_label": "strong",
       "coverage_pct": 70.0,
       "gpu_30d_component_available": false,
-      "gpu_scoring_eligible": true,
-      "gpu_data_quality": "live_market",
+      "gpu_scoring_eligible": false,
+      "gpu_data_quality": "reference",
       "note": "GPU weight is included only for live-market, scoring-eligible data with 30 days of same-source history; reference/stale fallback values are excluded and remaining weights renormalized."
     }
   },
@@ -94,7 +94,7 @@
     "market_liquidity": "2026-09-18T13:26:48+08:00",
     "hyperscalers": "2026-09-18T09:08:24+08:00",
     "compute_fundamentals": "2026-09-18T14:25:16+08:00",
-    "gpu_rental_prices": "2026-09-18T14:53:33+08:00"
+    "gpu_rental_prices": "2026-09-18T15:29:46+08:00"
   },
   "errors": {}
 }
