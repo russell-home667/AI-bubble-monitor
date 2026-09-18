@@ -38,12 +38,18 @@ jobs:
       - name: Update GPU rental price snapshots
         env:
           VAST_API_KEY: ${{ secrets.VAST_API_KEY }}
+          RUNPOD_API_KEY: ${{ secrets.RUNPOD_API_KEY }}
         run: |
           set -euo pipefail
           if [ -n "${VAST_API_KEY:-}" ]; then
             echo "Vast.ai API key detected: live marketplace mode enabled"
           else
-            echo "::warning::VAST_API_KEY is not configured; GPU module will use Runpod reference fallback"
+            echo "::warning::VAST_API_KEY is not configured; GPU module will use Runpod as display-only fallback"
+          fi
+          if [ -n "${RUNPOD_API_KEY:-}" ]; then
+            echo "Runpod API key detected: API v2 catalog + availability enabled"
+          else
+            echo "::warning::RUNPOD_API_KEY is not configured; Runpod public-page fallback will be used"
           fi
           python scripts/update_ai_gpu_prices.py
       - name: Validate generated module
@@ -72,8 +78,34 @@ jobs:
               bad=[k for k,v in g.items() if v.get('status')!='LIVE_MARKET']
               if bad: raise SystemExit(f'Scoring marked eligible with non-live GPUs: {bad}')
           else:
-              print('GPU module is reference/degraded and will be excluded from composite scoring')
-          print({k:(v.get('daily_price_usd_per_gpu_hr'),v.get('status')) for k,v in g.items()})
+              print('GPU module is reference/degraded and will be excluded from existing composite scoring')
+
+          if d.get('runpod_api_key_configured') and d.get('runpod_status') == 'LIVE_API_V2':
+              bad=[]
+              for name,v in g.items():
+                  rp=v.get('runpod') or {}
+                  if rp.get('status')!='LIVE_API_V2' or not rp.get('community_price_usd_per_gpu_hr'):
+                      bad.append(name)
+              if bad:
+                  raise SystemExit(f'Runpod API marked live but missing GPU data: {bad}')
+              cp=d.get('cross_platform_composite') or {}
+              if cp.get('gpu_count') != 3:
+                  raise SystemExit(f'Cross-platform composite missing tracked GPUs: {cp}')
+          elif d.get('runpod_api_key_configured'):
+              print(f"::warning::Runpod API degraded; fallback preserved: {d.get('runpod_error')}")
+
+          for pth in [
+              Path('data/ai_bubble/gpu_rental_prices/platform_daily.csv'),
+              Path('data/ai_bubble/gpu_rental_prices/cross_platform_composite_daily.csv'),
+          ]:
+              if not pth.exists():
+                  raise SystemExit(f'Missing generated cross-platform file: {pth}')
+          print({k:{
+              'vast':v.get('daily_price_usd_per_gpu_hr'),
+              'status':v.get('status'),
+              'runpod':(v.get('runpod') or {}).get('community_price_usd_per_gpu_hr'),
+              'availability':(v.get('runpod') or {}).get('availability')
+          } for k,v in g.items()})
           PY
       - name: Commit refreshed data
         run: |
