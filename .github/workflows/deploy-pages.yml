@@ -50,7 +50,7 @@ jobs:
           tail=html.split('</html>',1)[1]
           if tail.strip():
               raise SystemExit('Non-whitespace content exists after </html>')
-          opens=len(re.findall(r'<script(?:\\s[^>]*)?>',html,flags=re.I))
+          opens=len(re.findall(r'<script(?:\s[^>]*)?>',html,flags=re.I))
           closes=len(re.findall(r'</script>',html,flags=re.I))
           if opens != closes:
               raise SystemExit(f'Unbalanced script tags: {opens} open vs {closes} close')
@@ -58,7 +58,7 @@ jobs:
               n=html.count(asset)
               if n != 1:
                   raise SystemExit(f'{asset} referenced {n} times (expected 1)')
-          inline=re.findall(r'<script(?![^>]*\\bsrc=)[^>]*>(.*?)</script>',html,flags=re.I|re.S)
+          inline=re.findall(r'<script(?![^>]*\bsrc=)[^>]*>(.*?)</script>',html,flags=re.I|re.S)
           with tempfile.TemporaryDirectory() as td:
               for i,code in enumerate(inline):
                   p=Path(td)/f'inline-{i}.js'
