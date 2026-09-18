@@ -536,12 +536,20 @@ def build_platform_daily(snapshots: pd.DataFrame) -> tuple[pd.DataFrame, pd.Data
 
     comp_rows: list[dict[str, Any]] = []
     for date_bjt, grp in df.groupby("date_bjt"):
-        vals = pd.to_numeric(grp["blended_index_60_40"], errors="coerce").dropna()
-        if len(vals) < 2:
+        valid = grp[pd.to_numeric(grp["blended_index_60_40"], errors="coerce").notna()].copy()
+        # Historical composite is deliberately full-coverage only. Allowing
+        # 2-GPU and 3-GPU baskets to share one time series would create false
+        # 7/30/90-day moves when basket composition changes.
+        if len(valid) != len(GPUS):
             continue
+        gpu_set = sorted(valid["gpu"].astype(str).tolist())
+        if gpu_set != sorted(GPUS.keys()):
+            continue
+        vals = pd.to_numeric(valid["blended_index_60_40"], errors="coerce")
         comp_rows.append({
             "date_bjt": date_bjt,
             "gpu_count": int(len(vals)),
+            "gpu_set": ",".join(gpu_set),
             "composite_index": float(vals.mean()),
         })
     comp = pd.DataFrame(comp_rows)
@@ -946,17 +954,20 @@ def main() -> None:
             "gpu_count": current_gpu_count,
             "composite_index": round(sum(current_blends) / current_gpu_count, 4),
             "change_7d_pct": (
-                None if latest_hist_cross is None
+                None if not cross_platform_eligible
+                or latest_hist_cross is None
                 or pd.isna(latest_hist_cross["change_7d_pct"])
                 else float(latest_hist_cross["change_7d_pct"])
             ),
             "change_30d_pct": (
-                None if latest_hist_cross is None
+                None if not cross_platform_eligible
+                or latest_hist_cross is None
                 or pd.isna(latest_hist_cross["change_30d_pct"])
                 else float(latest_hist_cross["change_30d_pct"])
             ),
             "change_90d_pct": (
-                None if latest_hist_cross is None
+                None if not cross_platform_eligible
+                or latest_hist_cross is None
                 or pd.isna(latest_hist_cross["change_90d_pct"])
                 else float(latest_hist_cross["change_90d_pct"])
             ),
@@ -967,9 +978,10 @@ def main() -> None:
             "weights": BLEND_WEIGHTS,
             "note": (
                 "Current composite uses only GPUs with simultaneous live Vast "
-                "and Runpod API coverage. Vast and Runpod are normalized "
-                "independently to 100 before blending; raw prices are never "
-                "directly averaged."
+                "and Runpod API coverage. Historical 7/30/90-day changes are "
+                "reported only when current coverage is full 3/3; the historical "
+                "composite itself contains full H100/H200/B200 coverage only. "
+                "Vast and Runpod are normalized independently before blending."
             ),
         }
 
@@ -1001,9 +1013,10 @@ def main() -> None:
             ),
             "cross_platform": (
                 "Normalize each platform price series independently to 100, "
-                "then blend 60% Vast + 40% Runpod Community. This avoids "
-                "directly averaging prices with different market/catalog "
-                "semantics."
+                "then blend 60% Vast + 40% Runpod Community. Raw prices are "
+                "never directly averaged. The historical composite is emitted "
+                "only on dates with full H100/H200/B200 dual-platform coverage "
+                "so basket-composition changes cannot create false returns."
             ),
             "fallback": (
                 "If Runpod API is unavailable, use the Runpod public "
