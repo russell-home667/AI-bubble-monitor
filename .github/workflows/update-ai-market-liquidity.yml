@@ -120,25 +120,60 @@ jobs:
           print('nfci', nfci['observation_date'], nfci['value'], nfci.get('source'))
 
           expected={
-              'dgs10':('U.S. Department of the Treasury','BC_10YEAR','value'),
-              'dgs30':('U.S. Department of the Treasury','BC_30YEAR','value'),
-              'dfii10':('U.S. Department of the Treasury','TC_10YEAR','value'),
-              'vix':('Yahoo Finance','^VIX','close'),
+              'dgs10':{
+                  'value_col':'value',
+                  'current_pair':('U.S. Department of the Treasury','BC_10YEAR'),
+                  'allowed_pairs':{
+                      ('U.S. Department of the Treasury','BC_10YEAR'),
+                      ('Federal Reserve Board H.15 / FRED','DGS10'),
+                  },
+              },
+              'dgs30':{
+                  'value_col':'value',
+                  'current_pair':('U.S. Department of the Treasury','BC_30YEAR'),
+                  'allowed_pairs':{
+                      ('U.S. Department of the Treasury','BC_30YEAR'),
+                      ('Federal Reserve Board H.15 / FRED','DGS30'),
+                  },
+              },
+              'dfii10':{
+                  'value_col':'value',
+                  'current_pair':('U.S. Department of the Treasury','TC_10YEAR'),
+                  'allowed_pairs':{
+                      ('U.S. Department of the Treasury','TC_10YEAR'),
+                      ('Federal Reserve Board H.15 / FRED','DFII10'),
+                  },
+              },
+              'vix':{
+                  'value_col':'close',
+                  'current_pair':('Yahoo Finance','^VIX'),
+                  'allowed_pairs':{('Yahoo Finance','^VIX')},
+              },
           }
-          for key,(source,symbol,value_col) in expected.items():
+          for key,cfg in expected.items():
+              value_col=cfg['value_col']
               df=pd.read_csv(base/f'{key}.csv')
               if df.empty:
                   raise SystemExit(f'{key}.csv empty')
               if value_col not in df.columns:
                   raise SystemExit(f'{key}.csv missing {value_col} column: {list(df.columns)}')
-              sources=set(df['source'].dropna().astype(str).unique())
-              symbols=set(df['source_symbol'].dropna().astype(str).unique())
-              if sources != {source}:
-                  raise SystemExit(f'{key} source contamination: {sources}')
-              if symbols != {symbol}:
-                  raise SystemExit(f'{key} symbol contamination: {symbols}')
+              pairs=set(
+                  zip(
+                      df['source'].dropna().astype(str),
+                      df['source_symbol'].dropna().astype(str),
+                  )
+              )
+              unexpected=pairs-cfg['allowed_pairs']
+              if unexpected:
+                  raise SystemExit(f'{key} unexpected source/symbol pairs: {unexpected}')
               last=df.dropna(subset=['date',value_col]).iloc[-1]
-              print(key, last['date'], last[value_col], source, symbol)
+              latest_pair=(str(last['source']),str(last['source_symbol']))
+              if latest_pair != cfg['current_pair']:
+                  raise SystemExit(
+                      f"{key} latest row is not current official source: "
+                      f"{last['date']} {latest_pair} expected {cfg['current_pair']}"
+                  )
+              print(key, last['date'], last[value_col], *latest_pair)
           PY
       - name: Commit refreshed data
         run: |
