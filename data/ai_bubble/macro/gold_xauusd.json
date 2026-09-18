@@ -47,25 +47,22 @@
   },
   "history_fetch_warning": "Yahoo Finance: 404 Client Error: Not Found for url: https://query1.finance.yahoo.com/v8/finance/chart/XAUUSD%3DX?range=1y&interval=1d&events=history",
   "world_bank_fetch_warning": null,
-  "previous_close_fetch_warning": "Investing.com: https://www.investing.com/currencies/xau-usd: curl_cffi HTTP 403 len=3; requests HTTP 403 len=3 | https://www.investing.com/currencies/xau-usd-candlestick: Prev. Close not found | https://www.investing.com/currencies/xau-usd-historical-data: curl_cffi HTTP 403 len=3; requests HTTP 403 len=3",
+  "previous_close_fetch_warning": "Investing.com: https://www.investing.com/currencies/xau-usd: curl_cffi HTTP 403 len=3; requests HTTP 403 len=3 | https://www.investing.com/currencies/xau-usd-candlestick: Prev. Close not found | https://www.investing.com/currencies/xau-usd-historical-data: Prev. Close not found | XAUS history: 503 Server Error: Service Unavailable for url: https://xaus.com/api/v1/history",
   "latest_quote": {
-    "price": 4392.0,
-    "timestamp": "2026-09-18T18:17:54.328Z",
-    "quote_status": "XAUS_FRESH",
-    "source": "XAUS Gold Data API",
+    "price": 4388.9,
+    "timestamp": "2026-09-18T18:34:39Z",
+    "quote_status": "GOLD_API_REALTIME",
+    "source": "gold-api.com",
     "source_state": {
-      "status": "fresh",
-      "as_of": "2026-09-18T18:17:54.328Z",
-      "source": "upstream",
-      "age_seconds": 0
+      "status": "fresh"
     },
-    "previous_close": 4399.7,
-    "previous_close_source": "XAUS Gold Data API daily history",
-    "previous_close_url": "https://xaus.com/api/v1/history",
-    "previous_close_transport": "requests_json",
+    "previous_close": 4346.49,
+    "previous_close_source": "goldprice.dev XAU-USD-SPOT",
+    "previous_close_url": null,
+    "previous_close_transport": "stored_history",
     "previous_close_observation_date": "2026-09-17",
-    "change_vs_previous_close_pct": -0.175,
-    "retrieved_at_bjt": "2026-09-19T02:18:09+08:00",
+    "change_vs_previous_close_pct": 0.9757,
+    "retrieved_at_bjt": "2026-09-19T02:34:59+08:00",
     "observation_date": "2026-09-17"
   },
   "data": [
@@ -12866,5 +12863,5 @@
       "low": 4266.6
     }
   ],
-  "updated_at_bjt": "2026-09-19T02:18:09+08:00"
+  "updated_at_bjt": "2026-09-19T02:34:59+08:00"
 }
