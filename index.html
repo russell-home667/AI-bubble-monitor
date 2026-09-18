@@ -183,9 +183,11 @@ window.addEventListener('load',loadBrentStandalone);
     <div class="grid4" id="computeCards" style="margin-top:12px"></div>
   </section>
 
-  <section class="section"><div class="section-head"><div><div class="section-title">GPU Rental Market</div><div class="section-note">Vast.ai live marketplace + Runpod API v2 catalog/availability · hourly cross-platform monitor</div></div></div>
-    <div class="grid3" id="gpuCards"></div>
+  <section class="section"><div class="section-head"><div><div class="section-title">GPU Rental Market</div><div class="section-note">Vast.ai live marketplace + Runpod API v2 catalog/availability · cross-platform index = 60% Vast + 40% Runpod</div></div></div>
+    <div class="grid3" id="gpuSummaryCards"></div>
+    <div class="grid3" id="gpuCards" style="margin-top:12px"></div>
     <div class="card chart-card" style="margin-top:12px"><div class="chart-head"><div><div class="chart-title">GPU Rental Price History</div><div class="chart-sub">USD per GPU-hour · Vast market median (solid) vs Runpod Community catalog (dashed)</div></div><div class="range" data-chart="gpuChart"><button data-range="30D" class="active">30D</button><button data-range="90D">90D</button><button data-range="1Y">1Y</button><button data-range="ALL">All</button></div></div><div id="gpuChart" class="chart"></div></div>
+    <div class="card chart-card" style="margin-top:12px"><div class="chart-head"><div><div class="chart-title">Cross-Platform GPU Rental Price Index</div><div class="chart-sub">Base = 100 · each platform normalized independently · 60% Vast + 40% Runpod Community</div></div><div class="range" data-chart="gpuCompositeChart"><button data-range="30D" class="active">30D</button><button data-range="90D">90D</button><button data-range="1Y">1Y</button><button data-range="ALL">All</button></div></div><div id="gpuCompositeChart" class="chart"></div></div>
   </section>
 
   <section class="section"><div class="section-head"><div><div class="section-title">Top Score History</div><div class="section-note">从本监控系统启用之日起永久累计</div></div></div>
@@ -199,7 +201,7 @@ window.addEventListener('load',loadBrentStandalone);
 </div>
 <script>
 const BASE='data/ai_bubble/';
-const state={charts:{},raw:{},ranges:{marketChart:'3Y',liquidityChart:'3Y',tsmcChart:'1Y',gpuChart:'30D'}};
+const state={charts:{},raw:{},ranges:{marketChart:'3Y',liquidityChart:'3Y',tsmcChart:'1Y',gpuChart:'30D',gpuCompositeChart:'30D'}};
 const moneyBn=v=>v==null?'—':'$'+Number(v).toFixed(1)+'bn';
 const num=(v,d=1)=>v==null||Number.isNaN(Number(v))?'—':Number(v).toFixed(d);
 const pct=(v,d=1)=>v==null?'—':(Number(v)>=0?'+':'')+Number(v).toFixed(d)+'%';
@@ -304,7 +306,41 @@ function renderMarketCards(m,quotes={}){
 function renderHyper(h){const x=h.h5_latest_complete;const cards=[['H5 Cash CapEx',moneyBn(x.cash_capex_usd_bn),`YoY ${pct(x.cash_capex_yoy_pct)}`],['H5 Standardized FCF',moneyBn(x.fcf_usd_bn),`YoY ${pct(x.fcf_yoy_pct)}`],['CapEx / Revenue',num(x.capex_revenue_pct,1)+'%',`Revenue YoY ${pct(x.revenue_yoy_pct)}`],['D&A / Revenue',num(x.da_revenue_pct,1)+'%',`FCF margin ${num(x.fcf_margin_pct,1)}%`]];document.getElementById('hyperCards').innerHTML=cards.map(x=>metricCard(...x)).join('')}
 function renderCompute(d,c){const a=d.indicators,n=c.nvda,t=c.tsmc;const cards=[['Compute Demand Score',num(a.compute_demand_score.score_0_100,1)+'/100',`${a.compute_demand_score.strength_label} · coverage ${num(a.compute_demand_score.coverage_pct,0)}%`],['NVIDIA DC Revenue',moneyBn(n.data_center_revenue_usd_bn),`YoY ${pct(n.data_center_yoy_pct)} · QoQ ${pct(n.data_center_qoq_pct)}`],['NVIDIA Demand Quality',num(a.nvidia_demand_quality_score.score_0_100,1)+'/100',`GM ${num(n.gross_margin_pct,1)}% · DSO ${num(n.dso_days,0)}d · Inv ${num(n.inventory_days,0)}d`],['TSMC Revenue Growth',pct(t.yoy_pct_reported),`3M rolling ${pct(t.rolling_3m_yoy_pct)}`]];document.getElementById('computeCards').innerHTML=cards.map(x=>metricCard(...x)).join('')}
 function renderGpu(g){
-  document.getElementById('gpuCards').innerHTML=['H100','H200','B200'].map(k=>{
+  const tracked=['H100','H200','B200'];
+  const cards=tracked.map(k=>g.gpus?.[k]).filter(Boolean);
+  const vastLive=cards.filter(x=>x.status==='LIVE_MARKET').length;
+  const runpodLive=cards.filter(x=>(x.runpod||{}).status==='LIVE_API_V2').length;
+  const cross=g.cross_platform_composite||{};
+  const coverage=Number(cross.gpu_count||0);
+  const crossTrend=cross.change_30d_pct==null?'30D collecting':`30D ${pct(cross.change_30d_pct)}`;
+  const runpodAvail=tracked.map(k=>`${k} ${g.gpus?.[k]?.runpod?.availability||'—'}`).join(' · ');
+  const vastBreadth=tracked.map(k=>{
+    const x=g.gpus?.[k];
+    return `${k} ${x?.status==='LIVE_MARKET'?(x.offers_count??'—')+' offers':'no live offer'}`;
+  }).join(' · ');
+
+  const summary=document.getElementById('gpuSummaryCards');
+  if(summary){
+    summary.innerHTML=[
+      metricCard(
+        'Cross-Platform GPU Price Index',
+        cross.composite_index==null?'—':num(cross.composite_index,1),
+        `Base 100 · 60% Vast + 40% Runpod · current coverage ${coverage}/3 · ${cross.eligible?'FULL':'PARTIAL'} · ${crossTrend}`
+      ),
+      metricCard(
+        'Vast Marketplace Coverage',
+        `${vastLive}/3 LIVE`,
+        `${vastBreadth} · verified on-demand marketplace median`
+      ),
+      metricCard(
+        'Runpod API v2 Coverage',
+        `${runpodLive}/3 LIVE`,
+        `Community availability · ${runpodAvail}`
+      )
+    ].join('');
+  }
+
+  document.getElementById('gpuCards').innerHTML=tracked.map(k=>{
     const x=g.gpus?.[k];
     if(!x)return metricCard(k,'—','No current GPU quote');
     const quality=g.data_quality?.level||'unknown';
@@ -312,18 +348,20 @@ function renderGpu(g){
     const live=x.status==='LIVE_MARKET';
     const rp=x.runpod||{};
     const cp=x.cross_platform||{};
-    const vastLine=live&&x.offers_count!=null
-      ? `Vast ${x.offers_count} offers · P25 $${num(x.market_p25,2)}–P75 $${num(x.market_p75,2)}`
-      : 'Vast no current eligible offer';
+    const vastLine=live
+      ? `Vast median $${num(x.market_median??x.daily_price_usd_per_gpu_hr,2)}/h · ${x.offers_count??'—'} offers · P25 $${num(x.market_p25,2)} · P75 $${num(x.market_p75,2)}`
+      : 'Vast · no current verified rentable offer';
     const rpLine=rp.status==='LIVE_API_V2'
-      ? `Runpod Community $${num(rp.community_price_usd_per_gpu_hr,2)} · Secure $${num(rp.secure_price_usd_per_gpu_hr,2)} · avail ${rp.availability||'—'} · max ${rp.max_count_community??'—'}`
+      ? `Runpod Community $${num(rp.community_price_usd_per_gpu_hr,2)}/h · Secure $${num(rp.secure_price_usd_per_gpu_hr,2)}/h · availability ${rp.availability||'—'} · max Community ${rp.max_count_community??'—'}`
       : `Runpod ${rp.status||'unavailable'}`;
-    const blendTrend=cp.change_30d_pct==null?'Cross-platform 30D collecting':`Cross-platform 30D ${pct(cp.change_30d_pct)}`;
+    const blendLine=cp.eligible
+      ? `Cross-platform index ${num(cp.blended_index,1)} · ${cp.change_30d_pct==null?'30D collecting':'30D '+pct(cp.change_30d_pct)}`
+      : 'Cross-platform current index unavailable until both Vast + Runpod are live';
     const activeLabel=live?'VAST LIVE MARKET':'RUNPOD FALLBACK';
     return metricCard(
       `${k} · ${x.variant}`,
       '$'+num(x.daily_price_usd_per_gpu_hr,2)+'/h',
-      `${activeLabel} · ${vastLine} · ${rpLine} · ${blendTrend} · 60% Vast / 40% Runpod · ${role} · quality ${quality}`
+      `${activeLabel}<br>${vastLine}<br>${rpLine}<br>${blendLine}<br>${role} · quality ${quality}`
     );
   }).join('');
 }
@@ -353,7 +391,14 @@ function renderGpuChart(){
         data:dates.map(d=>runpod.get(d)??null)
       });
     });
-    initChart('gpuChart').setOption({...chartBase,xAxis:{...chartBase.xAxis,data:dates},yAxis:{...chartBase.yAxis,name:'$/GPU-hour'},series},true);
+    initChart('gpuChart').setOption({
+      ...chartBase,
+      grid:{...chartBase.grid,top:72},
+      legend:{...chartBase.legend,type:'scroll',left:48,right:24},
+      xAxis:{...chartBase.xAxis,data:dates},
+      yAxis:{...chartBase.yAxis,name:'$/GPU-hour'},
+      series
+    },true);
     return;
   }
   const all=cutoffRows(state.raw.gpu,'date_bjt',state.ranges.gpuChart);
@@ -361,10 +406,35 @@ function renderGpuChart(){
   const filtered=gpus.flatMap(g=>{const src=active[g]?.source_series;return all.filter(x=>x.gpu===g&&(!src||x.source_series===src))});
   const dates=[...new Set(filtered.map(x=>x.date_bjt))].sort();
   const maps=gpus.map(g=>{const src=active[g]?.source_series;return new Map(filtered.filter(x=>x.gpu===g&&(!src||x.source_series===src)).map(x=>[x.date_bjt,x.daily_price_usd_per_gpu_hr]))});
-  initChart('gpuChart').setOption({...chartBase,xAxis:{...chartBase.xAxis,data:dates},yAxis:{...chartBase.yAxis,name:'$/GPU-hour'},series:gpus.map((g,i)=>({name:g,type:'line',showSymbol:dates.length<20,data:dates.map(d=>maps[i].get(d)??null),connectNulls:true}))},true);
+  initChart('gpuChart').setOption({...chartBase,xAxis:{...chartBase.xAxis,data:dates},yAxis:{...chartBase.yAxis,name:'$/GPU-hour'},series:gpus.map((g,i)=>({name:g,type:'line',showSymbol:dates.length<20,data:dates.map(d=>maps[i].get(d)??null),connectNulls:false}))},true);
+}
+
+function renderGpuCompositeChart(){
+  const gpus=['H100','H200','B200'];
+  const platform=cutoffRows(state.raw.gpuPlatform||[],'date_bjt',state.ranges.gpuCompositeChart);
+  const comp=cutoffRows(state.raw.gpuCross||[],'date_bjt',state.ranges.gpuCompositeChart);
+  const dates=[...new Set([...platform.map(x=>x.date_bjt),...comp.map(x=>x.date_bjt)].filter(Boolean))].sort();
+  const series=gpus.map(g=>{
+    const m=new Map(platform.filter(x=>x.gpu===g).map(x=>[x.date_bjt,x.blended_index_60_40]));
+    return {name:`${g} blended`,type:'line',showSymbol:dates.length<20,connectNulls:false,data:dates.map(d=>m.get(d)??null)};
+  });
+  const cm=new Map(comp.map(x=>[x.date_bjt,x.composite_index]));
+  series.push({
+    name:'GPU composite',type:'line',showSymbol:dates.length<20,connectNulls:false,
+    lineStyle:{width:3},
+    data:dates.map(d=>cm.get(d)??null)
+  });
+  initChart('gpuCompositeChart').setOption({
+    ...chartBase,
+    grid:{...chartBase.grid,top:72},
+    legend:{...chartBase.legend,type:'scroll',left:48,right:24},
+    xAxis:{...chartBase.xAxis,data:dates},
+    yAxis:{...chartBase.yAxis,name:'Index · base 100'},
+    series
+  },true);
 }
 function renderScoreHistory(){const r=state.raw.scoreHistory;initChart('scoreHistoryChart').setOption({...chartBase,xAxis:{...chartBase.xAxis,data:r.map(x=>x.date_bjt)},yAxis:{...chartBase.yAxis,scale:true,min:v=>{const s=v.max-v.min,p=s>0?s*.08:Math.max(Math.abs(v.min)*.05,1);return Math.max(0,v.min-p)},max:v=>{const s=v.max-v.min,p=s>0?s*.08:Math.max(Math.abs(v.max)*.05,1);return Math.min(100,v.max+p)}},series:[{name:'Bubble Score',type:'line',showSymbol:true,data:r.map(x=>x.bubble_score)},{name:'Breakdown Score',type:'line',showSymbol:true,data:r.map(x=>x.breakdown_score)}]},true)}
-function bindRanges(){document.querySelectorAll('.range').forEach(group=>group.addEventListener('click',e=>{if(e.target.tagName!=='BUTTON')return;group.querySelectorAll('button').forEach(b=>b.classList.remove('active'));e.target.classList.add('active');const id=group.dataset.chart;state.ranges[id]=e.target.dataset.range;({marketChart:renderMarketChart,liquidityChart:renderLiquidityChart,tsmcChart:renderTsmcChart,gpuChart:renderGpuChart}[id]||(()=>{}))()}))}
+function bindRanges(){document.querySelectorAll('.range').forEach(group=>group.addEventListener('click',e=>{if(e.target.tagName!=='BUTTON')return;group.querySelectorAll('button').forEach(b=>b.classList.remove('active'));e.target.classList.add('active');const id=group.dataset.chart;state.ranges[id]=e.target.dataset.range;({marketChart:renderMarketChart,liquidityChart:renderLiquidityChart,tsmcChart:renderTsmcChart,gpuChart:renderGpuChart,gpuCompositeChart:renderGpuCompositeChart}[id]||(()=>{}))()}))}
 async function load(){
   const moduleErrors=[];
   const markError=(label,e)=>{console.warn(`[dashboard] ${label} unavailable`,e);moduleErrors.push(label)};
@@ -372,7 +442,7 @@ async function load(){
   const safeCSV=async(path,label)=>{try{return await fetchCSV(path)}catch(e){markError(label,e);return[]}};
   const safeRender=(label,fn)=>{try{fn()}catch(e){markError(label,e)}};
 
-  const [top,derived,market,hyper,compute,gpu,marketQuotes,ndx,sox,nvda,googl,msft,amzn,vix,dfii10,dgs10,dgs30,hy,h5,tsmc,gpud,gpuPlatform,scoreHistory]=await Promise.all([
+  const [top,derived,market,hyper,compute,gpu,marketQuotes,ndx,sox,nvda,googl,msft,amzn,vix,dfii10,dgs10,dgs30,hy,h5,tsmc,gpud,gpuPlatform,gpuCross,scoreHistory]=await Promise.all([
     safeJSON(BASE+'top_scores/latest.json','Top Scores'),
     safeJSON(BASE+'derived_indicators/latest.json','Derived Indicators'),
     safeJSON(BASE+'market_liquidity/latest.json','Market & Liquidity'),
@@ -395,10 +465,11 @@ async function load(){
     safeCSV(BASE+'compute_fundamentals/tsmc_monthly.csv','TSMC history'),
     safeCSV(BASE+'gpu_rental_prices/daily.csv','GPU price history'),
     safeCSV(BASE+'gpu_rental_prices/platform_daily.csv','GPU cross-platform history'),
+    safeCSV(BASE+'gpu_rental_prices/cross_platform_composite_daily.csv','GPU composite history'),
     safeCSV(BASE+'top_scores/history.csv','Score history')
   ]);
 
-  state.raw={ndx,sox,nvda,googl,msft,amzn,vix,dfii10,dgs10,dgs30,hy,h5,tsmc,gpu:gpud,gpuPlatform,gpuLatest:gpu,scoreHistory};
+  state.raw={ndx,sox,nvda,googl,msft,amzn,vix,dfii10,dgs10,dgs30,hy,h5,tsmc,gpu:gpud,gpuPlatform,gpuCross,gpuLatest:gpu,scoreHistory};
 
   let displayMarket=market;
   if(market&&marketQuotes?.quotes){
@@ -427,6 +498,7 @@ async function load(){
   if(derived)safeRender('Cloud chart',()=>renderCloudChart(derived));
   safeRender('TSMC chart',renderTsmcChart);
   safeRender('GPU chart',renderGpuChart);
+  safeRender('GPU cross-platform chart',renderGpuCompositeChart);
   safeRender('Score history chart',renderScoreHistory);
 
   const errors=[...new Set(moduleErrors)];
@@ -439,7 +511,7 @@ async function load(){
 }
 bindRanges();load();window.addEventListener('resize',()=>Object.values(state.charts).forEach(c=>c.resize()));
 </script>
-  <script src="assets/chart-time-slider.js?v=20260918-market-smallcards-v3"></script>  <script src="assets/nfci-card-fix.js?v=20260917b"></script>  <script src="assets/source-links.js?v=20260918-gpu-crossplatform-v3"></script>  <script src="assets/ai-news.js?v=20260918-time-sort-v1"></script>
+  <script src="assets/chart-time-slider.js?v=20260918-market-smallcards-v3"></script>  <script src="assets/nfci-card-fix.js?v=20260917b"></script>  <script src="assets/source-links.js?v=20260918-gpu-crossplatform-v4"></script>  <script src="assets/ai-news.js?v=20260918-time-sort-v1"></script>
 
 <script>
 // LONG_HISTORY_LIQUIDITY_OVERLAY
