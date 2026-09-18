@@ -90,7 +90,15 @@ window.addEventListener('load',loadBrentStandalone);
     .hero{display:grid;grid-template-columns:1.12fr 1.12fr 1.8fr;gap:14px;margin-bottom:18px}.score-card,.regime-card,.card{background:linear-gradient(145deg,rgba(17,31,50,.97),rgba(10,20,34,.97));border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow)}.score-card{padding:20px;position:relative;overflow:hidden}.score-card:after{content:"";position:absolute;width:170px;height:170px;border-radius:50%;right:-70px;top:-90px;background:rgba(90,168,255,.08)}.score-title{font-size:12px;color:var(--muted);font-weight:700;letter-spacing:.8px;text-transform:uppercase}.score-row{display:flex;align-items:flex-end;gap:9px;margin:11px 0 10px}.score-num{font-size:52px;font-weight:750;line-height:.95}.score-den{font-size:16px;color:var(--muted);padding-bottom:6px}.badge{display:inline-flex;padding:5px 9px;border-radius:8px;font-size:12px;font-weight:700;text-transform:uppercase}.badge.green{background:rgba(48,210,138,.13);color:var(--green)}.badge.yellow{background:rgba(244,201,93,.13);color:var(--yellow)}.badge.orange{background:rgba(255,159,67,.13);color:var(--orange)}.badge.red{background:rgba(255,93,115,.13);color:var(--red)}.meter{height:7px;background:#17263a;border-radius:99px;overflow:hidden;margin-top:15px}.meter span{display:block;height:100%;border-radius:99px}.subline{font-size:12px;color:var(--muted);margin-top:11px;line-height:1.55}
     .regime-card{padding:20px;display:flex;flex-direction:column;justify-content:space-between}.regime-kicker{font-size:12px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.8px}.regime-name{font-size:28px;font-weight:760;margin:10px 0 8px}.regime-desc{color:#b7c7da;font-size:13px;line-height:1.65;max-width:720px}.framework{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:18px}.stage{border:1px solid var(--line);padding:8px 6px;border-radius:9px;text-align:center;color:#6f839d;font-size:11px}.stage.active{background:rgba(255,159,67,.1);color:var(--orange);border-color:rgba(255,159,67,.5)}
     .section{margin-top:22px}.section-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-end;margin-bottom:10px}.section-title{font-size:17px;font-weight:720}.section-note{font-size:12px;color:var(--muted)}
-    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.grid6{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}.card{padding:16px;min-width:0}.metric-name{font-size:12px;color:var(--muted);line-height:1.35}.metric-value{font-size:25px;font-weight:720;margin:8px 0 3px}.metric-detail{font-size:11px;color:#7990aa;line-height:1.5}#marketCards .market-card-source{margin-top:6px;font-size:10px;line-height:1.45}.riskline{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:11px;padding-top:10px;border-top:1px solid rgba(38,58,82,.65)}.mini-score{font-size:12px;color:var(--muted)}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.grid6{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}.card{padding:16px;min-width:0}.metric-name{font-size:12px;color:var(--muted);line-height:1.35}.metric-value{font-size:25px;font-weight:720;margin:8px 0 3px}.metric-detail{font-size:11px;color:#7990aa;line-height:1.5}#marketCards .market-card-source{margin-top:4px;font-size:10px;line-height:1.45}
+#marketCards .market-card-value-row{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-top:8px;min-width:0}
+#marketCards .market-card-value-row .metric-value{margin:0;flex:0 0 auto}
+#marketCards .market-card-changes{display:flex;gap:9px;align-items:center;justify-content:flex-end;flex-wrap:wrap;font-size:10px;font-weight:700;white-space:nowrap}
+#marketCards .market-card-change.up{color:var(--green)}
+#marketCards .market-card-change.down{color:var(--red)}
+#marketCards .market-card-change.muted{color:var(--muted)}
+#marketCards .market-card-freshness{margin-top:9px;color:#607994;font-size:9.5px;line-height:1.45}
+@media(max-width:760px){#marketCards .market-card-value-row{align-items:flex-start;flex-direction:column;gap:6px}#marketCards .market-card-changes{justify-content:flex-start}}.riskline{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:11px;padding-top:10px;border-top:1px solid rgba(38,58,82,.65)}.mini-score{font-size:12px;color:var(--muted)}
     .chart-card{padding:0;overflow:hidden}.chart-head{padding:15px 16px 0;display:flex;justify-content:space-between;align-items:flex-start;gap:10px}.chart-title{font-size:13px;font-weight:700}.chart-sub{font-size:11px;color:var(--muted);margin-top:3px}.range{display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end}.range button{cursor:pointer;border:1px solid var(--line);background:#0a1524;color:#7890ac;border-radius:7px;padding:5px 7px;font-size:10px}.range button.active{color:#dfeafa;border-color:#4778aa;background:#142943}.chart{height:310px;width:100%}.chart.tall{height:340px}.split2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
     .table-wrap{overflow:auto;margin-top:2px}.table{width:100%;border-collapse:collapse;min-width:700px;font-size:12px}.table th{color:var(--muted);font-weight:600;text-align:right;padding:9px 8px;border-bottom:1px solid var(--line)}.table th:first-child,.table td:first-child{text-align:left}.table td{text-align:right;padding:10px 8px;border-bottom:1px solid rgba(29,49,73,.55)}
     .footer{color:#607994;font-size:11px;line-height:1.7;margin-top:22px;padding-top:15px;border-top:1px solid rgba(29,49,73,.6)}.error{background:rgba(255,93,115,.08);color:#ff9aaa;border:1px solid rgba(255,93,115,.28);padding:12px 14px;border-radius:10px;margin-bottom:15px;display:none}.loading{opacity:.55}
@@ -203,21 +211,69 @@ const chartBase={backgroundColor:'transparent',textStyle:{color:'#8ea2bc'},toolt
 function renderTop(top){document.getElementById('bubbleScore').textContent=num(top.bubble_score.score_0_100,1);document.getElementById('breakdownScore').textContent=num(top.breakdown_score.score_0_100,1);labelBadge(document.getElementById('bubbleBadge'),top.bubble_score.score_0_100,top.bubble_score.label);labelBadge(document.getElementById('breakdownBadge'),top.breakdown_score.score_0_100,top.breakdown_score.label);document.getElementById('bubbleMeter').style.cssText=`width:${top.bubble_score.score_0_100}%;background:${colorFor(top.bubble_score.score_0_100)}`;document.getElementById('breakdownMeter').style.cssText=`width:${top.breakdown_score.score_0_100}%;background:${colorFor(top.breakdown_score.score_0_100)}`;document.getElementById('regime').textContent=top.regime;document.getElementById('regimeDetail').textContent=top.regime_detail||top.interpretation.current;document.getElementById('coveragePill').textContent='Coverage · '+num(top.coverage_pct,1)+'%';document.getElementById('lastUpdate').textContent='Updated · '+String(top.generated_at_bjt).replace('T',' ').slice(0,16)+' BJT';const fw=document.getElementById('framework');fw.innerHTML=(top.regime_framework||['Healthy Expansion','Speculative Expansion','Fundamental Divergence','Bubble Breakdown']).map(x=>`<div class="stage ${x===top.regime?'active':''}">${x}</div>`).join('');renderComponentTable('bubbleTable',top.bubble_score.components);renderComponentTable('breakdownTable',top.breakdown_score.components)}
 function renderComponentTable(id,obj){document.getElementById(id).innerHTML=Object.entries(obj).map(([k,v])=>`<tr><td>${k.replaceAll('_',' ')}</td><td>${num(v.score_0_100,1)}</td><td>${num(v.weight_pct,0)}%</td><td>${num(v.score_0_100*v.weight_pct/100,1)}</td></tr>`).join('')}
 function renderGaps(d){const a=d.indicators;const m=a.investment_monetization_gap,c=a.investment_cash_flow_gap,p=a.price_fundamental_gap;document.getElementById('gapMonet').textContent=(m.value_ppt>=0?'+':'')+num(m.value_ppt,1)+' ppt';document.getElementById('gapMonetDetail').textContent=`H4 CapEx YoY ${pct(m.h4_cash_capex_yoy_pct)} vs Cloud median ${pct(m.cloud_monetization_median_yoy_pct)}`;labelBadge(document.getElementById('gapMonetRisk'),m.risk_score_0_100,`${num(m.risk_score_0_100,0)} · ${m.risk_label}`);document.getElementById('gapCash').textContent=(c.value_ppt>=0?'+':'')+num(c.value_ppt,1)+' ppt';document.getElementById('gapCashDetail').textContent=`H5 CapEx YoY ${pct(c.h5_cash_capex_yoy_pct)} vs FCF YoY ${pct(c.h5_fcf_yoy_pct)}`;labelBadge(document.getElementById('gapCashRisk'),c.risk_score_0_100,`${num(c.risk_score_0_100,0)} · ${c.risk_label}`);document.getElementById('gapPrice').textContent=(p.value_score_points>=0?'+':'')+num(p.value_score_points,1)+' pts';document.getElementById('gapPriceDetail').textContent=`Market heat ${num(p.market_heat_score)} vs Fundamental heat ${num(p.fundamental_heat_score)}`;labelBadge(document.getElementById('gapPriceRisk'),p.risk_score_0_100,`${num(p.risk_score_0_100,0)} · ${p.risk_label}`)}
-function renderMarketCards(m){
-  const i=m.indicators;
+function renderMarketCards(m,quotes={}){
+  const i=m?.indicators||{};
+  const q=quotes||{};
+  const fmtTs=(value)=>{
+    if(!value)return '—';
+    const d=new Date(value);
+    if(Number.isNaN(d.getTime()))return String(value).replace('T',' ').slice(0,19);
+    const parts=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Singapore',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',hourCycle:'h23'}).formatToParts(d);
+    const p=Object.fromEntries(parts.map(x=>[x.type,x.value]));
+    return `${p.year}-${p.month}-${p.day} ${p.hour}:${p.minute}:${p.second} SGT`;
+  };
   const sourceRow=(label,url)=>`<div class="source-row market-card-source"><span class="source-prefix">Source:</span><a class="source-link" href="${url}" target="_blank" rel="noopener noreferrer">${label}<span class="source-arrow">↗</span></a></div>`;
-  const card=(name,value,sourceLabel,sourceUrl)=>`<div class="card"><div class="metric-name">${name}</div><div class="metric-value">${value}</div>${sourceRow(sourceLabel,sourceUrl)}</div>`;
+  const freshness=(text)=>`<div class="market-card-freshness">${text}</div>`;
+  const change=(label,value,unit='%',decimals=1)=>{
+    const n=Number(value);
+    if(!Number.isFinite(n))return `<span class="market-card-change muted">${label} —</span>`;
+    const cls=n>0?'up':n<0?'down':'muted';
+    return `<span class="market-card-change ${cls}">${label} ${n>=0?'+':''}${n.toFixed(decimals)}${unit}</span>`;
+  };
+  const equityStats=(key)=>{
+    const x=i[key]||{}, live=q[key]||{};
+    const price=Number(live.price??x.value);
+    const official=Number(x.official_value??x.close_value??x.value);
+    const oneDay=Number(live.change_1d_pct??x.live_change_1d_pct??x.change_1d_pct);
+    const old20=Number(x.change_20d_pct);
+    let oneMonth=old20;
+    if(Number.isFinite(price)&&Number.isFinite(official)&&official!==0&&Number.isFinite(old20)){
+      const base=official/(1+old20/100);
+      if(Number.isFinite(base)&&base!==0)oneMonth=(price/base-1)*100;
+    }
+    return {price,oneDay,oneMonth,timestamp:live.timestamp||x.live_quote_timestamp||x.observation_date};
+  };
+  const treasuryStats=(key)=>{
+    const x=i[key]||{}, live=q[key]||{};
+    const price=Number(live.price??x.value);
+    const official=Number(x.official_value??x.close_value??x.value);
+    const intradayDelta=(Number.isFinite(price)&&Number.isFinite(official))?price-official:0;
+    const oneDay=Number.isFinite(price)&&Number.isFinite(official)?intradayDelta*100:Number(x.change_1obs)*100;
+    const obs20=Number(x.change_20obs);
+    const oneMonth=Number.isFinite(obs20)?(obs20+intradayDelta)*100:null;
+    return {price,oneDay,oneMonth,timestamp:live.timestamp||x.live_quote_timestamp||x.observation_date};
+  };
+  const dailyStats=(key)=>{
+    const x=i[key]||{};
+    return {price:Number(x.value),oneDay:Number(x.change_1obs)*100,date:x.observation_date||'—'};
+  };
+  const card=(name,value,changes,freshText,sourceLabel,sourceUrl)=>`<div class="card market-metric-card"><div class="metric-name">${name}</div><div class="market-card-value-row"><div class="metric-value">${value}</div><div class="market-card-changes">${changes}</div></div>${freshness(freshText)}${sourceRow(sourceLabel,sourceUrl)}</div>`;
+
+  const ndx=equityStats('ndx'),sox=equityStats('sox'),nvda=equityStats('nvda'),vix=equityStats('vix');
+  const t10=treasuryStats('dgs10'),t30=treasuryStats('dgs30');
+  const real=dailyStats('dfii10'),hy=dailyStats('hy_oas');
+
   const cards=[
-    ['NASDAQ-100',num(i.ndx.value,0),'Yahoo Finance · ^NDX','https://finance.yahoo.com/quote/%5ENDX/'],
-    ['SOX',num(i.sox.value,0),'Yahoo Finance · ^SOX','https://finance.yahoo.com/quote/%5ESOX/'],
-    ['NVIDIA','$'+num(i.nvda.value,2),'Yahoo Finance · NVDA','https://finance.yahoo.com/quote/NVDA/'],
-    ['VIX',num(i.vix.value,2),'Yahoo Finance · ^VIX','https://finance.yahoo.com/quote/%5EVIX/'],
-    ['US 10Y Treasury',num(i.dgs10?.value,2)+'%','Investing.com · US 10Y live','https://www.investing.com/rates-bonds/u.s.-10-year-bond-yield'],
-    ['US 30Y Treasury',num(i.dgs30?.value,2)+'%','Investing.com · US 30Y live','https://www.investing.com/rates-bonds/u.s.-30-year-bond-yield'],
-    ['10Y Real Yield',num(i.dfii10.value,2)+'%','U.S. Treasury · Real Yield Curve','https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_real_yield_curve'],
-    ['HY OAS',num(i.hy_oas.value,2)+'%','FRED · HY OAS','https://fred.stlouisfed.org/series/BAMLH0A0HYM2']
+    card('NASDAQ-100',num(ndx.price,0),change('1D',ndx.oneDay,'%',2)+change('1M',ndx.oneMonth,'%',1),`Latest data · ${fmtTs(ndx.timestamp)} · REALTIME`,'Yahoo Finance · ^NDX','https://finance.yahoo.com/quote/%5ENDX/'),
+    card('SOX',num(sox.price,0),change('1D',sox.oneDay,'%',2)+change('1M',sox.oneMonth,'%',1),`Latest data · ${fmtTs(sox.timestamp)} · REALTIME`,'Yahoo Finance · ^SOX','https://finance.yahoo.com/quote/%5ESOX/'),
+    card('NVIDIA','$'+num(nvda.price,2),change('1D',nvda.oneDay,'%',2)+change('1M',nvda.oneMonth,'%',1),`Latest data · ${fmtTs(nvda.timestamp)} · REALTIME`,'Yahoo Finance · NVDA','https://finance.yahoo.com/quote/NVDA/'),
+    card('VIX',num(vix.price,2),change('1D',vix.oneDay,'%',2)+change('1M',vix.oneMonth,'%',1),`Latest data · ${fmtTs(vix.timestamp)} · REALTIME`,'Yahoo Finance · ^VIX','https://finance.yahoo.com/quote/%5EVIX/'),
+    card('US 10Y Treasury',num(t10.price,3)+'%',change('1D',t10.oneDay,' bp',1)+change('1M',t10.oneMonth,' bp',1),`Latest data · ${fmtTs(t10.timestamp)} · REALTIME`,'Investing.com · US 10Y live','https://www.investing.com/rates-bonds/u.s.-10-year-bond-yield'),
+    card('US 30Y Treasury',num(t30.price,3)+'%',change('1D',t30.oneDay,' bp',1)+change('1M',t30.oneMonth,' bp',1),`Latest data · ${fmtTs(t30.timestamp)} · REALTIME`,'Investing.com · US 30Y live','https://www.investing.com/rates-bonds/u.s.-30-year-bond-yield'),
+    card('10Y Real Yield',num(real.price,2)+'%',change('1D',real.oneDay,' bp',1),`Latest data · ${real.date} · 1D`,'U.S. Treasury · Real Yield Curve','https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_real_yield_curve'),
+    card('HY OAS',num(hy.price,2)+'%',change('1D',hy.oneDay,' bp',1),`Latest data · ${hy.date} · 1D`,'FRED · HY OAS','https://fred.stlouisfed.org/series/BAMLH0A0HYM2')
   ];
-  document.getElementById('marketCards').innerHTML=cards.map(x=>card(...x)).join('');
+  document.getElementById('marketCards').innerHTML=cards.join('');
 }
 function renderHyper(h){const x=h.h5_latest_complete;const cards=[['H5 Cash CapEx',moneyBn(x.cash_capex_usd_bn),`YoY ${pct(x.cash_capex_yoy_pct)}`],['H5 Standardized FCF',moneyBn(x.fcf_usd_bn),`YoY ${pct(x.fcf_yoy_pct)}`],['CapEx / Revenue',num(x.capex_revenue_pct,1)+'%',`Revenue YoY ${pct(x.revenue_yoy_pct)}`],['D&A / Revenue',num(x.da_revenue_pct,1)+'%',`FCF margin ${num(x.fcf_margin_pct,1)}%`]];document.getElementById('hyperCards').innerHTML=cards.map(x=>metricCard(...x)).join('')}
 function renderCompute(d,c){const a=d.indicators,n=c.nvda,t=c.tsmc;const cards=[['Compute Demand Score',num(a.compute_demand_score.score_0_100,1)+'/100',`${a.compute_demand_score.strength_label} · coverage ${num(a.compute_demand_score.coverage_pct,0)}%`],['NVIDIA DC Revenue',moneyBn(n.data_center_revenue_usd_bn),`YoY ${pct(n.data_center_yoy_pct)} · QoQ ${pct(n.data_center_qoq_pct)}`],['NVIDIA Demand Quality',num(a.nvidia_demand_quality_score.score_0_100,1)+'/100',`GM ${num(n.gross_margin_pct,1)}% · DSO ${num(n.dso_days,0)}d · Inv ${num(n.inventory_days,0)}d`],['TSMC Revenue Growth',pct(t.yoy_pct_reported),`3M rolling ${pct(t.rolling_3m_yoy_pct)}`]];document.getElementById('computeCards').innerHTML=cards.map(x=>metricCard(...x)).join('')}
@@ -280,7 +336,7 @@ async function load(){
         const current=displayMarket.indicators?.[key];
         const quote=marketQuotes.quotes?.[key];
         if(current&&Number.isFinite(Number(quote?.price))){
-          displayMarket.indicators[key]={...current,official_value:current.value,official_observation_date:current.observation_date||null,live_value:Number(quote.price),value:Number(quote.price),live_quote_timestamp:quote.timestamp||null,live_quote_source:quote.source||null,live_quote_status:quote.quote_status||null,display_layer:'live_quote'};
+          displayMarket.indicators[key]={...current,official_value:current.value,official_observation_date:current.observation_date||null,live_value:Number(quote.price),value:Number(quote.price),live_quote_timestamp:quote.timestamp||null,live_quote_source:quote.source||null,live_quote_status:quote.quote_status||null,live_change_1d_pct:Number.isFinite(Number(quote.change_1d_pct))?Number(quote.change_1d_pct):current.live_change_1d_pct,display_layer:'live_quote'};
         }
       });
     }catch(e){console.warn('[dashboard] live market overlay failed; using official summary',e);displayMarket=market}
@@ -288,7 +344,7 @@ async function load(){
 
   if(top)safeRender('Top Scores render',()=>renderTop(top));
   if(derived)safeRender('Derived Indicators render',()=>renderGaps(derived));
-  if(displayMarket)safeRender('Market & Liquidity render',()=>renderMarketCards(displayMarket));
+  if(displayMarket)safeRender('Market & Liquidity render',()=>renderMarketCards(displayMarket,marketQuotes?.quotes||{}));
   if(hyper)safeRender('Hyperscaler Fundamentals render',()=>renderHyper(hyper));
   if(derived&&compute)safeRender('Compute Fundamentals render',()=>renderCompute(derived,compute));
   if(gpu)safeRender('GPU Rental Prices render',()=>renderGpu(gpu));
@@ -311,7 +367,7 @@ async function load(){
 }
 bindRanges();load();window.addEventListener('resize',()=>Object.values(state.charts).forEach(c=>c.resize()));
 </script>
-  <script src="assets/chart-time-slider.js?v=20260918-liquidity-badges-v2"></script>  <script src="assets/nfci-card-fix.js?v=20260917b"></script>  <script src="assets/source-links.js?v=20260918-market-card-source-v2"></script>  <script src="assets/ai-news.js"></script>
+  <script src="assets/chart-time-slider.js?v=20260918-market-smallcards-v3"></script>  <script src="assets/nfci-card-fix.js?v=20260917b"></script>  <script src="assets/source-links.js?v=20260918-market-card-source-v2"></script>  <script src="assets/ai-news.js"></script>
 
 <script>
 // LONG_HISTORY_LIQUIDITY_OVERLAY
