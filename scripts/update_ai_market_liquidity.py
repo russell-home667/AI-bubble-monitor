@@ -44,6 +44,9 @@ MARKET = {
     "ndx": {"ticker": "^NDX", "name": "Nasdaq-100", "start": "1985-01-01", "unit": "index"},
     "sox": {"ticker": "^SOX", "name": "PHLX Semiconductor Index", "start": "1994-01-01", "unit": "index"},
     "nvda": {"ticker": "NVDA", "name": "NVIDIA", "start": "1999-01-22", "unit": "USD"},
+    "googl": {"ticker": "GOOGL", "name": "Alphabet", "start": "2004-08-19", "unit": "USD"},
+    "msft": {"ticker": "MSFT", "name": "Microsoft", "start": "1986-03-13", "unit": "USD"},
+    "amzn": {"ticker": "AMZN", "name": "Amazon", "start": "1997-05-15", "unit": "USD"},
     "qqq": {"ticker": "QQQ", "name": "Invesco QQQ", "start": "1999-03-10", "unit": "USD"},
     "rsp": {"ticker": "RSP", "name": "Invesco S&P 500 Equal Weight ETF", "start": "2003-04-24", "unit": "USD"},
 }
@@ -461,6 +464,9 @@ def write_latest(errors: Dict[str, str]) -> None:
         "ndx": ("Nasdaq-100", "index", "https://finance.yahoo.com/quote/%5ENDX/history/"),
         "sox": ("PHLX Semiconductor Index", "index", "https://finance.yahoo.com/quote/%5ESOX/history/"),
         "nvda": ("NVIDIA", "USD", "https://finance.yahoo.com/quote/NVDA/history/"),
+        "googl": ("Alphabet", "USD", "https://finance.yahoo.com/quote/GOOGL/history/"),
+        "msft": ("Microsoft", "USD", "https://finance.yahoo.com/quote/MSFT/history/"),
+        "amzn": ("Amazon", "USD", "https://finance.yahoo.com/quote/AMZN/history/"),
         "qqq_rsp": ("QQQ / RSP concentration ratio", "ratio", "https://finance.yahoo.com/"),
         "vix": (VIX["name"], VIX["unit"], VIX["source_url"]),
     }
@@ -566,7 +572,7 @@ def main() -> int:
     args = parser.parse_args()
     errors = run_group(args.group)
     expected = {
-        "market": {"ndx", "sox", "nvda", "qqq", "rsp", "qqq_rsp"},
+        "market": {"ndx", "sox", "nvda", "googl", "msft", "amzn", "qqq", "rsp", "qqq_rsp"},
         "vix": {"vix"},
         "macro": {"dfii10", "dgs10", "dgs30"},
         "credit": {"hy_oas", "ig_oas", "baa10y_proxy"},

@@ -230,7 +230,7 @@ function renderGpu(g){
   }).join('')
 }
 function normalized(rows){if(!rows.length)return[];const b=Number(rows[0].close);return rows.map(x=>[x.date,Number(x.close)/b*100])}
-function renderMarketChart(){const range=state.ranges.marketChart;const n=cutoffRows(state.raw.ndx,'date',range),s=cutoffRows(state.raw.sox,'date',range),v=cutoffRows(state.raw.nvda,'date',range);const series=[['NDX',normalized(n)],['SOX',normalized(s)],['NVDA',normalized(v)]];const dates=[...new Set(series.flatMap(z=>z[1].map(x=>x[0])))].sort();const maps=series.map(z=>new Map(z[1]));initChart('marketChart').setOption({...chartBase,xAxis:{...chartBase.xAxis,data:dates},yAxis:{...chartBase.yAxis,name:'Index'},series:series.map((z,i)=>({name:z[0],type:'line',showSymbol:false,smooth:false,data:dates.map(d=>maps[i].get(d)??null),connectNulls:true,lineStyle:{width:1.8}}))},true)}
+function renderMarketChart(){const range=state.ranges.marketChart;const n=cutoffRows(state.raw.ndx,'date',range),s=cutoffRows(state.raw.sox,'date',range),v=cutoffRows(state.raw.nvda,'date',range),g=cutoffRows(state.raw.googl,'date',range),m=cutoffRows(state.raw.msft,'date',range),a=cutoffRows(state.raw.amzn,'date',range);const series=[['NDX',normalized(n)],['SOX',normalized(s)],['NVDA',normalized(v)],['GOOGL',normalized(g)],['MSFT',normalized(m)],['AMZN',normalized(a)]];const dates=[...new Set(series.flatMap(z=>z[1].map(x=>x[0])))].sort();const maps=series.map(z=>new Map(z[1]));initChart('marketChart').setOption({...chartBase,xAxis:{...chartBase.xAxis,data:dates},yAxis:{...chartBase.yAxis,name:'Index'},series:series.map((z,i)=>({name:z[0],type:'line',showSymbol:false,smooth:false,data:dates.map(d=>maps[i].get(d)??null),connectNulls:true,lineStyle:{width:1.8}}))},true)}
 function renderLiquidityChart(){const range=state.ranges.liquidityChart;const real=cutoffRows(state.raw.dfii10,'date',range),t10=cutoffRows(state.raw.dgs10,'date',range),t30=cutoffRows(state.raw.dgs30,'date',range),hy=cutoffRows(state.raw.hy,'date',range),vix=cutoffRows(state.raw.vix,'date',range);const dates=[...new Set([...real,...t10,...t30,...hy,...vix].map(x=>x.date))].sort();const rm=new Map(real.map(x=>[x.date,x.value])),t10m=new Map(t10.map(x=>[x.date,x.value])),t30m=new Map(t30.map(x=>[x.date,x.value])),hm=new Map(hy.map(x=>[x.date,x.value])),vm=new Map(vix.map(x=>[x.date,x.close]));initChart('liquidityChart').setOption({...chartBase,xAxis:{...chartBase.xAxis,data:dates},yAxis:[{...chartBase.yAxis,name:'Yield / OAS %'},{...chartBase.yAxis,name:'VIX',position:'right'}],series:[{name:'US 10Y Treasury',type:'line',showSymbol:false,data:dates.map(d=>t10m.get(d)??null),connectNulls:true},{name:'US 30Y Treasury',type:'line',showSymbol:false,data:dates.map(d=>t30m.get(d)??null),connectNulls:true},{name:'10Y Real Yield',type:'line',showSymbol:false,data:dates.map(d=>rm.get(d)??null)},{name:'HY OAS',type:'line',showSymbol:false,data:dates.map(d=>hm.get(d)??null)},{name:'VIX',type:'line',showSymbol:false,yAxisIndex:1,data:dates.map(d=>vm.get(d)??null)}]},true)}
 function renderCapexChart(){const r=state.raw.h5.filter(x=>x.is_complete_h5===true||String(x.is_complete_h5).toLowerCase()==='true');const q=r.map(x=>x.calendar_quarter);initChart('capexFcfChart').setOption({...chartBase,xAxis:{...chartBase.xAxis,data:q,boundaryGap:true},yAxis:{...chartBase.yAxis,name:'USD bn'},series:[{name:'Cash CapEx',type:'bar',data:r.map(x=>x.cash_capex_usd/1e9),barMaxWidth:42},{name:'FCF',type:'bar',data:r.map(x=>x.fcf_usd/1e9),barMaxWidth:42}]},true)}
 function renderCloudChart(d){const a=d.indicators.investment_monetization_gap.cloud_components||[];initChart('cloudChart').setOption({...chartBase,xAxis:{type:'category',data:a.map(x=>x.company),axisLabel:{color:'#8ea2bc'}},yAxis:{...chartBase.yAxis,name:'YoY %'},series:[{name:'Cloud growth',type:'bar',barMaxWidth:50,data:a.map(x=>x.growth_yoy_pct),label:{show:true,position:'top',formatter:'{c}%',color:'#bcd0e8'}}]},true)}
@@ -245,7 +245,7 @@ async function load(){
   const safeCSV=async(path,label)=>{try{return await fetchCSV(path)}catch(e){markError(label,e);return[]}};
   const safeRender=(label,fn)=>{try{fn()}catch(e){markError(label,e)}};
 
-  const [top,derived,market,hyper,compute,gpu,marketQuotes,ndx,sox,nvda,vix,dfii10,dgs10,dgs30,hy,h5,tsmc,gpud,scoreHistory]=await Promise.all([
+  const [top,derived,market,hyper,compute,gpu,marketQuotes,ndx,sox,nvda,googl,msft,amzn,vix,dfii10,dgs10,dgs30,hy,h5,tsmc,gpud,scoreHistory]=await Promise.all([
     safeJSON(BASE+'top_scores/latest.json','Top Scores'),
     safeJSON(BASE+'derived_indicators/latest.json','Derived Indicators'),
     safeJSON(BASE+'market_liquidity/latest.json','Market & Liquidity'),
@@ -256,6 +256,9 @@ async function load(){
     safeCSV(BASE+'market_liquidity/ndx.csv','NDX history'),
     safeCSV(BASE+'market_liquidity/sox.csv','SOX history'),
     safeCSV(BASE+'market_liquidity/nvda.csv','NVDA history'),
+    safeCSV(BASE+'market_liquidity/googl.csv','GOOGL history'),
+    safeCSV(BASE+'market_liquidity/msft.csv','MSFT history'),
+    safeCSV(BASE+'market_liquidity/amzn.csv','AMZN history'),
     safeCSV(BASE+'market_liquidity/vix.csv','VIX history'),
     safeCSV(BASE+'market_liquidity/dfii10.csv','10Y real-yield history'),
     safeCSV(BASE+'market_liquidity/dgs10.csv','10Y Treasury history'),
@@ -267,7 +270,7 @@ async function load(){
     safeCSV(BASE+'top_scores/history.csv','Score history')
   ]);
 
-  state.raw={ndx,sox,nvda,vix,dfii10,dgs10,dgs30,hy,h5,tsmc,gpu:gpud,scoreHistory};
+  state.raw={ndx,sox,nvda,googl,msft,amzn,vix,dfii10,dgs10,dgs30,hy,h5,tsmc,gpu:gpud,scoreHistory};
 
   let displayMarket=market;
   if(market&&marketQuotes?.quotes){
