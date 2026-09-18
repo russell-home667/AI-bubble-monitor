@@ -86,3 +86,5 @@ jobs:
           bash scripts/git_commit_push_retry.sh
 
 # P1/P2 production validation trigger: 2026-09-16
+
+# Manual Vast API verification trigger: 2026-09-18
