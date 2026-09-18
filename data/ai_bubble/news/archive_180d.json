@@ -1,0 +1,1583 @@
+{
+  "generated_at_sgt": "2026-09-18T08:02:16+08:00",
+  "timezone": "Asia/Singapore",
+  "retention_days": 180,
+  "display_policy": "All validated stories retained regardless of importance score; news.html may filter client-side.",
+  "stories": [
+    {
+      "id": "ed3ed52293e47b",
+      "headline": "OpenAI Weighs Pre-IPO Funding Round at ~$1.2 Trillion Valuation",
+      "summary_zh": "多家权威媒体报道，OpenAI正与大型投资者就上市前新一轮融资进行初步洽谈，估值约1.2万亿美元（纽约时报称最高达1.5万亿美元），并预计在明年启动IPO。",
+      "category": "AI Valuation / Funding",
+      "importance_score": 88,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 60,
+      "reason_zh": "万亿美元级别的私募估值与上市前巨额融资，是AI估值泡沫最直接的指标，涉及巨额资本涌入与循环融资担忧；一旦融资或IPO遇冷，将触发全行业估值重估。",
+      "companies": [
+        "OpenAI"
+      ],
+      "published_at": "2026-09-16T05:54+08:00",
+      "sources": [
+        {
+          "name": "Reuters",
+          "domain": "reuters.com",
+          "url": "https://www.reuters.com/legal/transactional/openai-mulls-funding-round-12-trillion-valuation-ahead-ipo-ft-reports-2026-09-15/",
+          "published_at": "2026-09-15T23:41+08:00",
+          "discovered_via": "Bing News RSS"
+        }
+      ],
+      "critical": true,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "2c8ad184c87fc1",
+      "headline": "美联储启动2023年以来首次加息，市场先跌后反弹",
+      "summary_zh": "美联储自2023年以来首次加息，立场偏鹰，引发美股先跌后反弹；10年期美债收益率回落、油价走低，但利率中枢上移仍压制高估值科技与AI资产。",
+      "category": "Macro / Regulation",
+      "importance_score": 85,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 60,
+      "reason_zh": "加息与鹰派信号提高贴现率，直接压制AI成长股估值，并增加AI数据中心融资与资本开支成本，是AI泡沫 unwind 的核心宏观风险。",
+      "companies": [],
+      "published_at": "2026-09-17T10:22+08:00",
+      "sources": [
+        {
+          "name": "Reuters",
+          "domain": "reuters.com",
+          "url": "https://www.reuters.com/business/wall-st-futures-rise-fed-rate-hike-lifts-long-standing-overhang-2026-09-17/",
+          "published_at": "2026-09-17T10:22+08:00",
+          "discovered_via": "Bing News RSS"
+        },
+        {
+          "name": "The Guardian",
+          "domain": "theguardian.com",
+          "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOeWhDdlBSX1lpSjc2M2Y0Skh6c25pbEZKUXkyajNkd2xlbERaQ2poY01KRE50dWxsSENqWmRERDEtekVfME9KRWx3ZVp0SHIwOXdlTm5LY2lQTEIwNkR0aVRGdEtKVGJEOV9DRVIwME45QkFiSlpWVFJtVU9BVC1XRU5tTU9aUXlQUEo1VQ?oc=5",
+          "published_at": "2026-09-17T02:09+08:00",
+          "discovered_via": "Google News RSS"
+        },
+        {
+          "name": "Yahoo Finance",
+          "domain": "finance.yahoo.com",
+          "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxOZV9EbjVUMmtzczNuYzZxTUxrb1ZuOTZzWFhSc0RTd2YzVWtxQVhrckJaYkNXTkx4LTdfS3dDWXZpbXdDY3JfVHlqbEJPeEJJYVdJMnN6VUkwVjBEbUVHY0hBdXZZb1A0dUhuN2szeWVVckE3NTIyWVlWdmJ6cVF3dndsUGZzTjYtYmg1QWotbHJpd0l3WmpZaF9yYjllbDA3ZTJPZHZsUE9nUWRwZzhZcFp6bTVrZzdxb3ZZeXFIc2x1QU93blVCSEpDbDd5VkY4d3o1OTcwRXpOeVJ0Q2wtZlNmNkY?oc=5",
+          "published_at": "2026-09-17T20:16+08:00",
+          "discovered_via": "Google News RSS"
+        },
+        {
+          "name": "Yahoo Finance",
+          "domain": "finance.yahoo.com",
+          "url": "https://finance.yahoo.com/economy/policy/articles/rate-hike-economists-weigh-tariffs-225500117.html",
+          "published_at": "2026-09-17T13:30+08:00",
+          "discovered_via": "Bing News RSS"
+        }
+      ],
+      "critical": true,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "8ecd0a573e553f",
+      "headline": "OpenAI investors approach company about new funding round at $1.2 trillion valuation",
+      "summary_zh": "有投资者接洽OpenAI，商讨以约1.2万亿美元估值进行新一轮融资；分析认为这一估值水平可能提振Oracle、CoreWeave等AI相关标的。",
+      "category": "AI Valuation / Funding",
+      "importance_score": 85,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 55,
+      "reason_zh": "万亿级估值融资显示AI资本狂热仍在延续，估值锚定效应可能推高整个AI板块的泡沫化程度。",
+      "companies": [
+        "OpenAI",
+        "Oracle",
+        "CoreWeave"
+      ],
+      "published_at": "2026-09-16T21:33+08:00",
+      "sources": [
+        {
+          "name": "CNBC",
+          "domain": "cnbc.com",
+          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQek02RllrNk02c2ROTjJHc1VzSkxkZnI1SW1jbVIycWVNeEoxd3hfcVNzbF9jMW1zcEFKRDItNVpTOUhkUFlSc2dLYkJQNjF2VEF3SVJKQ0x2ZUVLREZpWVBraENfcnItd1Y4aXVkcW9Tb05NQV94aGs5TDFzVldjVEtJclR1TnVOMW00SWU0RnVrTUNUdjBURHJMTUxpUlU4R3c3LVhnYldmSFE5MFRYVUUwWQ?oc=5",
+          "published_at": "2026-09-16T21:33+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": true,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "e1938ea5d54aca",
+      "headline": "AI safety warnings from OpenAI/Anthropic chiefs trigger SoftBank selloff and risk-off move",
+      "summary_zh": "OpenAI与Anthropic负责人呼吁放缓AI开发，引发AI安全担忧；软银股价创近三月最大跌幅，亚洲股市分化、美股期货承压，油价因供应担忧上涨。",
+      "category": "Macro / Regulation",
+      "importance_score": 85,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 60,
+      "reason_zh": "行业领袖警告叠加市场抛售，放大AI监管与情绪风险，可能触发估值回撤。",
+      "companies": [
+        "SoftBank",
+        "OpenAI",
+        "Anthropic"
+      ],
+      "published_at": "2026-09-14T01:00+08:00",
+      "sources": [
+        {
+          "name": "Associated Press",
+          "domain": "apnews.com",
+          "url": "https://apnews.com/article/stocks-markets-oil-ai-rates-0b44bfb43960c6ae850567c0c4e5003a",
+          "published_at": "2026-09-14T06:18+08:00"
+        },
+        {
+          "name": "Associated Press",
+          "domain": "apnews.com",
+          "url": "https://apnews.com/article/artificial-intelligence-threats-humanity-anthropic-openai-98316b0d64de17191f33c0fbf1d37858",
+          "published_at": "2026-09-14T05:09+08:00"
+        },
+        {
+          "name": "CNBC",
+          "domain": "cnbc.com",
+          "url": "https://www.cnbc.com/2026/09/13/stock-futures-today-live-updates.html",
+          "published_at": "2026-09-13T23:06+08:00"
+        }
+      ],
+      "critical": true,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "fa5fa4d291505c",
+      "headline": "Nvidia据悉洽谈向Anthropic大规模IPO投资100亿美元",
+      "summary_zh": "路透独家报道称，英伟达正洽谈在Anthropic的大规模IPO中投资约100亿美元；彭博随后转引该消息。此举被视为芯片供应商对头部模型客户的循环式投资，可能进一步推高AI估值热度。",
+      "category": "AI Valuation / Funding",
+      "importance_score": 85,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 55,
+      "reason_zh": "供应商向核心客户注资是典型的循环融资与估值互推信号，放大AI泡沫形成风险；且发生在Anthropic IPO前夕，强化一级市场的估值锚定效应。",
+      "companies": [
+        "Nvidia",
+        "Anthropic"
+      ],
+      "published_at": "2026-09-13T12:38+08:00",
+      "sources": [
+        {
+          "name": "Reuters",
+          "domain": "reuters.com",
+          "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPbmduYjZNYlh4TmVDd3dMTzZmU21ud1Q5WVVaYXBOM2hUQ201U2tjeDhoWHd6ZjhlQzdtUWxiNmFibkRpc2VlcmxjbWMzTWljZ0ZZSkF6VHFPWnJVUFQwc2g4RDNtb1FCWjN1R3BBcFRzUHkyTXJiRXZpa0NxV29IWFc1LV9lUXh0bXc3TWNrSHZhT0lPTVU2dEswYWhSVUw2SzFkRkVmSHU0S3c?oc=5",
+          "published_at": "2026-09-13T12:38+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": true,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "0d864005c1f908",
+      "headline": "Banks provide $22 billion chip loan to Blackstone, Alphabet AI cloud venture",
+      "summary_zh": "据路透消息，多家银行向黑石与Alphabet合建的AI云合资企业提供220亿美元芯片贷款，用于采购AI芯片。",
+      "category": "AI Credit / Debt",
+      "importance_score": 80,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 45,
+      "reason_zh": "以债务融资大规模采购AI芯片，杠杆化AI基础设施投资，加大AI信用与循环融资风险。",
+      "companies": [
+        "Blackstone",
+        "Alphabet"
+      ],
+      "published_at": "2026-09-17T06:02+08:00",
+      "sources": [
+        {
+          "name": "Reuters",
+          "domain": "reuters.com",
+          "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOQVBYUDM0azJaTVZjVHAzbUtkOVBWLWpZYnptZFZ4S0x0dHpkS1lXVFM2SnJtX0F0Ull5OXdJUkdiNXdUZTNQamM0S3NoeFRxdTdFVmFWWi00cVJ6YXQxTDFTQlBmc0FsS3l5SHJ5VnZpOVplcllLVk04dy1YS2cwUDdMWEY5RzZWN3JTU2luOXJ4NUt3NzkyREJSUVlMSFJBcFpMcHprUjVsM2J3WGg1NUI5NjZrZDBHUGZiNnJGZUtvZThlTk9jWmRSaVZpUQ?oc=5",
+          "published_at": "2026-09-17T06:02+08:00",
+          "discovered_via": "Google News RSS"
+        },
+        {
+          "name": "CNA",
+          "domain": "channelnewsasia.com",
+          "url": "https://www.channelnewsasia.com/business/banks-provide-22-billion-chip-loan-blackstone-alphabet-ai-cloud-venture-source-says-6390211",
+          "published_at": "2026-09-17T05:33+08:00",
+          "discovered_via": "Bing News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "b039f347d90d6a",
+      "headline": "美联储三年来首次加息，并暗示年内还有一次，美债收益率与美元走强",
+      "summary_zh": "美联储实施自2023年以来首次加息，并释放年内可能再加息一次的指引，美债收益率跳升、美股走低，美元走强；特朗普仍要求将利率降至1%或更低。",
+      "category": "Macro / Regulation",
+      "importance_score": 78,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 38,
+      "reason_zh": "利率上行直接抬高长久期资产贴现率，AI板块估值高度依赖低利率与远期现金流假设，加息周期重启是AI泡沫挤压的重要宏观触发因素，同时也可能抑制高杠杆的数据中心与算力融资。",
+      "companies": [],
+      "published_at": "2026-09-17T07:42+08:00",
+      "sources": [
+        {
+          "name": "Associated Press",
+          "domain": "apnews.com",
+          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPVlB2TmNqY1dILUtfRTFBQ0JPSk53elRnU1QzdmhIQ3VvTWlkelRTd3haWHJ4bmxiY2ZOcGhvd09wMTllVkVLQzk5NkdKZzNPeHpaZTRHQ242Ynd2Q1ZIUU50cUp1N2JYd1lCQndZQlhMUTZFekFZWWNueUxNbmRiUHdBZ2dWbDgzNlhmejZneHptaFhGbDI1M0JPbk8zZw?oc=5",
+          "published_at": "2026-09-17T07:42+08:00",
+          "discovered_via": "Google News RSS"
+        },
+        {
+          "name": "Reuters",
+          "domain": "reuters.com",
+          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPQm5zRF9jbzFRTVF1RkwxbTBpNGJmeHhRR3RNZU9DMHk5c1pndDJveEhwd2RrZHhRMXBFMGV3cHR4OXlJZUJBdWtjRXhFVkUyYUpRd0F5QWs2Y1NtTllTQzJGdkM4UFBVSzRfa01FQjFuS1Ixc2E0NGJ6Q3Z3a2owYUowN21RM0QwWDBuQzJsZW13bVJzTkJqNGE5aklZWWwzbHBERGNBdWUxZE1BT1M4?oc=5",
+          "published_at": "2026-09-17T07:04+08:00",
+          "discovered_via": "Google News RSS"
+        },
+        {
+          "name": "Reuters",
+          "domain": "reuters.com",
+          "url": "https://www.reuters.com/world/china/global-markets-global-markets-2026-09-17/",
+          "published_at": "2026-09-17T11:08+08:00",
+          "discovered_via": "Bing News RSS"
+        },
+        {
+          "name": "CNBC",
+          "domain": "cnbc.com",
+          "url": "https://www.cnbc.com/2026/09/16/fed-rate-decision-september-2026.html",
+          "published_at": "2026-09-16T19:00+08:00",
+          "discovered_via": "Bing News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "2af81964f9c665",
+      "headline": "Anthropic据悉选择纳斯达克作为IPO上市地",
+      "summary_zh": "彭博报道称，Anthropic已选择纳斯达克作为其备受关注的IPO上市地；路透引述Business Insider报道同一消息。这标志着史上规模最大的AI公司上市之一进入实质推进阶段。",
+      "category": "AI Valuation / Funding",
+      "importance_score": 75,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 40,
+      "reason_zh": "超大型AI公司IPO将带来巨额流动性事件，往往成为市场情绪与估值高点的标志，推升泡沫风险。",
+      "companies": [
+        "Anthropic",
+        "Nasdaq"
+      ],
+      "published_at": "2026-09-14T03:07+08:00",
+      "sources": [
+        {
+          "name": "Reuters",
+          "domain": "reuters.com",
+          "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPcDg3dC1KTGZCUzVUbnNPOGpvSUZHdUhZTlI0eEJjYmdFUE1ZT3RaV29jd3ZJamtjakVRTnNKbE0zcVFETmtSaC1RRXZHTS1GNG56UV8tYkJkbnJpVEVwSzM4MnhpZ3o2bkhkM3Y0aWVNcW1QT0dJVlZoTUlzc0JfaWhvS2phRVE3dVYyYnpzSmJ3UzhZRWVVb0FSblpxUDA?oc=5",
+          "published_at": "2026-09-14T00:23+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "42a7c7e8aae9d4",
+      "headline": "Apollo 警告：超大规模云厂商债务扩张是泡沫警示信号",
+      "summary_zh": "Apollo 指出，超大规模云厂商为AI基础设施大量举债，债务指标出现警示信号，融资结构风险上升。",
+      "category": "AI Credit / Debt",
+      "importance_score": 74,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 48,
+      "reason_zh": "AI资本开支越来越依赖债务融资，一旦信用条件收紧或现金流不及预期，杠杆链条会放大回撤，是泡沫形成与破裂的关键脆弱点。",
+      "companies": [
+        "Apollo"
+      ],
+      "published_at": "2026-09-17T00:39+08:00",
+      "sources": [
+        {
+          "name": "CNBC",
+          "domain": "cnbc.com",
+          "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOXzF0T3BDNm9xNXRiNnVjQ1RIMFRsUnVjNFFfV1VXYlc5bHdmUW5rOEtjaTRId3hjUjd6bmV3N1B2X3lxeEZnZWtySm5QUEhCUF93OWYtYk9kQ1Q1YUJVZDRlRUVWM1FrbWc2b0ZjX2JEVFV0cXpoZ1ZhQW1MNlRtNktyQ2JHRkl3aXRIM2pYY182MmMw0gGaAUFVX3lxTFBFMnp4WXQ1SnByNVNBMS01SGp1ZU1zMkxiOXU5ZzJ1YnJ2eVNSOFFQeUZXOGVZamVqZFRhdkotOE42NFV4b0tCXzlQZnN5Y1p5MF9Uc3p3S3ctQTRfQ0c4MkxPaUJzdF8yS2NRWnNzVU9XRmh5eERxMnNLNE1DTzg5cVpidTM5alJLSzBDdXFPaTlRWHo1Qkl0eHc?oc=5",
+          "published_at": "2026-09-17T00:39+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "29ded4089a35d8",
+      "headline": "US House passes first bill addressing data center electricity costs",
+      "summary_zh": "美国众议院通过首部针对数据中心电力成本的法案，指示州监管机构考虑要求数据中心承担更高能源成本，但不强制其执行。",
+      "category": "Data Center / Power",
+      "importance_score": 72,
+      "bubble_direction": "neutral",
+      "bubble_risk_score": 10,
+      "reason_zh": "数据中心电力成本与居民电费的矛盾引发政治反弹，凸显AI基建面临的社会与监管阻力，对扩张节奏构成温和约束。",
+      "companies": [],
+      "published_at": "2026-09-17T00:01+08:00",
+      "sources": [
+        {
+          "name": "Reuters",
+          "domain": "reuters.com",
+          "url": "https://www.reuters.com/world/us-house-advances-first-bill-addressing-economic-impacts-data-center-boom-2026-09-16/",
+          "published_at": "2026-09-17T00:01+08:00",
+          "discovered_via": "Bing News RSS"
+        },
+        {
+          "name": "CNBC",
+          "domain": "cnbc.com",
+          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1BM2I5alpWOWxCSEEyM3BKd1M5aTJpRnN4eE83aktZZjkwalZYUGhFd0owNGN5RU9ucGJpZHlrWlZaQVo1OThrSEpWMTlVRy1uQ2JFd2ZYZ0dodzRpazY2SnJMeVRhWDRWYlREbE5ZWFFZY2s0NElveWpLVHQyY2fSAYQBQVVfeXFMTXhBdjhNX2tHMmQyeXRTak9Ic3RrMEU1N0IzQzZxMVluNUZYUGluUVFQd0RjUVhsNHNuRVFuYmxhYm5GOUQyZlo5aDlmenl6SktJU2lJN2JOQy13RlZVbmZ5VHpuWDBGQVdyRzNMNHJUYmVKWlpBd055LWhCMGlJcTZ4bXF5?oc=5",
+          "published_at": "2026-09-16T08:13+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "7b7787e8ac6b3f",
+      "headline": "Z.AI plans $5 billion fundraising as shares tumble",
+      "summary_zh": "智谱AI/Z.AI拟通过配股和可转债融资约50亿美元，为不到两个月内第二次大额融资；消息后股价一度跌超10%。",
+      "category": "AI Valuation / Funding",
+      "importance_score": 72,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 45,
+      "reason_zh": "密集大额融资显示AI扩张资金需求强，但股价下跌反映稀释与估值担忧，增加泡沫波动风险。",
+      "companies": [
+        "Z.AI",
+        "Zhipu AI"
+      ],
+      "published_at": "2026-09-14T00:55+08:00",
+      "sources": [
+        {
+          "name": "CNBC",
+          "domain": "cnbc.com",
+          "url": "https://www.cnbc.com/2026/09/14/zai-shares-tumble-second-major-raise-two-months-.html",
+          "published_at": "2026-09-14T01:00+08:00"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "b08e26e13184ea",
+      "headline": "谷歌、英伟达与Anthropic推动Emerald AI为数据中心寻找电网空间",
+      "summary_zh": "谷歌、英伟达和Anthropic支持Emerald AI，旨在为更多数据中心在电网上寻找可用容量，凸显AI扩张面临的电力瓶颈。",
+      "category": "Data Center / Power",
+      "importance_score": 70,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 25,
+      "reason_zh": "AI数据中心扩张受电网容量约束，电力基础设施成为关键瓶颈；解决瓶颈可支撑增长，但也意味着更大的资本开支与能源风险。",
+      "companies": [
+        "Google",
+        "Nvidia",
+        "Anthropic",
+        "Emerald AI"
+      ],
+      "published_at": "2026-09-17T21:38+08:00",
+      "sources": [
+        {
+          "name": "TechCrunch",
+          "domain": "techcrunch.com",
+          "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNUllEZExxMWV3QS01ejVlZ3NKMVJ0c0hVLWNzWHJVLUFoOGdQal9aNUtQRnZSN1BocVlYSUZRWkhzNjZEejZEb01rSFllZF9zcElMdTdhYkgtaUVFVF9lS0Vjc2RGYlYybHhacEpyMEpxNElSS243Uzh3UWZiY0RLcllENENXNXpaRTNEcUVvMVhSV01mbVc5VVJ4NG1xZHBnanZid05FTHhvSm54cE9VQy1xSzBmVGpBLTZ1R2l3NnpKUzNU?oc=5",
+          "published_at": "2026-09-17T21:38+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "4775f113c05269",
+      "headline": "OpenAI IPO 推迟引发更多疑问",
+      "summary_zh": "OpenAI 一方面强调可管理AI风险，另一方面其IPO进程推迟，市场对其估值定价与融资路径产生更多疑问。",
+      "category": "AI Valuation / Funding",
+      "importance_score": 70,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 35,
+      "reason_zh": "头部AI公司上市进程延后，反映一级市场估值与公开市场承接能力之间可能存在落差，是AI资产定价与融资循环承压的信号。",
+      "companies": [
+        "OpenAI"
+      ],
+      "published_at": "2026-09-17T03:00+08:00",
+      "sources": [
+        {
+          "name": "Yahoo Finance",
+          "domain": "finance.yahoo.com",
+          "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOVUlMV3J6b3dOTWZLZzVYUk43bFg0N0VGNFAwV3JIbGtndE1WVHpGWGlzRVJ4VUxrTjBvN0Q4M3RTbWg5bEZwMV80SXNKNWVaSUlOQTZoODY1a0VYczlCeUhEWmpldmRudndXQl9vZXE3SEpxUE1nSVV6U21NcGNxcWFDS1lwY1lPTzdLTEEyMWVxUGVUeFE?oc=5",
+          "published_at": "2026-09-17T03:00+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "fb1fac7e3dd826",
+      "headline": "SK Hynix in talks with Intel about deal to make memory chips in US for the first time",
+      "summary_zh": "路透援引知情人士称，SK海力士正与英特尔洽谈在美国本土生产存储芯片，这将是其首次在美国制造存储芯片，交易尚在讨论阶段。",
+      "category": "Semiconductor / GPU Demand",
+      "importance_score": 70,
+      "bubble_direction": "risk_down",
+      "bubble_risk_score": -20,
+      "reason_zh": "存储（尤其HBM）是AI算力的核心瓶颈之一，在美国本土扩产有助于缓解供应紧张、降低地缘与断供风险，属于对AI产业链的实质性基本面支撑，边际上削弱泡沫担忧。",
+      "companies": [
+        "SK Hynix",
+        "Intel"
+      ],
+      "published_at": "2026-09-16T13:09+08:00",
+      "sources": [
+        {
+          "name": "Reuters",
+          "domain": "reuters.com",
+          "url": "https://www.reuters.com/world/asia-pacific/sk-hynix-talks-with-intel-about-deal-make-memory-chips-us-first-time-sources-say-2026-09-16/",
+          "published_at": "2026-09-16T13:09+08:00",
+          "discovered_via": "Bing News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "5e429ee7c62d1e",
+      "headline": "博通股价下挫：AI发展放缓引发需求担忧",
+      "summary_zh": "博通股价因市场担忧AI开发进度放缓、进而影响其AI芯片与定制加速器需求而下跌。",
+      "category": "Semiconductor / GPU Demand",
+      "importance_score": 68,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 35,
+      "reason_zh": "AI定制芯片是算力资本开支的高弹性环节，一旦终端AI开发节奏放缓，订单预期会迅速下修，属于泡沫叙事的边际松动信号。",
+      "companies": [
+        "Broadcom"
+      ],
+      "published_at": "2026-09-16T23:11+08:00",
+      "sources": [
+        {
+          "name": "Yahoo Finance",
+          "domain": "finance.yahoo.com",
+          "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQU0RHU0VHTFQ2cmg1WTVldGU4TW5IQ3FpOWVwZ25VS1pLT19MSTlHZkJOQXRWbUJRRFRtbFk1bTRrX255ZFVuVjRseXZNUGxXYkhPUzJCRFRCMTE1cE4zcmhJSnN0eEFBRWFKSlZrRjlqM0dqWERaRXpocHRvVE10alUxd0lTaWsteUUyWDIwaThzR0N6RXJ5ZlFtY1U?oc=5",
+          "published_at": "2026-09-16T23:11+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "5e7d73022197cd",
+      "headline": "经济学家警告高利率将成常态：AI借贷与政府支出推高融资成本，AI债务与国债争夺资金",
+      "summary_zh": "CNBC报道，经济学家指出政府支出和AI相关借贷毫无放缓迹象，市场需适应更高利率环境；FT则指出AI债务正在与国债争夺资金，发行规模扩大对债券市场构成压力。",
+      "category": "AI Credit / Debt",
+      "importance_score": 68,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 35,
+      "reason_zh": "AI相关债务发行持续扩张，推高整体利率并与国债争夺资金，意味着支撑AI资本开支的融资成本上升、信用条件收紧；一旦债务供给过快或再融资受阻，将放大AI投资的脆弱性。",
+      "companies": [],
+      "published_at": "2026-09-16T13:30+08:00",
+      "sources": [
+        {
+          "name": "CNBC",
+          "domain": "cnbc.com",
+          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQSHV2NWRtX01PRllFVjhDeGRPS0NSNkpQWDhVRXh5Xzl4MDVOS2dEVDJCM1hnbDVPY29kb0JHemViVmVUaHo1MHRxNFhqU3R3bDFHUG5fendocU5KNmpOMExrT0VvRFgyYWVnSVV5UmJheUt4dHZJU3JsSGRPRkViQ0hFVkVZR3BUZkF0eklZTHIxSlgxcy1OeFdCYkZkbkxUZ05xdXh3?oc=5",
+          "published_at": "2026-09-16T16:58+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "0cd3526de91434",
+      "headline": "OpenAI CEO Altman：2026年上市“不明智”，短期IPO无望",
+      "summary_zh": "TechCrunch报道，OpenAI首席执行官Sam Altman表示公司在2026年推进IPO“不明智”，暗示这家AI龙头短期内不会登陆公开市场。",
+      "category": "AI Valuation / Funding",
+      "importance_score": 68,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 15,
+      "reason_zh": "最大AI公司主动推迟IPO，意味着巨额私募估值短期无法被公开市场检验，也延后了AI创投生态的关键退出通道，可能加剧AI资本循环可持续性的担忧，属估值与融资层面的泡沫风险信号。",
+      "companies": [
+        "OpenAI"
+      ],
+      "published_at": "2026-09-13T04:19+08:00",
+      "sources": [
+        {
+          "name": "TechCrunch",
+          "domain": "techcrunch.com",
+          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNVDYteTJ4VHRtbkNDNEhiVHFralh2cTZ2TUZIQ0E4aVNmcEctV1dxQjVuSmxLZGdrelcweXNvSEphQ1l0bmkzSjdzZC1NeGkwSE5JNmpRY21pVG5reDhwaklRVnFXY2VoYmJuRHBfc2lXVWIwTnVycTBVNFZzdnRjRFFnY2dMb1NSaktMNkdraEVlWlJKYmY3cms3VXVTSzJqa256Q0dn?oc=5",
+          "published_at": "2026-09-13T04:19+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "1c504abceea4e9",
+      "headline": "英伟达计划在澳大利亚大幅扩张数据中心产能以应对AI需求",
+      "summary_zh": "英伟达计划在澳大利亚大幅扩张数据中心容量，以满足不断增长的AI算力需求，继续加码AI基础设施布局。",
+      "category": "Semiconductor / GPU Demand",
+      "importance_score": 68,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 25,
+      "reason_zh": "该扩张强化AI算力需求叙事并推升数据中心资本开支，若需求兑现则支撑基本面，但同时也增加产能过剩与投资过热风险。",
+      "companies": [
+        "Nvidia"
+      ],
+      "published_at": "2026-09-11T16:27+08:00",
+      "sources": [
+        {
+          "name": "Reuters",
+          "domain": "reuters.com",
+          "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQMk5MZDBuUUItQ1c2dnBiWWJudnJhczJ4MUh1azQxTjBBNmhCZHJsWVNEcWFRLUtJX1p6WXFaLVFrZ0tPeHNWWEhYYXZYd3BwNU1XZ2lvSEgxOUdHLW1mZ1dJdkZFYUg5bjZIVm9SbWNHdmw2MjBnenIzekF3UkJJdG5DTnVjc1ZXazR6M3UwZzA0X3c4by1uSUE2Z0o2U2hwTTJRdURmQTRFTzBQSDZWeDUzSENMYjdMYzJ6VUx3?oc=5",
+          "published_at": "2026-09-11T16:27+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "adad8fbc3f8c1e",
+      "headline": "OpenAI 与 Anthropic 收入约为中国全部AI模型总和的10倍",
+      "summary_zh": "Rhodium 研究显示，OpenAI 与 Anthropic 的收入规模约为中国所有AI模型收入合计的10倍，头部厂商变现能力显著领先。",
+      "category": "AI Revenue / Monetization",
+      "importance_score": 66,
+      "bubble_direction": "risk_down",
+      "bubble_risk_score": -25,
+      "reason_zh": "头部模型厂商收入体量领先，说明AI订阅与API变现并非完全虚化，对泡沫叙事形成一定基本面支撑，但集中度极高也意味着一超多强的脆弱性。",
+      "companies": [
+        "OpenAI",
+        "Anthropic"
+      ],
+      "published_at": "2026-09-17T17:00+08:00",
+      "sources": [
+        {
+          "name": "CNBC",
+          "domain": "cnbc.com",
+          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPd1ZGT2FfOGNzV0M0Mnlja29ybFZRN284QW45ekRfa2NXVmtCaF9USDVHOW5XS084OXJkb2o0b0RhQjd0TXAxZXh1UmNnVWRoSGNRWVpoWi1STUowdVJOQmUydzlBR29pRVN6aWtfQ1k1aTJlWUg4eEdXcS1GX3c5N21mMWVTYW9PVXdLWURrcURnZGtWU3N2WG5FUzR2eGxDZkZCNmNn0gGrAUFVX3lxTE5uZUZRbWozZWFOUURoaDVORnBpRzEtcDZPaWNQVE9uUDgwbEw4eVBsYWkySWVUODNhd1NUN0gzeGRVcUdGemZzbV82YVR2ZWQxNHFqdEdrdV9uYVZFX2daYjRjaGF4RlJrQXVXZEpJaW1Ja2VnRHNneVJVSUlYWEtvekFISDJpTUJjRUtCdlhndEY0d1g4NGhVZzN6S2FCNXhHVTFpWnBaMTlUSQ?oc=5",
+          "published_at": "2026-09-17T17:00+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "42ba59cbeccf68",
+      "headline": "美国8月CPI显示通胀顽固，国债收益率维持多年高位",
+      "summary_zh": "美国8月CPI显示通胀粘性，10年期国债收益率维持在多年高位，市场对长期高利率的预期升温。",
+      "category": "Macro / Regulation",
+      "importance_score": 65,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 40,
+      "reason_zh": "通胀顽固与高收益率环境提高权益风险溢价，尤其对依赖远期现金流的AI公司估值构成压力。",
+      "companies": [],
+      "published_at": "2026-09-11T16:35+08:00",
+      "sources": [
+        {
+          "name": "CNBC",
+          "domain": "cnbc.com",
+          "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5BYnVhZnRLMjNfTURqaGdKS3kweldtU0ZzdmlLZllvcE1uUzRBbjFCNmdjcjdJTmozVUhUbG5JX2lWVnRSQm5kMTUyQmlFbXhNRnlXS1RaYUcyZk1XN0JPaDhpZjdKYkxhcEV0RHE1UdIBdEFVX3lxTE1ldmROYW9MQTFHWEx3b0Q5SWwzMjFDd3BNQkd1RExKdk9HRWZubEVydUJDTXZkS3N0MWwtQkllTWVIVDhtRWFhQ3FwU1FpSGxKYXo1aGQta2dweEpJQmtEdERzaDVZWVdwRmNuRGRKaGVha0dj?oc=5",
+          "published_at": "2026-09-11T16:35+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "61bb1affd28464",
+      "headline": "华为称AI芯片需求超过供给，加快挑战英伟达",
+      "summary_zh": "华为表示其AI芯片需求远超供给能力，正加快在算力市场对英伟达的挑战。",
+      "category": "Semiconductor / GPU Demand",
+      "importance_score": 64,
+      "bubble_direction": "risk_down",
+      "bubble_risk_score": -18,
+      "reason_zh": "供给紧张印证AI算力需求仍强，且中国本土替代加速有助于抬高整体算力供给弹性，短期内强化需求真实性的判断，但也意味着供给端竞争加剧。",
+      "companies": [
+        "Huawei",
+        "Nvidia"
+      ],
+      "published_at": "2026-09-17T10:40+08:00",
+      "sources": [
+        {
+          "name": "Reuters",
+          "domain": "reuters.com",
+          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQUUF2NV9DeFExYkFNQS1hQnZfTjFBY05sRjRmN3hMQkxoTmo0aEYtMnNyU3BnRUZPUzVtZGt6ZjE1ZWVsRldkWG1RMVUyaWpFWTg1Q3paeENVblNJUi1ITktZemVWRy1tbGc3OHd5QkFLT0Zya1UyOE13LW1XbTN4d002Zi1ReXJHRlZDNTZlUmh5cmFEcmhlNk9ET2JWZw?oc=5",
+          "published_at": "2026-09-17T10:40+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "f4fed546aebb0a",
+      "headline": "Meta Joins Tech's AI-Fueled Subscription Rush",
+      "summary_zh": "Meta加入科技行业由AI驱动的订阅收费浪潮，推动AI能力向付费订阅产品变现。",
+      "category": "AI Revenue / Monetization",
+      "importance_score": 64,
+      "bubble_direction": "risk_down",
+      "bubble_risk_score": -28,
+      "reason_zh": "AI订阅化意味着大模型投入开始转化为可重复的经常性收入，为巨额AI资本开支提供现金流验证，有助于缓减'投入无回报'的泡沫担忧，属于基本面支撑信号。",
+      "companies": [
+        "Meta"
+      ],
+      "published_at": "2026-09-16T08:00+08:00",
+      "sources": [
+        {
+          "name": "TechCrunch",
+          "domain": "techcrunch.com",
+          "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPV0dxb01UQjhPVEM1cXAxZ0pZVFRGUlRjRWZhc3cxeDd6WmY2OXNCVkkzNF9kY2QxekpmeTg3QzNoSFVnV01EVWRTUlNodDgyb25aRDl3dE5WZ2J1UHJmLUFtdkJJNzZsajZyTUFrZElKeHJHeWVuLUE3Q0FFWUV1bXNULUtjRVFTWmhjRXg1RlQtdEpNNXc?oc=5",
+          "published_at": "2026-09-16T01:05+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "3376746c152e7b",
+      "headline": "Goldman Sachs, JPMorgan expect September Fed hike as inflation lingers",
+      "summary_zh": "高盛与摩根大通预计美联储将在9月加息25个基点，通胀压力持续。",
+      "category": "Macro / Regulation",
+      "importance_score": 64,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 40,
+      "reason_zh": "利率上行将压制高估值AI资产，紧缩预期加大AI泡沫回撤风险。",
+      "companies": [
+        "Goldman Sachs",
+        "JPMorgan",
+        "Federal Reserve"
+      ],
+      "published_at": "2026-09-14T01:00+08:00",
+      "sources": [
+        {
+          "name": "Reuters",
+          "domain": "reuters.com",
+          "url": "https://www.reuters.com/business/goldman-sachs-now-expects-fed-hike-rates-september-2026-09-14/",
+          "published_at": "2026-09-14T01:00+08:00"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "59f72f2bf3defc",
+      "headline": "'Right to be afraid': Sam Altman backs push for AI regulation - Reuters",
+      "summary_zh": "路透报道，OpenAI首席执行官Sam Altman公开支持推进AI监管，称公众对AI风险保持警惕是合理的。头部AI厂商主动拥抱监管，反映行业对安全与合规议题的政治敏感度上升。",
+      "category": "Macro / Regulation",
+      "importance_score": 62,
+      "bubble_direction": "neutral",
+      "bubble_risk_score": 0,
+      "reason_zh": "头部厂商主动支持监管并不直接改变AI资本开支或收入预期，但会抬高行业合规成本预期，对估值影响方向暂不明确，故给予中性判断。",
+      "companies": [
+        "OpenAI"
+      ],
+      "published_at": "2026-09-17T04:39+08:00",
+      "sources": [
+        {
+          "name": "Reuters",
+          "domain": "reuters.com",
+          "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9LeExGM25vbmotMUVldDJjZlFvbVJEbnUxTHFpZGd2S0lFdmwtaERCSW1NMWJpVU1mZ1hQdmJZMGU4NW54WFd4d1FJay1qMHp1c1NYZER1M2oxOFVzdFNWZ0tmLWp3OU0?oc=5",
+          "published_at": "2026-09-17T04:39+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "1e3e3f07a6ba5c",
+      "headline": "ASML 面临关于未来AI需求的新质疑",
+      "summary_zh": "ASML 因市场对未来AI相关设备需求的可持续性提出新质疑而受到关注。",
+      "category": "Semiconductor / GPU Demand",
+      "importance_score": 62,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 28,
+      "reason_zh": "光刻设备订单是AI资本开支的前瞻指标，需求质疑升温意味着市场开始怀疑算力扩张的持续性与产能消化能力。",
+      "companies": [
+        "ASML"
+      ],
+      "published_at": "2026-09-16T23:11+08:00",
+      "sources": [
+        {
+          "name": "Yahoo Finance",
+          "domain": "finance.yahoo.com",
+          "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNSW1QWmNqVmhNMUI3Y1UtRnNCX1A4dXA2ZXRTeG96UXBJVHZIeW5DUno1QVhXa29tU2lyMkNyZlU1a2lZOTBDYmU2U2QySWN4cm1QWnlIY3V1U21WQUJCbkpIbEFMYWtZVGEyVVZ3cDdUbVhfVm5abkZmXzlNYUp0OWJoMUc1WnAwNkdqZk4yWHU2Ymc5TG5MMg?oc=5",
+          "published_at": "2026-09-16T23:11+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "9d240d69a66d80",
+      "headline": "AP-NORC poll shows AI data center worries",
+      "summary_zh": "美联社-NORC民调显示，美国公众对AI数据中心带来的电力消耗、土地占用与社区影响存在明显担忧，数据中心选址与运营面临更大的社会与地方政治阻力。",
+      "category": "Data Center / Power",
+      "importance_score": 62,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 22,
+      "reason_zh": "公众对数据中心的抵触可能演变为地方审批延迟、电价与并网成本上升，直接冲击AI算力扩张的进度与成本假设，增加了AI资本开支回报的不确定性，属于泡沫风险的边际上行因素。",
+      "companies": [],
+      "published_at": "2026-09-16T11:29+08:00",
+      "sources": [
+        {
+          "name": "Associated Press",
+          "domain": "apnews.com",
+          "url": "https://apnews.com/newsletter/morning-wire/september-16-2026",
+          "published_at": "2026-09-16T11:29+08:00",
+          "discovered_via": "Bing News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "14d39aca8f178d",
+      "headline": "OpenAI今年不推进IPO，Altman等警告AI发展过快",
+      "summary_zh": "路透、CNBC与《财富》报道，OpenAI今年不会上市，Altman称当前是“不合时宜的时机”，并称AI灭绝风险“不可接受”；Altman、Musk、Amodei均警告AI发展过快。",
+      "category": "AI Valuation / Funding",
+      "importance_score": 62,
+      "bubble_direction": "neutral",
+      "bubble_risk_score": -10,
+      "reason_zh": "头部公司暂缓上市削弱短期IPO热潮，但其对AI风险的警告加剧监管与情绪不确定性，整体影响偏中性、略偏谨慎。",
+      "companies": [
+        "OpenAI"
+      ],
+      "published_at": "2026-09-13T13:44+08:00",
+      "sources": [
+        {
+          "name": "Reuters",
+          "domain": "reuters.com",
+          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNSkNHUFFrUlZCVWVKZ2dpVVkxSzBmcy16aFFHVTJDV25PZ0YzMjBLVlFQZ0pJcU5EVWJlUW13azNiV1BwOENLcTFVOFpZYVVlT0haaXI2ZkFaOUZxTGp2eE1kaGZCb2pXV1dBQy1XcjQ2NmNXMFA3Nnk5ZnA3MU5wWGZCV0ktTWZad2o0LVBmeW1BclBndWRfWEJScFduQklEZUFEX0NteFBhNDYxRG5keUdiUml3dVYz?oc=5",
+          "published_at": "2026-09-13T13:44+08:00",
+          "discovered_via": "Google News RSS"
+        },
+        {
+          "name": "CNBC",
+          "domain": "cnbc.com",
+          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQbWdEQ1p3VzJkd2E3ZmYwWmRkRWlwWEhFSm1PTjQ3Y1N1bGNPd1lXcjZncEhPVVNrd3dFT3oxd1FVbzVMZmZTVEJVZGJ6MHNxTUd0eVI5MkpuY191WG9CaUozc3AzWkhPQUlzUDh0dXFqQzlNd09CR0NrQ01NaVBERHhCUE9vcmR1UmlfMFVXdmFlcDNocnJkMkJOa0pWQ0p0SVhia1QwS3A4LVZjYXdfLWhiRTHSAboBQVVfeXFMUE44bkREVTl5S1B2R2RMNUlMSlZlT1N0RU5yeTJLaDhFd0dWZ2wwRmdaVUpWRGpYbTBtVVlITnRNLTJRcW43RlhKQzZFVTluc2E2dVhuSzNOWWtoVzFwRDFDX0wxVWszTDk5NkcxQjNaN3JCWGlpUnhTdGM4dzliVHFQam1IV2x6dW1jMkh4SkFNWjVRbzlSQVpaZEFvbE9QZHNiSWJMS3l4aDVMLVFRdk9FbGYxLXBZdjNB?oc=5",
+          "published_at": "2026-09-13T00:22+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "493ccb74c1dcc4",
+      "headline": "限制AI数据中心公用事业成本的议案在参议院遇阻",
+      "summary_zh": "美国参议院一项旨在限制AI数据中心推高公用事业成本的议案遇阻，短期监管压力减弱。",
+      "category": "Data Center / Power",
+      "importance_score": 60,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 15,
+      "reason_zh": "监管推进受阻意味着AI数据中心扩张的公用事业成本压力短期难以缓解，可能继续推升电力与基础设施投资，同时也埋下政治反弹风险。",
+      "companies": [],
+      "published_at": "2026-09-18T02:35+08:00",
+      "sources": [
+        {
+          "name": "CNBC",
+          "domain": "cnbc.com",
+          "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE96aEV6alJ1OGZOenNiWk91TmtyeW90bXd5Vm5jVmlrbFRsb1lrMnliV28xZUhVSHFwM3daUDJRU0pNYzl1NjJjVkxMOFpRNklMOWJteHhlR29udl9odUNwRzVEQlQ2ZmVCOEtyV1Jqb204RUs1OVJkS3BYWdIBgAFBVV95cUxOVXlraDlxWnBHQWxvWkJyeWxwYjdYMGl3SVFFNnEtY0lNcERrZjlBZURSSDhJWHJ4Tjg4Z2w4MGdNbmxMR1VlREVFb0NtaEJKRm82Yi1HeGVFNzFEWENOMEdQSHdrWGNxaE5IMmNhNFdzV3pLR09PdlVMTHlZU1hrNg?oc=5",
+          "published_at": "2026-09-18T02:35+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "49f7450b131302",
+      "headline": "硅谷AI数据中心扩张遭遇本地阻力",
+      "summary_zh": "路透报道，硅谷AI数据中心建设热潮正遭遇当地居民与社区的反对阻力，落地节奏面临挑战。",
+      "category": "Data Center / Power",
+      "importance_score": 60,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 22,
+      "reason_zh": "数据中心是AI算力投资的物理载体，土地、电力与社区审批阻力会拖慢资本开支兑现速度，是泡沫扩张阶段的现实约束。",
+      "companies": [],
+      "published_at": "2026-09-17T18:08+08:00",
+      "sources": [
+        {
+          "name": "Reuters",
+          "domain": "reuters.com",
+          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOS083TTN6VWhFczdsMTRsUHA4cXFVdXBxaGE4YjJSeXVQbnhVZUxjdUszX29LaWJDS0Yyc3Npc25OMjRHRTlKbWtPNXNLRHAxWWZVLWZzbktOVWp4RDcwcVhLblYtWWVPLWw3SGZqVXVFR3JCRmZPY0pqVTdCaUZNbGkwY2xfSkVqX01rM3RCNElodEFOWWJzUmlCTVFOcDk3RlZIcQ?oc=5",
+          "published_at": "2026-09-17T18:08+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "7e185aac1b6ae2",
+      "headline": "Salesforce issues revenue target of over $63 billion for fiscal 2030, beating estimates",
+      "summary_zh": "Salesforce在Dreamforce投资者会议上给出2030财年营收超630亿美元的目标，高于分析师预期。",
+      "category": "AI Revenue / Monetization",
+      "importance_score": 60,
+      "bubble_direction": "risk_down",
+      "bubble_risk_score": -25,
+      "reason_zh": "头部软件商给出高于预期的长期营收指引，为AI变现叙事提供基本面支撑，边际降低泡沫风险。",
+      "companies": [
+        "Salesforce"
+      ],
+      "published_at": "2026-09-16T23:36+08:00",
+      "sources": [
+        {
+          "name": "CNBC",
+          "domain": "cnbc.com",
+          "url": "https://www.cnbc.com/2026/09/16/salesforce-issues-revenue-target-of-63-billion-for-fiscal-2030.html",
+          "published_at": "2026-09-16T23:36+08:00",
+          "discovered_via": "Bing News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "59028aed55a8f0",
+      "headline": "AI Regulation Push Gains Unlikely Political Allies, But Trump and Congress Resist",
+      "summary_zh": "美国AI监管呼声升温，Bannon与Sanders等跨党派人士罕见联手批评科技‘寡头’并要求AI改革，‘AI生存风险’讨论主流化；但特朗普与国会抵制放缓AI的呼吁，国会虽提出大量AI监管法案却极少落地。",
+      "category": "Macro / Regulation",
+      "importance_score": 60,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 10,
+      "reason_zh": "政策不确定性上升但实质监管始终缺位，AI扩张与高估值继续受益于宽松环境；同时‘AI生存风险’被主流化讨论，本身也是泡沫情绪高企的信号。",
+      "companies": [],
+      "published_at": "2026-09-16T05:44+08:00",
+      "sources": [
+        {
+          "name": "Associated Press",
+          "domain": "apnews.com",
+          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOcW93ckZBY1Y1bHJDS243bGlJbXlENGFaTmQzS08zTWxtQmEwYjlFRkhuQk9WZ1plVjNac2JRSjY4Zk1uLUdlT2p2VHh4WWxfanFHaDNWa3NRWUktMEhsZ0trcWcyTWNMb0RmN05aT2pJV2I1S25nejFtOXNvRjhTVjU4VTFrcTctSzNqWHFCOXpkSmtGNnhadU1EVEdSd19kUllsWA?oc=5",
+          "published_at": "2026-09-16T05:44+08:00",
+          "discovered_via": "Google News RSS"
+        },
+        {
+          "name": "CNBC",
+          "domain": "cnbc.com",
+          "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNNnNsRGxHeU9DS2taUXhjcmxfZWFMMllzUzJFTU9lMExQSE9QOGQ1UnNVNm1JM0toT3htcGVIdDJSUW5TaDRpYlhzR0hlTTg4djkyXzFEdU91S2VQNWJTWFA5UFV0b3NRc2VnMm44azg0RnJJSzhQSUdUY1dmWDJjYjJDbmIzdmPSAYwBQVVfeXFMTm5YQ0VnTHFCdDR0alBBTVRLSTN3Tjd1dk9hd2ZzTTB2b1pGN29aUmFlMVNFX3hBMmtLNkxzQ3ZwaEVrYUxTMGNnZ2lVeVBnQk9ENWhjaTNyVHdwaHBVdmJaTzJGaW1rdElMMktYY3JEeDg5VWVyQm5xOEFzU203akJFX0VtNWN4T0pFdHU?oc=5",
+          "published_at": "2026-09-16T04:05+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "3568c3f1ccf5f2",
+      "headline": "美银：公用事业账单涨速超过通胀，数据中心扩建推高长期电价",
+      "summary_zh": "美银报告指出，夏季高温、电网现代化与数据中心建设推动美国公用事业账单涨幅超过整体通胀，预计电价长期维持高位。",
+      "category": "Data Center / Power",
+      "importance_score": 58,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 20,
+      "reason_zh": "电力成本上行将抬升数据中心运营开支并推高社会用电负担，可能引发公众与监管反弹，削弱AI基建的经济性与扩张空间。",
+      "companies": [
+        "Bank of America"
+      ],
+      "published_at": "2026-09-16T23:30+08:00",
+      "sources": [
+        {
+          "name": "Yahoo Finance",
+          "domain": "finance.yahoo.com",
+          "url": "https://finance.yahoo.com/energy/article/utility-bills-are-rising-faster-than-inflation-bofa-says-expect-higher-prices-long-term-100000344.html",
+          "published_at": "2026-09-16T23:30+08:00",
+          "discovered_via": "Bing News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "581b301a9ee18f",
+      "headline": "数据中心或成为巨灾债券的下一个大市场",
+      "summary_zh": "CNBC报道，数据中心可能成为巨灾债券（catastrophe bonds）的下一个大型市场，为数据中心风险提供新型证券化融资渠道。",
+      "category": "AI Credit / Debt",
+      "importance_score": 57,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 35,
+      "reason_zh": "将数据中心风险证券化并引入巨灾债券市场，意味着AI基础设施融资进一步金融化与加杠杆，增加潜在系统性风险。",
+      "companies": [],
+      "published_at": "2026-09-12T13:00+08:00",
+      "sources": [
+        {
+          "name": "CNBC",
+          "domain": "cnbc.com",
+          "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPejh5Z2pxSV9CczNGcjF1V3V2N1ZvWE4tdUhmUTJtam1IbTZZbTBFUURqYjNYczFKQ1dXV3RpOFJ3MnhqdWdndXBtU3h1Ry1jb25fVUJlWjFOZ0FiNnAyb2J4SUhHX1YyY2JKdm0tNDF4SWtkN1Y1SFRod1Y1MnlvVEVqRGFkNnM?oc=5",
+          "published_at": "2026-09-12T13:00+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "bbfb1306236fa8",
+      "headline": "美国众议院推进首部针对数据中心经济影响法案",
+      "summary_zh": "美国众议院推进首部针对数据中心扩张经济影响（如电价、税收与就业）的立法，监管开始介入AI基建热潮。",
+      "category": "Data Center / Power",
+      "importance_score": 56,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 15,
+      "reason_zh": "数据中心议题进入立法程序意味着政策与成本分摊约束上升，可能提高AI基建的合规成本与建设不确定性。",
+      "companies": [],
+      "published_at": "2026-09-17T07:00+08:00",
+      "sources": [
+        {
+          "name": "Reuters",
+          "domain": "reuters.com",
+          "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQMlJ5dTh2eFhMZFhIMFBycGVFeWNyRFlETUlMem1NNXFVakRtbmQ5Q3FYYUpIb0RlcG1OalB1WDU2VktjaHhQV2pONTdYcmtLSmpaMmtUODR5T1Z1RkpRRUJJN0pBRm15bkprQXQxTUVsTmdCbk5YRVVqcVBFWnJJQUotUjdxbEU1eUFXNHBqZnIyQkhVeW05Y3lfVk5WdXN3aEZnRGE0LUlkNzNZcTdPdUtheUJlQQ?oc=5",
+          "published_at": "2026-09-17T07:00+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "420e7e08a03b0d",
+      "headline": "AI rivalry hangs over Trump-Xi talks",
+      "summary_zh": "AI领域竞争主导特朗普与习近平会谈议程，中美在算力与技术上博弈加剧。",
+      "category": "Macro / Regulation",
+      "importance_score": 56,
+      "bubble_direction": "neutral",
+      "bubble_risk_score": 10,
+      "reason_zh": "中美AI竞争升级可能带来出口管制与供应链扰动风险，对算力供给与市场情绪形成不确定性，但方向尚不明朗，短期对泡沫形成的影响偏中性。",
+      "companies": [],
+      "published_at": "2026-09-17T05:39+08:00",
+      "sources": [
+        {
+          "name": "Reuters",
+          "domain": "reuters.com",
+          "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOSks5MUdiY1Z4N0FkTnB1Z2N6MU9EczBvZEJqVVNtY050bVc3LUJ6STh4b2xEZUpsVjNvcWUyNmxUb1ZvQjV2ZklENUc1RUpzdFhnZy1teFJhSk8zdUZXQ0JnMGZ4dnJHbW5DV0dsSEVlTGQyeW43X3BocVRHV21wN2dsRDdGQU9TRFRHRi1WRzQtVHc?oc=5",
+          "published_at": "2026-09-17T05:39+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "e0a1e69ec1f008",
+      "headline": "Exclusive: Bipartisan AI safety talks accelerate in Senate - Semafor",
+      "summary_zh": "Semafor独家报道，美国参议院两党围绕AI安全的讨论正在加速推进。立法层面的实质进展意味着AI行业可能面临更明确的合规框架。",
+      "category": "Macro / Regulation",
+      "importance_score": 56,
+      "bubble_direction": "neutral",
+      "bubble_risk_score": 5,
+      "reason_zh": "两党AI安全立法提速会增加政策不确定性，短期对AI龙头估值形成轻微扰动，但尚未形成实质约束，影响幅度有限。",
+      "companies": [],
+      "published_at": "2026-09-17T02:58+08:00",
+      "sources": [
+        {
+          "name": "Semafor",
+          "domain": "semafor.com",
+          "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNY3psUVQxOWJDUzNsa0VlWC1CckdidThVbUFVQm1fUWhYQlFwZGhTcDJYM1ZkMTU2X1czM0JqaWFtTFFqNHZMdWVsdmVRRjZJLVVCNmV0dGxvRERpTGlXZktXNGM3aTNUMDFuS21OOFRFR0dZZ0gyeUVMb0Vkc0dPRTJOdktDVVZkTVV0R0p4Q1M1TzhZ?oc=5",
+          "published_at": "2026-09-17T02:58+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "0e709d8030d7b7",
+      "headline": "特朗普在All-In峰会致电黄仁勋，称数据中心反对声是“骗局”",
+      "summary_zh": "CNBC报道，特朗普在All-In峰会现场致电英伟达CEO黄仁勋，并将针对数据中心的反对声音称为“hoax”，显示联邦层面对AI数据中心扩张的政治支持。",
+      "category": "Data Center / Power",
+      "importance_score": 56,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 12,
+      "reason_zh": "最高层公开为数据中心建设背书、淡化地方阻力，降低了AI基建因审批与民意受阻而放缓的风险，同时强化了数据中心资本开支扩张的竞赛逻辑，对泡沫形成有轻微推升作用。",
+      "companies": [
+        "Nvidia"
+      ],
+      "published_at": "2026-09-15T05:26+08:00",
+      "sources": [
+        {
+          "name": "CNBC",
+          "domain": "cnbc.com",
+          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQRW4yR0xHdW04SS1fQzA2WG14dkRkQ1VMRmJORW02WHZHeFlxLXRBUzVCbW1mV2RpcHdhd3Npa1ZJeGJveUptZXMyRGpfQV9peUk4WklnQTBZaHdwcnpzMjRJLVNvaDlpRzV0TkZQU1k4cFdiNFJYVndlRkk0T2V0WXFRVE1CTTlabmJNRDQwU2hlc1RlY290V3dSeDNNQ2hrU2pBU2p30gGrAUFVX3lxTFBwZHdyMWRHcDFvZnQ1ZDlPbklQYjFxNzljSC1JQUpOdFd2RG9zQXdSaTNuMXlvUWhlb3duUEU2dEZXTmgyUFd6LXZsbTQ2N3Z1bEJnRlo4QUFJWlktWEdwY2Z2djdHT3JVV1hhYmc0Nk5RMFcxMC01eldLMFhJZC1DVWNTaUVtb2taYmdmdE5wX1JaTEJlb1dlWWM5ZjJTVUY0SFdibkhKdUlkTQ?oc=5",
+          "published_at": "2026-09-15T05:26+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "430c2b56bdec60",
+      "headline": "参议员试图在国防法案中加入AI反垄断豁免",
+      "summary_zh": "Semafor 独家报道称，有参议员试图在国防法案中附加AI反垄断豁免条款，为大型AI企业合作松绑。",
+      "category": "Macro / Regulation",
+      "importance_score": 55,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 12,
+      "reason_zh": "若AI巨头获反垄断豁免，行业集中度与联合投资能力将进一步增强，强化“赢家通吃”的估值叙事，是制度层面的泡沫助推因素。",
+      "companies": [],
+      "published_at": "2026-09-17T16:55+08:00",
+      "sources": [
+        {
+          "name": "Semafor",
+          "domain": "semafor.com",
+          "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQYjNILUt3U0JyYXBGVWRLeV9ITElINXR2cHpHbzJzM05UR0ZaRVRkYmJGWllsNlFrcXd3X3F5RTJEaUM5X1NybmxpcGVZRnFHblQxQXdMQzhrMktocUE3N0pYdWFPd1dQZzJEdFE3U2k3U3VUbGxBNjQ3LVpIWVNFNXo3V1BoUVYtY0Uza0EzWWRYcmM1dGZFcUpfLVNHTWNGOHZTT0pVcw?oc=5",
+          "published_at": "2026-09-17T16:55+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "43544699371521",
+      "headline": "英国央行按兵不动但暗示可能很快加息",
+      "summary_zh": "英国央行维持利率不变，但通胀升至五个月高位，市场预期其可能很快加息，全球利率环境偏紧。",
+      "category": "Macro / Regulation",
+      "importance_score": 55,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 15,
+      "reason_zh": "全球主要央行紧缩预期升温，抬升全球融资成本，间接压制AI等高估值成长板块。",
+      "companies": [],
+      "published_at": "2026-09-17T12:41+08:00",
+      "sources": [
+        {
+          "name": "Associated Press",
+          "domain": "apnews.com",
+          "url": "https://apnews.com/article/britain-economy-interest-rates-9d2abfcda73347ccb1a19dd39f1c06c8",
+          "published_at": "2026-09-17T12:41+08:00",
+          "discovered_via": "Bing News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "0eb3693240a682",
+      "headline": "UN chief sounds alarm on AI risk after Trump plays it down - Reuters",
+      "summary_zh": "路透报道，在特朗普淡化AI风险之后，联合国秘书长就AI风险发出警告。国际组织与部分政治力量在AI风险认知上出现明显分歧。",
+      "category": "Macro / Regulation",
+      "importance_score": 55,
+      "bubble_direction": "neutral",
+      "bubble_risk_score": 5,
+      "reason_zh": "国际组织的风险警示更多是舆论与政策层面的信号，短期内不改变AI投入与收入节奏，但对行业叙事构成轻微压力。",
+      "companies": [],
+      "published_at": "2026-09-17T03:06+08:00",
+      "sources": [
+        {
+          "name": "Reuters",
+          "domain": "reuters.com",
+          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPdWlyTTZOc0p6bWNqWW1MdGlWMGNOU1Z0SEpkVWYxM1llUTNVX1ROWXJKMTNSYXNUSUV6VDhYTlRJcjB2SHpXa3dwUy1NN1pKSUEwLXN5bzkzVFgwZTRidjZmdUNjRnE0d3ZfcXh5T1BHM2JfVXpvYVRYdHFmNHdZVUlQNzliV29BVkM0cjdsS2Qtekg3YXJOSi05MkhaQQ?oc=5",
+          "published_at": "2026-09-17T03:06+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "09e9a1f0538156",
+      "headline": "Anthropic and OpenAI propose 'neutral' AI watchdogs, raising concerns",
+      "summary_zh": "CNBC报道Anthropic与OpenAI提议设立所谓“中立”的人工智能监管/监督机构，文章对该构想提出质疑与担忧。该提议涉及AI行业自我监管与治理架构的走向。",
+      "category": "Macro / Regulation",
+      "importance_score": 55,
+      "bubble_direction": "neutral",
+      "bubble_risk_score": 5,
+      "reason_zh": "头部AI公司主动提议监管架构，反映行业与政策互动的深化；若形成有利于行业自我监管的框架，可能降低合规不确定性，但也可能被视为削弱外部约束、抬高行业集中度，对泡沫风险的方向性影响尚不明确。",
+      "companies": [
+        "Anthropic",
+        "OpenAI"
+      ],
+      "published_at": "2026-09-16T22:15+08:00",
+      "sources": [
+        {
+          "name": "CNBC",
+          "domain": "cnbc.com",
+          "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE82dGJtZmlDaGJtODJPSXBoY2xRRTFMdEtQMEFYMkpyMzJoUEdzRnc3bXg4b2F3cC1lRUJGRlMzQ0QxbEVfSU1DVktIUm4yMzBLVEhwQjJhd0V4bWZxdnVVallHSTJBOHNfaEUtLThSYmI2eFpUbmtiLWZRXzR5d9IBgwFBVV95cUxPUFRFd2huX0ZQQk9EWGowajZHZ05OcWU4ZGhOMm95SGxnOEttR2ZTV05sN2UtS2ZOVzBnZFphdE5lYmI4LWdrcVluc3drWE9ZTzJjQmIwemEtODNiZDdiTldJM2FqdXF1dVQxVDhGYmZELW9yWjJmdEZ4Qjc2VWk1YV8wOA?oc=5",
+          "published_at": "2026-09-16T22:15+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "a9c27027bff03e",
+      "headline": "AP-NORC民调：美国人对AI环境影响的担忧明显上升",
+      "summary_zh": "美联社-NORC民调显示，过去一年美国民众对人工智能环境影响的担忧加剧，涉及数据中心用电、水资源与碳排放等问题。",
+      "category": "Data Center / Power",
+      "importance_score": 55,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 20,
+      "reason_zh": "公众对AI环境代价的担忧上升，可能转化为数据中心选址、用电与用水审批的阻力，抬升AI基础设施扩张的落地成本与延期风险，对大规模资本开支叙事构成负面扰动。",
+      "companies": [],
+      "published_at": "2026-09-16T10:06+08:00",
+      "sources": [
+        {
+          "name": "Associated Press",
+          "domain": "apnews.com",
+          "url": "https://apnews.com/article/ai-environmental-impact-data-centers-trump-228d625ab7c62cd583bc67d65074f7d4",
+          "published_at": "2026-09-16T10:06+08:00",
+          "discovered_via": "Bing News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "3bb82961b53086",
+      "headline": "Nvidia's Huang and Musk Push Back on AI Regulation and Safety Proposals",
+      "summary_zh": "英伟达CEO黄仁勋公开表示不需要AI监管、应由行业自行保障安全，并批评Anthropic提出的AI安全反垄断豁免方案‘完全没有必要’；马斯克则呼吁各AI实验室互相测试模型，抵制放缓AI的呼声。",
+      "category": "Macro / Regulation",
+      "importance_score": 55,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 10,
+      "reason_zh": "行业巨头游说反对监管与安全约束，短期降低AI扩张与估值叙事的政策阻力，但‘由行业自我监管’本身强化了泡沫期的乐观情绪。",
+      "companies": [
+        "Nvidia",
+        "Anthropic"
+      ],
+      "published_at": "2026-09-16T06:13+08:00",
+      "sources": [
+        {
+          "name": "CNBC",
+          "domain": "cnbc.com",
+          "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE44RHpQWkxyODlqZFVxWEs5TjRrN2ZWMktZUGRyWERQMURrUEZSWk53QXRpRURxcmJtMVJvcmIzWTY5Unk3VVBlRThad2J0YVhJcFRkSVdOUlNvU3Jvbzh1anRPTGU3SGZnUXZOOE5GcWtQOXpPMldaR1hCTdIBgAFBVV95cUxNZ1VaYzZvQzNWOHQwX3Vfc1BraXpSRU91R2E5ZWVoSUhaZjNZQ1BfT1hUaFU5aEI5cF95UHE1V3VWX1ExcGpQR2NXc2JsSUJzWGFGRjU3TC1waW1hM0FmbTNRS2c2UlZVcWk3bmxudUNBbXBVYWJDVHRLRm9meG1zQg?oc=5",
+          "published_at": "2026-09-16T06:13+08:00",
+          "discovered_via": "Google News RSS"
+        },
+        {
+          "name": "CNBC",
+          "domain": "cnbc.com",
+          "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9keDdSVmlFNGR6UkprRmZ3U2tLQk5zWXJBcnY1aGVVY0xPdmRxX2lLREtoSy1DU1JUOFlTcG5McldLUGt6RGZIckNRaU94Q1NVVGdUZ19NOVdfNjZqSldyV19CZml0SFA4OGZqNkQwTllPUdIBd0FVX3lxTE9lOFBWNUxHYU8yNlRQcHAxalc0Z3lMSDdxb00zOE04ZkNOWFYwaW1nVE9STmNUU0d6ZHFxME1HTUJ5WG56OVdpMG53T1ZCYnJYS0ZqSEU2SFBfZXpJZTZ4anJvNHpYSEVqLVlPaEtnV28xWHQ5ZEtV?oc=5",
+          "published_at": "2026-09-15T23:02+08:00",
+          "discovered_via": "Google News RSS"
+        },
+        {
+          "name": "TechCrunch",
+          "domain": "techcrunch.com",
+          "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOTW5yQnNCZkM1c1JRdjA5eFNnTnV4d0dfa2xPcWNrcGFwZ3Z0eTR1UUlWRFhtMlBKU0JfNVdnU1ZzV25Ea282aXhfZ3BkLXVnZ1pHbTIxQkI1enlyMmh6RldUNllKUkhGNUtDZVJMU3JFaVQzaGtVN29zQWZMOTMwYXc1bjFsNnJ5YVVadGtmN29RTENOSDdOcWREY3V3eTUxS1dIOEEtdXJjdw?oc=5",
+          "published_at": "2026-09-16T08:20+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "985efcf23f5ee5",
+      "headline": "AI Data Center Boom Collides With Cities Scarred by Heavy Industry",
+      "summary_zh": "AI数据中心建设热潮正与美国曾受重工业创伤的地方社区产生冲突，选址、电力与土地问题引发居民反弹。",
+      "category": "Data Center / Power",
+      "importance_score": 55,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 15,
+      "reason_zh": "超大规模算力基建加速落地并遭地方阻力，反映AI资本开支的非常规扩张及其社会成本，是泡沫形成期的典型特征。",
+      "companies": [],
+      "published_at": "2026-09-16T05:47+08:00",
+      "sources": [
+        {
+          "name": "TechCrunch",
+          "domain": "techcrunch.com",
+          "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQSUhjREhxYkhIVTU2WXZVNHplQ09DM2Vlbzg4VXF0OHpjcFFSY2lPSHRqNDRxd0pwUkZHYTZyakNMem9QdThDdkNET0RsU2JobmVPWFN2cHM3QmlJdk56UE9iMF81bXE1aTJVbG95UUg3MDhDalBXZUh2RU9GSi05dUN1X295YU9zSDB2SzlhS2hVYzJDWmFzNHpKLTFIbW9Wa0dmS3M0Q0FvR28?oc=5",
+          "published_at": "2026-09-16T05:47+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "a819accb3955d4",
+      "headline": "Anthropic Signs First Australia Data Centre Agreement",
+      "summary_zh": "据路透报道，Anthropic签署其在澳大利亚的首个数据中心租约，看中当地有利的政治环境与丰富的可再生能源。",
+      "category": "Data Center / Power",
+      "importance_score": 55,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 15,
+      "reason_zh": "头部AI公司持续加码全球算力基建，数据中心与GPU需求进一步上行，同时加剧对过度投资的担忧。",
+      "companies": [
+        "Anthropic"
+      ],
+      "published_at": "2026-09-16T01:00+08:00",
+      "sources": [
+        {
+          "name": "Reuters",
+          "domain": "reuters.com",
+          "url": "https://www.reuters.com/world/asia-pacific/anthropic-signs-first-australia-data-centre-agreement-2026-09-16/",
+          "published_at": "2026-09-16T01:00+08:00",
+          "discovered_via": "Bing News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "444f78f9a2e510",
+      "headline": "AI Regulation Debate Deepens as Washington Stays Idle",
+      "summary_zh": "报道指出，从伯尼·桑德斯到史蒂夫·班农等立场迥异的 AI 怀疑论者均呼吁采取行动，而国会与特朗普政府迟迟未出台实质监管；AI 风险议题正加剧硅谷与华盛顿之间的分歧。",
+      "category": "Macro / Regulation",
+      "importance_score": 55,
+      "bubble_direction": "neutral",
+      "bubble_risk_score": 10,
+      "reason_zh": "监管缺位使 AI 投资与估值扩张缺乏外部约束，中期构成泡沫累积的隐性风险；但当前尚未形成可落地的政策冲击，对市场方向影响偏中性。",
+      "companies": [],
+      "published_at": "2026-09-16T00:16+08:00",
+      "sources": [
+        {
+          "name": "CNBC",
+          "domain": "cnbc.com",
+          "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9qdVo5azRkcHMwNURCS1FFajEteTV6VHdqTGVYczZIYzNleFJ6ZWZXb3lwQWZoRHZMWS1EdmJZcXFrbDIwZTg1UkNEWWxoaUNacEh3NDdhT2N3M3RtbnpNcngtOGRaaFBNaThmSEhKa295MUxNQUYyQnliZEjSAYIBQVVfeXFMUFZZQUEwYTU0QWpEblllVWwwRmFqSG5YdGNlTnZxYk5WbkNkc2lCWUJDeHRvcWdKaWpUVUFDZjA5RFZhakpWaUVuNVVjcFlULVJzOTRWbmFLY2hvSUtSck5GaG9UNTRRVmlpa1AzdFBjOUJaQmRXV3JRamRZOWd2b0hTUQ?oc=5",
+          "published_at": "2026-09-16T00:16+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "f4afa59291b80d",
+      "headline": "Piper Sandler因AI需求强劲重申AMD评级",
+      "summary_zh": "Piper Sandler基于强劲的AI需求重申AMD股票评级，显示分析师对AI芯片需求保持乐观。",
+      "category": "Semiconductor / GPU Demand",
+      "importance_score": 55,
+      "bubble_direction": "risk_down",
+      "bubble_risk_score": -15,
+      "reason_zh": "强劲AI芯片需求为AMD等半导体公司提供基本面支撑，有助于缓解市场对AI需求可持续性的担忧。",
+      "companies": [
+        "AMD"
+      ],
+      "published_at": "2026-09-15T23:57+08:00",
+      "sources": [
+        {
+          "name": "Investing.com",
+          "domain": "investing.com",
+          "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPWVlocmVuZkx6RGdRM214ZnpDbDNuOUVRQnUzWDQxZFFUMElRT2VxNGNBRzJMclo3c1hRRXFhVWZxNV9TX0R4ZFFLZWtwZWNFcGYzV3N6VklfT2VkUXQwVG0xaTBHRXpqYk9Tb3lOREROSGhjWDVaS19UbFgzSWtiQjg5MFZjZk4tVGMtQ2kwZmtyQk1WRnltNTQ4a09ac2JIeGc3TUtHYmZabmtnZ2xFZkZfQ3ppeVRnazdGTUd3?oc=5",
+          "published_at": "2026-09-15T23:57+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "f050d58971fc5f",
+      "headline": "Chip stocks pull back on concerns over slowdown in domestic AI investment",
+      "summary_zh": "高歌猛进的芯片股近期失去部分光彩，周一出现广泛回调，部分源于对美国AI投资放缓的担忧，但市场尚未出现恐慌。",
+      "category": "AI CAPEX",
+      "importance_score": 55,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 25,
+      "reason_zh": "AI投资放缓担忧引发芯片股回调，是AI资本开支周期见顶的早期信号，推升泡沫破裂风险。",
+      "companies": [],
+      "published_at": "2026-09-15T10:52+08:00",
+      "sources": [
+        {
+          "name": "Reuters",
+          "domain": "reuters.com",
+          "url": "https://www.reuters.com/business/finance/stocks-wobble-no-sign-panic-yields-surge-2026-09-15/",
+          "published_at": "2026-09-15T10:52+08:00",
+          "discovered_via": "Bing News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "e6891db37afede",
+      "headline": "Amodei提出“AI减速”主张，称中国是最棘手难题",
+      "summary_zh": "CNBC报道，Anthropic的Amodei提出AI减速主张，并称中国因素是最大难题；相关讨论也牵动其即将到来的IPO。",
+      "category": "AI Valuation / Funding",
+      "importance_score": 55,
+      "bubble_direction": "neutral",
+      "bubble_risk_score": -10,
+      "reason_zh": "行业领袖公开呼吁放缓AI发展，反映对过快扩张的担忧，可能边际抑制投资狂热，但短期对估值影响有限。",
+      "companies": [
+        "Anthropic"
+      ],
+      "published_at": "2026-09-14T12:01+08:00",
+      "sources": [
+        {
+          "name": "CNBC",
+          "domain": "cnbc.com",
+          "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPRWFqQXlMTHZpSkhROE1iQTNDUEtibHVrRFNpRmdjNF9GMU91WFpWZWo0YU9fNEU0c3pvUnFsNnYxQWVvX285dFVEa2x4RUtySFNsR2dHaDJoTkJja2hWMW5kLUlxYl9sWWpBbUxTbzltTllJY1ZvSzBxOWEyRkp3czZpRGFjWVpKSjVtbFdHdk83ekpHN1drMzJFU1E3UXFwNjhlc05abWtzZ9IBrwFBVV95cUxQR3Q5czJ0UGpqdXhDbHVhYnR5S1dMdWszUGVZRkFjSkN1cmhwNlMtSmZNWHp1UEQ4Y09uYWtrV3dIbVdLTmdUUy01dHo5SWZoTG8zUW9lcXlGZ0NGYjR1MWZSVU1aOV9UQXEzWUswb3N4ejA0MjJkQUNIcHNBcm9McjlrRTZBMlJpSHRvWVZDZ3g1aHVSUmhGV1hyWXZGd1RpVTN3TkdFSWl4cVlUSHg4?oc=5",
+          "published_at": "2026-09-14T12:01+08:00",
+          "discovered_via": "Google News RSS"
+        },
+        {
+          "name": "CNBC",
+          "domain": "cnbc.com",
+          "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9Ebm16S0djWjFGYTEyTkZEdFdFR3FjdjRMdE5DeVE1QllJOG1UNmE5bDNTSEVqdkVRcGdSckN1N0xyWVh2aEc1bm5FNHpvNFlIYnJQaEI4eFR4TnNnM0hKRkhaOUNCLXVjTGJUZlN0YmpHZmJTdkNwamNDTkLSAYIBQVVfeXFMTmJXdGZqZG1xWURORnhQc0FLRjN4VGxQSG4yTkhxRzNjWWFtZzNQamFPZ3Z1TS1pVm13bzdHaWU0d0FER1BQUnlHUnk4U00zbmU0aGdfd3YwMzBaaWpvNlBvRjA2NFVIWWY3ZGduU1U2SkdSQWMyUlRiM2UxdkpHVElpZw?oc=5",
+          "published_at": "2026-09-13T23:46+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "19828809babb0a",
+      "headline": "油价若进一步飙升可能重新引发衰退担忧",
+      "summary_zh": "油价高企与潜在进一步飙升可能重新引发衰退担忧，增加全球增长与风险资产压力。",
+      "category": "Macro / Regulation",
+      "importance_score": 55,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 25,
+      "reason_zh": "衰退担忧会削弱AI资本开支与企业IT支出预期，并加大高估值AI资产的风险偏好逆转风险。",
+      "companies": [],
+      "published_at": "2026-09-14T05:00+08:00",
+      "sources": [
+        {
+          "name": "Yahoo Finance",
+          "domain": "finance.yahoo.com",
+          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQSXlhTGVibWNIRHE2QlFIeUxVczhCTkxaQl82M1c5MzN1NC03VlkwTHVOUnBYT2tuWTI2NGNGSUdnazUyZ0pvcV9xRTVtLWZ6aTF0cjhvYVhRaHMtYzlINk1vT2t4TnA1dDA4U2NOQ3B3NjAtVEprbF9mb3Ftb0ZENW5jaW1xMGhFWEExVFE4dXRNYlVWelJVYmtZQQ?oc=5",
+          "published_at": "2026-09-14T05:00+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "76032cfcd3d52b",
+      "headline": "Trump adviser Sacks says AI fears driven by 'fear-mongering playbook' - Reuters",
+      "summary_zh": "路透报道，特朗普顾问David Sacks称当前对AI的恐惧来自一套“恐吓式叙事模板”。这代表美国政策圈内主张放松监管、继续推进AI投资的一方声音。",
+      "category": "Macro / Regulation",
+      "importance_score": 54,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 10,
+      "reason_zh": "淡化AI风险、反对强监管的立场有利于AI资本开支与算力扩张继续高速推进，短期可能进一步助长估值扩张情绪，边际上抬升泡沫风险。",
+      "companies": [],
+      "published_at": "2026-09-17T02:52+08:00",
+      "sources": [
+        {
+          "name": "Reuters",
+          "domain": "reuters.com",
+          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQemEtc1lCaUxzdHhLbzkyQ3JDeUR2ZzJza2ZIX1pQWEJWN2I4b2hvRXpmcmNSZTZucGhVN2Vlek1GRXU0dV93YUJHQmo3WmMzOUVZSWhvbU1zN2EzWVlkSEVwcGlfV2tFYlBfTVZUSW5BUGdiNWQyTVB1b1VjTVYxM2o2cUZfOEFicDJRVGxfT3N6WnpYcUo0cEluYTNac2NqRTk2Q0xPTVNQQ2g2czQxeDN0Zm5xeHY0ektFZQ?oc=5",
+          "published_at": "2026-09-17T02:52+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "26c4a3c6e785fb",
+      "headline": "三星电子深化AI芯片制造布局",
+      "summary_zh": "三星电子加大在芯片制造环节的AI投入，进一步加码AI相关产能与技术。",
+      "category": "Semiconductor / GPU Demand",
+      "importance_score": 53,
+      "bubble_direction": "risk_down",
+      "bubble_risk_score": -12,
+      "reason_zh": "存储与代工端资本投入增加，反映产业链对AI需求的中期信心，同时在供给端形成扩张，中期可能带来产能过剩隐患。",
+      "companies": [
+        "Samsung Electronics"
+      ],
+      "published_at": "2026-09-17T12:28+08:00",
+      "sources": [
+        {
+          "name": "Yahoo Finance",
+          "domain": "finance.yahoo.com",
+          "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPelRBQnlWbURHWS12RHVnWG5USFowajVmdTR4ZVB2N0xxbjBkbTg5aDh4dGk3bUVfR1ZWOHZ0UzIxQUp4RVd3MUh1d091S09mSTZtRE5SekN0ZFJOVXNoV2h0eUdwS0RCZzRGMjNnU2hmb3k0VU4wdXVSWFBiV2tfd1dCRlYtekc4ZS00RnBWSzdIdGpCWGhod19DaVdOWHZOWE9USmY1MA?oc=5",
+          "published_at": "2026-09-17T12:28+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "e516d5297f8856",
+      "headline": "Sen. Blumenthal urges AI oversight: 'We're on the verge of losing control'",
+      "summary_zh": "美国参议员Blumenthal呼吁加强AI监管，称美国'正处于失控边缘'。",
+      "category": "Macro / Regulation",
+      "importance_score": 52,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 15,
+      "reason_zh": "美国立法者强化AI监管立场，增加行业政策不确定性，可能成为估值回调的催化因素。",
+      "companies": [],
+      "published_at": "2026-09-17T01:15+08:00",
+      "sources": [
+        {
+          "name": "CNBC",
+          "domain": "cnbc.com",
+          "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNaksyV1dQZGd5OHdJZFpxM2J0M3ItYnBXQjRpUG5TbEx6UFl3Tk9wbWNla0F3OUhjLTk0dlVCZ1pac3FyUV9tQi1vTkF0U3BuYU5iQUlBOU9ldDVZTWVMN0F1dTEzYUNzM0tQaVlDRXpSX0hTbkZPX0JmcHFrckw1dHRkQ1jSAYoBQVVfeXFMT2JHeUVvUjhGdUhfNXFBQVVkc1l4MXBSRUc0a0RKQTVBYl8wVU9mTnhzS19JN1VpdGJPc0poODBRN0lIWHpqYzc1bnVDUTl4MnQyNWw5TE54T19XeGgyWEtXb3U3SDhEUnZnWEtsdjNqbDIyVFN4UWxhUFItZDFRZHpEcWdHTlNueDBB?oc=5",
+          "published_at": "2026-09-17T01:15+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "60d7b42b6410f9",
+      "headline": "Former Assistant AG Kanter: AI Companies Don’t Need Antitrust Exemptions",
+      "summary_zh": "前美国助理司法部长 Kanter 在 CNBC 表示，AI 公司无需获得反垄断豁免即可交付安全产品，反对为 AI 巨头提供监管优待。",
+      "category": "Macro / Regulation",
+      "importance_score": 52,
+      "bubble_direction": "neutral",
+      "bubble_risk_score": -5,
+      "reason_zh": "反对给予 AI 公司反垄断豁免，意味着头部企业的并购与市场集中度扩张将面临更强审查，一定程度上抑制龙头通过整合进一步放大估值泡沫的能力。",
+      "companies": [],
+      "published_at": "2026-09-16T01:54+08:00",
+      "sources": [
+        {
+          "name": "CNBC",
+          "domain": "cnbc.com",
+          "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNVE9oWGhwMVRwX1ZwRmF6dGI3MTdCX254LU1GeTlFaE9IUkRlNTRIZXJuOEd5cjlYRlpZc2M5UlprZHIyLWZvdGV1YUkzQkJWQ2F6WF9zT3dBQWdrLUM2QXZ0R0RpV05aVmRiY3hyRTBQR01LM3liVzBYdWptRzZobEMxTEE3elZEOUpaaVBjbEd6dzFjYlZUS0tBUTJBOW05c0FXSkZwU3pRa2lKU2M1YXRuUjhGUGRFakpLNVltYVMyaXJja2pNbm5mWUR5VElyeTBsag?oc=5",
+          "published_at": "2026-09-16T01:54+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "e29001ad70e429",
+      "headline": "US Officials Signal Skepticism on Regulating AI Through Enforcement",
+      "summary_zh": "美国司法部长Blanche反对以‘起诉代监管’的方式监管AI，FTC主席也对要求给予AI反垄断豁免的呼声表示怀疑。",
+      "category": "Macro / Regulation",
+      "importance_score": 52,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 8,
+      "reason_zh": "执法机构倾向宽松、对反垄断豁免持保留态度，短期降低AI巨头并购与扩张的监管阻力，边际上推升泡沫风险。",
+      "companies": [],
+      "published_at": "2026-09-15T23:15+08:00",
+      "sources": [
+        {
+          "name": "Reuters",
+          "domain": "reuters.com",
+          "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQRW1ON2duQ1MzekVpRGVudVNwQjdXaERxcXVRTHZRa3AwZ1NVd0xhSmRmcHRqZkhCZVJ2Q3JISmNEbzhKNng2QUY5YXF5R2dmVTl6NGJJMlJPZUp5QUxNMVBLdDlXdjBZZGpKZ1M4STBsZ2FlcjRoQjFLY2lNcExzWFd3QklfZEpEV3NKakxvcTlpUDA3QmQ0?oc=5",
+          "published_at": "2026-09-15T23:15+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "5bcee8a686b87c",
+      "headline": "科技领袖与政府在“AI末日”担忧上出现分歧",
+      "summary_zh": "路透报道，Anthropic CEO Dario Amodei呼吁放缓前沿AI研发节奏，并获马斯克与OpenAI的Sam Altman罕见支持，引发围绕AI安全与政府监管的争论。",
+      "category": "Macro / Regulation",
+      "importance_score": 52,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 8,
+      "reason_zh": "头部AI公司CEO公开呼吁放缓发展，凸显行业内部对安全与监管前景的分歧，可能带来政策不确定性并影响AI投资节奏，但尚未形成具体监管措施，故风险影响有限。",
+      "companies": [
+        "Anthropic",
+        "OpenAI"
+      ],
+      "published_at": "2026-09-14T16:59+08:00",
+      "sources": [
+        {
+          "name": "Reuters",
+          "domain": "reuters.com",
+          "url": "https://www.reuters.com/business/what-amodei-altman-musk-have-said-about-ai-risks-stoking-doom-fears-2026-09-14/",
+          "published_at": "2026-09-14T16:59+08:00",
+          "discovered_via": "Bing News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "0ed22b2f1e72d1",
+      "headline": "华盛顿与国会在AI监管上陷入僵局",
+      "summary_zh": "CNBC与《纽约时报》报道，华盛顿急于回应AI护栏呼声但行动窗口收窄，两党高层承认AI风险上升却无快速解决方案。",
+      "category": "Macro / Regulation",
+      "importance_score": 52,
+      "bubble_direction": "neutral",
+      "bubble_risk_score": 0,
+      "reason_zh": "监管迟迟无法落地使政策不确定性延续，对AI投资与估值的短期方向性影响偏中性。",
+      "companies": [],
+      "published_at": "2026-09-14T00:56+08:00",
+      "sources": [
+        {
+          "name": "CNBC",
+          "domain": "cnbc.com",
+          "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE43ZFdOcUNiZmFDbmRDV3RyN3ZxekV1S3BONUxRZ0twQWlCcFFublhOanpUS3VUaHNiZFBBQ2FiN08wZGxKMW5KTHB3SV9Nc0lYcjhMQTdZZjdkMUtZbzU5dG9aX0t6SWJTUGhLVkJjeGprc2NkbUVtS1RHUk_SAYIBQVVfeXFMTjRGRTZPVklWdGtRb1N3NF8yZlBfTmxSNjZnRHp1WE5ybzZlZXJMZWdNT3JmbGJnTjlQR1JFbEhkQUxzZkdfNGZNeVJkYklSdDd4NGVRdkRBdmZrRi1CS1F5Z2sxZmpFYTlSb0o1WlBiTWI1Z3djM1dUeVFjRlJETjR6Zw?oc=5",
+          "published_at": "2026-09-14T00:56+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    },
+    {
+      "id": "e4213c8d883530",
+      "headline": "UBS 点名AI数据中心功率半导体首选标的",
+      "summary_zh": "UBS 发布报告，列出AI数据中心电力相关功率半导体的重点受益标的，看好该细分需求前景。",
+      "category": "Data Center / Power",
+      "importance_score": 51,
+      "bubble_direction": "risk_down",
+      "bubble_risk_score": -12,
+      "reason_zh": "卖方看好电力环节，说明数据中心供电与功率器件是算力扩张的真实瓶颈与受益链条，对AI基建基本面形成一定支撑。",
+      "companies": [
+        "UBS"
+      ],
+      "published_at": "2026-09-17T05:57+08:00",
+      "sources": [
+        {
+          "name": "Investing.com",
+          "domain": "investing.com",
+          "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNa0dDQ3ZhR3p6Y0k2bDdLMVZmNGRrTm43UG1LRUJaYUF6Qmt6UFBVblp1SVMzVHhDZWNlRUhfSERRYUMyOW1INFQ4clI2WlN5czRMRWwweF8xTDNYU0hWM05vb2g4bjQ0QVJIWnFRY1lWUXNKMjUybm95dVBUSFRYeEdDSGFzMWtLcWFUUXc0NkowTjNyak5Xdzl2WmZyWGd2X1QxVE8yRHJWbnRmR3hacWh1YndqQ3FycVEwN2pn?oc=5",
+          "published_at": "2026-09-17T05:57+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-18T08:02:16+08:00",
+      "last_seen_at": "2026-09-18T08:02:16+08:00"
+    }
+  ]
+}
