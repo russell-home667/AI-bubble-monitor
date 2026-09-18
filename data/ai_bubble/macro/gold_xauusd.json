@@ -49,13 +49,13 @@
   "world_bank_fetch_warning": null,
   "previous_close_fetch_warning": "Investing.com: https://www.investing.com/currencies/xau-usd: curl_cffi HTTP 403 len=3; requests HTTP 403 len=3 | https://www.investing.com/currencies/xau-usd-candlestick: Prev. Close not found | https://www.investing.com/currencies/xau-usd-historical-data: curl_cffi HTTP 403 len=3; requests HTTP 403 len=3",
   "latest_quote": {
-    "price": 4363.0,
-    "timestamp": "2026-09-18T04:55:42.996Z",
+    "price": 4365.2,
+    "timestamp": "2026-09-18T05:07:13.396Z",
     "quote_status": "XAUS_FRESH",
     "source": "XAUS Gold Data API",
     "source_state": {
       "status": "fresh",
-      "as_of": "2026-09-18T04:55:42.996Z",
+      "as_of": "2026-09-18T05:07:13.396Z",
       "source": "upstream",
       "age_seconds": 0
     },
@@ -64,8 +64,8 @@
     "previous_close_url": "https://xaus.com/api/v1/history",
     "previous_close_transport": "requests_json",
     "previous_close_observation_date": "2026-09-16",
-    "change_vs_previous_close_pct": -0.5584,
-    "retrieved_at_bjt": "2026-09-18T12:55:50+08:00",
+    "change_vs_previous_close_pct": -0.5083,
+    "retrieved_at_bjt": "2026-09-18T13:07:40+08:00",
     "observation_date": "2026-09-17"
   },
   "data": [
@@ -12866,5 +12866,5 @@
       "low": 4266.6
     }
   ],
-  "updated_at_bjt": "2026-09-18T12:55:50+08:00"
+  "updated_at_bjt": "2026-09-18T13:07:40+08:00"
 }
