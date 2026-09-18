@@ -54,7 +54,7 @@
     tsmcCurrent: {label:'TSMC IR · 2026 Monthly Revenue', url:'https://investor.tsmc.com/english/monthly-revenue/2026'},
     tsmcLanding: {label:'TSMC IR · Monthly Revenue', url:'https://investor.tsmc.com/english/monthly-revenue'},
     vastGpu: {label:'Vast.ai · GPU Marketplace', url:'https://vast.ai/'},
-    runpod: {label:'Runpod · GPU Models (fallback)', url:'https://www.runpod.io/gpu-models'}
+    runpod: {label:'Runpod · API v2 GPU Catalog', url:'https://docs.runpod.io/api-reference-v2/catalog/list-gpu-types'}
   };
 
   const H5_LATEST = [S.yfMSFT,S.yfGOOGL,S.amznQ226SEC,S.yfMETA,S.yfORCL];
