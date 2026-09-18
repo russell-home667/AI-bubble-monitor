@@ -187,7 +187,7 @@ window.addEventListener('load',loadBrentStandalone);
     <div class="grid3" id="gpuSummaryCards"></div>
     <div class="grid3" id="gpuCards" style="margin-top:12px"></div>
     <div class="card chart-card" style="margin-top:12px"><div class="chart-head"><div><div class="chart-title">GPU Rental Price History</div><div class="chart-sub">USD per GPU-hour · Vast market median (solid) vs Runpod Community catalog (dashed)</div></div><div class="range" data-chart="gpuChart"><button data-range="30D" class="active">30D</button><button data-range="90D">90D</button><button data-range="1Y">1Y</button><button data-range="ALL">All</button></div></div><div id="gpuChart" class="chart"></div></div>
-    <div class="card chart-card" style="margin-top:12px"><div class="chart-head"><div><div class="chart-title">Cross-Platform GPU Rental Price Index</div><div class="chart-sub">Base = 100 · each platform normalized independently · 60% Vast + 40% Runpod Community</div></div><div class="range" data-chart="gpuCompositeChart"><button data-range="30D" class="active">30D</button><button data-range="90D">90D</button><button data-range="1Y">1Y</button><button data-range="ALL">All</button></div></div><div id="gpuCompositeChart" class="chart"></div></div>
+    <div class="card chart-card" style="margin-top:12px"><div class="chart-head"><div><div class="chart-title">Cross-Platform GPU Rental Price Index</div><div class="chart-sub">Base = 100 · full H100/H200/B200 daily composite only · 60% Vast + 40% Runpod Community</div></div><div class="range" data-chart="gpuCompositeChart"><button data-range="30D" class="active">30D</button><button data-range="90D">90D</button><button data-range="1Y">1Y</button><button data-range="ALL">All</button></div></div><div id="gpuCompositeChart" class="chart"></div></div>
   </section>
 
   <section class="section"><div class="section-head"><div><div class="section-title">Top Score History</div><div class="section-note">从本监控系统启用之日起永久累计</div></div></div>
@@ -312,7 +312,7 @@ function renderGpu(g){
   const runpodLive=cards.filter(x=>(x.runpod||{}).status==='LIVE_API_V2').length;
   const cross=g.cross_platform_composite||{};
   const coverage=Number(cross.gpu_count||0);
-  const crossTrend=cross.change_30d_pct==null?'30D collecting':`30D ${pct(cross.change_30d_pct)}`;
+  const crossTrend=cross.change_30d_pct==null?(cross.eligible?'30D collecting':'30D requires full 3/3 coverage'):`30D ${pct(cross.change_30d_pct)}`;
   const runpodAvail=tracked.map(k=>`${k} ${g.gpus?.[k]?.runpod?.availability||'—'}`).join(' · ');
   const vastBreadth=tracked.map(k=>{
     const x=g.gpus?.[k];
@@ -352,7 +352,7 @@ function renderGpu(g){
       ? `Vast median $${num(x.market_median??x.daily_price_usd_per_gpu_hr,2)}/h · ${x.offers_count??'—'} offers · P25 $${num(x.market_p25,2)} · P75 $${num(x.market_p75,2)}`
       : 'Vast · no current verified rentable offer';
     const rpLine=rp.status==='LIVE_API_V2'
-      ? `Runpod Community $${num(rp.community_price_usd_per_gpu_hr,2)}/h · Secure $${num(rp.secure_price_usd_per_gpu_hr,2)}/h · availability ${rp.availability||'—'} · max Community ${rp.max_count_community??'—'}`
+      ? `Runpod Community ${num(rp.community_price_usd_per_gpu_hr,2)}/h · Secure ${num(rp.secure_price_usd_per_gpu_hr,2)}/h · availability ${rp.availability||'—'} · max config ${rp.max_count_community??'—'} GPU`
       : `Runpod ${rp.status||'unavailable'}`;
     const blendLine=cp.eligible
       ? `Cross-platform index ${num(cp.blended_index,1)} · ${cp.change_30d_pct==null?'30D collecting':'30D '+pct(cp.change_30d_pct)}`
