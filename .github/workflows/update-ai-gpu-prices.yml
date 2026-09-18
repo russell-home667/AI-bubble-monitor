@@ -111,6 +111,25 @@ jobs:
           ]:
               if not pth.exists():
                   raise SystemExit(f'Missing generated cross-platform file: {pth}')
+
+          import csv
+          cp_path=Path('data/ai_bubble/gpu_rental_prices/cross_platform_composite_daily.csv')
+          with cp_path.open(encoding='utf-8') as fh:
+              rows=list(csv.DictReader(fh))
+          for row in rows:
+              if int(float(row.get('gpu_count') or 0)) != 3:
+                  raise SystemExit(f'Historical cross-platform composite is not full 3/3 coverage: {row}')
+              if row.get('gpu_set') and row.get('gpu_set') != 'B200,H100,H200':
+                  raise SystemExit(f'Unexpected historical GPU basket: {row}')
+
+          expected_cross_eligible=all(
+              v.get('status')=='LIVE_MARKET'
+              and (v.get('runpod') or {}).get('status')=='LIVE_API_V2'
+              for v in g.values()
+          )
+          if bool(d.get('cross_platform_eligible')) != bool(expected_cross_eligible):
+              raise SystemExit('cross_platform_eligible root flag mismatch')
+
           print({k:{
               'vast':v.get('daily_price_usd_per_gpu_hr'),
               'status':v.get('status'),
