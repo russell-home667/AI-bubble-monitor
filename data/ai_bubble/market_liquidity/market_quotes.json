@@ -1,5 +1,5 @@
 {
-  "generated_at_bjt": "2026-09-18T22:54:30+08:00",
+  "generated_at_bjt": "2026-09-18T23:02:25+08:00",
   "timezone": "Asia/Shanghai",
   "source": "Mixed intraday sources",
   "poll_frequency": "10 minutes",
@@ -11,10 +11,10 @@
   "note": "US 10Y/30Y headline values use Investing.com public real-time bond-yield pages first, then TradingView and Trading Economics fallbacks. Treasury historical CSVs remain official U.S. Treasury daily closes.",
   "quotes": {
     "ndx": {
-      "price": 29472.998047,
+      "price": 29453.240234,
       "previous_close": 29446.98,
-      "change_1d_pct": 0.0884,
-      "timestamp": "2026-09-18T22:54:23+08:00",
+      "change_1d_pct": 0.0213,
+      "timestamp": "2026-09-18T23:02:17+08:00",
       "bar_interval": "1m",
       "poll_frequency": "10 minutes",
       "source": "Yahoo Finance ^NDX",
@@ -23,13 +23,13 @@
       "symbol": "^NDX",
       "name": "Nasdaq-100",
       "unit": "index",
-      "last_checked_bjt": "2026-09-18T22:54:28+08:00"
+      "last_checked_bjt": "2026-09-18T23:02:20+08:00"
     },
     "sox": {
-      "price": 11745.5,
+      "price": 11738.181641,
       "previous_close": 11599.492,
-      "change_1d_pct": 1.2587,
-      "timestamp": "2026-09-18T22:54:23+08:00",
+      "change_1d_pct": 1.1957,
+      "timestamp": "2026-09-18T23:02:17+08:00",
       "bar_interval": "1m",
       "poll_frequency": "10 minutes",
       "source": "Yahoo Finance ^SOX",
@@ -38,13 +38,13 @@
       "symbol": "^SOX",
       "name": "PHLX Semiconductor Index",
       "unit": "index",
-      "last_checked_bjt": "2026-09-18T22:54:28+08:00"
+      "last_checked_bjt": "2026-09-18T23:02:20+08:00"
     },
     "nvda": {
-      "price": 219.282806,
+      "price": 219.059906,
       "previous_close": 219.34,
-      "change_1d_pct": -0.0261,
-      "timestamp": "2026-09-18T22:54:27+08:00",
+      "change_1d_pct": -0.1277,
+      "timestamp": "2026-09-18T23:02:18+08:00",
       "bar_interval": "1m",
       "poll_frequency": "10 minutes",
       "source": "Yahoo Finance NVDA",
@@ -53,13 +53,13 @@
       "symbol": "NVDA",
       "name": "NVIDIA",
       "unit": "USD",
-      "last_checked_bjt": "2026-09-18T22:54:28+08:00"
+      "last_checked_bjt": "2026-09-18T23:02:20+08:00"
     },
     "vix": {
-      "price": 15.35,
+      "price": 15.41,
       "previous_close": 17.71,
-      "change_1d_pct": -13.3258,
-      "timestamp": "2026-09-18T22:39:16+08:00",
+      "change_1d_pct": -12.987,
+      "timestamp": "2026-09-18T22:47:16+08:00",
       "bar_interval": "1m",
       "poll_frequency": "10 minutes",
       "source": "Yahoo Finance ^VIX",
@@ -68,18 +68,18 @@
       "symbol": "^VIX",
       "name": "Cboe Volatility Index",
       "unit": "index",
-      "last_checked_bjt": "2026-09-18T22:54:29+08:00"
+      "last_checked_bjt": "2026-09-18T23:02:20+08:00"
     },
     "dgs10": {
       "price": 5.008,
-      "previous_close": 4.947,
-      "change_1d_pct": 1.2331,
-      "timestamp": "2026-09-18T22:54:29+08:00",
-      "source_market_time_text": "10:36:32",
+      "previous_close": null,
+      "change_1d_pct": null,
+      "timestamp": "2026-09-18T23:02:23+08:00",
+      "source_market_time_text": "11:02:16",
       "bar_interval": "live quote",
       "poll_frequency": "10 minutes",
       "source": "Investing.com US 10Y Bond Yield",
-      "source_url": "https://www.investing.com/rates-bonds/u.s.-10-year-bond-yield",
+      "source_url": "https://www.investing.com/rates-bonds/u.s.-10-year-bond-yield-streaming-chart",
       "quote_status": "INVESTING_REALTIME",
       "source_state": "Real-time Data",
       "transport": "curl_cffi/chrome",
@@ -88,14 +88,14 @@
       "symbol": "TVC:US10Y",
       "name": "10-Year Treasury Yield",
       "unit": "%",
-      "last_checked_bjt": "2026-09-18T22:54:29+08:00"
+      "last_checked_bjt": "2026-09-18T23:02:23+08:00"
     },
     "dgs30": {
-      "price": 5.33,
+      "price": 5.339,
       "previous_close": null,
       "change_1d_pct": null,
-      "timestamp": "2026-09-18T22:54:30+08:00",
-      "source_market_time_text": "10:49:24",
+      "timestamp": "2026-09-18T23:02:25+08:00",
+      "source_market_time_text": "10:59:59",
       "bar_interval": "live quote",
       "poll_frequency": "10 minutes",
       "source": "Investing.com US 30Y Bond Yield",
@@ -108,13 +108,13 @@
       "symbol": "TVC:US30Y",
       "name": "30-Year Treasury Yield",
       "unit": "%",
-      "last_checked_bjt": "2026-09-18T22:54:30+08:00"
+      "last_checked_bjt": "2026-09-18T23:02:25+08:00"
     },
     "googl": {
-      "price": 351.089996,
+      "price": 350.945007,
       "previous_close": 347.33,
-      "change_1d_pct": 1.0825,
-      "timestamp": "2026-09-18T22:54:27+08:00",
+      "change_1d_pct": 1.0408,
+      "timestamp": "2026-09-18T23:02:19+08:00",
       "bar_interval": "1m",
       "poll_frequency": "10 minutes",
       "source": "Yahoo Finance GOOGL",
@@ -123,13 +123,13 @@
       "symbol": "GOOGL",
       "name": "Alphabet",
       "unit": "USD",
-      "last_checked_bjt": "2026-09-18T22:54:29+08:00"
+      "last_checked_bjt": "2026-09-18T23:02:20+08:00"
     },
     "msft": {
-      "price": 493.039398,
+      "price": 493.209991,
       "previous_close": 497.75,
-      "change_1d_pct": -0.9464,
-      "timestamp": "2026-09-18T22:54:28+08:00",
+      "change_1d_pct": -0.9121,
+      "timestamp": "2026-09-18T23:02:17+08:00",
       "bar_interval": "1m",
       "poll_frequency": "10 minutes",
       "source": "Yahoo Finance MSFT",
@@ -138,13 +138,13 @@
       "symbol": "MSFT",
       "name": "Microsoft",
       "unit": "USD",
-      "last_checked_bjt": "2026-09-18T22:54:29+08:00"
+      "last_checked_bjt": "2026-09-18T23:02:20+08:00"
     },
     "amzn": {
-      "price": 253.744995,
+      "price": 253.938004,
       "previous_close": 251.19,
-      "change_1d_pct": 1.0172,
-      "timestamp": "2026-09-18T22:54:27+08:00",
+      "change_1d_pct": 1.094,
+      "timestamp": "2026-09-18T23:02:18+08:00",
       "bar_interval": "1m",
       "poll_frequency": "10 minutes",
       "source": "Yahoo Finance AMZN",
@@ -153,7 +153,7 @@
       "symbol": "AMZN",
       "name": "Amazon",
       "unit": "USD",
-      "last_checked_bjt": "2026-09-18T22:54:29+08:00"
+      "last_checked_bjt": "2026-09-18T23:02:20+08:00"
     }
   },
   "errors": {}
