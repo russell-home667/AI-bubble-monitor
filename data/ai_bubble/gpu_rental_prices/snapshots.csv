@@ -98,3 +98,6 @@ snapshot_bjt,date_bjt,hour_bjt,gpu,variant,source_series,price_usd_per_gpu_hr,ru
 2026-09-18T14:45:48+08:00,2026-09-18,14:45:48,B200,B200 180/192GB,runpod_community_reference,5.98,5.98,,,,,,,Runpod Community Cloud public pricing,https://www.runpod.io/gpu-models,REFERENCE_FALLBACK
 2026-09-18T14:45:48+08:00,2026-09-18,14:45:48,H100,H100 SXM 80GB,runpod_community_reference,2.69,2.69,,,,,,,Runpod Community Cloud public pricing,https://www.runpod.io/gpu-models,REFERENCE_FALLBACK
 2026-09-18T14:45:48+08:00,2026-09-18,14:45:48,H200,H200 SXM 141GB,runpod_community_reference,3.59,3.59,,,,,,,Runpod Community Cloud public pricing,https://www.runpod.io/gpu-models,REFERENCE_FALLBACK
+2026-09-18T14:53:33+08:00,2026-09-18,14:53:33,B200,B200 180/192GB,vast_verified_ondemand_median,8.7513,5.98,1.0,8.7513,8.7513,8.7513,8.7513,8.7513,Vast.ai verified on-demand marketplace,https://console.vast.ai/,LIVE_MARKET
+2026-09-18T14:53:33+08:00,2026-09-18,14:53:33,H100,H100 SXM 80GB,vast_verified_ondemand_median,4.8277,2.69,8.0,2.6676,4.3247,4.8277,5.5738,5.5747,Vast.ai verified on-demand marketplace,https://console.vast.ai/,LIVE_MARKET
+2026-09-18T14:53:33+08:00,2026-09-18,14:53:33,H200,H200 SXM 141GB,vast_verified_ondemand_median,4.7378,3.59,5.0,3.2931,4.3424,4.7378,4.7387,4.7387,Vast.ai verified on-demand marketplace,https://console.vast.ai/,LIVE_MARKET

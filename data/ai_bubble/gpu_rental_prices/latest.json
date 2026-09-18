@@ -2,19 +2,19 @@
   "module": "AI Bubble Monitor - GPU Rental Price Index",
   "step": 8,
   "timezone": "Asia/Shanghai",
-  "generated_at_bjt": "2026-09-18T14:45:48+08:00",
-  "scoring_eligible": false,
+  "generated_at_bjt": "2026-09-18T14:53:33+08:00",
+  "scoring_eligible": true,
   "data_quality": {
-    "level": "reference",
-    "scoring_eligible": false,
-    "reason": "GPU prices are Runpod public reference prices rather than live marketplace medians; display-only and excluded from scoring.",
+    "level": "live_market",
+    "scoring_eligible": true,
+    "reason": "All tracked GPUs use verified live Vast.ai marketplace medians.",
     "active_source_series": [
-      "runpod_community_reference"
+      "vast_verified_ondemand_median"
     ],
     "gpu_statuses": {
-      "H100": "REFERENCE_FALLBACK",
-      "H200": "REFERENCE_FALLBACK",
-      "B200": "REFERENCE_FALLBACK"
+      "H100": "LIVE_MARKET",
+      "H200": "LIVE_MARKET",
+      "B200": "LIVE_MARKET"
     }
   },
   "methodology": {
@@ -28,79 +28,79 @@
       "B200"
     ]
   },
-  "vast_api_key_configured": false,
+  "vast_api_key_configured": true,
   "vast_error": null,
   "runpod_status": "LIVE_PUBLIC_PAGE",
   "gpus": {
     "H100": {
       "variant": "H100 SXM 80GB",
       "date_bjt": "2026-09-18",
-      "daily_price_usd_per_gpu_hr": 2.69,
-      "source_series": "runpod_community_reference",
+      "daily_price_usd_per_gpu_hr": 4.8277,
+      "source_series": "vast_verified_ondemand_median",
       "index": 100.0,
-      "change_7d_pct": 0.0,
+      "change_7d_pct": null,
       "change_30d_pct": null,
       "change_90d_pct": null,
       "runpod_reference_usd_per_gpu_hr": 2.69,
-      "latest_snapshot_bjt": "2026-09-18T14:45:48+08:00",
-      "offers_count": null,
-      "market_min": null,
-      "market_p25": null,
-      "market_median": null,
-      "market_p75": null,
-      "market_max": null,
-      "status": "REFERENCE_FALLBACK",
-      "source": "Runpod Community Cloud public pricing"
+      "latest_snapshot_bjt": "2026-09-18T14:53:33+08:00",
+      "offers_count": 8,
+      "market_min": 2.6676,
+      "market_p25": 4.3247,
+      "market_median": 4.8277,
+      "market_p75": 5.5738,
+      "market_max": 5.5747,
+      "status": "LIVE_MARKET",
+      "source": "Vast.ai verified on-demand marketplace"
     },
     "H200": {
       "variant": "H200 SXM 141GB",
       "date_bjt": "2026-09-18",
-      "daily_price_usd_per_gpu_hr": 3.59,
-      "source_series": "runpod_community_reference",
+      "daily_price_usd_per_gpu_hr": 4.7378,
+      "source_series": "vast_verified_ondemand_median",
       "index": 100.0,
-      "change_7d_pct": 0.0,
+      "change_7d_pct": null,
       "change_30d_pct": null,
       "change_90d_pct": null,
       "runpod_reference_usd_per_gpu_hr": 3.59,
-      "latest_snapshot_bjt": "2026-09-18T14:45:48+08:00",
-      "offers_count": null,
-      "market_min": null,
-      "market_p25": null,
-      "market_median": null,
-      "market_p75": null,
-      "market_max": null,
-      "status": "REFERENCE_FALLBACK",
-      "source": "Runpod Community Cloud public pricing"
+      "latest_snapshot_bjt": "2026-09-18T14:53:33+08:00",
+      "offers_count": 5,
+      "market_min": 3.2931,
+      "market_p25": 4.3424,
+      "market_median": 4.7378,
+      "market_p75": 4.7387,
+      "market_max": 4.7387,
+      "status": "LIVE_MARKET",
+      "source": "Vast.ai verified on-demand marketplace"
     },
     "B200": {
       "variant": "B200 180/192GB",
       "date_bjt": "2026-09-18",
-      "daily_price_usd_per_gpu_hr": 5.98,
-      "source_series": "runpod_community_reference",
+      "daily_price_usd_per_gpu_hr": 8.7513,
+      "source_series": "vast_verified_ondemand_median",
       "index": 100.0,
-      "change_7d_pct": 0.0,
+      "change_7d_pct": null,
       "change_30d_pct": null,
       "change_90d_pct": null,
       "runpod_reference_usd_per_gpu_hr": 5.98,
-      "latest_snapshot_bjt": "2026-09-18T14:45:48+08:00",
-      "offers_count": null,
-      "market_min": null,
-      "market_p25": null,
-      "market_median": null,
-      "market_p75": null,
-      "market_max": null,
-      "status": "REFERENCE_FALLBACK",
-      "source": "Runpod Community Cloud public pricing"
+      "latest_snapshot_bjt": "2026-09-18T14:53:33+08:00",
+      "offers_count": 1,
+      "market_min": 8.7513,
+      "market_p25": 8.7513,
+      "market_median": 8.7513,
+      "market_p75": 8.7513,
+      "market_max": 8.7513,
+      "status": "LIVE_MARKET",
+      "source": "Vast.ai verified on-demand marketplace"
     }
   },
   "composite": {
     "date_bjt": "2026-09-18",
-    "source_series": "runpod_community_reference",
+    "source_series": "vast_verified_ondemand_median",
     "composite_index": 100.0,
-    "change_7d_pct": 0.0,
+    "change_7d_pct": null,
     "change_30d_pct": null,
     "change_90d_pct": null,
-    "scoring_eligible": false
+    "scoring_eligible": true
   },
   "errors": {}
 }
