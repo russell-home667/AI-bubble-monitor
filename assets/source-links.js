@@ -229,7 +229,7 @@
   }
 
   function decorate(el){
-    if(!el || el.dataset.sourceLinked==='1' || el.closest('.source-row')) return;
+    if(!el || el.dataset.sourceLinked==='1' || el.closest('.source-row') || el.closest('#marketCards')) return;
     const raw=el.textContent.trim();
     const rule=ruleFor(raw);
     if(!rule) return;
