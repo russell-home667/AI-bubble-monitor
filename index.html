@@ -211,10 +211,10 @@ function renderMarketCards(m){
     ['NASDAQ-100',num(i.ndx.value,0),`${liveMeta(i.ndx)}200DMA ${pct(i.ndx.distance_from_200dma_pct)} · ATH ${pct(i.ndx.ath_drawdown_pct)}`],
     ['SOX',num(i.sox.value,0),`${liveMeta(i.sox)}200DMA ${pct(i.sox.distance_from_200dma_pct)} · ATH ${pct(i.sox.ath_drawdown_pct)}`],
     ['NVIDIA','$'+num(i.nvda.value,2),`${liveMeta(i.nvda)}200DMA ${pct(i.nvda.distance_from_200dma_pct)} · ATH ${pct(i.nvda.ath_drawdown_pct)}`],
-    ['VIX',num(i.vix.value,2),`${liveMeta(i.vix)}20D ${pct(i.vix.change_20d_pct)}`],
+    ['VIX',num(i.vix.value,2),`${liveMeta(i.vix)}1D ${pct(i.vix.live_change_1d_pct??i.vix.change_1d_pct)} · 1M ${pct(i.vix.change_20d_pct)}`],
     ['US 10Y Treasury',num(i.dgs10?.value,2)+'%',rateDetail(i.dgs10)],
     ['US 30Y Treasury',num(i.dgs30?.value,2)+'%',rateDetail(i.dgs30)],
-    ['10Y Real Yield',num(i.dfii10.value,2)+'%',`OFFICIAL · ${i.dfii10.observation_date||'—'} · 20 obs Δ ${i.dfii10.change_20obs>=0?'+':''}${num(i.dfii10.change_20obs,2)} ppt`],
+    ['10Y Real Yield',num(i.dfii10.value,2)+'%',`OFFICIAL · ${i.dfii10.observation_date||'—'} · 1D Δ ${(i.dfii10.change_1obs??0)>=0?'+':''}${num(i.dfii10.change_1obs,2)} ppt · 1M Δ ${(i.dfii10.change_20obs??0)>=0?'+':''}${num(i.dfii10.change_20obs,2)} ppt`],
     ['HY OAS',num(i.hy_oas.value,2)+'%',`OFFICIAL · ${i.hy_oas.observation_date||'—'} · 20 obs Δ ${i.hy_oas.change_20obs>=0?'+':''}${num(i.hy_oas.change_20obs,2)} ppt`]
   ];
   document.getElementById('marketCards').innerHTML=arr.map(x=>metricCard(...x)).join('');
