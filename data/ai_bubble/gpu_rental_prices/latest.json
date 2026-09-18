@@ -2,14 +2,16 @@
   "module": "AI Bubble Monitor - GPU Rental Price Index",
   "step": 8,
   "timezone": "Asia/Shanghai",
-  "generated_at_bjt": "2026-09-18T15:29:46+08:00",
+  "generated_at_bjt": "2026-09-18T15:31:54+08:00",
   "scoring_eligible": false,
+  "cross_platform_eligible": false,
   "data_quality": {
     "level": "reference",
     "scoring_eligible": false,
-    "reason": "GPU prices are Runpod public reference prices rather than live marketplace medians; display-only and excluded from scoring.",
+    "cross_platform_eligible": false,
+    "reason": "At least one active GPU price uses a platform reference rather than a live Vast marketplace median; display-only and excluded from scoring.",
     "active_source_series": [
-      "runpod_community_reference",
+      "runpod_api_v2_community_catalog",
       "vast_verified_ondemand_median"
     ],
     "gpu_statuses": {
@@ -19,10 +21,12 @@
     }
   },
   "methodology": {
-    "primary": "Hourly median $/GPU/hour across verified, rentable, on-demand Vast.ai marketplace offers queried through the official Vast CLI; machine price divided by GPU count.",
-    "fallback": "Runpod Community Cloud published price when VAST_API_KEY is unavailable or Vast fetch fails.",
-    "daily": "Median of all hourly intraday snapshots for the same GPU and source series.",
-    "source_switch_rule": "7/30/90-day changes are calculated only within the same source series, preventing false jumps when switching between Runpod and Vast.",
+    "vast_primary": "Hourly median $/GPU/hour across verified, rentable, on-demand Vast.ai marketplace offers queried through the official Vast CLI; machine price divided by GPU count.",
+    "runpod_secondary": "Official Runpod API v2 GPU catalog Community price plus POD/Community availability; Secure price retained as an additional benchmark.",
+    "cross_platform": "Normalize each platform price series independently to 100, then blend 60% Vast + 40% Runpod Community. This avoids directly averaging prices with different market/catalog semantics.",
+    "fallback": "If Runpod API is unavailable, use the Runpod public GPU-models page; emergency anchors are only a final display-only fallback.",
+    "daily": "Median of hourly intraday prices for each platform/source. Availability metadata uses the latest intraday API observation.",
+    "source_switch_rule": "7/30/90-day changes are calculated within consistent source/index series to prevent false jumps when sources change.",
     "gpu_scope": [
       "H100 SXM",
       "H200",
@@ -31,39 +35,67 @@
   },
   "vast_api_key_configured": true,
   "vast_error": "B200: No valid Vast offers for B200",
-  "runpod_status": "LIVE_PUBLIC_PAGE",
+  "runpod_api_key_configured": true,
+  "runpod_status": "LIVE_API_V2",
+  "runpod_error": null,
   "gpus": {
     "H100": {
       "variant": "H100 SXM 80GB",
       "date_bjt": "2026-09-18",
-      "daily_price_usd_per_gpu_hr": 5.3407,
+      "daily_price_usd_per_gpu_hr": 5.8537,
       "source_series": "vast_verified_ondemand_median",
       "index": 100.0,
       "change_7d_pct": null,
       "change_30d_pct": null,
       "change_90d_pct": null,
       "runpod_reference_usd_per_gpu_hr": 2.69,
-      "latest_snapshot_bjt": "2026-09-18T15:29:46+08:00",
+      "latest_snapshot_bjt": "2026-09-18T15:31:54+08:00",
       "offers_count": 5,
       "market_min": 2.6676,
-      "market_p25": 3.2979,
+      "market_p25": 3.2579,
       "market_median": 5.8537,
       "market_p75": 5.854,
       "market_max": 5.8547,
       "status": "LIVE_MARKET",
-      "source": "Vast.ai verified on-demand marketplace"
+      "source": "Vast.ai verified on-demand marketplace",
+      "runpod": {
+        "status": "LIVE_API_V2",
+        "source_series": "runpod_api_v2_community_catalog",
+        "gpu_id": "NVIDIA H100 80GB HBM3",
+        "gpu_name": "H100 SXM",
+        "community_price_usd_per_gpu_hr": 2.69,
+        "secure_price_usd_per_gpu_hr": 3.49,
+        "availability": "NONE",
+        "max_count_community": 1,
+        "max_count_secure": 8,
+        "data_centers_count": 0,
+        "available_data_centers_count": 0
+      },
+      "cross_platform": {
+        "eligible": true,
+        "blend_weights": {
+          "vast": 0.6,
+          "runpod": 0.4
+        },
+        "vast_index": 100.0,
+        "runpod_index": 100.0,
+        "blended_index": 100.0,
+        "change_7d_pct": null,
+        "change_30d_pct": null,
+        "change_90d_pct": null
+      }
     },
     "H200": {
       "variant": "H200 SXM 141GB",
       "date_bjt": "2026-09-18",
-      "daily_price_usd_per_gpu_hr": 4.8036,
+      "daily_price_usd_per_gpu_hr": 4.8695,
       "source_series": "vast_verified_ondemand_median",
       "index": 100.0,
       "change_7d_pct": null,
       "change_30d_pct": null,
       "change_90d_pct": null,
       "runpod_reference_usd_per_gpu_hr": 3.59,
-      "latest_snapshot_bjt": "2026-09-18T15:29:46+08:00",
+      "latest_snapshot_bjt": "2026-09-18T15:31:54+08:00",
       "offers_count": 6,
       "market_min": 4.7378,
       "market_p25": 4.7387,
@@ -71,19 +103,45 @@
       "market_p75": 5.0006,
       "market_max": 5.0014,
       "status": "LIVE_MARKET",
-      "source": "Vast.ai verified on-demand marketplace"
+      "source": "Vast.ai verified on-demand marketplace",
+      "runpod": {
+        "status": "LIVE_API_V2",
+        "source_series": "runpod_api_v2_community_catalog",
+        "gpu_id": "NVIDIA H200",
+        "gpu_name": "H200 SXM",
+        "community_price_usd_per_gpu_hr": 3.59,
+        "secure_price_usd_per_gpu_hr": 4.59,
+        "availability": "LOW",
+        "max_count_community": 8,
+        "max_count_secure": 8,
+        "data_centers_count": 0,
+        "available_data_centers_count": 0
+      },
+      "cross_platform": {
+        "eligible": true,
+        "blend_weights": {
+          "vast": 0.6,
+          "runpod": 0.4
+        },
+        "vast_index": 100.0,
+        "runpod_index": 100.0,
+        "blended_index": 100.0,
+        "change_7d_pct": null,
+        "change_30d_pct": null,
+        "change_90d_pct": null
+      }
     },
     "B200": {
       "variant": "B200 180/192GB",
       "date_bjt": "2026-09-18",
       "daily_price_usd_per_gpu_hr": 5.98,
-      "source_series": "runpod_community_reference",
+      "source_series": "runpod_api_v2_community_catalog",
       "index": 100.0,
-      "change_7d_pct": 0.0,
+      "change_7d_pct": null,
       "change_30d_pct": null,
       "change_90d_pct": null,
       "runpod_reference_usd_per_gpu_hr": 5.98,
-      "latest_snapshot_bjt": "2026-09-18T15:29:46+08:00",
+      "latest_snapshot_bjt": "2026-09-18T15:31:54+08:00",
       "offers_count": null,
       "market_min": null,
       "market_p25": null,
@@ -91,9 +149,49 @@
       "market_p75": null,
       "market_max": null,
       "status": "REFERENCE_FALLBACK",
-      "source": "Runpod Community Cloud public pricing"
+      "source": "Runpod API v2 Community catalog",
+      "runpod": {
+        "status": "LIVE_API_V2",
+        "source_series": "runpod_api_v2_community_catalog",
+        "gpu_id": "NVIDIA B200",
+        "gpu_name": "B200",
+        "community_price_usd_per_gpu_hr": 5.98,
+        "secure_price_usd_per_gpu_hr": 6.79,
+        "availability": "NONE",
+        "max_count_community": 0,
+        "max_count_secure": 8,
+        "data_centers_count": 0,
+        "available_data_centers_count": 0
+      },
+      "cross_platform": {
+        "eligible": false,
+        "blend_weights": {
+          "vast": 0.6,
+          "runpod": 0.4
+        },
+        "vast_index": 100.0,
+        "runpod_index": 100.0,
+        "blended_index": 100.0,
+        "change_7d_pct": null,
+        "change_30d_pct": null,
+        "change_90d_pct": null
+      }
     }
   },
   "composite": null,
+  "cross_platform_composite": {
+    "date_bjt": "2026-09-18",
+    "gpu_count": 3,
+    "composite_index": 100.0,
+    "change_7d_pct": null,
+    "change_30d_pct": null,
+    "change_90d_pct": null,
+    "eligible": false,
+    "weights": {
+      "vast": 0.6,
+      "runpod": 0.4
+    },
+    "note": "Vast and Runpod are normalized independently to 100 before blending; raw prices are never directly averaged."
+  },
   "errors": {}
 }
