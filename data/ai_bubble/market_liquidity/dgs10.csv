@@ -8756,10 +8756,10 @@ date,value,source,source_symbol,endpoint,fetched_at_bjt,status
 2024-12-30,4.55,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2024-12-31,4.58,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2025-01-02,4.57,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2025-01-03,4.6,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2025-01-06,4.62,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2025-01-07,4.67,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2025-01-08,4.67,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
+2025-01-03,4.6,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-01-06,4.62,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-01-07,4.67,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-01-08,4.67,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2025-01-09,4.68,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2025-01-10,4.77,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
 2025-01-13,4.79,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
@@ -8770,136 +8770,136 @@ date,value,source,source_symbol,endpoint,fetched_at_bjt,status
 2025-01-21,4.57,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2025-01-22,4.6,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2025-01-23,4.65,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2025-01-24,4.63,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
+2025-01-24,4.63,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2025-01-27,4.53,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2025-01-28,4.55,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2025-01-29,4.55,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2025-01-30,4.52,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2025-01-31,4.58,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
+2025-01-28,4.55,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-01-29,4.55,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-01-30,4.52,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-01-31,4.58,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2025-02-03,4.54,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
 2025-02-04,4.52,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
 2025-02-05,4.43,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
 2025-02-06,4.45,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2025-02-07,4.49,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2025-02-10,4.51,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2025-02-11,4.54,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2025-02-12,4.62,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
+2025-02-07,4.49,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-02-10,4.51,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-02-11,4.54,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-02-12,4.62,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2025-02-13,4.52,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
 2025-02-14,4.47,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2025-02-18,4.55,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2025-02-19,4.53,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
+2025-02-19,4.53,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2025-02-20,4.5,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2025-02-21,4.42,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2025-02-24,4.4,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2025-02-25,4.3,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2025-02-26,4.25,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
+2025-02-21,4.42,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-02-24,4.4,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-02-25,4.3,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-02-26,4.25,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2025-02-27,4.29,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2025-02-28,4.24,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
 2025-03-03,4.16,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2025-03-04,4.22,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2025-03-05,4.28,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
+2025-03-04,4.22,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-03-05,4.28,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2025-03-06,4.29,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2025-03-07,4.32,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
+2025-03-07,4.32,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2025-03-10,4.22,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2025-03-11,4.28,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
+2025-03-11,4.28,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2025-03-12,4.32,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
 2025-03-13,4.27,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2025-03-14,4.31,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2025-03-17,4.31,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
 2025-03-18,4.29,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2025-03-19,4.25,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2025-03-20,4.24,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2025-03-21,4.25,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
+2025-03-19,4.25,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-03-20,4.24,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-03-21,4.25,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2025-03-24,4.34,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
 2025-03-25,4.31,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2025-03-26,4.35,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
+2025-03-26,4.35,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2025-03-27,4.38,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2025-03-28,4.27,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2025-03-31,4.23,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
+2025-03-31,4.23,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2025-04-01,4.17,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2025-04-02,4.2,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
+2025-04-02,4.2,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2025-04-03,4.06,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2025-04-04,4.01,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
+2025-04-04,4.01,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2025-04-07,4.15,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2025-04-08,4.26,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
+2025-04-08,4.26,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2025-04-09,4.34,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2025-04-10,4.4,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2025-04-11,4.48,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2025-04-14,4.38,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2025-04-15,4.35,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2025-04-16,4.29,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2025-04-17,4.34,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2025-04-21,4.42,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
+2025-04-11,4.48,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-04-14,4.38,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-04-15,4.35,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-04-16,4.29,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-04-17,4.34,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-04-21,4.42,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2025-04-22,4.41,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2025-04-23,4.4,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2025-04-24,4.32,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2025-04-25,4.29,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2025-04-28,4.23,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
+2025-04-24,4.32,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-04-25,4.29,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-04-28,4.23,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2025-04-29,4.19,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2025-04-30,4.17,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2025-05-01,4.25,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2025-05-02,4.33,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
+2025-04-30,4.17,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-05-01,4.25,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-05-02,4.33,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2025-05-05,4.36,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2025-05-06,4.3,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2025-05-07,4.26,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2025-05-08,4.37,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2025-05-09,4.37,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2025-05-12,4.45,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2025-05-13,4.49,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2025-05-14,4.53,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2025-05-15,4.45,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2025-05-16,4.43,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2025-05-19,4.46,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
+2025-05-08,4.37,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-05-09,4.37,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-05-12,4.45,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-05-13,4.49,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-05-14,4.53,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-05-15,4.45,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-05-16,4.43,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-05-19,4.46,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2025-05-20,4.48,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2025-05-21,4.58,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2025-05-22,4.54,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
+2025-05-21,4.58,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-05-22,4.54,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2025-05-23,4.51,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2025-05-27,4.43,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
+2025-05-27,4.43,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2025-05-28,4.47,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2025-05-29,4.43,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2025-05-30,4.41,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2025-06-02,4.46,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2025-06-03,4.46,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
+2025-05-29,4.43,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-05-30,4.41,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-06-02,4.46,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-06-03,4.46,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2025-06-04,4.37,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2025-06-05,4.4,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2025-06-06,4.51,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2025-06-09,4.49,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2025-06-10,4.47,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
+2025-06-06,4.51,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-06-09,4.49,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-06-10,4.47,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2025-06-11,4.41,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
 2025-06-12,4.36,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2025-06-13,4.41,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
+2025-06-13,4.41,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2025-06-16,4.46,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2025-06-17,4.39,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
+2025-06-17,4.39,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2025-06-18,4.38,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2025-06-20,4.38,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2025-06-23,4.34,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2025-06-24,4.3,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2025-06-25,4.29,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2025-06-26,4.26,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
+2025-06-25,4.29,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-06-26,4.26,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2025-06-27,4.29,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2025-06-30,4.24,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
+2025-06-30,4.24,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2025-07-01,4.26,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2025-07-02,4.3,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2025-07-03,4.35,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2025-07-07,4.4,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
+2025-07-02,4.3,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-07-03,4.35,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-07-07,4.4,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2025-07-08,4.42,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2025-07-09,4.34,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2025-07-10,4.35,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2025-07-11,4.43,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
+2025-07-09,4.34,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-07-10,4.35,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-07-11,4.43,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2025-07-14,4.43,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2025-07-15,4.5,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
+2025-07-15,4.5,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2025-07-16,4.46,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2025-07-17,4.47,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
+2025-07-17,4.47,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2025-07-18,4.44,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2025-07-21,4.38,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
+2025-07-21,4.38,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2025-07-22,4.35,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2025-07-23,4.4,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
 2025-07-24,4.43,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2025-07-25,4.4,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
+2025-07-25,4.4,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2025-07-28,4.42,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2025-07-29,4.34,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2025-07-30,4.38,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2025-07-31,4.37,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
+2025-07-31,4.37,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2025-08-01,4.23,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2025-08-04,4.22,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2025-08-05,4.22,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
@@ -8907,49 +8907,49 @@ date,value,source,source_symbol,endpoint,fetched_at_bjt,status
 2025-08-07,4.23,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
 2025-08-08,4.27,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2025-08-11,4.27,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2025-08-12,4.29,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
+2025-08-12,4.29,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2025-08-13,4.24,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
 2025-08-14,4.29,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2025-08-15,4.33,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2025-08-18,4.34,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
+2025-08-15,4.33,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-08-18,4.34,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2025-08-19,4.3,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2025-08-20,4.29,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2025-08-21,4.33,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
 2025-08-22,4.26,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
 2025-08-25,4.28,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2025-08-26,4.26,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2025-08-27,4.24,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2025-08-28,4.22,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2025-08-29,4.23,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2025-09-02,4.28,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2025-09-03,4.22,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2025-09-04,4.17,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2025-09-05,4.1,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
+2025-08-27,4.24,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-08-28,4.22,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-08-29,4.23,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-09-02,4.28,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-09-03,4.22,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-09-04,4.17,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-09-05,4.1,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2025-09-08,4.05,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
 2025-09-09,4.08,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2025-09-10,4.04,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
+2025-09-10,4.04,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2025-09-11,4.01,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2025-09-12,4.06,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
+2025-09-12,4.06,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2025-09-15,4.05,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2025-09-16,4.04,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2025-09-17,4.06,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2025-09-18,4.11,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2025-09-19,4.14,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2025-09-22,4.15,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2025-09-23,4.12,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
+2025-09-16,4.04,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-09-17,4.06,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-09-18,4.11,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-09-19,4.14,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-09-22,4.15,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-09-23,4.12,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2025-09-24,4.16,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2025-09-25,4.18,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
 2025-09-26,4.2,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2025-09-29,4.15,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2025-09-30,4.16,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
+2025-09-30,4.16,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2025-10-01,4.12,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2025-10-02,4.1,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2025-10-03,4.13,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2025-10-06,4.18,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2025-10-07,4.14,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2025-10-08,4.13,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2025-10-09,4.14,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2025-10-10,4.05,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
+2025-10-02,4.1,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-10-03,4.13,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-10-06,4.18,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-10-07,4.14,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-10-08,4.13,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-10-09,4.14,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-10-10,4.05,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2025-10-14,4.03,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2025-10-15,4.05,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2025-10-16,3.99,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
@@ -8970,8 +8970,8 @@ date,value,source,source_symbol,endpoint,fetched_at_bjt,status
 2025-11-06,4.11,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2025-11-07,4.11,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
 2025-11-10,4.13,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2025-11-12,4.08,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2025-11-13,4.11,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
+2025-11-12,4.08,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-11-13,4.11,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2025-11-14,4.14,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
 2025-11-17,4.13,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2025-11-18,4.12,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
@@ -8979,205 +8979,207 @@ date,value,source,source_symbol,endpoint,fetched_at_bjt,status
 2025-11-20,4.1,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
 2025-11-21,4.06,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2025-11-24,4.04,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2025-11-25,4.01,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
+2025-11-25,4.01,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2025-11-26,4.0,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
 2025-11-28,4.02,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2025-12-01,4.09,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2025-12-02,4.09,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
+2025-12-01,4.09,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-12-02,4.09,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2025-12-03,4.06,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2025-12-04,4.11,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2025-12-05,4.14,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
+2025-12-05,4.14,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2025-12-08,4.17,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2025-12-09,4.18,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2025-12-10,4.13,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2025-12-11,4.14,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2025-12-12,4.19,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2025-12-15,4.18,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2025-12-16,4.15,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2025-12-17,4.16,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2025-12-18,4.12,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2025-12-19,4.16,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2025-12-22,4.17,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2025-12-23,4.18,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2025-12-24,4.15,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2025-12-26,4.14,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
+2025-12-10,4.13,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-12-11,4.14,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-12-12,4.19,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-12-15,4.18,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-12-16,4.15,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-12-17,4.16,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-12-18,4.12,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-12-19,4.16,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-12-22,4.17,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-12-23,4.18,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-12-24,4.15,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2025-12-26,4.14,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2025-12-29,4.12,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2025-12-30,4.14,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
 2025-12-31,4.18,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
 2026-01-02,4.19,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2026-01-05,4.17,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
+2026-01-05,4.17,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2026-01-06,4.18,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2026-01-07,4.15,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
+2026-01-07,4.15,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2026-01-08,4.19,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2026-01-09,4.18,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2026-01-12,4.19,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
+2026-01-12,4.19,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2026-01-13,4.18,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2026-01-14,4.15,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2026-01-15,4.17,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2026-01-16,4.24,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
 2026-01-20,4.3,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2026-01-21,4.26,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2026-01-22,4.26,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
+2026-01-21,4.26,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2026-01-22,4.26,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2026-01-23,4.24,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
 2026-01-26,4.22,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2026-01-27,4.24,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2026-01-28,4.26,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2026-01-29,4.24,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2026-01-30,4.26,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2026-02-02,4.29,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
+2026-01-27,4.24,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2026-01-28,4.26,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2026-01-29,4.24,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2026-01-30,4.26,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2026-02-02,4.29,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2026-02-03,4.28,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2026-02-04,4.29,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
+2026-02-04,4.29,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2026-02-05,4.21,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2026-02-06,4.22,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2026-02-09,4.22,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
+2026-02-06,4.22,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2026-02-09,4.22,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2026-02-10,4.16,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
 2026-02-11,4.18,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
 2026-02-12,4.09,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2026-02-13,4.04,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
+2026-02-13,4.04,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2026-02-17,4.05,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
 2026-02-18,4.09,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
 2026-02-19,4.08,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2026-02-20,4.08,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2026-02-23,4.03,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2026-02-24,4.04,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
+2026-02-20,4.08,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2026-02-23,4.03,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2026-02-24,4.04,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2026-02-25,4.05,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2026-02-26,4.02,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2026-02-27,3.97,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
+2026-02-27,3.97,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2026-03-02,4.05,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2026-03-03,4.06,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2026-03-04,4.09,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2026-03-05,4.13,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2026-03-06,4.15,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2026-03-09,4.12,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2026-03-10,4.15,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2026-03-11,4.21,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2026-03-12,4.27,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2026-03-13,4.28,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2026-03-16,4.23,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2026-03-17,4.2,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2026-03-18,4.26,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2026-03-19,4.25,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2026-03-20,4.39,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
+2026-03-03,4.06,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2026-03-04,4.09,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2026-03-05,4.13,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2026-03-06,4.15,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2026-03-09,4.12,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2026-03-10,4.15,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2026-03-11,4.21,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2026-03-12,4.27,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2026-03-13,4.28,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2026-03-16,4.23,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2026-03-17,4.2,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2026-03-18,4.26,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2026-03-19,4.25,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2026-03-20,4.39,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2026-03-23,4.34,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
 2026-03-24,4.39,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
 2026-03-25,4.33,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
 2026-03-26,4.42,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2026-03-27,4.44,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
+2026-03-27,4.44,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2026-03-30,4.35,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2026-03-31,4.3,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
 2026-04-01,4.33,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2026-04-02,4.31,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
+2026-04-02,4.31,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2026-04-03,4.35,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2026-04-06,4.34,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2026-04-07,4.33,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2026-04-08,4.29,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2026-04-09,4.29,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
+2026-04-06,4.34,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2026-04-07,4.33,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2026-04-08,4.29,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2026-04-09,4.29,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2026-04-10,4.31,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2026-04-13,4.3,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2026-04-14,4.26,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
+2026-04-13,4.3,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2026-04-14,4.26,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2026-04-15,4.29,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2026-04-16,4.32,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
 2026-04-17,4.26,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2026-04-20,4.26,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2026-04-21,4.3,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2026-04-22,4.3,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2026-04-23,4.34,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2026-04-24,4.31,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2026-04-27,4.35,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2026-04-28,4.36,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2026-04-29,4.42,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
+2026-04-23,4.34,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2026-04-24,4.31,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2026-04-27,4.35,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2026-04-28,4.36,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2026-04-29,4.42,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2026-04-30,4.4,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2026-05-01,4.39,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2026-05-04,4.45,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
+2026-05-01,4.39,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2026-05-04,4.45,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2026-05-05,4.43,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2026-05-06,4.36,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2026-05-07,4.41,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
+2026-05-06,4.36,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2026-05-07,4.41,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2026-05-08,4.38,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2026-05-11,4.42,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
 2026-05-12,4.46,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2026-05-13,4.46,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2026-05-14,4.47,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2026-05-15,4.59,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2026-05-18,4.61,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2026-05-19,4.67,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2026-05-20,4.57,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2026-05-21,4.57,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
+2026-05-15,4.59,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2026-05-18,4.61,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2026-05-19,4.67,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2026-05-20,4.57,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2026-05-21,4.57,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2026-05-22,4.56,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2026-05-26,4.5,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2026-05-27,4.48,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
+2026-05-26,4.5,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2026-05-27,4.48,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2026-05-28,4.45,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2026-05-29,4.45,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
+2026-05-29,4.45,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2026-06-01,4.47,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
 2026-06-02,4.46,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2026-06-03,4.49,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2026-06-04,4.47,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
+2026-06-04,4.47,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2026-06-05,4.55,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2026-06-08,4.56,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
+2026-06-08,4.56,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2026-06-09,4.53,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2026-06-10,4.55,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
+2026-06-10,4.55,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2026-06-11,4.45,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
 2026-06-12,4.48,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2026-06-15,4.47,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2026-06-16,4.43,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
+2026-06-16,4.43,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2026-06-17,4.49,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2026-06-18,4.46,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
 2026-06-22,4.51,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2026-06-23,4.5,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2026-06-24,4.41,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
+2026-06-23,4.5,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2026-06-24,4.41,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2026-06-25,4.4,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
 2026-06-26,4.38,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2026-06-29,4.38,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2026-06-30,4.44,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2026-07-01,4.48,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2026-07-02,4.49,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
+2026-06-29,4.38,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2026-06-30,4.44,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2026-07-01,4.48,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2026-07-02,4.49,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2026-07-06,4.48,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2026-07-07,4.55,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2026-07-08,4.56,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
+2026-07-07,4.55,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2026-07-08,4.56,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2026-07-09,4.54,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2026-07-10,4.56,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
+2026-07-10,4.56,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2026-07-13,4.62,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2026-07-14,4.58,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2026-07-15,4.55,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2026-07-16,4.57,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2026-07-17,4.55,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2026-07-20,4.6,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
+2026-07-17,4.55,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2026-07-20,4.6,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2026-07-21,4.63,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2026-07-22,4.67,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2026-07-23,4.71,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2026-07-24,4.69,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
+2026-07-22,4.67,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2026-07-23,4.71,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2026-07-24,4.69,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2026-07-27,4.65,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2026-07-28,4.61,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2026-07-29,4.67,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
+2026-07-29,4.67,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2026-07-30,4.68,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2026-07-31,4.75,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2026-08-03,4.7,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2026-08-04,4.63,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2026-08-05,4.63,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2026-08-06,4.69,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2026-08-07,4.65,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2026-08-10,4.72,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
+2026-08-04,4.63,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2026-08-05,4.63,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2026-08-06,4.69,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2026-08-07,4.65,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2026-08-10,4.72,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2026-08-11,4.7,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2026-08-12,4.68,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
+2026-08-12,4.68,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2026-08-13,4.63,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
 2026-08-14,4.68,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2026-08-17,4.72,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
 2026-08-18,4.71,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2026-08-19,4.65,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2026-08-20,4.69,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2026-08-21,4.74,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2026-08-24,4.7,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
+2026-08-19,4.65,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2026-08-20,4.69,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2026-08-21,4.74,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2026-08-24,4.7,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2026-08-25,4.64,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2026-08-26,4.66,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
+2026-08-26,4.66,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2026-08-27,4.67,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
 2026-08-28,4.73,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
 2026-08-31,4.75,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2026-09-01,4.79,Federal Reserve Board H.15 / FRED,DGS10,FRED public CSV · long-history backfill,2026-09-16T22:44:25+08:00,confirmed
-2026-09-02,4.79,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
+2026-09-01,4.79,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2026-09-02,4.79,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2026-09-03,4.77,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2026-09-04,4.78,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
+2026-09-04,4.78,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2026-09-08,4.8,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
 2026-09-09,4.83,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
-2026-09-10,4.95,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T10:04:30+08:00,official_close
-2026-09-11,4.96,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
+2026-09-10,4.95,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2026-09-11,4.96,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
 2026-09-14,4.97,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
 2026-09-15,5.0,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-16T22:12:57+08:00,official_close
+2026-09-16,5.01,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
+2026-09-17,4.94,U.S. Department of the Treasury,BC_10YEAR,Treasury XML daily_treasury_yield_curve,2026-09-18T11:01:47+08:00,official_close
