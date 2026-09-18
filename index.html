@@ -184,8 +184,7 @@ window.addEventListener('load',loadBrentStandalone);
   </section>
 
   <section class="section"><div class="section-head"><div><div class="section-title">GPU Rental Market</div><div class="section-note">Vast.ai live marketplace + Runpod API v2 catalog/availability · cross-platform index = 60% Vast + 40% Runpod</div></div></div>
-    <div class="grid3" id="gpuSummaryCards"></div>
-    <div class="grid3" id="gpuCards" style="margin-top:12px"></div>
+    <div class="grid3" id="gpuCards"></div>
     <div class="card chart-card" style="margin-top:12px"><div class="chart-head"><div><div class="chart-title">GPU Rental Price History</div><div class="chart-sub">USD per GPU-hour · Vast market median (solid) vs Runpod Community catalog (dashed)</div></div><div class="range" data-chart="gpuChart"><button data-range="30D" class="active">30D</button><button data-range="90D">90D</button><button data-range="1Y">1Y</button><button data-range="ALL">All</button></div></div><div id="gpuChart" class="chart"></div></div>
     <div class="card chart-card" style="margin-top:12px"><div class="chart-head"><div><div class="chart-title">Cross-Platform GPU Rental Price Index</div><div class="chart-sub">Base = 100 · full H100/H200/B200 daily composite only · 60% Vast + 40% Runpod Community</div></div><div class="range" data-chart="gpuCompositeChart"><button data-range="30D" class="active">30D</button><button data-range="90D">90D</button><button data-range="1Y">1Y</button><button data-range="ALL">All</button></div></div><div id="gpuCompositeChart" class="chart"></div></div>
   </section>
@@ -307,39 +306,6 @@ function renderHyper(h){const x=h.h5_latest_complete;const cards=[['H5 Cash CapE
 function renderCompute(d,c){const a=d.indicators,n=c.nvda,t=c.tsmc;const cards=[['Compute Demand Score',num(a.compute_demand_score.score_0_100,1)+'/100',`${a.compute_demand_score.strength_label} · coverage ${num(a.compute_demand_score.coverage_pct,0)}%`],['NVIDIA DC Revenue',moneyBn(n.data_center_revenue_usd_bn),`YoY ${pct(n.data_center_yoy_pct)} · QoQ ${pct(n.data_center_qoq_pct)}`],['NVIDIA Demand Quality',num(a.nvidia_demand_quality_score.score_0_100,1)+'/100',`GM ${num(n.gross_margin_pct,1)}% · DSO ${num(n.dso_days,0)}d · Inv ${num(n.inventory_days,0)}d`],['TSMC Revenue Growth',pct(t.yoy_pct_reported),`3M rolling ${pct(t.rolling_3m_yoy_pct)}`]];document.getElementById('computeCards').innerHTML=cards.map(x=>metricCard(...x)).join('')}
 function renderGpu(g){
   const tracked=['H100','H200','B200'];
-  const cards=tracked.map(k=>g.gpus?.[k]).filter(Boolean);
-  const vastLive=cards.filter(x=>x.status==='LIVE_MARKET').length;
-  const runpodLive=cards.filter(x=>(x.runpod||{}).status==='LIVE_API_V2').length;
-  const cross=g.cross_platform_composite||{};
-  const coverage=Number(cross.gpu_count||0);
-  const crossTrend=cross.change_30d_pct==null?(cross.eligible?'30D collecting':'30D requires full 3/3 coverage'):`30D ${pct(cross.change_30d_pct)}`;
-  const runpodAvail=tracked.map(k=>`${k} ${g.gpus?.[k]?.runpod?.availability||'—'}`).join(' · ');
-  const vastBreadth=tracked.map(k=>{
-    const x=g.gpus?.[k];
-    return `${k} ${x?.status==='LIVE_MARKET'?(x.offers_count??'—')+' offers':'no live offer'}`;
-  }).join(' · ');
-
-  const summary=document.getElementById('gpuSummaryCards');
-  if(summary){
-    summary.innerHTML=[
-      metricCard(
-        'Cross-Platform GPU Price Index',
-        cross.composite_index==null?'—':num(cross.composite_index,1),
-        `Base 100 · 60% Vast + 40% Runpod · current coverage ${coverage}/3 · ${cross.eligible?'FULL':'PARTIAL'} · ${crossTrend}`
-      ),
-      metricCard(
-        'Vast Marketplace Coverage',
-        `${vastLive}/3 LIVE`,
-        `${vastBreadth} · verified on-demand marketplace median`
-      ),
-      metricCard(
-        'Runpod API v2 Coverage',
-        `${runpodLive}/3 LIVE`,
-        `Community availability · ${runpodAvail}`
-      )
-    ].join('');
-  }
-
   document.getElementById('gpuCards').innerHTML=tracked.map(k=>{
     const x=g.gpus?.[k];
     if(!x)return metricCard(k,'—','No current GPU quote');
