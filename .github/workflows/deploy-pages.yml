@@ -34,12 +34,43 @@ jobs:
         with:
           ref: main
 
-      - name: Validate frontend JavaScript
+      - name: Validate frontend integrity
         run: |
           set -euo pipefail
           node --check assets/chart-time-slider.js
           node --check assets/source-links.js
           node --check assets/ai-news.js
+          python - <<'PY'
+          from pathlib import Path
+          import re, subprocess, tempfile
+
+          html=Path('index.html').read_text(encoding='utf-8')
+          if html.count('</html>') != 1:
+              raise SystemExit(f'Expected exactly one </html>, found {html.count("</html>")}')
+          tail=html.split('</html>',1)[1]
+          if tail.strip():
+              raise SystemExit('Non-whitespace content exists after </html>')
+          opens=len(re.findall(r'<script(?:\\s[^>]*)?>',html,flags=re.I))
+          closes=len(re.findall(r'</script>',html,flags=re.I))
+          if opens != closes:
+              raise SystemExit(f'Unbalanced script tags: {opens} open vs {closes} close')
+          for asset in ['assets/chart-time-slider.js','assets/nfci-card-fix.js','assets/source-links.js','assets/ai-news.js']:
+              n=html.count(asset)
+              if n != 1:
+                  raise SystemExit(f'{asset} referenced {n} times (expected 1)')
+          inline=re.findall(r'<script(?![^>]*\\bsrc=)[^>]*>(.*?)</script>',html,flags=re.I|re.S)
+          with tempfile.TemporaryDirectory() as td:
+              for i,code in enumerate(inline):
+                  p=Path(td)/f'inline-{i}.js'
+                  p.write_text(code,encoding='utf-8')
+                  subprocess.run(['node','--check',str(p)],check=True)
+          print(f'HTML integrity OK: {opens} script blocks; {len(inline)} inline scripts validated')
+          PY
+
+      - name: Build compact frontend histories
+        run: |
+          set -euo pipefail
+          python scripts/build_frontend_compact_data.py
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
