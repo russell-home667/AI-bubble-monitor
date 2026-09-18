@@ -90,15 +90,16 @@ def get_vast_stats(api_key: str, vast_name: str) -> dict[str, Any]:
     contract.  We only observe offers; the script never rents an instance.
     """
     query = (
-        f"gpu_name = {vast_name} "
-        "verified = true "
-        "rentable = true "
-        "reliability >= 0.95"
+        f"gpu_name={vast_name} "
+        "verified=True "
+        "rentable=True "
+        "rented=False "
+        "reliability>=0.95"
     )
     cmd = [
         "vastai", "search", "offers", query,
         "--type", "on-demand",
-        "--order", "dph_total",
+        "--order", "dph",
         "--limit", "500",
         "--raw",
         "--api-key", api_key,
@@ -134,7 +135,10 @@ def get_vast_stats(api_key: str, vast_name: str) -> dict[str, Any]:
     per_gpu: list[float] = []
     for offer in offers:
         try:
-            total = float(offer.get("dph_total"))
+            raw_price = offer.get("dph_total")
+            if raw_price is None:
+                raw_price = offer.get("dph")
+            total = float(raw_price)
             n = int(float(offer.get("num_gpus") or 1))
             price = total / max(n, 1)
             if math.isfinite(price) and 0.05 < price < 100:
