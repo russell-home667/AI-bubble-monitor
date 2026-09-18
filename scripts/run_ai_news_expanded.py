@@ -6,6 +6,7 @@ import news_history_reuse as history_reuse
 import news_integrity_guard as integrity_guard
 import news_source_policy as source_policy
 import news_scan_policy as scan_policy
+import news_archive as news_archive
 import run_ai_news_resilient as resilient
 
 expanded.install(resilient.core)
@@ -14,6 +15,7 @@ history_reuse.install(resilient.core, expanded, selection)
 integrity_guard.install(resilient.core, expanded, selection, history_reuse)
 source_policy.install(resilient.core, selection, history_reuse)
 scan_policy.install(resilient.core, expanded, selection)
+news_archive.install(resilient.core)
 
 if __name__ == "__main__":
     raise SystemExit(resilient.core.main())
