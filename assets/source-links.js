@@ -53,7 +53,8 @@
     nvidiaCurrent: {label:'NVIDIA IR · Financial Reports', url:'https://investor.nvidia.com/financial-info/financial-reports/default.aspx'},
     tsmcCurrent: {label:'TSMC IR · 2026 Monthly Revenue', url:'https://investor.tsmc.com/english/monthly-revenue/2026'},
     tsmcLanding: {label:'TSMC IR · Monthly Revenue', url:'https://investor.tsmc.com/english/monthly-revenue'},
-    runpod: {label:'Runpod · GPU Models', url:'https://www.runpod.io/gpu-models'}
+    vastGpu: {label:'Vast.ai · GPU Marketplace', url:'https://vast.ai/'},
+    runpod: {label:'Runpod · GPU Models (fallback)', url:'https://www.runpod.io/gpu-models'}
   };
 
   const H5_LATEST = [S.yfMSFT,S.yfGOOGL,S.amznQ226SEC,S.yfMETA,S.yfORCL];
@@ -176,7 +177,7 @@
 
     if (contains(t,['nvidia dc revenue','nvidia data center','nvidia gross margin','nvidia inventory','nvidia dso'])) return one(S.nvidiaCurrent);
     if (t.includes('tsmc')) return one(S.tsmcCurrent);
-    if (contains(t,['h100','h200','b200','gpu rental','gpu price'])) return one(S.runpod);
+    if (contains(t,['h100','h200','b200','gpu rental','gpu price'])) return many([S.vastGpu,S.runpod]);
 
     if (t.includes('microsoft')) return one(S.yfMSFT);
     if (t.includes('alphabet')) return one(S.yfGOOGL);
