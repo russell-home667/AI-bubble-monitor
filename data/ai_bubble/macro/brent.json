@@ -19066,11 +19066,11 @@
   "price_field": "Daily Close",
   "status": "LIVE",
   "latest_quote": {
-    "price": 98.6,
+    "price": 98.72,
     "previous_close": 99.93,
-    "change_vs_previous_close_pct": -1.3309,
+    "change_vs_previous_close_pct": -1.2108,
     "previous_close_source": "Yahoo Finance BZ=F chart meta",
-    "timestamp": "2026-09-18T19:48:52+08:00",
+    "timestamp": "2026-09-18T20:07:46+08:00",
     "bar_interval": "1m",
     "poll_frequency": "5 minutes",
     "source": "Yahoo Finance BZ=F",
@@ -19081,5 +19081,5 @@
   "quote_timezone": "Asia/Shanghai (Beijing Time)",
   "history_scope": "Maximum daily history available from Yahoo Finance BZ=F, seeded from the aviation dashboard archive",
   "seed_source": "russell-home667/aviation-leasing-dashboard data/market_data.json",
-  "updated_at_bjt": "2026-09-18T19:59:57+08:00"
+  "updated_at_bjt": "2026-09-18T20:18:00+08:00"
 }
