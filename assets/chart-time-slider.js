@@ -243,6 +243,10 @@
     ensureMarketQuoteLayout();
     const live = marketQuotePayload?.quotes || {};
     const fallback = marketSummaryPayload?.indicators || {};
+    if (typeof renderMarketCards === 'function' && marketSummaryPayload?.indicators) {
+      try { renderMarketCards(marketSummaryPayload, live); }
+      catch (e) { console.warn('Market small cards refresh failed', e); }
+    }
     setMarketQuote('marketNdx', 'ndx', live.ndx, fallback.ndx, 2);
     setMarketQuote('marketSox', 'sox', live.sox, fallback.sox, 2);
     setMarketQuote('marketNvda', 'nvda', live.nvda, fallback.nvda, 2);
