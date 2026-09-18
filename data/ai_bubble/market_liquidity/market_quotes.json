@@ -1,5 +1,5 @@
 {
-  "generated_at_bjt": "2026-09-18T19:52:38+08:00",
+  "generated_at_bjt": "2026-09-18T20:02:13+08:00",
   "timezone": "Asia/Shanghai",
   "source": "Mixed intraday sources",
   "poll_frequency": "10 minutes",
@@ -23,7 +23,7 @@
       "symbol": "^NDX",
       "name": "Nasdaq-100",
       "unit": "index",
-      "last_checked_bjt": "2026-09-18T19:52:33+08:00"
+      "last_checked_bjt": "2026-09-18T20:02:09+08:00"
     },
     "sox": {
       "price": 11599.492188,
@@ -38,7 +38,7 @@
       "symbol": "^SOX",
       "name": "PHLX Semiconductor Index",
       "unit": "index",
-      "last_checked_bjt": "2026-09-18T19:52:33+08:00"
+      "last_checked_bjt": "2026-09-18T20:02:09+08:00"
     },
     "nvda": {
       "price": 219.339996,
@@ -53,13 +53,13 @@
       "symbol": "NVDA",
       "name": "NVIDIA",
       "unit": "USD",
-      "last_checked_bjt": "2026-09-18T19:52:34+08:00"
+      "last_checked_bjt": "2026-09-18T20:02:09+08:00"
     },
     "vix": {
-      "price": 15.32,
+      "price": 15.38,
       "previous_close": 17.71,
-      "change_1d_pct": -13.4952,
-      "timestamp": "2026-09-18T19:37:31+08:00",
+      "change_1d_pct": -13.1564,
+      "timestamp": "2026-09-18T19:47:01+08:00",
       "bar_interval": "1m",
       "poll_frequency": "10 minutes",
       "source": "Yahoo Finance ^VIX",
@@ -68,14 +68,14 @@
       "symbol": "^VIX",
       "name": "Cboe Volatility Index",
       "unit": "index",
-      "last_checked_bjt": "2026-09-18T19:52:34+08:00"
+      "last_checked_bjt": "2026-09-18T20:02:09+08:00"
     },
     "dgs10": {
-      "price": 4.967,
+      "price": 4.965,
       "previous_close": null,
       "change_1d_pct": null,
-      "timestamp": "2026-09-18T19:52:36+08:00",
-      "source_market_time_text": "07:52:16",
+      "timestamp": "2026-09-18T20:02:11+08:00",
+      "source_market_time_text": "08:02:06",
       "bar_interval": "live quote",
       "poll_frequency": "10 minutes",
       "source": "Investing.com US 10Y Bond Yield",
@@ -88,13 +88,13 @@
       "symbol": "TVC:US10Y",
       "name": "10-Year Treasury Yield",
       "unit": "%",
-      "last_checked_bjt": "2026-09-18T19:52:36+08:00"
+      "last_checked_bjt": "2026-09-18T20:02:11+08:00"
     },
     "dgs30": {
-      "price": 5.297,
+      "price": 5.298,
       "previous_close": null,
-      "change_1d_pct": 0.1323,
-      "timestamp": "2026-09-18T19:52:38+08:00",
+      "change_1d_pct": 0.1512,
+      "timestamp": "2026-09-18T20:02:13+08:00",
       "bar_interval": "live scanner quote",
       "poll_frequency": "10 minutes",
       "source": "TradingView TVC:US30Y",
@@ -107,7 +107,7 @@
       "symbol": "TVC:US30Y",
       "name": "30-Year Treasury Yield",
       "unit": "%",
-      "last_checked_bjt": "2026-09-18T19:52:38+08:00"
+      "last_checked_bjt": "2026-09-18T20:02:13+08:00"
     },
     "googl": {
       "price": 347.329987,
@@ -122,7 +122,7 @@
       "symbol": "GOOGL",
       "name": "Alphabet",
       "unit": "USD",
-      "last_checked_bjt": "2026-09-18T19:52:34+08:00"
+      "last_checked_bjt": "2026-09-18T20:02:09+08:00"
     },
     "msft": {
       "price": 497.75,
@@ -137,7 +137,7 @@
       "symbol": "MSFT",
       "name": "Microsoft",
       "unit": "USD",
-      "last_checked_bjt": "2026-09-18T19:52:34+08:00"
+      "last_checked_bjt": "2026-09-18T20:02:09+08:00"
     },
     "amzn": {
       "price": 251.190002,
@@ -152,7 +152,7 @@
       "symbol": "AMZN",
       "name": "Amazon",
       "unit": "USD",
-      "last_checked_bjt": "2026-09-18T19:52:34+08:00"
+      "last_checked_bjt": "2026-09-18T20:02:09+08:00"
     }
   },
   "errors": {
