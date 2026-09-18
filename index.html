@@ -2,6 +2,10 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <meta name="ai-bubble-build" content="20260918-integrity-v2" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#08111f" />
   <title>AI Bubble Monitor</title>
@@ -337,17 +341,17 @@ async function load(){
     safeJSON(BASE+'compute_fundamentals/latest.json','Compute Fundamentals'),
     safeJSON(BASE+'gpu_rental_prices/latest.json','GPU Rental Prices'),
     safeJSON(BASE+'market_liquidity/market_quotes.json','Live Market Quotes'),
-    safeCSV(BASE+'market_liquidity/ndx.csv','NDX history'),
-    safeCSV(BASE+'market_liquidity/sox.csv','SOX history'),
-    safeCSV(BASE+'market_liquidity/nvda.csv','NVDA history'),
-    safeCSV(BASE+'market_liquidity/googl.csv','GOOGL history'),
-    safeCSV(BASE+'market_liquidity/msft.csv','MSFT history'),
-    safeCSV(BASE+'market_liquidity/amzn.csv','AMZN history'),
-    safeCSV(BASE+'market_liquidity/vix.csv','VIX history'),
-    safeCSV(BASE+'market_liquidity/dfii10.csv','10Y real-yield history'),
-    safeCSV(BASE+'market_liquidity/dgs10.csv','10Y Treasury history'),
-    safeCSV(BASE+'market_liquidity/dgs30.csv','30Y Treasury history'),
-    safeCSV(BASE+'market_liquidity/hy_oas.csv','HY OAS history'),
+    safeCSV(BASE+'frontend/market_liquidity/ndx.csv','NDX history'),
+    safeCSV(BASE+'frontend/market_liquidity/sox.csv','SOX history'),
+    safeCSV(BASE+'frontend/market_liquidity/nvda.csv','NVDA history'),
+    safeCSV(BASE+'frontend/market_liquidity/googl.csv','GOOGL history'),
+    safeCSV(BASE+'frontend/market_liquidity/msft.csv','MSFT history'),
+    safeCSV(BASE+'frontend/market_liquidity/amzn.csv','AMZN history'),
+    safeCSV(BASE+'frontend/market_liquidity/vix.csv','VIX history'),
+    safeCSV(BASE+'frontend/market_liquidity/dfii10.csv','10Y real-yield history'),
+    safeCSV(BASE+'frontend/market_liquidity/dgs10.csv','10Y Treasury history'),
+    safeCSV(BASE+'frontend/market_liquidity/dgs30.csv','30Y Treasury history'),
+    safeCSV(BASE+'frontend/market_liquidity/hy_oas.csv','HY OAS history'),
     safeCSV(BASE+'hyperscalers/h5_quarterly.csv','Hyperscaler history'),
     safeCSV(BASE+'compute_fundamentals/tsmc_monthly.csv','TSMC history'),
     safeCSV(BASE+'gpu_rental_prices/daily.csv','GPU price history'),
@@ -454,6 +458,24 @@ bindRanges();load();window.addEventListener('resize',()=>Object.values(state.cha
     renderLiquidityChart();
   }).catch(err=>console.warn('NFCI long-history load failed',err));
 })();
+</script>
+
+<script>
+window.addEventListener('DOMContentLoaded',()=>{
+  try{
+    const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
+    const leaked=[];
+    while(walker.nextNode()){
+      const n=walker.currentNode;
+      const p=n.parentElement;
+      if(!p||p.closest('script,style'))continue;
+      const t=String(n.nodeValue||'');
+      if(t.includes('function renderMarketChart')&&t.includes('function renderLiquidityChart')) leaked.push(n);
+    }
+    leaked.forEach(n=>n.remove());
+    if(leaked.length) console.warn('[dashboard] removed leaked JavaScript text nodes:',leaked.length);
+  }catch(e){console.warn('[dashboard] DOM integrity guard failed',e)}
+});
 </script>
 
 </body>
