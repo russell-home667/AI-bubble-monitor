@@ -89,8 +89,19 @@ jobs:
               if bad:
                   raise SystemExit(f'Runpod API marked live but missing GPU data: {bad}')
               cp=d.get('cross_platform_composite') or {}
-              if cp.get('gpu_count') != 3:
-                  raise SystemExit(f'Cross-platform composite missing tracked GPUs: {cp}')
+              expected_cross=sum(
+                  1 for v in g.values()
+                  if v.get('status')=='LIVE_MARKET'
+                  and (v.get('runpod') or {}).get('status')=='LIVE_API_V2'
+              )
+              if int(cp.get('gpu_count') or 0) != expected_cross:
+                  raise SystemExit(
+                      f'Cross-platform coverage mismatch: expected {expected_cross}, got {cp}'
+                  )
+              if bool(cp.get('eligible')) != bool(expected_cross == 3):
+                  raise SystemExit(
+                      f'Cross-platform eligibility mismatch for coverage {expected_cross}: {cp}'
+                  )
           elif d.get('runpod_api_key_configured'):
               print(f"::warning::Runpod API degraded; fallback preserved: {d.get('runpod_error')}")
 
