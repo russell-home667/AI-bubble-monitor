@@ -49,13 +49,13 @@
   "world_bank_fetch_warning": null,
   "previous_close_fetch_warning": null,
   "latest_quote": {
-    "price": 4358.4,
-    "timestamp": "2026-09-18T03:45:54.113Z",
+    "price": 4360.0,
+    "timestamp": "2026-09-18T03:55:20.364Z",
     "quote_status": "XAUS_FRESH",
     "source": "XAUS Gold Data API",
     "source_state": {
       "status": "fresh",
-      "as_of": "2026-09-18T03:45:54.113Z",
+      "as_of": "2026-09-18T03:55:20.364Z",
       "source": "upstream",
       "age_seconds": 0
     },
@@ -64,8 +64,8 @@
     "previous_close_url": "https://www.investing.com/currencies/xau-usd",
     "previous_close_transport": "curl_cffi/chrome",
     "previous_close_observation_date": "2026-09-16",
-    "change_vs_previous_close_pct": 0.3819,
-    "retrieved_at_bjt": "2026-09-18T11:46:10+08:00",
+    "change_vs_previous_close_pct": 0.4187,
+    "retrieved_at_bjt": "2026-09-18T11:55:27+08:00",
     "observation_date": "2026-09-17"
   },
   "data": [
@@ -12866,5 +12866,5 @@
       "low": 4266.6
     }
   ],
-  "updated_at_bjt": "2026-09-18T11:46:10+08:00"
+  "updated_at_bjt": "2026-09-18T11:55:27+08:00"
 }
