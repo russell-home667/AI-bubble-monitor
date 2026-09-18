@@ -9,6 +9,7 @@ on:
       - "Update AI Bubble Market & Liquidity"
       - "Update AI Market Quotes"
       - "Update AI Bubble News Radar"
+      - "Update AI GPU Rental Prices"
     types: [completed]
 
 permissions:
