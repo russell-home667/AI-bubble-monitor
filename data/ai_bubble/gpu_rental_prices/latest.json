@@ -2,7 +2,7 @@
   "module": "AI Bubble Monitor - GPU Rental Price Index",
   "step": 8,
   "timezone": "Asia/Shanghai",
-  "generated_at_bjt": "2026-09-18T15:31:54+08:00",
+  "generated_at_bjt": "2026-09-18T15:42:57+08:00",
   "scoring_eligible": false,
   "cross_platform_eligible": false,
   "data_quality": {
@@ -49,10 +49,10 @@
       "change_30d_pct": null,
       "change_90d_pct": null,
       "runpod_reference_usd_per_gpu_hr": 2.69,
-      "latest_snapshot_bjt": "2026-09-18T15:31:54+08:00",
+      "latest_snapshot_bjt": "2026-09-18T15:42:57+08:00",
       "offers_count": 5,
       "market_min": 2.6676,
-      "market_p25": 3.2579,
+      "market_p25": 3.1379,
       "market_median": 5.8537,
       "market_p75": 5.854,
       "market_max": 5.8547,
@@ -95,12 +95,12 @@
       "change_30d_pct": null,
       "change_90d_pct": null,
       "runpod_reference_usd_per_gpu_hr": 3.59,
-      "latest_snapshot_bjt": "2026-09-18T15:31:54+08:00",
-      "offers_count": 6,
+      "latest_snapshot_bjt": "2026-09-18T15:42:57+08:00",
+      "offers_count": 5,
       "market_min": 4.7378,
       "market_p25": 4.7387,
-      "market_median": 4.8695,
-      "market_p75": 5.0006,
+      "market_median": 5.0003,
+      "market_p75": 5.0007,
       "market_max": 5.0014,
       "status": "LIVE_MARKET",
       "source": "Vast.ai verified on-demand marketplace",
@@ -141,7 +141,7 @@
       "change_30d_pct": null,
       "change_90d_pct": null,
       "runpod_reference_usd_per_gpu_hr": 5.98,
-      "latest_snapshot_bjt": "2026-09-18T15:31:54+08:00",
+      "latest_snapshot_bjt": "2026-09-18T15:42:57+08:00",
       "offers_count": null,
       "market_min": null,
       "market_p25": null,
@@ -181,7 +181,7 @@
   "composite": null,
   "cross_platform_composite": {
     "date_bjt": "2026-09-18",
-    "gpu_count": 3,
+    "gpu_count": 2,
     "composite_index": 100.0,
     "change_7d_pct": null,
     "change_30d_pct": null,
@@ -191,7 +191,7 @@
       "vast": 0.6,
       "runpod": 0.4
     },
-    "note": "Vast and Runpod are normalized independently to 100 before blending; raw prices are never directly averaged."
+    "note": "Current composite uses only GPUs with simultaneous live Vast and Runpod API coverage. Vast and Runpod are normalized independently to 100 before blending; raw prices are never directly averaged."
   },
   "errors": {}
 }
