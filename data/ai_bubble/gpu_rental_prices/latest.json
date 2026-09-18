@@ -2,28 +2,27 @@
   "module": "AI Bubble Monitor - GPU Rental Price Index",
   "step": 8,
   "timezone": "Asia/Shanghai",
-  "generated_at_bjt": "2026-09-18T15:42:57+08:00",
-  "scoring_eligible": false,
-  "cross_platform_eligible": false,
+  "generated_at_bjt": "2026-09-18T16:02:54+08:00",
+  "scoring_eligible": true,
+  "cross_platform_eligible": true,
   "data_quality": {
-    "level": "reference",
-    "scoring_eligible": false,
-    "cross_platform_eligible": false,
-    "reason": "At least one active GPU price uses a platform reference rather than a live Vast marketplace median; display-only and excluded from scoring.",
+    "level": "live_market",
+    "scoring_eligible": true,
+    "cross_platform_eligible": true,
+    "reason": "Vast.ai live marketplace medians and Runpod API v2 catalog/availability are both active.",
     "active_source_series": [
-      "runpod_api_v2_community_catalog",
       "vast_verified_ondemand_median"
     ],
     "gpu_statuses": {
       "H100": "LIVE_MARKET",
       "H200": "LIVE_MARKET",
-      "B200": "REFERENCE_FALLBACK"
+      "B200": "LIVE_MARKET"
     }
   },
   "methodology": {
     "vast_primary": "Hourly median $/GPU/hour across verified, rentable, on-demand Vast.ai marketplace offers queried through the official Vast CLI; machine price divided by GPU count.",
     "runpod_secondary": "Official Runpod API v2 GPU catalog Community price plus POD/Community availability; Secure price retained as an additional benchmark.",
-    "cross_platform": "Normalize each platform price series independently to 100, then blend 60% Vast + 40% Runpod Community. This avoids directly averaging prices with different market/catalog semantics.",
+    "cross_platform": "Normalize each platform price series independently to 100, then blend 60% Vast + 40% Runpod Community. Raw prices are never directly averaged. The historical composite is emitted only on dates with full H100/H200/B200 dual-platform coverage so basket-composition changes cannot create false returns.",
     "fallback": "If Runpod API is unavailable, use the Runpod public GPU-models page; emergency anchors are only a final display-only fallback.",
     "daily": "Median of hourly intraday prices for each platform/source. Availability metadata uses the latest intraday API observation.",
     "source_switch_rule": "7/30/90-day changes are calculated within consistent source/index series to prevent false jumps when sources change.",
@@ -34,7 +33,7 @@
     ]
   },
   "vast_api_key_configured": true,
-  "vast_error": "B200: No valid Vast offers for B200",
+  "vast_error": null,
   "runpod_api_key_configured": true,
   "runpod_status": "LIVE_API_V2",
   "runpod_error": null,
@@ -49,13 +48,13 @@
       "change_30d_pct": null,
       "change_90d_pct": null,
       "runpod_reference_usd_per_gpu_hr": 2.69,
-      "latest_snapshot_bjt": "2026-09-18T15:42:57+08:00",
-      "offers_count": 5,
-      "market_min": 2.6676,
-      "market_p25": 3.1379,
-      "market_median": 5.8537,
-      "market_p75": 5.854,
-      "market_max": 5.8547,
+      "latest_snapshot_bjt": "2026-09-18T16:02:54+08:00",
+      "offers_count": 4,
+      "market_min": 2.9779,
+      "market_p25": 5.3547,
+      "market_median": 6.1472,
+      "market_p75": 6.1475,
+      "market_max": 6.1481,
       "status": "LIVE_MARKET",
       "source": "Vast.ai verified on-demand marketplace",
       "runpod": {
@@ -95,13 +94,13 @@
       "change_30d_pct": null,
       "change_90d_pct": null,
       "runpod_reference_usd_per_gpu_hr": 3.59,
-      "latest_snapshot_bjt": "2026-09-18T15:42:57+08:00",
-      "offers_count": 5,
-      "market_min": 4.7378,
+      "latest_snapshot_bjt": "2026-09-18T16:02:54+08:00",
+      "offers_count": 1,
+      "market_min": 4.7387,
       "market_p25": 4.7387,
-      "market_median": 5.0003,
-      "market_p75": 5.0007,
-      "market_max": 5.0014,
+      "market_median": 4.7387,
+      "market_p75": 4.7387,
+      "market_max": 4.7387,
       "status": "LIVE_MARKET",
       "source": "Vast.ai verified on-demand marketplace",
       "runpod": {
@@ -134,22 +133,22 @@
     "B200": {
       "variant": "B200 180/192GB",
       "date_bjt": "2026-09-18",
-      "daily_price_usd_per_gpu_hr": 5.98,
-      "source_series": "runpod_api_v2_community_catalog",
+      "daily_price_usd_per_gpu_hr": 8.7513,
+      "source_series": "vast_verified_ondemand_median",
       "index": 100.0,
       "change_7d_pct": null,
       "change_30d_pct": null,
       "change_90d_pct": null,
       "runpod_reference_usd_per_gpu_hr": 5.98,
-      "latest_snapshot_bjt": "2026-09-18T15:42:57+08:00",
-      "offers_count": null,
-      "market_min": null,
-      "market_p25": null,
-      "market_median": null,
-      "market_p75": null,
-      "market_max": null,
-      "status": "REFERENCE_FALLBACK",
-      "source": "Runpod API v2 Community catalog",
+      "latest_snapshot_bjt": "2026-09-18T16:02:54+08:00",
+      "offers_count": 1,
+      "market_min": 8.7513,
+      "market_p25": 8.7513,
+      "market_median": 8.7513,
+      "market_p75": 8.7513,
+      "market_max": 8.7513,
+      "status": "LIVE_MARKET",
+      "source": "Vast.ai verified on-demand marketplace",
       "runpod": {
         "status": "LIVE_API_V2",
         "source_series": "runpod_api_v2_community_catalog",
@@ -164,7 +163,7 @@
         "available_data_centers_count": 0
       },
       "cross_platform": {
-        "eligible": false,
+        "eligible": true,
         "blend_weights": {
           "vast": 0.6,
           "runpod": 0.4
@@ -178,20 +177,28 @@
       }
     }
   },
-  "composite": null,
-  "cross_platform_composite": {
+  "composite": {
     "date_bjt": "2026-09-18",
-    "gpu_count": 2,
+    "source_series": "vast_verified_ondemand_median",
     "composite_index": 100.0,
     "change_7d_pct": null,
     "change_30d_pct": null,
     "change_90d_pct": null,
-    "eligible": false,
+    "scoring_eligible": true
+  },
+  "cross_platform_composite": {
+    "date_bjt": "2026-09-18",
+    "gpu_count": 3,
+    "composite_index": 100.0,
+    "change_7d_pct": null,
+    "change_30d_pct": null,
+    "change_90d_pct": null,
+    "eligible": true,
     "weights": {
       "vast": 0.6,
       "runpod": 0.4
     },
-    "note": "Current composite uses only GPUs with simultaneous live Vast and Runpod API coverage. Vast and Runpod are normalized independently to 100 before blending; raw prices are never directly averaged."
+    "note": "Current composite uses only GPUs with simultaneous live Vast and Runpod API coverage. Historical 7/30/90-day changes are reported only when current coverage is full 3/3; the historical composite itself contains full H100/H200/B200 coverage only. Vast and Runpod are normalized independently before blending."
   },
   "errors": {}
 }
