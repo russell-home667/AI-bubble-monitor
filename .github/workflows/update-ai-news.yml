@@ -94,7 +94,21 @@ jobs:
                   raise SystemExit(f"Bad category: {s.get('category')}")
               if not s.get('sources'):
                   raise SystemExit(f"Story missing sources: {s.get('headline')}")
+          archive=Path('data/ai_bubble/news/archive_180d.json')
+          history=Path('data/ai_bubble/news/analyzed_history_index.json')
+          if not archive.exists():
+              raise SystemExit('archive_180d.json missing')
+          if not history.exists():
+              raise SystemExit('analyzed_history_index.json missing')
+          a=json.loads(archive.read_text(encoding='utf-8'))
+          h=json.loads(history.read_text(encoding='utf-8'))
+          if a.get('retention_days') != 180:
+              raise SystemExit(f"Unexpected archive retention: {a.get('retention_days')}")
+          if h.get('retention_days') != 180:
+              raise SystemExit(f"Unexpected history retention: {h.get('retention_days')}")
           print(d.get('stats', {}))
+          print('archive_180d_stories=', len(a.get('stories') or []))
+          print('analyzed_history_index_entries=', len(h.get('entries') or []))
           PY
 
       - name: Commit refreshed news data
@@ -102,7 +116,7 @@ jobs:
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add data/ai_bubble/news/latest.json
+          git add data/ai_bubble/news/latest.json data/ai_bubble/news/archive_180d.json data/ai_bubble/news/analyzed_history_index.json
           if git diff --cached --quiet; then
             echo "No news changes to commit"
             exit 0
