@@ -17,6 +17,7 @@ import json
 import math
 import os
 import re
+import subprocess
 from datetime import datetime, timedelta
 from pathlib import Path
 from statistics import median
@@ -32,7 +33,6 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "data" / "ai_bubble" / "gpu_rental_prices"
 OUT.mkdir(parents=True, exist_ok=True)
 
-VAST_ENDPOINT = "https://console.vast.ai/api/v0/bundles/"
 RUNPOD_INDEX = "https://www.runpod.io/gpu-models"
 
 GPUS = {
@@ -83,39 +83,68 @@ def get_runpod_prices() -> tuple[dict[str, float], str]:
 
 
 def get_vast_stats(api_key: str, vast_name: str) -> dict[str, Any]:
-    payload = {
-        "limit": 500,
-        "type": "ondemand",
-        "verified": {"eq": True},
-        "rentable": {"eq": True},
-        "rented": {"eq": False},
-        "gpu_name": {"eq": vast_name},
-        "reliability": {"gte": 0.95},
-        "order": [["dph_total", "asc"]],
-    }
-    r = requests.post(
-        VAST_ENDPOINT,
-        headers={**HEADERS, "Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
-        json=payload,
-        timeout=40,
+    """Query current rentable Vast.ai offers through the official CLI.
+
+    The Vast CLI is preferred over hand-coding a private/legacy endpoint because
+    Vast evolves its API and keeps the CLI/SDK aligned with the current search
+    contract.  We only observe offers; the script never rents an instance.
+    """
+    query = (
+        f"gpu_name = {vast_name} "
+        "verified = true "
+        "rentable = true "
+        "reliability >= 0.95"
     )
-    r.raise_for_status()
-    body = r.json()
-    offers = body.get("offers", [])
-    if isinstance(offers, dict):
-        offers = [offers]
+    cmd = [
+        "vastai", "search", "offers", query,
+        "--type", "on-demand",
+        "--order", "dph_total",
+        "--limit", "500",
+        "--raw",
+        "--api-key", api_key,
+    ]
+    proc = subprocess.run(
+        cmd,
+        check=False,
+        capture_output=True,
+        text=True,
+        timeout=60,
+    )
+    if proc.returncode != 0:
+        err = (proc.stderr or proc.stdout or "").strip()
+        raise RuntimeError(f"Vast CLI failed ({proc.returncode}): {err[:500]}")
+
+    raw = (proc.stdout or "").strip()
+    if not raw:
+        raise RuntimeError(f"Vast CLI returned empty output for {vast_name}")
+    try:
+        body = json.loads(raw)
+    except json.JSONDecodeError as exc:
+        raise RuntimeError(f"Vast CLI returned non-JSON output for {vast_name}: {raw[:300]}") from exc
+
+    if isinstance(body, list):
+        offers = body
+    elif isinstance(body, dict):
+        offers = body.get("offers") or body.get("results") or body.get("data") or []
+        if isinstance(offers, dict):
+            offers = [offers]
+    else:
+        offers = []
+
     per_gpu: list[float] = []
     for offer in offers:
         try:
             total = float(offer.get("dph_total"))
-            n = int(offer.get("num_gpus") or 1)
+            n = int(float(offer.get("num_gpus") or 1))
             price = total / max(n, 1)
             if math.isfinite(price) and 0.05 < price < 100:
                 per_gpu.append(price)
         except Exception:
             continue
+
     if not per_gpu:
         raise RuntimeError(f"No valid Vast offers for {vast_name}")
+
     s = pd.Series(per_gpu, dtype=float)
     return {
         "offers_count": int(len(s)),
@@ -307,6 +336,11 @@ def main() -> None:
             "runpod_reference_usd_per_gpu_hr": float(r["runpod_reference_usd_per_gpu_hr"]),
             "latest_snapshot_bjt": snap["snapshot_bjt"],
             "offers_count": None if pd.isna(snap.get("offers_count")) else int(float(snap["offers_count"])),
+            "market_min": None if pd.isna(snap.get("market_min")) else float(snap["market_min"]),
+            "market_p25": None if pd.isna(snap.get("market_p25")) else float(snap["market_p25"]),
+            "market_median": None if pd.isna(snap.get("market_median")) else float(snap["market_median"]),
+            "market_p75": None if pd.isna(snap.get("market_p75")) else float(snap["market_p75"]),
+            "market_max": None if pd.isna(snap.get("market_max")) else float(snap["market_max"]),
             "status": snap["status"],
             "source": snap["source"],
         }
@@ -355,9 +389,9 @@ def main() -> None:
             "gpu_statuses": statuses,
         },
         "methodology": {
-            "primary": "Median $/GPU/hour across verified, rentable, on-demand Vast.ai offers; machine price divided by GPU count.",
+            "primary": "Hourly median $/GPU/hour across verified, rentable, on-demand Vast.ai marketplace offers queried through the official Vast CLI; machine price divided by GPU count.",
             "fallback": "Runpod Community Cloud published price when VAST_API_KEY is unavailable or Vast fetch fails.",
-            "daily": "Median of all intraday snapshots for the same GPU and source series.",
+            "daily": "Median of all hourly intraday snapshots for the same GPU and source series.",
             "source_switch_rule": "7/30/90-day changes are calculated only within the same source series, preventing false jumps when switching between Runpod and Vast.",
             "gpu_scope": ["H100 SXM", "H200", "B200"],
         },
