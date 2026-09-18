@@ -930,32 +930,46 @@ def main() -> None:
             }
 
     latest_cross = None
+    current_blends = [
+        float((v.get("cross_platform") or {}).get("blended_index"))
+        for v in latest_gpus.values()
+        if (v.get("cross_platform") or {}).get("eligible")
+        and (v.get("cross_platform") or {}).get("blended_index") is not None
+    ]
+    current_gpu_count = len(current_blends)
+    latest_hist_cross = None
     if not cross_comp.empty:
-        cr = cross_comp.sort_values("date_bjt").iloc[-1]
+        latest_hist_cross = cross_comp.sort_values("date_bjt").iloc[-1]
+    if current_gpu_count:
         latest_cross = {
-            "date_bjt": cr["date_bjt"].strftime("%Y-%m-%d"),
-            "gpu_count": int(cr["gpu_count"]),
-            "composite_index": float(cr["composite_index"]),
+            "date_bjt": now.strftime("%Y-%m-%d"),
+            "gpu_count": current_gpu_count,
+            "composite_index": round(sum(current_blends) / current_gpu_count, 4),
             "change_7d_pct": (
-                None if pd.isna(cr["change_7d_pct"])
-                else float(cr["change_7d_pct"])
+                None if latest_hist_cross is None
+                or pd.isna(latest_hist_cross["change_7d_pct"])
+                else float(latest_hist_cross["change_7d_pct"])
             ),
             "change_30d_pct": (
-                None if pd.isna(cr["change_30d_pct"])
-                else float(cr["change_30d_pct"])
+                None if latest_hist_cross is None
+                or pd.isna(latest_hist_cross["change_30d_pct"])
+                else float(latest_hist_cross["change_30d_pct"])
             ),
             "change_90d_pct": (
-                None if pd.isna(cr["change_90d_pct"])
-                else float(cr["change_90d_pct"])
+                None if latest_hist_cross is None
+                or pd.isna(latest_hist_cross["change_90d_pct"])
+                else float(latest_hist_cross["change_90d_pct"])
             ),
             "eligible": bool(
                 cross_platform_eligible
-                and int(cr["gpu_count"]) == len(GPUS)
+                and current_gpu_count == len(GPUS)
             ),
             "weights": BLEND_WEIGHTS,
             "note": (
-                "Vast and Runpod are normalized independently to 100 before "
-                "blending; raw prices are never directly averaged."
+                "Current composite uses only GPUs with simultaneous live Vast "
+                "and Runpod API coverage. Vast and Runpod are normalized "
+                "independently to 100 before blending; raw prices are never "
+                "directly averaged."
             ),
         }
 
