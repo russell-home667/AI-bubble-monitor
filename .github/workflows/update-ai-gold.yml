@@ -13,8 +13,8 @@ on:
       - 'scripts/update_ai_gold.py'
       - '.github/workflows/update-ai-gold.yml'
   schedule:
-    # AI Bubble Monitor convention: every 10 minutes, Monday-Saturday.
-    - cron: '*/10 * * * 1-6'
+    # AI Bubble Monitor convention: every 10 minutes, every day.
+    - cron: '*/10 * * * *'
 
 permissions:
   contents: write
