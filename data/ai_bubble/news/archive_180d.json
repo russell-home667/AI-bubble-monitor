@@ -1,9 +1,135 @@
 {
-  "generated_at_sgt": "2026-09-18T19:10:18+08:00",
+  "generated_at_sgt": "2026-09-19T08:02:05+08:00",
   "timezone": "Asia/Singapore",
   "retention_days": 180,
   "display_policy": "All validated stories retained regardless of importance score; news.html may filter client-side.",
   "stories": [
+    {
+      "id": "324e0cf52ba430",
+      "headline": "Oracle's $18 billion data center debt under pressure",
+      "summary_zh": "路透援引FT报道，甲骨文180亿美元数据中心债务承压，显示AI基础设施债务融资面临信用压力。",
+      "category": "AI Credit / Debt",
+      "importance_score": 85,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 75,
+      "reason_zh": "大型AI数据中心项目债务若出现压力，可能引发对AI资本开支可持续性和信用风险的担忧，加速泡沫暴露。",
+      "companies": [
+        "Oracle"
+      ],
+      "published_at": "2026-09-19T06:32+08:00",
+      "sources": [
+        {
+          "name": "Reuters",
+          "domain": "reuters.com",
+          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOd1FuODB2SVFrUlY3bzVTYnl0c2pyYjJWWURqTzU4UmZ4VjZBSHFiWjVOMjhwV0xXNEt0eFJmVHB1VGRBV2QyQUUzblZkYnJHWWswcE0xZ1B1TDFHZFFhanB4bXNRQ3A1NEE3ZVJTUEVjaHAxMGp2N2t1WW9HMVR5cUN5WjhxTjd3WlZWdXVfSC1UOHdvLXltU3Y3Q2NNWUZsTWo3LVpYWDYtV1pWTHhuQWE1LUE?oc=5",
+          "published_at": "2026-09-19T06:32+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": true,
+      "first_archived_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
+    },
+    {
+      "id": "1e904db9e48834",
+      "headline": "Meta-tied data center draws blowout demand for debut junk bond",
+      "summary_zh": "与Meta相关的数据中心首次发行垃圾债获得旺盛需求，显示市场对AI基础设施债务的风险偏好强劲。",
+      "category": "AI Credit / Debt",
+      "importance_score": 65,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 45,
+      "reason_zh": "垃圾债需求火爆可能反映AI数据中心融资环境过热，助长资本开支扩张，增加泡沫形成风险。",
+      "companies": [
+        "Meta"
+      ],
+      "published_at": "2026-09-19T02:18+08:00",
+      "sources": [
+        {
+          "name": "Yahoo Finance",
+          "domain": "finance.yahoo.com",
+          "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPbGZGa3VpcG5iZjMtbE1pRF9Db01OSy10aHlSUFdrMldIU0ZmQUhqYkxpSFVHR205d3VWdW9tVDJaTS1NNXBCU1gyT2FuNFhzbDE0aE4wcUN5ZHZ6SFRQUk5UY0thOE5BUHpPTHdNejJ3bnluYS1WblRzQUhIeGZ5VUpDUVNXSG1QS0hVbFZQN3l5ZWkzUUhB?oc=5",
+          "published_at": "2026-09-19T02:18+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
+    },
+    {
+      "id": "918787dc08f8ae",
+      "headline": "Morgan Stanley: higher oil prices hamper US inflation progress",
+      "summary_zh": "摩根士丹利指出油价上涨减缓美国通胀向2%目标回落的进展，并上调年底PCE预测。",
+      "category": "Macro / Regulation",
+      "importance_score": 60,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 45,
+      "reason_zh": "通胀黏性可能迫使美联储维持紧缩，间接加大AI高估值资产的利率风险。",
+      "companies": [],
+      "published_at": "2026-09-18T18:15+08:00",
+      "sources": [
+        {
+          "name": "Yahoo Finance",
+          "domain": "finance.yahoo.com",
+          "url": "https://finance.yahoo.com/economy/policy/articles/us-inflation-progress-hampered-higher-171531523.html",
+          "published_at": "2026-09-18T18:15+08:00",
+          "discovered_via": "Bing News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
+    },
+    {
+      "id": "fe62fb7e74348b",
+      "headline": "Manus seeks $4B valuation in new $500M fundraise",
+      "summary_zh": "AI初创公司Manus在恢复独立运营后，正洽谈以40亿美元估值融资5亿美元。",
+      "category": "AI Valuation / Funding",
+      "importance_score": 60,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 40,
+      "reason_zh": "高估值融资显示AI一级市场情绪仍热，可能助推AI资产估值泡沫。",
+      "companies": [
+        "Manus"
+      ],
+      "published_at": "2026-09-18T17:34+08:00",
+      "sources": [
+        {
+          "name": "TechCrunch",
+          "domain": "techcrunch.com",
+          "url": "https://techcrunch.com/2026/09/18/manus-seeks-4b-valuation-in-new-500m-fundraise-as-it-resumes-independent-ops/",
+          "published_at": "2026-09-18T17:34+08:00",
+          "discovered_via": "Bing News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
+    },
+    {
+      "id": "3411b97ea15dfd",
+      "headline": "Gundlach warns markets on collision course with higher rates",
+      "summary_zh": "“债券之王”冈拉克警告市场与更高利率处于碰撞轨道，可能引发美国衰退和金融市场动荡。",
+      "category": "Macro / Regulation",
+      "importance_score": 55,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 40,
+      "reason_zh": "更高利率前景可能刺破高估值资产，包括AI相关股票，增加泡沫unwind风险。",
+      "companies": [],
+      "published_at": "2026-09-18T16:33+08:00",
+      "sources": [
+        {
+          "name": "Yahoo Finance",
+          "domain": "finance.yahoo.com",
+          "url": "https://finance.yahoo.com/economy/policy/articles/bond-king-jeff-gundlach-warns-153300273.html",
+          "published_at": "2026-09-18T16:33+08:00",
+          "discovered_via": "Bing News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
+    },
     {
       "id": "37ecdd8a8b3815",
       "headline": "BOJ raises interest rates to 31-year high of 1.25%",
@@ -26,7 +152,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T19:10:18+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "a095663d8f4656",
@@ -52,7 +178,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T12:39:19+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "a5168c4c6c7c93",
@@ -79,7 +205,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T19:10:18+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "fdcb9c67f08c78",
@@ -105,7 +231,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T12:39:19+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "793827b360847f",
@@ -129,7 +255,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T12:39:19+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "493ccb74c1dcc4",
@@ -153,7 +279,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "b4ccd541d71d62",
@@ -198,7 +324,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T12:39:19+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "61f911c0bbc673",
@@ -231,7 +357,31 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T19:10:18+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
+    },
+    {
+      "id": "3e06a285038458",
+      "headline": "Virginia unveils Data Center Accountability Framework",
+      "summary_zh": "弗吉尼亚州推出全国最全面的数据中心问责框架，加强对数据中心运营的监管。",
+      "category": "Data Center / Power",
+      "importance_score": 55,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 20,
+      "reason_zh": "数据中心监管趋严可能增加AI基础设施成本与合规不确定性，影响项目经济性，但短期对整体AI泡沫影响有限。",
+      "companies": [],
+      "published_at": "2026-09-18T01:00+08:00",
+      "sources": [
+        {
+          "name": "Official government source",
+          "domain": "governor.virginia.gov",
+          "url": "https://www.governor.virginia.gov/newsroom/news-releases/2026/september-releases/name-1123696-en.html",
+          "published_at": "2026-09-18T01:00+08:00",
+          "discovered_via": "Bing News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "b08e26e13184ea",
@@ -260,7 +410,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "41eb4f0a4165fa",
@@ -286,7 +436,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T12:39:19+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "49f7450b131302",
@@ -310,7 +460,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "adad8fbc3f8c1e",
@@ -337,7 +487,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "430c2b56bdec60",
@@ -361,7 +511,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "43544699371521",
@@ -385,7 +535,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "26c4a3c6e785fb",
@@ -411,7 +561,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "61bb1affd28464",
@@ -438,7 +588,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "2c8ad184c87fc1",
@@ -483,7 +633,7 @@
       ],
       "critical": true,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "64e07b4f314111",
@@ -507,7 +657,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T12:39:19+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "b039f347d90d6a",
@@ -552,7 +702,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "bbfb1306236fa8",
@@ -576,7 +726,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "0d864005c1f908",
@@ -610,7 +760,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "e4213c8d883530",
@@ -636,7 +786,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "420e7e08a03b0d",
@@ -660,7 +810,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "59f72f2bf3defc",
@@ -686,7 +836,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "0eb3693240a682",
@@ -710,7 +860,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "4775f113c05269",
@@ -736,7 +886,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "e0a1e69ec1f008",
@@ -760,7 +910,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "76032cfcd3d52b",
@@ -784,7 +934,45 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
+    },
+    {
+      "id": "61d6dcb8e75a87",
+      "headline": "Fed raises rates for first time since 2023; global central banks tighten, Treasury yields top 5%",
+      "summary_zh": "美联储自2023年以来首次加息25个基点，且全球多家央行同步收紧货币政策；美债收益率升至5%以上，股市波动加剧，高估值科技与AI股面临贴现率上升和流动性收紧压力。",
+      "category": "Macro / Regulation",
+      "importance_score": 95,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 65,
+      "reason_zh": "利率上行直接压制高估值AI成长股估值，并推高AI数据中心债务融资成本，是AI泡沫形成与unwind的重要宏观触发因素。",
+      "companies": [],
+      "published_at": "2026-09-17T02:21+08:00",
+      "sources": [
+        {
+          "name": "Yahoo Finance",
+          "domain": "finance.yahoo.com",
+          "url": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxOQ3FVMXEyMVlGaGRSWXd6T3Q0OUVIU05RNWtRYlNzcFl3WnBfOXpQMEhoa25qejlGYWVjNkZTZlhCejFGR1JwWUVzUUgtcnZtYmNhd05ZZG9sTkRBMjkwTUdXZnlidGFKU3ZaWnVBZHlfTzF1bFVPX0VtNDFvOXl4UmNDa0lBbzUwLVVHeElJelhuSHJoaTlsbFNFZkZxZDg0dGFCblFJdk54Uk9xM3hFV3ZkbzhKR0lOMUNJZnZYWXlfYU1vUHV2ejlpajNEcUowNVh1eTlLUmxOamVVZGY3cHFzNjBEeWFHbDNobV9MS1V2UQ?oc=5",
+          "published_at": "2026-09-17T02:21+08:00",
+          "discovered_via": "Google News RSS"
+        },
+        {
+          "name": "Yahoo Finance",
+          "domain": "finance.yahoo.com",
+          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPQWtlaHBuZzFtWE53S2UwVkR1dVFKQS0wVXRuTFNnQWtpX21USzI2dVI0VVEyZDROem9FU3BrVElobktNX21Zb2kxM0l3N2pEWUQ4QVBGaEh1YmU5b2hKeFVsSGRLbWgwZV84bk1URS1VMkhIY3U2VzZKWTRsbDFCeG1iWG5wdGZraHplTlpZZDVUQVFmR2g5WnpoYjF5Umh5?oc=5",
+          "published_at": "2026-09-18T21:24+08:00",
+          "discovered_via": "Google News RSS"
+        },
+        {
+          "name": "Yahoo Finance",
+          "domain": "finance.yahoo.com",
+          "url": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxQWFVhZ0tfMTFRT2pMR2pwLXdNLWctREhfN3lvdUoxRU9QSFRUSkJVVi03SnhBR29xUVFKenJlWHEzVG53X0RKN2d1WEVkSzhhSjlWVnl6ZmE3TDhUdGZRYkhhb3paajBFWjJTNEhydS01NzFfdWdodWhTMDZpZ1A4X1dqQ0ZZMEZWd2FGQW9DZTlJNlY0MW5VcUhqOE5rUjdXMWRQcXV6YWNsU2RTT1RTRFllWEZ0QVVoZHM4b0otU2FqMGFTTGowX1BmMWQwWWhpcmpPTXNxWloxMXVVYlJWSnBEV2I1UUtieFYycnZzWQ?oc=5",
+          "published_at": "2026-09-17T02:04+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": true,
+      "first_archived_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "e516d5297f8856",
@@ -808,7 +996,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "42a7c7e8aae9d4",
@@ -834,7 +1022,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "29ded4089a35d8",
@@ -865,7 +1053,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "7e185aac1b6ae2",
@@ -891,7 +1079,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "3568c3f1ccf5f2",
@@ -917,7 +1105,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "5e429ee7c62d1e",
@@ -943,7 +1131,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "1e3e3f07a6ba5c",
@@ -969,7 +1157,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "09e9a1f0538156",
@@ -996,7 +1184,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "8ecd0a573e553f",
@@ -1024,7 +1212,7 @@
       ],
       "critical": true,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "5e7d73022197cd",
@@ -1048,7 +1236,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "fb1fac7e3dd826",
@@ -1075,7 +1263,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "9d240d69a66d80",
@@ -1099,7 +1287,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "a9c27027bff03e",
@@ -1123,7 +1311,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "f4fed546aebb0a",
@@ -1149,7 +1337,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "3bb82961b53086",
@@ -1190,7 +1378,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "ed3ed52293e47b",
@@ -1216,7 +1404,7 @@
       ],
       "critical": true,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "985efcf23f5ee5",
@@ -1240,7 +1428,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "59028aed55a8f0",
@@ -1271,7 +1459,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "60d7b42b6410f9",
@@ -1295,7 +1483,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "a819accb3955d4",
@@ -1321,7 +1509,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "444f78f9a2e510",
@@ -1345,7 +1533,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "f4afa59291b80d",
@@ -1371,7 +1559,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "e29001ad70e429",
@@ -1395,7 +1583,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "f050d58971fc5f",
@@ -1419,7 +1607,31 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
+    },
+    {
+      "id": "a96c2a0e9bddf0",
+      "headline": "Texas governor threatens to penalize datacenters not obeying water laws",
+      "summary_zh": "得克萨斯州州长威胁对不遵守水法的数据中心进行处罚，水资源约束成为AI数据中心扩张的监管风险。",
+      "category": "Data Center / Power",
+      "importance_score": 55,
+      "bubble_direction": "risk_up",
+      "bubble_risk_score": 20,
+      "reason_zh": "数据中心用水与电力约束可能延缓AI基础设施扩张并增加成本，构成局部监管与运营风险。",
+      "companies": [],
+      "published_at": "2026-09-15T06:57+08:00",
+      "sources": [
+        {
+          "name": "The Guardian",
+          "domain": "theguardian.com",
+          "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPdHpKMjI1Ml9xajNfM09kb2xVYk40eWdfb0VqSXZZTmxsTkRpMnRycDBjeC1ibHVuRm5vVGhFRzM1c1R2bmxsMTNlMUgwTXppWU1wc1g1NHREU1lXSGlLTHlIRTRuWmVDc2t1MEx5MWVYMk5mOWE1NXBPZG9XR2FWa21vZ0JQVU5OWkZhMV9RbjQ?oc=5",
+          "published_at": "2026-09-15T06:57+08:00",
+          "discovered_via": "Google News RSS"
+        }
+      ],
+      "critical": false,
+      "first_archived_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "0e709d8030d7b7",
@@ -1445,7 +1657,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "5bcee8a686b87c",
@@ -1472,7 +1684,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "e6891db37afede",
@@ -1505,7 +1717,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "19828809babb0a",
@@ -1529,7 +1741,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "2af81964f9c665",
@@ -1556,7 +1768,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "e1938ea5d54aca",
@@ -1595,7 +1807,7 @@
       ],
       "critical": true,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "3376746c152e7b",
@@ -1622,7 +1834,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "0ed22b2f1e72d1",
@@ -1646,7 +1858,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "7b7787e8ac6b3f",
@@ -1672,7 +1884,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "14d39aca8f178d",
@@ -1705,7 +1917,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "fa5fa4d291505c",
@@ -1732,7 +1944,7 @@
       ],
       "critical": true,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "0cd3526de91434",
@@ -1758,7 +1970,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "581b301a9ee18f",
@@ -1782,7 +1994,7 @@
       ],
       "critical": false,
       "first_archived_at": "2026-09-18T08:02:16+08:00",
-      "last_seen_at": "2026-09-18T19:10:18+08:00"
+      "last_seen_at": "2026-09-19T08:02:05+08:00"
     },
     {
       "id": "42ba59cbeccf68",
