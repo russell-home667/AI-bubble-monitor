@@ -45,27 +45,27 @@
     "daily_source": "goldprice.dev XAU-USD-SPOT",
     "fallback_used": true
   },
-  "history_fetch_warning": "Yahoo Finance: 429 Client Error: Too Many Requests for url: https://query1.finance.yahoo.com/v8/finance/chart/XAUUSD%3DX?range=1y&interval=1d&events=history",
+  "history_fetch_warning": "Yahoo Finance: 404 Client Error: Not Found for url: https://query1.finance.yahoo.com/v8/finance/chart/XAUUSD%3DX?range=1y&interval=1d&events=history",
   "world_bank_fetch_warning": null,
-  "previous_close_fetch_warning": null,
+  "previous_close_fetch_warning": "Investing.com: https://www.investing.com/currencies/xau-usd: curl_cffi HTTP 403 len=3; requests HTTP 403 len=3 | https://www.investing.com/currencies/xau-usd-candlestick: curl_cffi HTTP 403 len=3; requests HTTP 403 len=3 | https://www.investing.com/currencies/xau-usd-historical-data: Prev. Close not found",
   "latest_quote": {
     "price": 4379.0,
-    "timestamp": "2026-09-19T12:20:08.503Z",
+    "timestamp": "2026-09-19T12:37:05.514Z",
     "quote_status": "XAUS_FRESH",
     "source": "XAUS Gold Data API",
     "source_state": {
       "status": "fresh",
-      "as_of": "2026-09-19T12:20:08.503Z",
+      "as_of": "2026-09-19T12:37:05.514Z",
       "source": "upstream",
       "age_seconds": 0
     },
-    "previous_close": 4341.82,
-    "previous_close_source": "Investing.com XAU/USD Prev. Close",
-    "previous_close_url": "https://www.investing.com/currencies/xau-usd",
-    "previous_close_transport": "curl_cffi/chrome",
+    "previous_close": 4424.9,
+    "previous_close_source": "XAUS Gold Data API daily history",
+    "previous_close_url": "https://xaus.com/api/v1/history",
+    "previous_close_transport": "requests_json",
     "previous_close_observation_date": "2026-09-18",
-    "change_vs_previous_close_pct": 0.8563,
-    "retrieved_at_bjt": "2026-09-19T20:20:33+08:00",
+    "change_vs_previous_close_pct": -1.0373,
+    "retrieved_at_bjt": "2026-09-19T20:37:27+08:00",
     "observation_date": "2026-09-17"
   },
   "data": [
@@ -12866,5 +12866,5 @@
       "low": 4266.6
     }
   ],
-  "updated_at_bjt": "2026-09-19T20:20:33+08:00"
+  "updated_at_bjt": "2026-09-19T20:37:27+08:00"
 }
