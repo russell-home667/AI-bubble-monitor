@@ -2,7 +2,7 @@
   "module": "AI Bubble Monitor - Market & Liquidity",
   "step": 5,
   "timezone": "Asia/Shanghai",
-  "generated_at_bjt": "2026-09-19T06:40:50+08:00",
+  "generated_at_bjt": "2026-09-19T08:10:44+08:00",
   "indicators": {
     "ndx": {
       "name": "Nasdaq-100",
@@ -184,7 +184,7 @@
       "source": "U.S. Department of the Treasury",
       "source_symbol": "BC_10YEAR",
       "source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve",
-      "fetched_at_bjt": "2026-09-19T06:40:12+08:00",
+      "fetched_at_bjt": "2026-09-19T08:10:04+08:00",
       "status": "fresh",
       "data_layer": "official_close",
       "close_value": 5.01,
@@ -208,17 +208,17 @@
       "source": "U.S. Department of the Treasury",
       "source_symbol": "BC_30YEAR",
       "source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve",
-      "fetched_at_bjt": "2026-09-19T06:40:12+08:00",
+      "fetched_at_bjt": "2026-09-19T08:10:04+08:00",
       "status": "fresh",
       "data_layer": "official_close",
       "close_value": 5.34,
       "close_observation_date": "2026-09-18",
       "close_source": "U.S. Department of the Treasury",
       "close_source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve",
-      "live_quote_timestamp": "2026-09-19T06:37:25+08:00",
+      "live_quote_timestamp": "2026-09-19T07:42:04+08:00",
       "live_quote_source": "Investing.com US 30Y Bond Yield",
       "live_quote_status": "INVESTING_CLOSED",
-      "live_change_1d_pct": null,
+      "live_change_1d_pct": 0.0,
       "display_layer": "live_quote"
     },
     "dfii10": {
@@ -232,7 +232,7 @@
       "source": "U.S. Department of the Treasury",
       "source_symbol": "TC_10YEAR",
       "source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_real_yield_curve",
-      "fetched_at_bjt": "2026-09-19T06:40:48+08:00",
+      "fetched_at_bjt": "2026-09-19T08:10:44+08:00",
       "status": "fresh",
       "data_layer": "official_close"
     },
@@ -310,5 +310,5 @@
   "source_notes": {
     "nfci": "Chicago Fed National Financial Conditions Index (NFCI), weekly; negative values indicate looser-than-average financial conditions."
   },
-  "nfci_summary_updated_at_sgt": "2026-09-19T06:40:50+08:00"
+  "nfci_summary_updated_at_sgt": "2026-09-19T08:10:45+08:00"
 }
