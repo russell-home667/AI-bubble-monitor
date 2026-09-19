@@ -1,5 +1,5 @@
 {
-  "generated_at_sgt": "2026-09-19T08:02:05+08:00",
+  "generated_at_sgt": "2026-09-19T12:38:10+08:00",
   "timezone": "Asia/Singapore",
   "retention_days": 180,
   "purpose": "Model-free exact-URL/analyzed-state reuse; not a display feed.",
@@ -14,17 +14,17 @@
       "query_category": "AI Credit / Debt",
       "analysis_state": "analyzed_story",
       "story_id": "324e0cf52ba430",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOMmUzTnBva09hcHZZRFdhX1FvQVUzemZ4U1h2RkVLZ0xTQVhULUQtSnBYMDZoV0twdm4zcXoyci1tWW1ZQ3FPQWgtSzUyN2g2MENxenVZSXlDV2dvb0dfbUhMRmVOaEJMZGZkM3R1cVZOTDVKbzRvb05vTlgyVnZYa1dONFB1QkFxM29qWjBWbC1NS1dSZjdkb1hSa3cyMkdKWF9FSdIBqgFBVV95cUxNSUJyTEhLMDVGVXF1dVdXSkVaejMzUlZyak83Z2tiZjhhZVdBQ1d3Q1R0RlhIUkFXQkFCYzZfVC1pQ0x1d25oRE5HblpwVnloek05UHRqTm1CUXNBWVNDcEZEcW42VFZNOGx1cWVfR2VadWgwVTZmV2QxYzdWTWJZRmNJYm5Ea1l1QXF2akE4Y2xFcVNQaVR0b0JjSWkzbXhXYWVTSDFiZmtqUQ?oc=5",
-      "title": "Elon Musk talks up AI safety while fighting regulation in wild week of strange alliances - cnbc.com",
-      "description": "Elon Musk talks up AI safety while fighting regulation in wild week of strange alliances cnbc.com",
+      "title": "Elon Musk talks up AI safety while fighting regulation in wild week of strange alliances - CNBC",
+      "description": "Elon Musk talks up AI safety while fighting regulation in wild week of strange alliances CNBC",
       "domain": "cnbc.com",
       "published_at": "2026-09-19T03:15+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Regulation / Geopolitics",
       "signal_type": "policy_geopolitics",
       "discovery_themes": [
@@ -49,7 +49,7 @@
       "published_at": "2026-09-19T02:34+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Rates / Liquidity",
       "signal_type": "systemic_macro",
       "discovery_themes": [
@@ -76,17 +76,17 @@
       "query_category": "AI Credit / Debt",
       "analysis_state": "analyzed_story",
       "story_id": "1e904db9e48834",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPUDVKdk5qX1JuLWlIRlBXdzZPbGZlaTgycUFsdnFySmtHNkJBQ3IxM29MMjcxSkxxcEI2MUN5VGwxZVdjTnpuQnM4SWZYTDRLZk5pWXMzNnJvZVFGVjFYVU53VG5oRUZnVkZhcmtUWFNqamNxSWNsWHhCUDQ2cW1kUTZmQmlabU5xRHowVHVyVmlSakRCOUFaZHQ1S0JRWDVNOVlSYg?oc=5",
-      "title": "Update: Equity Markets Fall Intraday; Treasury Yields Jump - Yahoo Finance",
-      "description": "Update: Equity Markets Fall Intraday; Treasury Yields Jump Yahoo Finance",
+      "title": "Update: Equity Markets Fall Intraday; Treasury Yields Jump - finance.yahoo.com",
+      "description": "Update: Equity Markets Fall Intraday; Treasury Yields Jump finance.yahoo.com",
       "domain": "finance.yahoo.com",
       "published_at": "2026-09-19T02:08+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Rates / Liquidity",
       "signal_type": "systemic_macro",
       "discovery_themes": [
@@ -113,7 +113,7 @@
       "published_at": "2026-09-19T00:10+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Bing News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Rates / Liquidity",
       "signal_type": "systemic_macro",
       "discovery_themes": [
@@ -138,7 +138,7 @@
       "published_at": "2026-09-18T23:54+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "AI Funding / Private Markets",
       "signal_type": "industry_financing",
       "discovery_themes": [
@@ -159,13 +159,13 @@
     },
     {
       "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPV19IM09VeURsTUJLRWt6eDl1T1I2MmFrUXpMNUp2eWFHYy02bm5hZXZGenF5a0FYNDFKMUd6SDFReFl1d1FJem1MakIwaHJTdEVPV0sxaXVSVHEzdlR3bUdjY0lVbDJNQVM3ZUJwYl9wd3N5RWRjNjJfNWktVzJuWllVZFdVYzBvWWlDeHRMVDl6a1BwMWdna1RIMXo?oc=5",
-      "title": "Dow Slides as Treasury Yields Near 5% After Fed Rate Hike - Yahoo Finance",
-      "description": "Dow Slides as Treasury Yields Near 5% After Fed Rate Hike Yahoo Finance",
+      "title": "Dow Slides as Treasury Yields Near 5% After Fed Rate Hike - finance.yahoo.com",
+      "description": "Dow Slides as Treasury Yields Near 5% After Fed Rate Hike finance.yahoo.com",
       "domain": "finance.yahoo.com",
       "published_at": "2026-09-18T23:33+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Rates / Liquidity",
       "signal_type": "systemic_macro",
       "discovery_themes": [
@@ -190,7 +190,7 @@
       "published_at": "2026-09-18T21:32+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Bing News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Rates / Liquidity",
       "signal_type": "systemic_macro",
       "discovery_themes": [
@@ -217,7 +217,7 @@
       "query_category": "Macro / Regulation",
       "analysis_state": "analyzed_story",
       "story_id": "61d6dcb8e75a87",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://finance.yahoo.com/economy/policy/articles/us-inflation-progress-hampered-higher-171531523.html",
@@ -229,7 +229,7 @@
       "query_category": "Macro / Regulation",
       "analysis_state": "analyzed_story",
       "story_id": "918787dc08f8ae",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPT281Mk9vWUMyTFZLaWh6MHNkTWRZdWtuUy1sNTRFVGJ2NjFuS1JROG5qN2JrMTQ1WWlSRE5QZXdHSnJOYUdKb3VzOTJuRmdITlpwbGw4amJwSWFjM3JkMVpheGhwcVdNaWRXczdLWGx5VTgzaGJpWXlub3FlVG93MVdfdVRnM01hbWh2b2YyQm0xTHI5eXVxRTFaNEJNUmZkVUE?oc=5",
@@ -239,7 +239,7 @@
       "published_at": "2026-09-18T17:51+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Regulation / Geopolitics",
       "signal_type": "policy_geopolitics",
       "discovery_themes": [
@@ -266,7 +266,7 @@
       "query_category": "AI Valuation / Funding",
       "analysis_state": "analyzed_story",
       "story_id": "fe62fb7e74348b",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://finance.yahoo.com/economy/policy/articles/bond-king-jeff-gundlach-warns-153300273.html",
@@ -278,7 +278,7 @@
       "query_category": "Macro / Regulation",
       "analysis_state": "analyzed_story",
       "story_id": "3411b97ea15dfd",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQV0JVQVdFTGtQNUw0eWJKS084NF8tMTg3dEoyX1RvM21aNkRDNmdicWRCczd4cjdzbHRJZDlhNGZ2aGc5clFkaHpLb1VpMnV5V0Q0RVNBY1Q2UEM2cTFuZlgwVDd4azhqOGwtVlJsSlZYdVJMYk85MlpTcGhER3JVOHhBLUFRNFA3emNSZw?oc=5",
@@ -288,7 +288,7 @@
       "published_at": "2026-09-18T15:00+08:00",
       "query_category": "Data Center / Power",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Data Center / Power",
       "signal_type": "physical_constraint",
       "discovery_themes": [
@@ -313,7 +313,7 @@
       "published_at": "2026-09-18T14:51+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Rates / Liquidity",
       "signal_type": "systemic_macro",
       "discovery_themes": [
@@ -338,7 +338,7 @@
       "published_at": "2026-09-18T11:31+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Bing News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Market Valuation / Risk Appetite",
       "signal_type": "systemic_macro",
       "discovery_themes": [
@@ -356,48 +356,14 @@
       "analysis_state": "analyzed_rejected"
     },
     {
-      "url": "https://www.reuters.com/technology/ai-startup-mantic-raises-25-million-superhuman-forecasting-2026-09-18/",
-      "title": "AI startup Mantic raises $25 million for superhuman forecasting",
-      "description": "Mantic, an artificial intelligence developer that beat humans in a recent contest for forecasting ‌events, on Friday said it raised $25 million in seed funding.",
-      "domain": "reuters.com",
-      "published_at": "2026-09-18T11:06+08:00",
-      "query_category": "AI Valuation / Funding",
-      "discovery_source": "Bing News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
-      "discovery_theme": "AI Funding / Private Markets",
-      "signal_type": "industry_financing",
-      "discovery_themes": [
-        "AI Funding / Private Markets"
-      ],
-      "signal_types": [
-        "industry_financing"
-      ],
-      "discovery_priority": 84,
-      "systemic_macro": false,
-      "relevance_score": 88,
-      "event_prior_score": 74,
-      "event_prior_tags": [],
-      "selection_score": 82.16,
-      "analysis_state": "analyzed_rejected",
-      "corroborating_sources": [
-        {
-          "name": "Reuters",
-          "domain": "reuters.com",
-          "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxObEZvcUNwMGMybUpVdVRTQlZFU2FQajB4dWY4NGFDQV9scDN5bUU4U01iQUh2UnVCeEw2dWk4bkowc0hVMWh6X3BCX2JieW45a19fNUgwTERxTEFZUmpwc3lhREp3UlRvdm1aY3AwalQ4blJaeXZsSTF1RlZwdUlsSXo2RUJ5Qm5GY3BnMW9Kc3J1RHdFMmpPa2FvU3otU2ZJb1laazFpUkg?oc=5",
-          "published_at": "2026-09-18T18:15+08:00",
-          "discovered_via": "Google News RSS"
-        }
-      ]
-    },
-    {
       "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQR05kM2J2OTJxRUJ5VWVGcjNLVGVXODRQWmpOQ2ZtNFU5bTNPc0ZXNk1yYm4xMkdsN0FfSFNQRnNDb3NmdU1rUmJZS0E1NnpyVXR1Y0RYSTBjeFVvZFBTNEstNkQxRDhYQnpCeG1tR0V2XzdYUUNHOVRFMW12V01WTUpZZ3A?oc=5",
       "title": "OpenAI’s listing delay raises stakes for SoftBank’s $50bn data centre IPO - Financial Times",
       "description": "OpenAI’s listing delay raises stakes for SoftBank’s $50bn data centre IPO Financial Times",
       "domain": "ft.com",
-      "published_at": "2026-09-18T11:04+08:00",
+      "published_at": "2026-09-18T11:07+08:00",
       "query_category": "Layoffs / Project Cancellation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "AI Funding / Private Markets",
       "signal_type": "industry_financing",
       "discovery_themes": [
@@ -417,6 +383,31 @@
       "analysis_state": "analyzed_rejected"
     },
     {
+      "url": "https://www.reuters.com/technology/ai-startup-mantic-raises-25-million-superhuman-forecasting-2026-09-18/",
+      "title": "AI startup Mantic raises $25 million for superhuman forecasting",
+      "description": "Mantic, an artificial intelligence developer that beat humans in a recent contest for forecasting ‌events, on Friday said it raised $25 million in seed funding.",
+      "domain": "reuters.com",
+      "published_at": "2026-09-18T11:06+08:00",
+      "query_category": "AI Valuation / Funding",
+      "discovery_source": "Bing News RSS",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
+      "discovery_theme": "AI Funding / Private Markets",
+      "signal_type": "industry_financing",
+      "discovery_themes": [
+        "AI Funding / Private Markets"
+      ],
+      "signal_types": [
+        "industry_financing"
+      ],
+      "discovery_priority": 84,
+      "systemic_macro": false,
+      "relevance_score": 88,
+      "event_prior_score": 74,
+      "event_prior_tags": [],
+      "selection_score": 82.16,
+      "analysis_state": "analyzed_rejected"
+    },
+    {
       "url": "https://www.bloomberg.com/opinion/articles/2026-09-18/interest-rate-hike-warsh-did-well-where-does-the-fed-go-now",
       "title": "Warsh Did Well. But Where Does the Fed Go From Here?",
       "description": "Federal Reserve Chairman Kevin Warsh had ground to make up on Wednesday — and, for the most part, did what was necessary.",
@@ -424,7 +415,7 @@
       "published_at": "2026-09-18T11:00+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Bing News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Rates / Liquidity",
       "signal_type": "systemic_macro",
       "discovery_themes": [
@@ -449,7 +440,7 @@
       "published_at": "2026-09-18T10:14+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Bing News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Rates / Liquidity",
       "signal_type": "systemic_macro",
       "discovery_themes": [
@@ -474,7 +465,7 @@
       "published_at": "2026-09-18T09:48+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Bing News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Rates / Liquidity",
       "signal_type": "systemic_macro",
       "discovery_themes": [
@@ -499,7 +490,7 @@
       "published_at": "2026-09-18T09:47+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Rates / Liquidity",
       "signal_type": "systemic_macro",
       "discovery_themes": [
@@ -524,7 +515,7 @@
       "published_at": "2026-09-18T09:41+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Rates / Liquidity",
       "signal_type": "systemic_macro",
       "discovery_themes": [
@@ -551,7 +542,7 @@
       "query_category": "Macro / Regulation",
       "analysis_state": "analyzed_story",
       "story_id": "37ecdd8a8b3815",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE95V1cyTmJPMlg0ZTkwR1hnMEJBdGZYOGEwRnBqRS1pU0RMNFpJX3NFTjZ1eTRydDZDMGthN2NZdXZYREtKMnI4MHVPNFByOGlqbXFaX09scG5mNXdrX3MzUUtXVXFBaXk5M2tDS0lQQTZSa1hmOXctY1h4OA?oc=5",
@@ -561,7 +552,7 @@
       "published_at": "2026-09-18T09:32+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Rates / Liquidity",
       "signal_type": "systemic_macro",
       "discovery_themes": [
@@ -586,7 +577,7 @@
       "published_at": "2026-09-18T09:30+08:00",
       "query_category": "AI Credit / Debt",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Credit / Financial Stress",
       "signal_type": "financial_conditions",
       "discovery_themes": [
@@ -611,7 +602,7 @@
       "published_at": "2026-09-18T07:40+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Inflation / Energy",
       "signal_type": "systemic_macro",
       "discovery_themes": [
@@ -638,7 +629,7 @@
       "query_category": "Macro / Regulation",
       "analysis_state": "analyzed_story",
       "story_id": "b4ccd541d71d62",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOa000V04weTZqVWZXOG5iN0pMalgxMWlGSWFCb1ZlREt6NVV6SzlEclA5QXBOYmZYSFZVX2xuWjYxQ09FRDVaNWNjRE1PdEpjZzEyaGwtUHhsY3p6X1pFT2tYZDNtYjRKSGhCTVZhcUlBRkVMMXpNNmcxZUhDZTBvTmFn?oc=5",
@@ -650,7 +641,7 @@
       "query_category": "Semiconductor / GPU Demand",
       "analysis_state": "analyzed_story",
       "story_id": "a095663d8f4656",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9YeVF6bldjRm9WWVhsTXB3S1VMTDRONC0xeUYtd3lrWGZnT2hGLUdwZlN2OXBpZURRMV9JQmcwb2R0TUdKb1FWNnZfR1p5WUl0R2pv?oc=5",
@@ -660,7 +651,7 @@
       "published_at": "2026-09-18T07:18+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "AI Funding / Private Markets",
       "signal_type": "industry_financing",
       "discovery_themes": [
@@ -687,7 +678,7 @@
       "published_at": "2026-09-18T06:43+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Rates / Liquidity",
       "signal_type": "systemic_macro",
       "discovery_themes": [
@@ -712,7 +703,7 @@
       "published_at": "2026-09-18T06:34+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Rates / Liquidity",
       "signal_type": "systemic_macro",
       "discovery_themes": [
@@ -739,7 +730,7 @@
       "query_category": "Macro / Regulation",
       "analysis_state": "analyzed_story",
       "story_id": "a5168c4c6c7c93",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQTGUzNFA2X3M2d0J6NmtxQlJRZW1LVzhMRjFUY0VKNEdVQVlmQ2YwOVNaUFd0LU91U09IcFhRSWxwWHA4bzVwR2s2Q2puYi1BVjZVaUhpalV4OVJXYjVqWDdqV0wtR0FDWkNaZ0tsS09mMXRNN2MzbmI3Q29HS1Z1TjUwbTJTaTFnQTFFZ1VTbEJiSm9QX2pDdEZUOGc?oc=5",
@@ -749,7 +740,7 @@
       "published_at": "2026-09-18T05:47+08:00",
       "query_category": "AI Credit / Debt",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Credit / Financial Stress",
       "signal_type": "financial_conditions",
       "discovery_themes": [
@@ -776,7 +767,7 @@
       "query_category": "Macro / Regulation",
       "analysis_state": "analyzed_story",
       "story_id": "b4ccd541d71d62",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNb1A3azAzMEJ3YlVwTklOZ3M0T0lTeXdfNHVOeHlEV094YzQtd1Z0Wko2UW92SVJDUUxmMTdTWkY0WmhXdU9TV3lkN3NTUUI2N1ZubnJ6LVhXUkotMTBQTlJBd3l4bm5RclVuQ3JGZDlrS2dzSURzS2hfVHp0c1pPZE9LNDlZaUd4cTFmeEZ3OEowYldPeDcyMHBRdVpKUkNOaS1oZ19YTDJTSlVNeldmZ1BGcw?oc=5",
@@ -786,7 +777,7 @@
       "published_at": "2026-09-18T05:32+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Macro Growth / Recession",
       "signal_type": "systemic_macro",
       "discovery_themes": [
@@ -813,7 +804,7 @@
       "published_at": "2026-09-18T05:19+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Rates / Liquidity",
       "signal_type": "systemic_macro",
       "discovery_themes": [
@@ -838,7 +829,7 @@
       "published_at": "2026-09-18T05:15+08:00",
       "query_category": "AI Credit / Debt",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Credit / Financial Stress",
       "signal_type": "financial_conditions",
       "discovery_themes": [
@@ -865,7 +856,7 @@
       "query_category": "Data Center / Power",
       "analysis_state": "analyzed_story",
       "story_id": "fdcb9c67f08c78",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://www.reuters.com/world/americas/venezuela-nears-deal-move-4-billion-gold-reserve-new-york-ft-says-2026-09-18/",
@@ -875,7 +866,7 @@
       "published_at": "2026-09-18T05:13+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Bing News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Rates / Liquidity",
       "signal_type": "systemic_macro",
       "discovery_themes": [
@@ -900,7 +891,7 @@
       "published_at": "2026-09-18T05:13+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Bing News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Macro Growth / Recession",
       "signal_type": "systemic_macro",
       "discovery_themes": [
@@ -925,7 +916,7 @@
       "published_at": "2026-09-18T05:00+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Rates / Liquidity",
       "signal_type": "systemic_macro",
       "discovery_themes": [
@@ -952,7 +943,7 @@
       "published_at": "2026-09-18T04:28+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Rates / Liquidity",
       "signal_type": "systemic_macro",
       "discovery_themes": [
@@ -981,7 +972,7 @@
       "query_category": "Macro / Regulation",
       "analysis_state": "analyzed_story",
       "story_id": "793827b360847f",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQMF9qTGxlZi11U1o3ZUtXR3ExbDdJaUhvMmdiZVBWWE9NeVBEa2pZcjZ1Wm9VejdXM1lHM0dkTEJqaVVFSEVZZTk2Z3NsV0wxYkhFOUZITXp1UnlJVWdWNkNLZlpnQmRxRC1jQ0VRLWpKbmJTZHBuRklVXzQ1S29TZGppS1l5NDlObHhwM1lyNWVOMWM?oc=5",
@@ -993,7 +984,7 @@
       "query_category": "Macro / Regulation",
       "analysis_state": "analyzed_story",
       "story_id": "b4ccd541d71d62",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOSDg3TUh6SGNsZFY3X0Q0Y0FLWDR4ZkN4YUNYSDBSOGNNNEJtTzlBZG93QjlvYTRKdFBJdUJsUGFGV215eVpHTlBzWlJUUDZuM2NSMk9qQWFMbWJ5aHNibEZRN0thNHlWckhEdUZsU0ExSC1HeGd0dGtYZlItZGpNMlhGMEJDQWphd1JqTlJVYTU3M09uU2c?oc=5",
@@ -1003,7 +994,7 @@
       "published_at": "2026-09-18T03:50+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Rates / Liquidity",
       "signal_type": "systemic_macro",
       "discovery_themes": [
@@ -1028,7 +1019,7 @@
       "published_at": "2026-09-18T03:20+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Regulation / Geopolitics",
       "signal_type": "policy_geopolitics",
       "discovery_themes": [
@@ -1055,7 +1046,7 @@
       "query_category": "Data Center / Power",
       "analysis_state": "analyzed_story",
       "story_id": "493ccb74c1dcc4",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQTEZzZmpKTVFsbm4weV84ZGFVUHRFNHE5dzJCOWgxbFViemNyWFpQaXVQOXJIVWo4ZWVaVHc1elItbUYya3RpekEwdzFadWJLMVo0NFhZWk8xdkhBV2Jkd0I4MjdYNDBRVm9IWGlDdmhVVllMYW1uT3Y5XzRTbWFicDVVUkpuWGdoWUVYYWUtUEdONExlN3k3eEg5WTVhdw?oc=5",
@@ -1067,7 +1058,7 @@
       "query_category": "Macro / Regulation",
       "analysis_state": "analyzed_story",
       "story_id": "b4ccd541d71d62",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQYlpmWHNpM0ZJOE11X2xwSU9HNDhwS3pfSkFOU2dvVkNsQVZkZHZ5bnd3SW1SNnVWd2xfVkEyckZxU2h1bG5PNFpxOWd1cV9QUTBRa25IVDdTQjBZa2IzNE1DVERsT3h1NnY5aWlpT0NFenZIMVpnYTkza2hJVEpFYjJHVUdUNlVsQ2ZaeDNjVldlMVlCYlFPYw?oc=5",
@@ -1077,7 +1068,7 @@
       "published_at": "2026-09-18T01:56+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Market Valuation / Risk Appetite",
       "signal_type": "systemic_macro",
       "discovery_themes": [
@@ -1104,7 +1095,7 @@
       "published_at": "2026-09-18T01:56+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Rates / Liquidity",
       "signal_type": "systemic_macro",
       "discovery_themes": [
@@ -1131,7 +1122,7 @@
       "query_category": "Semiconductor / GPU Demand",
       "analysis_state": "analyzed_story",
       "story_id": "61f911c0bbc673",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPTFZCXzFnaXFpSVpXQVBQTF82U3kyYUhiRjY5SWExd1JKdktCMGlDenc0cE9zeFRVQkJ5RDY1ajJVWWFpY2xaMzJpNG9mNzJUaGtCaWswVFl0LW9CS1JGVHNDeUVjc19CRW9rOVR3SUhKTEdUOEZXRDd3bjhrX2EtUl9Wa3ZLdw?oc=5",
@@ -1141,7 +1132,7 @@
       "published_at": "2026-09-18T01:16+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Rates / Liquidity",
       "signal_type": "systemic_macro",
       "discovery_themes": [
@@ -1166,7 +1157,7 @@
       "published_at": "2026-09-18T01:00+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Bing News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Rates / Liquidity",
       "signal_type": "systemic_macro",
       "discovery_themes": [
@@ -1193,7 +1184,7 @@
       "published_at": "2026-09-18T01:00+08:00",
       "query_category": "AI Credit / Debt",
       "discovery_source": "Bing News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Credit / Financial Stress",
       "signal_type": "financial_conditions",
       "discovery_themes": [
@@ -1220,7 +1211,7 @@
       "query_category": "Data Center / Power",
       "analysis_state": "analyzed_story",
       "story_id": "3e06a285038458",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQUHFTTGwzMjhlWGxWVjNMWDhmTnhicmVwazdvSDgzRU00SjkxR3ZVLXJzc0hEd1dBOWVkOFJEX1hQVUl2VHdVZk5sdjF5Qnk2VVBjd3pqX1hlNDRxOEIyZG91VFVoT0l2bng0VFVfV0g5dXNmaTBVNGwzaGtiaXJIemNaYkZMTmc3aHJGbW9LVm9LNjRRZy05T0R4RDlqNE5DOG5fNEpGeEZ6eGpoNEQwbXV3OUJQN3dpSVpSRXdsc24?oc=5",
@@ -1230,7 +1221,7 @@
       "published_at": "2026-09-18T00:29+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Rates / Liquidity",
       "signal_type": "systemic_macro",
       "discovery_themes": [
@@ -1255,7 +1246,7 @@
       "published_at": "2026-09-18T00:04+08:00",
       "query_category": "AI Credit / Debt",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Credit / Financial Stress",
       "signal_type": "financial_conditions",
       "discovery_themes": [
@@ -1280,7 +1271,7 @@
       "published_at": "2026-09-17T23:53+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Regulation / Geopolitics",
       "signal_type": "policy_geopolitics",
       "discovery_themes": [
@@ -1307,7 +1298,7 @@
       "query_category": "Semiconductor / GPU Demand",
       "analysis_state": "analyzed_story",
       "story_id": "61f911c0bbc673",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNVER1UFJ0ZVpGNjRWcnkxSU96Z01OUHY4MVVqQmcyZDYwZVhkNFdpMWlyU1NnNjhSQmZpSG5FODhMLXktd1laTjRESnhfc2pLenBvckhkWmRSNDFxMEw0Yi1DenJEc3l0bzExaGVZaDc3RDFUT3FkN2dmZGEzOVI4WkxadmZ4ZGtaaFVNUGFPeHhlNnQ5UkZXQkx0OVFPcWdVWWtVR0FISmRXb0s5dUI4aThxSmQ2dGktYTdySlJFcldQMEhOWkE?oc=5",
@@ -1317,7 +1308,7 @@
       "published_at": "2026-09-17T22:49+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Rates / Liquidity",
       "signal_type": "systemic_macro",
       "discovery_themes": [
@@ -1342,7 +1333,7 @@
       "published_at": "2026-09-17T21:44+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Rates / Liquidity",
       "signal_type": "systemic_macro",
       "discovery_themes": [
@@ -1367,7 +1358,7 @@
       "published_at": "2026-09-17T21:39+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Bing News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Rates / Liquidity",
       "signal_type": "systemic_macro",
       "discovery_themes": [
@@ -1392,7 +1383,7 @@
       "published_at": "2026-09-17T21:39+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Rates / Liquidity",
       "signal_type": "systemic_macro",
       "discovery_themes": [
@@ -1419,7 +1410,7 @@
       "query_category": "Data Center / Power",
       "analysis_state": "analyzed_story",
       "story_id": "b08e26e13184ea",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQRU81Z2F1cXM1MjBuRnVzWEc3WjdhNXQ0b1lCSUVNdUZhTEl0alRDZFVVNEtHazdPRjJDMzJ4eUxXSk9pRm0xZjRodzNELUpFWFpCMW1EbkdTZVV3a1Q1c2E5T2dib0E4M3ctSS1qVHk3Y3FDTTZHeDc1VmMzeTZpalQ0Q3lUM1JRUkx1NXJubkZ1M3hC?oc=5",
@@ -1431,7 +1422,7 @@
       "query_category": "AI Credit / Debt",
       "analysis_state": "analyzed_story",
       "story_id": "41eb4f0a4165fa",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxONDdPTnR1bWU4YjJFT05hcG4wVllRRUp6enVjOFVGM3JXSnA5Vm1xSW5vZlJxNV9ZUmRscEplTUhFUE1GWHFDcFZ6VjI3UW9lZUdod0Nhc3lUdm9aZmlpc3FJdzlIMm1iQV9PZjROMUdLVlJhNzlPa1ktMlNRQ0t4bl9yWk5Ma00?oc=5",
@@ -1441,7 +1432,7 @@
       "published_at": "2026-09-17T21:12+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Rates / Liquidity",
       "signal_type": "systemic_macro",
       "discovery_themes": [
@@ -1468,7 +1459,7 @@
       "query_category": "Macro / Regulation",
       "analysis_state": "analyzed_story",
       "story_id": "2c8ad184c87fc1",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQRUVGWS1sRGZHNWlPOTV0blVoelJBSTFJV3ZnVUNYaXBTdEl4NkRYNlR4M2Y0SUtmcTMxUTF4dDk0VW5NWjFJcDU0VkNRMXcwN2VNR3E4UXA0V1Z4MWlBQV9zU3ZGWjJkYUNrU0hRNEZvbXdHSTFON1R3LUF1SDlLanVlX2YtREZyZDZnNjMxSkJiZDRzSk9iWFdDeDc5OTJFc01XeHdGUG8?oc=5",
@@ -1478,7 +1469,7 @@
       "published_at": "2026-09-17T19:55+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "AI Funding / Private Markets",
       "signal_type": "industry_financing",
       "discovery_themes": [
@@ -1503,7 +1494,7 @@
       "published_at": "2026-09-17T19:48+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "AI Funding / Private Markets",
       "signal_type": "industry_financing",
       "discovery_themes": [
@@ -1530,7 +1521,7 @@
       "published_at": "2026-09-17T19:34+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Market Valuation / Risk Appetite",
       "signal_type": "systemic_macro",
       "discovery_themes": [
@@ -1557,7 +1548,7 @@
       "published_at": "2026-09-17T18:31+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Rates / Liquidity",
       "signal_type": "systemic_macro",
       "discovery_themes": [
@@ -1586,7 +1577,7 @@
       "query_category": "Data Center / Power",
       "analysis_state": "analyzed_story",
       "story_id": "49f7450b131302",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPd1ZGT2FfOGNzV0M0Mnlja29ybFZRN284QW45ekRfa2NXVmtCaF9USDVHOW5XS084OXJkb2o0b0RhQjd0TXAxZXh1UmNnVWRoSGNRWVpoWi1STUowdVJOQmUydzlBR29pRVN6aWtfQ1k1aTJlWUg4eEdXcS1GX3c5N21mMWVTYW9PVXdLWURrcURnZGtWU3N2WG5FUzR2eGxDZkZCNmNn0gGrAUFVX3lxTE5uZUZRbWozZWFOUURoaDVORnBpRzEtcDZPaWNQVE9uUDgwbEw4eVBsYWkySWVUODNhd1NUN0gzeGRVcUdGemZzbV82YVR2ZWQxNHFqdEdrdV9uYVZFX2daYjRjaGF4RlJrQXVXZEpJaW1Ja2VnRHNneVJVSUlYWEtvekFISDJpTUJjRUtCdlhndEY0d1g4NGhVZzN6S2FCNXhHVTFpWnBaMTlUSQ?oc=5",
@@ -1598,7 +1589,7 @@
       "query_category": "AI Revenue / Monetization",
       "analysis_state": "analyzed_story",
       "story_id": "adad8fbc3f8c1e",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQYjNILUt3U0JyYXBGVWRLeV9ITElINXR2cHpHbzJzM05UR0ZaRVRkYmJGWllsNlFrcXd3X3F5RTJEaUM5X1NybmxpcGVZRnFHblQxQXdMQzhrMktocUE3N0pYdWFPd1dQZzJEdFE3U2k3U3VUbGxBNjQ3LVpIWVNFNXo3V1BoUVYtY0Uza0EzWWRYcmM1dGZFcUpfLVNHTWNGOHZTT0pVcw?oc=5",
@@ -1610,7 +1601,7 @@
       "query_category": "Macro / Regulation",
       "analysis_state": "analyzed_story",
       "story_id": "430c2b56bdec60",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPRmNCdkk3TTktN0J2bEEtcnBPZW1yNG1HTjR4VDBaZWlOSHNqYk5VMTA2Y0JIWFZMN2Q5UmtvRm9UWmZCVWh1LXNGR3NRMzJVNTl3U0kxWGVJR2tEUGI0NHU5Wmo5ckZZV3R1b0VFaHRNTnI1R25WX2xteU1DQWo4MVpJcWQ1dTloR2FubDFaYUZqLVZRZXBZNDhWd3VCMHk0WDVZNFFxRTJ4QQ?oc=5",
@@ -1620,7 +1611,7 @@
       "published_at": "2026-09-17T16:34+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Rates / Liquidity",
       "signal_type": "systemic_macro",
       "discovery_themes": [
@@ -1645,7 +1636,7 @@
       "published_at": "2026-09-17T14:19+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Bing News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Rates / Liquidity",
       "signal_type": "systemic_macro",
       "discovery_themes": [
@@ -1672,7 +1663,7 @@
       "query_category": "Macro / Regulation",
       "analysis_state": "analyzed_story",
       "story_id": "2c8ad184c87fc1",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://finance.yahoo.com/markets/crypto/articles/morning-minute-crypto-rebounds-fed-121320084.html",
@@ -1682,7 +1673,7 @@
       "published_at": "2026-09-17T13:30+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Bing News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Inflation / Energy",
       "signal_type": "systemic_macro",
       "discovery_themes": [
@@ -1709,7 +1700,7 @@
       "published_at": "2026-09-17T13:14+08:00",
       "query_category": "Semiconductor / GPU Demand",
       "discovery_source": "Bing News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Compute Supply / Chips / Custom Silicon",
       "signal_type": "compute_supply",
       "discovery_themes": [
@@ -1736,7 +1727,7 @@
       "query_category": "Macro / Regulation",
       "analysis_state": "analyzed_story",
       "story_id": "43544699371521",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNcGJ6Q21DNEtiYWstRzJmajd5aURLNjNyR1RJYTFmUmZPZElZcDdFOXZwVHgtMVkybDBLaTFMVnQ3WWZXUVhBeDVwQ3ZkTjdiZEZMU0dPVlRqYkNwQVZjN3RLeE56TDc3dUZEcmFfdzNmb3p4YjRhOXVHZGZKX25QVFUzODBtNnlocnfSAY8BQVVfeXFMTW9iUTVqVi0zVnB2Ym9URW96RFpQNlZnZXNaZWRoNG9LdFRSZlFaeTM5U2kyTnpSZF9VMVdXLW1Ecm8xY0xmYXYyakFOcVJCTklvVlhqTHdoME0tMHFMRndvMDc1NEZ0RzhpMk5HWUo5bnVCU2luMFhpTTNzLXY4eUNNTmxieWVwRzhhYnFLWFU?oc=5",
@@ -1746,7 +1737,7 @@
       "published_at": "2026-09-17T12:40+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Rates / Liquidity",
       "signal_type": "systemic_macro",
       "discovery_themes": [
@@ -1773,7 +1764,7 @@
       "query_category": "Semiconductor / GPU Demand",
       "analysis_state": "analyzed_story",
       "story_id": "26c4a3c6e785fb",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBDS0NBNEJ5bEpOdHA2LVlHaFlXQ3VKZzBkWEZMTWpoajN6S1VhSDFzNUJEMGxaSGZiRzNTV2ZzclhtVzlIb0JKbHgwUzB4d0NlR1RyZU9JYWtKalVzSXRhU2MzNEg2cXBpczRqVldxLWE?oc=5",
@@ -1783,7 +1774,7 @@
       "published_at": "2026-09-17T12:01+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": null,
       "signal_type": null,
       "discovery_themes": [],
@@ -1806,7 +1797,7 @@
       "query_category": "Macro / Regulation",
       "analysis_state": "analyzed_story",
       "story_id": "b039f347d90d6a",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQUUF2NV9DeFExYkFNQS1hQnZfTjFBY05sRjRmN3hMQkxoTmo0aEYtMnNyU3BnRUZPUzVtZGt6ZjE1ZWVsRldkWG1RMVUyaWpFWTg1Q3paeENVblNJUi1ITktZemVWRy1tbGc3OHd5QkFLT0Zya1UyOE13LW1XbTN4d002Zi1ReXJHRlZDNTZlUmh5cmFEcmhlNk9ET2JWZw?oc=5",
@@ -1818,7 +1809,7 @@
       "query_category": "Semiconductor / GPU Demand",
       "analysis_state": "analyzed_story",
       "story_id": "61bb1affd28464",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://www.reuters.com/business/wall-st-futures-rise-fed-rate-hike-lifts-long-standing-overhang-2026-09-17/",
@@ -1830,7 +1821,7 @@
       "query_category": "Macro / Regulation",
       "analysis_state": "analyzed_story",
       "story_id": "2c8ad184c87fc1",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOOUU3a0YtdWVPbVZMOEJuM3dETXRIV1I5LXF2QWpmVy1EU0FZcDZ3ZlRUTzM2Vk0yMkVhSE9LeG85NDdwVEx0R2M0MDhYRVlqMXFneldVQUk0b1BiR1A4Zm00YlhPWlgzZXhRekdWck84dzNPSF8zN2RBWjBrNUQyenBIVGRwYjlYbkozTDNEOC1mVWc5M0FiN2xkeHQwR2d2VGkyMlR5cTk?oc=5",
@@ -1842,7 +1833,7 @@
       "query_category": "Macro / Regulation",
       "analysis_state": "analyzed_story",
       "story_id": "64e07b4f314111",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNVlpFcjAwbmdTOG8wOWM3NlFCTkNYNTI0T0h2MlpWZHREdDBxamxBOEJGX3Bmbjh3QUtUVXVxN0ZaZE84d1lKSlRTdDh3enR6eFUtTVZtRjZkV185TVVWQlQ5WUt1UW90RWh5Ri1SNjU0SnZfcWwzVXhsUkNaQzViQVdOcFdVQnRXakFRdE80SllkZ3Ro?oc=5",
@@ -1852,7 +1843,7 @@
       "published_at": "2026-09-17T08:00+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Rates / Liquidity",
       "signal_type": "systemic_macro",
       "discovery_themes": [
@@ -1879,7 +1870,7 @@
       "published_at": "2026-09-17T08:00+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": null,
       "signal_type": null,
       "discovery_themes": [],
@@ -1900,7 +1891,7 @@
       "published_at": "2026-09-17T07:43+08:00",
       "query_category": "Data Center / Power",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": null,
       "signal_type": null,
       "discovery_themes": [],
@@ -1923,7 +1914,7 @@
       "query_category": "Macro / Regulation",
       "analysis_state": "analyzed_story",
       "story_id": "b039f347d90d6a",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9xN1BrVG1oc2ZQMnE1QzVBdkFPLVlTaks1eng3aElZallZUmhPWXpOUnVZU3kwaFRRQ0phbkdqSTdfd1o5ZmxaUXU3RDBiOF91czZrOWdzWmpMemZMc1VUWUFtaWRYTVEtOXBva0sxYU95enVqVTFLMEU4NVJ6Zw?oc=5",
@@ -1933,7 +1924,7 @@
       "published_at": "2026-09-17T07:14+08:00",
       "query_category": "Data Center / Power",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Data Center / Power",
       "signal_type": "physical_constraint",
       "discovery_themes": [
@@ -1960,7 +1951,7 @@
       "query_category": "Macro / Regulation",
       "analysis_state": "analyzed_story",
       "story_id": "b039f347d90d6a",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQMlJ5dTh2eFhMZFhIMFBycGVFeWNyRFlETUlMem1NNXFVakRtbmQ5Q3FYYUpIb0RlcG1OalB1WDU2VktjaHhQV2pONTdYcmtLSmpaMmtUODR5T1Z1RkpRRUJJN0pBRm15bkprQXQxTUVsTmdCbk5YRVVqcVBFWnJJQUotUjdxbEU1eUFXNHBqZnIyQkhVeW05Y3lfVk5WdXN3aEZnRGE0LUlkNzNZcTdPdUtheUJlQQ?oc=5",
@@ -1972,7 +1963,7 @@
       "query_category": "Data Center / Power",
       "analysis_state": "analyzed_story",
       "story_id": "bbfb1306236fa8",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNeDg1dXhxVWVCamFueEFlNUNaam11NlRjZlF2R1A5U2k0WUZndE56Z1VlS1phYl9kS1FSdFRRRDFuam5QX1cwa1ZEOEdFU2ZIM2Y1UktrdXZHTlBOamdtUW0xMUNtOXR3UGJZS2l5bzl2TndzVXdEYXpqRGFtaE43UlU1OVVDcUZWY05IbnNiWnc?oc=5",
@@ -1982,7 +1973,7 @@
       "published_at": "2026-09-17T06:59+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Macro Growth / Recession",
       "signal_type": "systemic_macro",
       "discovery_themes": [
@@ -2007,7 +1998,7 @@
       "published_at": "2026-09-17T06:58+08:00",
       "query_category": "Data Center / Power",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": null,
       "signal_type": null,
       "discovery_themes": [],
@@ -2028,7 +2019,7 @@
       "published_at": "2026-09-17T06:26+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Rates / Liquidity",
       "signal_type": "systemic_macro",
       "discovery_themes": [
@@ -2055,7 +2046,7 @@
       "query_category": "AI Credit / Debt",
       "analysis_state": "analyzed_story",
       "story_id": "0d864005c1f908",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNa0dDQ3ZhR3p6Y0k2bDdLMVZmNGRrTm43UG1LRUJaYUF6Qmt6UFBVblp1SVMzVHhDZWNlRUhfSERRYUMyOW1INFQ4clI2WlN5czRMRWwweF8xTDNYU0hWM05vb2g4bjQ0QVJIWnFRY1lWUXNKMjUybm95dVBUSFRYeEdDSGFzMWtLcWFUUXc0NkowTjNyak5Xdzl2WmZyWGd2X1QxVE8yRHJWbnRmR3hacWh1YndqQ3FycVEwN2pn?oc=5",
@@ -2067,7 +2058,7 @@
       "query_category": "Data Center / Power",
       "analysis_state": "analyzed_story",
       "story_id": "e4213c8d883530",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPUVVWbWFGenJIZHR4Z0JkNktlVWFlT2plb3hITF83XzBDeFFEcmtNc0lZaEo1RHJabzI1YTl6VHU3aTMxUWlqN0tuMUctWDk4cVZXZGpoaUNuZUdOTGdRWGlyY2UyYlRieEw0TWRjUTBERzAzR1BOb1hSd2VFTmtJeDBISjFNd0ZpLUVWd2dCOVVqLUw2RGc?oc=5",
@@ -2077,7 +2068,7 @@
       "published_at": "2026-09-17T05:51+08:00",
       "query_category": "AI Credit / Debt",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": null,
       "signal_type": null,
       "discovery_themes": [],
@@ -2100,7 +2091,7 @@
       "query_category": "Macro / Regulation",
       "analysis_state": "analyzed_story",
       "story_id": "420e7e08a03b0d",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://www.channelnewsasia.com/business/banks-provide-22-billion-chip-loan-blackstone-alphabet-ai-cloud-venture-source-says-6390211",
@@ -2112,7 +2103,7 @@
       "query_category": "AI Credit / Debt",
       "analysis_state": "analyzed_story",
       "story_id": "0d864005c1f908",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOZXctWDRFQng1ejF0X2FPX2h5NkdCSE91Z2t4MGYweW5fT2xsZ251Sjg2NnkxSTNSczJRT3FzVjM0WmVFeElQYWc3LTh4bExpTk1XN3dzbGtqTDlyV0FxeVRCbGQ2dzZWZk9HM1ZDNTBGSVk3UGY4blVXb3M4eVFwanZqSWFSNFRQQlptVXdyaGpqQXRzcXNQZXFzSm8?oc=5",
@@ -2122,7 +2113,7 @@
       "published_at": "2026-09-17T05:08+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Rates / Liquidity",
       "signal_type": "systemic_macro",
       "discovery_themes": [
@@ -2149,7 +2140,7 @@
       "published_at": "2026-09-17T05:00+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Bing News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": null,
       "signal_type": null,
       "discovery_themes": [],
@@ -2170,7 +2161,7 @@
       "published_at": "2026-09-17T04:45+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Rates / Liquidity",
       "signal_type": "systemic_macro",
       "discovery_themes": [
@@ -2195,7 +2186,7 @@
       "published_at": "2026-09-17T04:44+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Rates / Liquidity",
       "signal_type": "systemic_macro",
       "discovery_themes": [
@@ -2220,7 +2211,7 @@
       "published_at": "2026-09-17T04:43+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Rates / Liquidity",
       "signal_type": "systemic_macro",
       "discovery_themes": [
@@ -2247,7 +2238,7 @@
       "query_category": "Macro / Regulation",
       "analysis_state": "analyzed_story",
       "story_id": "59f72f2bf3defc",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMihwJBVV95cUxOb3hpWWNaU0Q2c1ZDVjItZXBSXzB2Y3lhWmFhWkVVVEliSFZyRUphOThwS0lSQ2FLaU5JbV9UbzBNeVl4N3c1OWxXc0lPSGctYV80c0xweWwxZ2NCRU4tQnFCU3lLZDVRTWctWVNqd2Zpdjh3a1AxdUFNSXN1c2s2VTVlRi1taS05OG9iUjJmZkppUzVsZXdiREgyVXBmV0NPVUczZ05PcktRUXVBVEVxZkZWRFhMbnNGWG5WRzZpLWFpNUl0Wm5ueloxODJNS0w3cWlVU0F3N1c5VmNWMXJnenAyb25iUFJ6c1pMbFUteU1yT0tzZkZ6RzV3X1M2N3ExV0Zza1JMVQ?oc=5",
@@ -2257,7 +2248,7 @@
       "published_at": "2026-09-17T04:28+08:00",
       "query_category": "Layoffs / Project Cancellation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": null,
       "signal_type": null,
       "discovery_themes": [],
@@ -2278,7 +2269,7 @@
       "published_at": "2026-09-17T03:56+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Rates / Liquidity",
       "signal_type": "systemic_macro",
       "discovery_themes": [
@@ -2303,7 +2294,7 @@
       "published_at": "2026-09-17T03:17+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Rates / Liquidity",
       "signal_type": "systemic_macro",
       "discovery_themes": [
@@ -2328,7 +2319,7 @@
       "published_at": "2026-09-17T03:08+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Rates / Liquidity",
       "signal_type": "systemic_macro",
       "discovery_themes": [
@@ -2357,7 +2348,7 @@
       "query_category": "Macro / Regulation",
       "analysis_state": "analyzed_story",
       "story_id": "0eb3693240a682",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOVUlMV3J6b3dOTWZLZzVYUk43bFg0N0VGNFAwV3JIbGtndE1WVHpGWGlzRVJ4VUxrTjBvN0Q4M3RTbWg5bEZwMV80SXNKNWVaSUlOQTZoODY1a0VYczlCeUhEWmpldmRudndXQl9vZXE3SEpxUE1nSVV6U21NcGNxcWFDS1lwY1lPTzdLTEEyMWVxUGVUeFE?oc=5",
@@ -2369,7 +2360,7 @@
       "query_category": "AI Valuation / Funding",
       "analysis_state": "analyzed_story",
       "story_id": "4775f113c05269",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNY3psUVQxOWJDUzNsa0VlWC1CckdidThVbUFVQm1fUWhYQlFwZGhTcDJYM1ZkMTU2X1czM0JqaWFtTFFqNHZMdWVsdmVRRjZJLVVCNmV0dGxvRERpTGlXZktXNGM3aTNUMDFuS21OOFRFR0dZZ0gyeUVMb0Vkc0dPRTJOdktDVVZkTVV0R0p4Q1M1TzhZ?oc=5",
@@ -2381,7 +2372,7 @@
       "query_category": "Macro / Regulation",
       "analysis_state": "analyzed_story",
       "story_id": "e0a1e69ec1f008",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQemEtc1lCaUxzdHhLbzkyQ3JDeUR2ZzJza2ZIX1pQWEJWN2I4b2hvRXpmcmNSZTZucGhVN2Vlek1GRXU0dV93YUJHQmo3WmMzOUVZSWhvbU1zN2EzWVlkSEVwcGlfV2tFYlBfTVZUSW5BUGdiNWQyTVB1b1VjTVYxM2o2cUZfOEFicDJRVGxfT3N6WnpYcUo0cEluYTNac2NqRTk2Q0xPTVNQQ2g2czQxeDN0Zm5xeHY0ektFZQ?oc=5",
@@ -2393,7 +2384,7 @@
       "query_category": "Macro / Regulation",
       "analysis_state": "analyzed_story",
       "story_id": "76032cfcd3d52b",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxOQ3FVMXEyMVlGaGRSWXd6T3Q0OUVIU05RNWtRYlNzcFl3WnBfOXpQMEhoa25qejlGYWVjNkZTZlhCejFGR1JwWUVzUUgtcnZtYmNhd05ZZG9sTkRBMjkwTUdXZnlidGFKU3ZaWnVBZHlfTzF1bFVPX0VtNDFvOXl4UmNDa0lBbzUwLVVHeElJelhuSHJoaTlsbFNFZkZxZDg0dGFCblFJdk54Uk9xM3hFV3ZkbzhKR0lOMUNJZnZYWXlfYU1vUHV2ejlpajNEcUowNVh1eTlLUmxOamVVZGY3cHFzNjBEeWFHbDNobV9MS1V2UQ?oc=5",
@@ -2405,7 +2396,7 @@
       "query_category": "Macro / Regulation",
       "analysis_state": "analyzed_story",
       "story_id": "61d6dcb8e75a87",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNTHJBX2wxVXRqS08zYWZGbFRjZUhNR3JWQVF3anJGNzN3RmJxWExiTlJSVkNybExZbE92dlZNT0NfLW1aWUpoVkN2OWZLWDY2cGtPemdKQUVOT3diUDhQaW5NNUtJQXctRi1Tb3VWTHVQMHlnVDBDZzlPWWZrSmRjb3Q2YTJhRXhBRlBBZkVyaVB6aGNOOUlZSWxqN2gxV1FGYUE?oc=5",
@@ -2415,7 +2406,7 @@
       "published_at": "2026-09-17T02:20+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Market Valuation / Risk Appetite",
       "signal_type": "systemic_macro",
       "discovery_themes": [
@@ -2444,7 +2435,7 @@
       "query_category": "Macro / Regulation",
       "analysis_state": "analyzed_story",
       "story_id": "2c8ad184c87fc1",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxQWFVhZ0tfMTFRT2pMR2pwLXdNLWctREhfN3lvdUoxRU9QSFRUSkJVVi03SnhBR29xUVFKenJlWHEzVG53X0RKN2d1WEVkSzhhSjlWVnl6ZmE3TDhUdGZRYkhhb3paajBFWjJTNEhydS01NzFfdWdodWhTMDZpZ1A4X1dqQ0ZZMEZWd2FGQW9DZTlJNlY0MW5VcUhqOE5rUjdXMWRQcXV6YWNsU2RTT1RTRFllWEZ0QVVoZHM4b0otU2FqMGFTTGowX1BmMWQwWWhpcmpPTXNxWloxMXVVYlJWSnBEV2I1UUtieFYycnZzWQ?oc=5",
@@ -2456,7 +2447,7 @@
       "query_category": "Macro / Regulation",
       "analysis_state": "analyzed_story",
       "story_id": "61d6dcb8e75a87",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNaksyV1dQZGd5OHdJZFpxM2J0M3ItYnBXQjRpUG5TbEx6UFl3Tk9wbWNla0F3OUhjLTk0dlVCZ1pac3FyUV9tQi1vTkF0U3BuYU5iQUlBOU9ldDVZTWVMN0F1dTEzYUNzM0tQaVlDRXpSX0hTbkZPX0JmcHFrckw1dHRkQ1jSAYoBQVVfeXFMT2JHeUVvUjhGdUhfNXFBQVVkc1l4MXBSRUc0a0RKQTVBYl8wVU9mTnhzS19JN1VpdGJPc0poODBRN0lIWHpqYzc1bnVDUTl4MnQyNWw5TE54T19XeGgyWEtXb3U3SDhEUnZnWEtsdjNqbDIyVFN4UWxhUFItZDFRZHpEcWdHTlNueDBB?oc=5",
@@ -2468,7 +2459,7 @@
       "query_category": "Macro / Regulation",
       "analysis_state": "analyzed_story",
       "story_id": "e516d5297f8856",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOXzF0T3BDNm9xNXRiNnVjQ1RIMFRsUnVjNFFfV1VXYlc5bHdmUW5rOEtjaTRId3hjUjd6bmV3N1B2X3lxeEZnZWtySm5QUEhCUF93OWYtYk9kQ1Q1YUJVZDRlRUVWM1FrbWc2b0ZjX2JEVFV0cXpoZ1ZhQW1MNlRtNktyQ2JHRkl3aXRIM2pYY182MmMw0gGaAUFVX3lxTFBFMnp4WXQ1SnByNVNBMS01SGp1ZU1zMkxiOXU5ZzJ1YnJ2eVNSOFFQeUZXOGVZamVqZFRhdkotOE42NFV4b0tCXzlQZnN5Y1p5MF9Uc3p3S3ctQTRfQ0c4MkxPaUJzdF8yS2NRWnNzVU9XRmh5eERxMnNLNE1DTzg5cVpidTM5alJLSzBDdXFPaTlRWHo1Qkl0eHc?oc=5",
@@ -2480,7 +2471,7 @@
       "query_category": "AI Credit / Debt",
       "analysis_state": "analyzed_story",
       "story_id": "42a7c7e8aae9d4",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://www.reuters.com/world/us-house-advances-first-bill-addressing-economic-impacts-data-center-boom-2026-09-16/",
@@ -2492,7 +2483,7 @@
       "query_category": "Data Center / Power",
       "analysis_state": "analyzed_story",
       "story_id": "29ded4089a35d8",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://www.nytimes.com/2026/09/16/us/politics/house-passes-bill-taking-aim-at-data-center-electricity-costs.html",
@@ -2502,7 +2493,7 @@
       "published_at": "2026-09-16T23:58+08:00",
       "query_category": "Data Center / Power",
       "discovery_source": "Bing News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": null,
       "signal_type": null,
       "discovery_themes": [],
@@ -2525,7 +2516,7 @@
       "query_category": "AI Revenue / Monetization",
       "analysis_state": "analyzed_story",
       "story_id": "7e185aac1b6ae2",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://finance.yahoo.com/energy/article/utility-bills-are-rising-faster-than-inflation-bofa-says-expect-higher-prices-long-term-100000344.html",
@@ -2537,7 +2528,7 @@
       "query_category": "Data Center / Power",
       "analysis_state": "analyzed_story",
       "story_id": "3568c3f1ccf5f2",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9sN1hXVWZzdkw1d3N6SVZ3NlJDUVE0ZGVaM2VGS1J0Yy1lT0xmVzNSTHBWWGhRUGlkbWQ4N3pXUmpTVnhWN1ZVbUd3RmY1OVc2Y3RwblRWNFpmRHZyR1BkMnY5enlXZkt3WHlUQTV6Qkk1T1JyTnJXS293?oc=5",
@@ -2547,7 +2538,7 @@
       "published_at": "2026-09-16T23:18+08:00",
       "query_category": "Semiconductor / GPU Demand",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Compute Supply / Chips / Custom Silicon",
       "signal_type": "compute_supply",
       "discovery_themes": [
@@ -2574,7 +2565,7 @@
       "query_category": "Semiconductor / GPU Demand",
       "analysis_state": "analyzed_story",
       "story_id": "5e429ee7c62d1e",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNSW1QWmNqVmhNMUI3Y1UtRnNCX1A4dXA2ZXRTeG96UXBJVHZIeW5DUno1QVhXa29tU2lyMkNyZlU1a2lZOTBDYmU2U2QySWN4cm1QWnlIY3V1U21WQUJCbkpIbEFMYWtZVGEyVVZ3cDdUbVhfVm5abkZmXzlNYUp0OWJoMUc1WnAwNkdqZk4yWHU2Ymc5TG5MMg?oc=5",
@@ -2586,7 +2577,7 @@
       "query_category": "Semiconductor / GPU Demand",
       "analysis_state": "analyzed_story",
       "story_id": "1e3e3f07a6ba5c",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNV0xKUWw2STQtYkZUNklPNUs1bkY4T29ZNFQzTkRuNm5rTmhwTEwtMlNhSVRRYWc0MkJNd29BS3lVeE5EVnhiM0tDelpjWlBzVWhFdEtUNWZ4Z2h2emcwM0kzQlRyZGl5YldvdHNTNS1PUE0yQVRGNFNsdHFkcXhueUpxTHpjcTdwNERldXd1V0tYOFNiV2lsQTNDYXVXNnNDRTU2TnlWdnhNRXRmLU9kbTFtT0N2dw?oc=5",
@@ -2596,7 +2587,7 @@
       "published_at": "2026-09-16T23:10+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": null,
       "signal_type": null,
       "discovery_themes": [],
@@ -2619,7 +2610,7 @@
       "query_category": "Macro / Regulation",
       "analysis_state": "analyzed_story",
       "story_id": "09e9a1f0538156",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQek02RllrNk02c2ROTjJHc1VzSkxkZnI1SW1jbVIycWVNeEoxd3hfcVNzbF9jMW1zcEFKRDItNVpTOUhkUFlSc2dLYkJQNjF2VEF3SVJKQ0x2ZUVLREZpWVBraENfcnItd1Y4aXVkcW9Tb05NQV94aGs5TDFzVldjVEtJclR1TnVOMW00SWU0RnVrTUNUdjBURHJMTUxpUlU4R3c3LVhnYldmSFE5MFRYVUUwWQ?oc=5",
@@ -2631,7 +2622,7 @@
       "query_category": "AI Valuation / Funding",
       "analysis_state": "analyzed_story",
       "story_id": "8ecd0a573e553f",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNUVJXOVdfcHlNZ0hnNFgzTE9lWVc1c1l5SUlOclFneVFkaFRUQkJfcjJOWnJFR25PMUw1N2FiVzlMdl9PcGNoczJFeHBLbmx6d3J5RHAwdnlyNkk2c0JMZDdOU0NrSzUxdHV0NWx6aFdZWnZNaVliUTBBVi1xOFlWbkRsanVEWWFISjNMeV9yZ1RfS3pkTGdjNmVZSEtzaERJQkNhdHdRd0dRRlAzUmc?oc=5",
@@ -2641,7 +2632,7 @@
       "published_at": "2026-09-16T21:33+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": null,
       "signal_type": null,
       "discovery_themes": [],
@@ -2662,7 +2653,7 @@
       "published_at": "2026-09-16T21:26+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": null,
       "signal_type": null,
       "discovery_themes": [],
@@ -2683,7 +2674,7 @@
       "published_at": "2026-09-16T20:58+08:00",
       "query_category": "Semiconductor / GPU Demand",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": null,
       "signal_type": null,
       "discovery_themes": [],
@@ -2704,7 +2695,7 @@
       "published_at": "2026-09-16T19:09+08:00",
       "query_category": "AI Credit / Debt",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": null,
       "signal_type": null,
       "discovery_themes": [],
@@ -2727,7 +2718,7 @@
       "query_category": "Macro / Regulation",
       "analysis_state": "analyzed_story",
       "story_id": "b039f347d90d6a",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNZVR5MTdHQXRPQzVYY0k4OU9VYjNvLVVZMC14bmhiLXVDLW5qemJGUFJsWW1PdGNJbjlSQnV6VmxUVFUtdVhzR0JoeEIyUXVSLXhqWGhKNE9YRXA1QmhtRmdhTzMxWTBpQlFGUmhIRzNxRlMyZExyOU1SZ3o2R3JNZHpwaUpNUVdNOWpTNml0Y2xEdHBNTTI0c3VZcWk0Z0M5aWNtc2hVajFjVU9FMVRuSjhQR2pYYmxtdVNN?oc=5",
@@ -2737,7 +2728,7 @@
       "published_at": "2026-09-16T18:00+08:00",
       "query_category": "AI Credit / Debt",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": null,
       "signal_type": null,
       "discovery_themes": [],
@@ -2758,7 +2749,7 @@
       "published_at": "2026-09-16T17:28+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": null,
       "signal_type": null,
       "discovery_themes": [],
@@ -2781,7 +2772,7 @@
       "query_category": "AI Credit / Debt",
       "analysis_state": "analyzed_story",
       "story_id": "5e7d73022197cd",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPNmFlZmtNSTRuRmx3c2RUbVhzaHVZUWMxVy05Zk9YcXRoUnFKSENrWUVPS1Y3WWt3UkhSa3VsZXkzNy1kNk1GWkMwbTliQ2lTa2pHZWdkS3JJeUItZHVyUWxqN2t1aGJLYVdKWFZSR3dOQmo4WXN4WUF0Nk5zQjZIWURxd2o?oc=5",
@@ -2791,7 +2782,7 @@
       "published_at": "2026-09-16T13:30+08:00",
       "query_category": "AI Credit / Debt",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": null,
       "signal_type": null,
       "discovery_themes": [],
@@ -2814,7 +2805,7 @@
       "query_category": "Semiconductor / GPU Demand",
       "analysis_state": "analyzed_story",
       "story_id": "fb1fac7e3dd826",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://apnews.com/newsletter/morning-wire/september-16-2026",
@@ -2826,7 +2817,7 @@
       "query_category": "Data Center / Power",
       "analysis_state": "analyzed_story",
       "story_id": "9d240d69a66d80",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://www.bloomberg.com/opinion/articles/2026-09-16/the-us-can-slow-down-ai-and-stay-ahead-of-china",
@@ -2836,7 +2827,7 @@
       "published_at": "2026-09-16T10:30+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Bing News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": null,
       "signal_type": null,
       "discovery_themes": [],
@@ -2859,7 +2850,7 @@
       "query_category": "Data Center / Power",
       "analysis_state": "analyzed_story",
       "story_id": "a9c27027bff03e",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://www.nytimes.com/2026/09/16/business/economy/federal-reserve-interest-rates-warsh.html",
@@ -2869,7 +2860,7 @@
       "published_at": "2026-09-16T10:04+08:00",
       "query_category": "Layoffs / Project Cancellation",
       "discovery_source": "Bing News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": null,
       "signal_type": null,
       "discovery_themes": [],
@@ -2890,7 +2881,7 @@
       "published_at": "2026-09-16T09:23+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": "Rates / Liquidity",
       "signal_type": "systemic_macro",
       "discovery_themes": [
@@ -2917,7 +2908,7 @@
       "query_category": "Macro / Regulation",
       "analysis_state": "analyzed_story",
       "story_id": "3bb82961b53086",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1BM2I5alpWOWxCSEEyM3BKd1M5aTJpRnN4eE83aktZZjkwalZYUGhFd0owNGN5RU9ucGJpZHlrWlZaQVo1OThrSEpWMTlVRy1uQ2JFd2ZYZ0dodzRpazY2SnJMeVRhWDRWYlREbE5ZWFFZY2s0NElveWpLVHQyY2fSAYQBQVVfeXFMTXhBdjhNX2tHMmQyeXRTak9Ic3RrMEU1N0IzQzZxMVluNUZYUGluUVFQd0RjUVhsNHNuRVFuYmxhYm5GOUQyZlo5aDlmenl6SktJU2lJN2JOQy13RlZVbmZ5VHpuWDBGQVdyRzNMNHJUYmVKWlpBd055LWhCMGlJcTZ4bXF5?oc=5",
@@ -2929,7 +2920,7 @@
       "query_category": "Data Center / Power",
       "analysis_state": "analyzed_story",
       "story_id": "29ded4089a35d8",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQRXNEN016amcxdlpNNG9zNWJGQWl0VWVzeGg4UmV6NFlNSms3ak1yUWxfaG5rZk00OTUyZ1V1dzVXUzh5MXZzdnoxMTJvWXVWNDJ2SGU3UnM0REdEVU1iaEdDaHdMQ2VNbTJiSGgzMGNWTjllbG1JdVk4ZF8wS1lqSGxPRmNwSVdyc2c2WXR5OU9nTVBxMFNkb0ZUS0pwbDBRSEE?oc=5",
@@ -2939,7 +2930,7 @@
       "published_at": "2026-09-16T08:00+08:00",
       "query_category": "AI Revenue / Monetization",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": null,
       "signal_type": null,
       "discovery_themes": [],
@@ -2960,7 +2951,7 @@
       "published_at": "2026-09-16T08:00+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": null,
       "signal_type": null,
       "discovery_themes": [],
@@ -2981,7 +2972,7 @@
       "published_at": "2026-09-16T08:00+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": null,
       "signal_type": null,
       "discovery_themes": [],
@@ -3002,7 +2993,7 @@
       "published_at": "2026-09-16T06:31+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": null,
       "signal_type": null,
       "discovery_themes": [],
@@ -3025,7 +3016,7 @@
       "query_category": "Macro / Regulation",
       "analysis_state": "analyzed_story",
       "story_id": "3bb82961b53086",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNbDA0aE1CRFdVREptN2piVTJaY1hMWmZoNnFUTDNQZlhNeEVkcTM3WlkzMEJnRW1tazhYcDFUUTdIWGpxYnRVa1VTNEJXMFNuLVJwRkhQdkRhRUxxNi1iSU14VmFVNnBydDBSX2R6Sm9wU3hsWTFIWlhfN3dtS1VKMQ?oc=5",
@@ -3035,7 +3026,7 @@
       "published_at": "2026-09-16T05:59+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": null,
       "signal_type": null,
       "discovery_themes": [],
@@ -3056,7 +3047,7 @@
       "published_at": "2026-09-16T05:54+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": null,
       "signal_type": null,
       "discovery_themes": [],
@@ -3079,7 +3070,7 @@
       "query_category": "Data Center / Power",
       "analysis_state": "analyzed_story",
       "story_id": "985efcf23f5ee5",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPRjhtdU1rR0ZPZzBMOGZwZUpnYk8tWWtnVk0tV2VsRF9abV9pR2RicmJGbmtld045bkdwZVpSbzNKVDlLQ3ltamh0amZ0SnpQVGwwYnNvSS14SEZKRlNPb05Tdkxxc3k3b3h1N1RhVTJDbmtLNDBFd2VMSlEzQWN5UzUwajJFQQ?oc=5",
@@ -3089,7 +3080,7 @@
       "published_at": "2026-09-16T05:46+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": null,
       "signal_type": null,
       "discovery_themes": [],
@@ -3112,7 +3103,7 @@
       "query_category": "Macro / Regulation",
       "analysis_state": "analyzed_story",
       "story_id": "59028aed55a8f0",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOeElUdVpkaUcwUjdEd3ZxS002YWx0S3FpcG9iZ3dUcnBtTE1SOEt2N25CcVZQSmhVLTZaMWY4dF9nRGpmNC1YRE5PY2kwNzVQRy1RbGxzbVg4SVpjWVdXNklldkNPblRGNkdlUVgtLXNmdGhaSURYX18xNHY3YllUV0pSbTRDU1Q0NTRZbDhvbUVEdUVubzZ2NGdLTGg?oc=5",
@@ -3122,7 +3113,7 @@
       "published_at": "2026-09-16T05:10+08:00",
       "query_category": "Data Center / Power",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": null,
       "signal_type": null,
       "discovery_themes": [],
@@ -3143,7 +3134,7 @@
       "published_at": "2026-09-16T05:00+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Bing News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": null,
       "signal_type": null,
       "discovery_themes": [],
@@ -3164,7 +3155,7 @@
       "published_at": "2026-09-16T05:00+08:00",
       "query_category": "AI CAPEX",
       "discovery_source": "Bing News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": null,
       "signal_type": null,
       "discovery_themes": [],
@@ -3187,7 +3178,7 @@
       "query_category": "Macro / Regulation",
       "analysis_state": "analyzed_story",
       "story_id": "59028aed55a8f0",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://www.wsj.com/tech/ai/openai-considers-pre-ipo-funding-round-at-more-than-1-2-trillion-valuation-54555295",
@@ -3197,7 +3188,7 @@
       "published_at": "2026-09-16T03:35+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Bing News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": null,
       "signal_type": null,
       "discovery_themes": [],
@@ -3218,7 +3209,7 @@
       "published_at": "2026-09-16T03:11+08:00",
       "query_category": "AI Revenue / Monetization",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": null,
       "signal_type": null,
       "discovery_themes": [],
@@ -3239,7 +3230,7 @@
       "published_at": "2026-09-16T03:08+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": null,
       "signal_type": null,
       "discovery_themes": [],
@@ -3260,7 +3251,7 @@
       "published_at": "2026-09-16T03:03+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": null,
       "signal_type": null,
       "discovery_themes": [],
@@ -3283,7 +3274,7 @@
       "query_category": "Macro / Regulation",
       "analysis_state": "analyzed_story",
       "story_id": "60d7b42b6410f9",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPV0dxb01UQjhPVEM1cXAxZ0pZVFRGUlRjRWZhc3cxeDd6WmY2OXNCVkkzNF9kY2QxekpmeTg3QzNoSFVnV01EVWRTUlNodDgyb25aRDl3dE5WZ2J1UHJmLUFtdkJJNzZsajZyTUFrZElKeHJHeWVuLUE3Q0FFWUV1bXNULUtjRVFTWmhjRXg1RlQtdEpNNXc?oc=5",
@@ -3295,7 +3286,7 @@
       "query_category": "AI Revenue / Monetization",
       "analysis_state": "analyzed_story",
       "story_id": "f4fed546aebb0a",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://www.reuters.com/world/asia-pacific/anthropic-signs-first-australia-data-centre-agreement-2026-09-16/",
@@ -3307,7 +3298,7 @@
       "query_category": "Data Center / Power",
       "analysis_state": "analyzed_story",
       "story_id": "a819accb3955d4",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOM0gwNHZJLUJhUzYyYmFRbWZxNmQyZ3pSXzRidzdneHFOdF9GUDZzYjItQ3R2YW9YTlFodkZhVTJxTlhQSkZ6bUlTX21BRGVPQlVLT0pmV3N1VmhTQlVUVjJlc0lfbldSN1FFSkh3ZXR5c2dxVW0tdmthaHhHU2RZc1dJR1F3MFdzUnlENXotNEEzOV9MTWphUTI1azVqeEJwTU1DTlZlNktxQVJTWm9YV2FFdGpRMU9ybnR6VWxrUQ?oc=5",
@@ -3317,7 +3308,7 @@
       "published_at": "2026-09-16T00:58+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": null,
       "signal_type": null,
       "discovery_themes": [],
@@ -3340,7 +3331,7 @@
       "query_category": "Macro / Regulation",
       "analysis_state": "analyzed_story",
       "story_id": "444f78f9a2e510",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPWVlocmVuZkx6RGdRM214ZnpDbDNuOUVRQnUzWDQxZFFUMElRT2VxNGNBRzJMclo3c1hRRXFhVWZxNV9TX0R4ZFFLZWtwZWNFcGYzV3N6VklfT2VkUXQwVG0xaTBHRXpqYk9Tb3lOREROSGhjWDVaS19UbFgzSWtiQjg5MFZjZk4tVGMtQ2kwZmtyQk1WRnltNTQ4a09ac2JIeGc3TUtHYmZabmtnZ2xFZkZfQ3ppeVRnazdGTUd3?oc=5",
@@ -3352,7 +3343,7 @@
       "query_category": "Semiconductor / GPU Demand",
       "analysis_state": "analyzed_story",
       "story_id": "f4afa59291b80d",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://www.reuters.com/legal/transactional/openai-mulls-funding-round-12-trillion-valuation-ahead-ipo-ft-reports-2026-09-15/",
@@ -3364,7 +3355,7 @@
       "query_category": "AI Valuation / Funding",
       "analysis_state": "analyzed_story",
       "story_id": "ed3ed52293e47b",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQMFZfY0lzMjNZc05fRGhjcXQ1bXZPRFhGa0JXbWRYaGJ3SnN2Q1VxLXJuT25IeWRIX3lVX1hRcVBsdHBzWFE5OXBDbFFKWWpOZXozbzhqekhiSnE1TmtxWHhBUEV0QTRQSk50Z1dZeTlkcmlFb0UyOFdlODVlN2VjN1B5aW5zTlU?oc=5",
@@ -3374,7 +3365,7 @@
       "published_at": "2026-09-15T23:25+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": null,
       "signal_type": null,
       "discovery_themes": [],
@@ -3395,7 +3386,7 @@
       "published_at": "2026-09-15T23:17+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": null,
       "signal_type": null,
       "discovery_themes": [],
@@ -3418,7 +3409,7 @@
       "query_category": "Macro / Regulation",
       "analysis_state": "analyzed_story",
       "story_id": "e29001ad70e429",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9keDdSVmlFNGR6UkprRmZ3U2tLQk5zWXJBcnY1aGVVY0xPdmRxX2lLREtoSy1DU1JUOFlTcG5McldLUGt6RGZIckNRaU94Q1NVVGdUZ19NOVdfNjZqSldyV19CZml0SFA4OGZqNkQwTllPUdIBd0FVX3lxTE9lOFBWNUxHYU8yNlRQcHAxalc0Z3lMSDdxb00zOE04ZkNOWFYwaW1nVE9STmNUU0d6ZHFxME1HTUJ5WG56OVdpMG53T1ZCYnJYS0ZqSEU2SFBfZXpJZTZ4anJvNHpYSEVqLVlPaEtnV28xWHQ5ZEtV?oc=5",
@@ -3430,7 +3421,7 @@
       "query_category": "Macro / Regulation",
       "analysis_state": "analyzed_story",
       "story_id": "3bb82961b53086",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNcmdWaGowZ1VTYV9oY2tTVGs3NGdId3ZjR29ZcHZ0bnhDYWFld29NWUZ0WmdZaWtMX2pPUUdQdUpScjMxYkNNaHBYclp4ZzdjcWhGTjVhX3F3MUVGd29XUzZKWkZOakNSVENqcDZUMUFia1RyVzRqS241OXVvc1NsRjItbHRydFBKWEE?oc=5",
@@ -3440,7 +3431,7 @@
       "published_at": "2026-09-15T20:15+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": null,
       "signal_type": null,
       "discovery_themes": [],
@@ -3463,7 +3454,7 @@
       "query_category": "AI CAPEX",
       "analysis_state": "analyzed_story",
       "story_id": "f050d58971fc5f",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPdHpKMjI1Ml9xajNfM09kb2xVYk40eWdfb0VqSXZZTmxsTkRpMnRycDBjeC1ibHVuRm5vVGhFRzM1c1R2bmxsMTNlMUgwTXppWU1wc1g1NHREU1lXSGlLTHlIRTRuWmVDc2t1MEx5MWVYMk5mOWE1NXBPZG9XR2FWa21vZ0JQVU5OWkZhMV9RbjQ?oc=5",
@@ -3475,7 +3466,7 @@
       "query_category": "Data Center / Power",
       "analysis_state": "analyzed_story",
       "story_id": "a96c2a0e9bddf0",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQRW4yR0xHdW04SS1fQzA2WG14dkRkQ1VMRmJORW02WHZHeFlxLXRBUzVCbW1mV2RpcHdhd3Npa1ZJeGJveUptZXMyRGpfQV9peUk4WklnQTBZaHdwcnpzMjRJLVNvaDlpRzV0TkZQU1k4cFdiNFJYVndlRkk0T2V0WXFRVE1CTTlabmJNRDQwU2hlc1RlY290V3dSeDNNQ2hrU2pBU2p30gGrAUFVX3lxTFBwZHdyMWRHcDFvZnQ1ZDlPbklQYjFxNzljSC1JQUpOdFd2RG9zQXdSaTNuMXlvUWhlb3duUEU2dEZXTmgyUFd6LXZsbTQ2N3Z1bEJnRlo4QUFJWlktWEdwY2Z2djdHT3JVV1hhYmc0Nk5RMFcxMC01eldLMFhJZC1DVWNTaUVtb2taYmdmdE5wX1JaTEJlb1dlWWM5ZjJTVUY0SFdibkhKdUlkTQ?oc=5",
@@ -3487,7 +3478,7 @@
       "query_category": "Data Center / Power",
       "analysis_state": "analyzed_story",
       "story_id": "0e709d8030d7b7",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://www.reuters.com/business/what-amodei-altman-musk-have-said-about-ai-risks-stoking-doom-fears-2026-09-14/",
@@ -3499,7 +3490,7 @@
       "query_category": "Macro / Regulation",
       "analysis_state": "analyzed_story",
       "story_id": "5bcee8a686b87c",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPRWFqQXlMTHZpSkhROE1iQTNDUEtibHVrRFNpRmdjNF9GMU91WFpWZWo0YU9fNEU0c3pvUnFsNnYxQWVvX285dFVEa2x4RUtySFNsR2dHaDJoTkJja2hWMW5kLUlxYl9sWWpBbUxTbzltTllJY1ZvSzBxOWEyRkp3czZpRGFjWVpKSjVtbFdHdk83ekpHN1drMzJFU1E3UXFwNjhlc05abWtzZ9IBrwFBVV95cUxQR3Q5czJ0UGpqdXhDbHVhYnR5S1dMdWszUGVZRkFjSkN1cmhwNlMtSmZNWHp1UEQ4Y09uYWtrV3dIbVdLTmdUUy01dHo5SWZoTG8zUW9lcXlGZ0NGYjR1MWZSVU1aOV9UQXEzWUswb3N4ejA0MjJkQUNIcHNBcm9McjlrRTZBMlJpSHRvWVZDZ3g1aHVSUmhGV1hyWXZGd1RpVTN3TkdFSWl4cVlUSHg4?oc=5",
@@ -3511,7 +3502,7 @@
       "query_category": "AI Valuation / Funding",
       "analysis_state": "analyzed_story",
       "story_id": "e6891db37afede",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNTEMxeXVSa29wMkM4aVJMNWFSd3NTMUtXU1czYjVreEx0eGJyOXc3VGE0X1hlWVpPS2FzZ3huZWY1eHprdzI0Ykw4Y210WEk0SUNxdGRzZ043N1hYWTZ3c0Z1VWVKSGUtcjU0OElobHZjMEM3QlBYSVpQTWF2UFR2Q3JKd19vR1V0WGo3Yl9LSHR5NHNSSGo2Z1pRNkN2WURQVWpfLTBBc2ZTeFBGTWV1TE1Jcw?oc=5",
@@ -3521,7 +3512,7 @@
       "published_at": "2026-09-14T09:42+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": null,
       "signal_type": null,
       "discovery_themes": [],
@@ -3542,7 +3533,7 @@
       "published_at": "2026-09-14T06:29+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": null,
       "signal_type": null,
       "discovery_themes": [],
@@ -3563,7 +3554,7 @@
       "published_at": "2026-09-14T06:28+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": null,
       "signal_type": null,
       "discovery_themes": [],
@@ -3586,7 +3577,7 @@
       "query_category": "Macro / Regulation",
       "analysis_state": "analyzed_story",
       "story_id": "e1938ea5d54aca",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://apnews.com/article/artificial-intelligence-threats-humanity-anthropic-openai-98316b0d64de17191f33c0fbf1d37858",
@@ -3598,7 +3589,7 @@
       "query_category": "Macro / Regulation",
       "analysis_state": "analyzed_story",
       "story_id": "e1938ea5d54aca",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQSXlhTGVibWNIRHE2QlFIeUxVczhCTkxaQl82M1c5MzN1NC03VlkwTHVOUnBYT2tuWTI2NGNGSUdnazUyZ0pvcV9xRTVtLWZ6aTF0cjhvYVhRaHMtYzlINk1vT2t4TnA1dDA4U2NOQ3B3NjAtVEprbF9mb3Ftb0ZENW5jaW1xMGhFWEExVFE4dXRNYlVWelJVYmtZQQ?oc=5",
@@ -3610,7 +3601,7 @@
       "query_category": "Macro / Regulation",
       "analysis_state": "analyzed_story",
       "story_id": "19828809babb0a",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPRFRjOUtJenNsVEpVTEQ3X0NWb1YxY2RFOE02OEdTc0VrUDQ1R3RfWG9QZENQa2pRYkRhektKVHBHRENSWjBxbXBWdnI2anJIczlDMUw4NVpVQ05UY2JfV0ZITlVIdnJmSElFSzNnMG5xRlNnZmhSZTRNOE56ZXZScVpIMzBZMmtXVHVoZHVpT1lxTkp5ZlYzdnQ5T3NPVjlKSTdPWmFyUElMSW9wa2JlSS1vOEdvNG9VWFRMTzFpdGNLdDdETm44?oc=5",
@@ -3620,7 +3611,7 @@
       "published_at": "2026-09-14T04:25+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": null,
       "signal_type": null,
       "discovery_themes": [],
@@ -3641,7 +3632,7 @@
       "published_at": "2026-09-14T03:07+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": null,
       "signal_type": null,
       "discovery_themes": [],
@@ -3664,7 +3655,7 @@
       "query_category": "AI Valuation / Funding",
       "analysis_state": "analyzed_story",
       "story_id": "7b7787e8ac6b3f",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://www.reuters.com/business/goldman-sachs-now-expects-fed-hike-rates-september-2026-09-14/",
@@ -3676,7 +3667,7 @@
       "query_category": "Macro / Regulation",
       "analysis_state": "analyzed_story",
       "story_id": "3376746c152e7b",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE43ZFdOcUNiZmFDbmRDV3RyN3ZxekV1S3BONUxRZ0twQWlCcFFublhOanpUS3VUaHNiZFBBQ2FiN08wZGxKMW5KTHB3SV9Nc0lYcjhMQTdZZjdkMUtZbzU5dG9aX0t6SWJTUGhLVkJjeGprc2NkbUVtS1RHUk_SAYIBQVVfeXFMTjRGRTZPVklWdGtRb1N3NF8yZlBfTmxSNjZnRHp1WE5ybzZlZXJMZWdNT3JmbGJnTjlQR1JFbEhkQUxzZkdfNGZNeVJkYklSdDd4NGVRdkRBdmZrRi1CS1F5Z2sxZmpFYTlSb0o1WlBiTWI1Z3djM1dUeVFjRlJETjR6Zw?oc=5",
@@ -3688,7 +3679,7 @@
       "query_category": "Macro / Regulation",
       "analysis_state": "analyzed_story",
       "story_id": "0ed22b2f1e72d1",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPcDg3dC1KTGZCUzVUbnNPOGpvSUZHdUhZTlI0eEJjYmdFUE1ZT3RaV29jd3ZJamtjakVRTnNKbE0zcVFETmtSaC1RRXZHTS1GNG56UV8tYkJkbnJpVEVwSzM4MnhpZ3o2bkhkM3Y0aWVNcW1QT0dJVlZoTUlzc0JfaWhvS2phRVE3dVYyYnpzSmJ3UzhZRWVVb0FSblpxUDA?oc=5",
@@ -3700,7 +3691,7 @@
       "query_category": "AI Valuation / Funding",
       "analysis_state": "analyzed_story",
       "story_id": "2af81964f9c665",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9Ebm16S0djWjFGYTEyTkZEdFdFR3FjdjRMdE5DeVE1QllJOG1UNmE5bDNTSEVqdkVRcGdSckN1N0xyWVh2aEc1bm5FNHpvNFlIYnJQaEI4eFR4TnNnM0hKRkhaOUNCLXVjTGJUZlN0YmpHZmJTdkNwamNDTkLSAYIBQVVfeXFMTmJXdGZqZG1xWURORnhQc0FLRjN4VGxQSG4yTkhxRzNjWWFtZzNQamFPZ3Z1TS1pVm13bzdHaWU0d0FER1BQUnlHUnk4U00zbmU0aGdfd3YwMzBaaWpvNlBvRjA2NFVIWWY3ZGduU1U2SkdSQWMyUlRiM2UxdkpHVElpZw?oc=5",
@@ -3712,7 +3703,7 @@
       "query_category": "AI Valuation / Funding",
       "analysis_state": "analyzed_story",
       "story_id": "e6891db37afede",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPc3NTenhlaVBsazZZaUR4TlFZSzl0VzY4aXZqa3BrZHRoQ3N6a3JpR3BpQW5Nc3kzUk5hV1Eydk10SlVLUDRvMDMxRHQ2TlBUVlUxUmp0ZGZzbzlySEIzZ2tWcG1JTzZrMHVLLWdqb2E5ei14d0MzY1FlQmxWSHYzWGF2bkFrRjRkX0ZPUV9LMA?oc=5",
@@ -3722,7 +3713,7 @@
       "published_at": "2026-09-13T23:39+08:00",
       "query_category": "Macro / Regulation",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": null,
       "signal_type": null,
       "discovery_themes": [],
@@ -3745,7 +3736,7 @@
       "query_category": "Macro / Regulation",
       "analysis_state": "analyzed_story",
       "story_id": "e1938ea5d54aca",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNSkNHUFFrUlZCVWVKZ2dpVVkxSzBmcy16aFFHVTJDV25PZ0YzMjBLVlFQZ0pJcU5EVWJlUW13azNiV1BwOENLcTFVOFpZYVVlT0haaXI2ZkFaOUZxTGp2eE1kaGZCb2pXV1dBQy1XcjQ2NmNXMFA3Nnk5ZnA3MU5wWGZCV0ktTWZad2o0LVBmeW1BclBndWRfWEJScFduQklEZUFEX0NteFBhNDYxRG5keUdiUml3dVYz?oc=5",
@@ -3757,7 +3748,7 @@
       "query_category": "AI Valuation / Funding",
       "analysis_state": "analyzed_story",
       "story_id": "14d39aca8f178d",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPbmduYjZNYlh4TmVDd3dMTzZmU21ud1Q5WVVaYXBOM2hUQ201U2tjeDhoWHd6ZjhlQzdtUWxiNmFibkRpc2VlcmxjbWMzTWljZ0ZZSkF6VHFPWnJVUFQwc2g4RDNtb1FCWjN1R3BBcFRzUHkyTXJiRXZpa0NxV29IWFc1LV9lUXh0bXc3TWNrSHZhT0lPTVU2dEswYWhSVUw2SzFkRkVmSHU0S3c?oc=5",
@@ -3769,7 +3760,7 @@
       "query_category": "AI Valuation / Funding",
       "analysis_state": "analyzed_story",
       "story_id": "fa5fa4d291505c",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNVDYteTJ4VHRtbkNDNEhiVHFralh2cTZ2TUZIQ0E4aVNmcEctV1dxQjVuSmxLZGdrelcweXNvSEphQ1l0bmkzSjdzZC1NeGkwSE5JNmpRY21pVG5reDhwaklRVnFXY2VoYmJuRHBfc2lXVWIwTnVycTBVNFZzdnRjRFFnY2dMb1NSaktMNkdraEVlWlJKYmY3cms3VXVTSzJqa256Q0dn?oc=5",
@@ -3781,7 +3772,7 @@
       "query_category": "AI Valuation / Funding",
       "analysis_state": "analyzed_story",
       "story_id": "0cd3526de91434",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNMm5STnhuRG5MT1ZWUjlzeWNqVEFGTjVxaVdkX2hzdjF5VElRajFKd3B2NlkwcWxNSFgwOVczb1l1N284MVlhNTRtMFN4T1dyY1NNVmdFeDBRQVdGWmZmRjdYM0NuTTN5SXhvbi1UaE55TDhCUmdINEZ6c2VobFZQX3ptWm9sTkE3UjB0bDZzNkxlLUxzZHE3N25R?oc=5",
@@ -3791,7 +3782,7 @@
       "published_at": "2026-09-13T02:04+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": null,
       "signal_type": null,
       "discovery_themes": [],
@@ -3812,7 +3803,7 @@
       "published_at": "2026-09-13T00:38+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": null,
       "signal_type": null,
       "discovery_themes": [],
@@ -3835,7 +3826,7 @@
       "query_category": "AI Valuation / Funding",
       "analysis_state": "analyzed_story",
       "story_id": "14d39aca8f178d",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPejh5Z2pxSV9CczNGcjF1V3V2N1ZvWE4tdUhmUTJtam1IbTZZbTBFUURqYjNYczFKQ1dXV3RpOFJ3MnhqdWdndXBtU3h1Ry1jb25fVUJlWjFOZ0FiNnAyb2J4SUhHX1YyY2JKdm0tNDF4SWtkN1Y1SFRod1Y1MnlvVEVqRGFkNnM?oc=5",
@@ -3847,7 +3838,7 @@
       "query_category": "AI Credit / Debt",
       "analysis_state": "analyzed_story",
       "story_id": "581b301a9ee18f",
-      "last_seen_at": "2026-09-19T08:02:05+08:00"
+      "last_seen_at": "2026-09-19T12:38:10+08:00"
     },
     {
       "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQdDBsRHFoaDBPR1JoeTZ4cmZ4a2U1dnhTWGpyd1BlTUJmLXZuZGZDbG9BNVpmMW9RZE9LR0RBVWpCdVRnZ3NYQUkwTjlFTnBENDU2QkR3dUhIM0ZlSldKOXVMSmhNYXQ2Z1hBN2NjRUM1UzBDd1RsRDhqcGFiNkgxOVRoaF9oTmlaamZPR3FmWjdmY3ZSak1uMVN4bmJ6Z05mVy01bzM4VXZlUzBabmNLYg?oc=5",
@@ -3857,7 +3848,7 @@
       "published_at": "2026-09-12T07:35+08:00",
       "query_category": "AI Valuation / Funding",
       "discovery_source": "Google News RSS",
-      "last_seen_at": "2026-09-19T08:02:05+08:00",
+      "last_seen_at": "2026-09-19T12:38:10+08:00",
       "discovery_theme": null,
       "signal_type": null,
       "discovery_themes": [],
