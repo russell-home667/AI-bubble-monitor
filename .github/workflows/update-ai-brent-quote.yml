@@ -9,7 +9,7 @@ on:
       - 'index.html'
   workflow_dispatch:
   schedule:
-    - cron: '*/5 * * * 1-6'
+    - cron: '*/5 * * * *'
       timezone: 'Asia/Shanghai'
 
 permissions:
